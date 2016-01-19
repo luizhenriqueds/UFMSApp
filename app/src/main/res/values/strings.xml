@@ -29,10 +29,12 @@
     <string name="txt_content_description_evento">Imagem do evento</string>
     <string name="txt_description_disciplina">Imagem da disciplina</string>
     <string name="txt_content_description_no_connection">Ícone sem conexão com internet</string>
+    <string name="txt_content_description_no_upload">Ícone Evento sem Anexo</string>
 
     <string name="txt_detalhe_evento">Detalhes do Evento</string>
 
     <string name="txt_sem_eventos_lista">Nenhum evento disponível</string>
+    <string name="txt_sem_anexos_lista">Nenhum anexo disponível</string>
     <string name="txt_sem_disciplinas_lista">Suas disciplinas irão aparecer aqui</string>
 
     <string name="txt_no_connection_msg">Sem conexão com a Internet</string>
@@ -53,7 +55,7 @@
     <string name="evento_detail_notification_title">Notificações</string>
     <string name="evento_detail_notification_disable">Desativar notificações para esta disciplina</string>
     <string name="txt_download_finalizado">Download finalizado.</string>
-    <string name="txt_download_em_progresso">Download em progresso...</string>
+    <string name="txt_download_em_progresso">Download em progresso &#8230;</string>
     <string name="txt_download_error">"Download error: "</string>
 
 
@@ -68,6 +70,11 @@
         <item>Informações</item>
         <item>Alunos</item>
         <item>Materiais</item>
+    </string-array>
+
+    <string-array name="tabs_eventos">
+        <item>Evento</item>
+        <item>Anexos</item>
     </string-array>
 
     <string-array name="week_days">

@@ -419,18 +419,14 @@ public class AppDAO {
 
         ArrayList<Material> materiais = new ArrayList<>();
 
-        String secondQuery = "SELECT * FROM app_evento_uploads";
-
         String selectQuery =
                 "SELECT * FROM " + DataContract.EventoUploadsEntry.TABLE_NAME_EVENTO_UPLOADS + "," + DataContract.EventoEntry.TABLE_NAME_EVENTO +
                         " WHERE " + "(" + DataContract.EventoUploadsEntry.EVENTO_FK + "=" + DataContract.EventoEntry.COLUMN_ID_SERVIDOR_EVENTO + ")" +
                         " AND " + "(" + DataContract.EventoEntry.COLUMN_ID_SERVIDOR_EVENTO + " = " + eventoId + ")";
 
+        Cursor cursor = database.rawQuery(selectQuery, null);
 
-        //Cursor cursor = database.query(DataContract.EventoUploadsEntry.TABLE_NAME_EVENTO_UPLOADS, PROJECTION_UPLOADS, null, null, null, null, null);
-        Cursor cursor = database.rawQuery(secondQuery, null);
-
-        Log.i("DB_TEST_QUERY", secondQuery);
+        Log.i("DB_TEST_QUERY", selectQuery);
 
         try {
             if (cursor.moveToFirst()) {

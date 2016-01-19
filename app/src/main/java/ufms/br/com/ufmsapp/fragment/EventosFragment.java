@@ -290,7 +290,7 @@ public class EventosFragment extends Fragment implements EventosLoadedListener, 
         Intent intent = new Intent(getActivity(), DetalhesEventoActivity.class);
         intent.putExtra(EVENTO_EXTRA, evento);
 
-        ActivityCompat.startActivity(getActivity(), intent, options.toBundle());
+        startActivity(intent);
     }
 
 

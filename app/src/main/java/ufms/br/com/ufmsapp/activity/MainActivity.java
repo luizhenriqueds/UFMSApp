@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         setHomeContent();
 
-       /* new TaskLoadAlunos().execute();
+        new TaskLoadAlunos().execute();
 
         new TaskLoadTipoEventos().execute();
 
@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         new TaskLoadTituloProfessores().execute();
 
         new TaskLoadProfessores().execute();
-*/
+
         //Log.i("DB_TEST", "INSERTED!!!!");
         //new TaskLoadDisciplinas().execute();
 
