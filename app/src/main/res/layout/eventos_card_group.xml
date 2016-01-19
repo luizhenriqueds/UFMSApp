@@ -1,0 +1,70 @@
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_eventos"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:layout_marginTop="10dp"
+    android:background="@color/whiteTextColor">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/card_top_padding">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:fontFamily="sans-serif"
+                android:text="Eventos"
+                android:textColor="@color/colorPrimaryText"
+                android:textSize="@dimen/card_title_text_size"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="2dp"
+                android:contentDescription="@string/txt_card_title"
+                android:src="@mipmap/ic_event_black_18dp" />
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/btn_explore_more_events"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="45dp"
+            android:layout_height="30dp"
+            android:background="@drawable/button_bg_rounded_corners"
+            android:fontFamily="sans-serif-regular"
+            android:gravity="center"
+            android:text="MAIS"
+            android:textColor="@color/adapter_row_title_color"
+            android:textSize="@dimen/more_button_text_size"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
+
+
+    </LinearLayout>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/explore_list_eventos"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/recycler_view_size"
+        android:layout_marginTop="50dp"
+        android:clickable="true" />
+
+</android.support.v7.widget.CardView>

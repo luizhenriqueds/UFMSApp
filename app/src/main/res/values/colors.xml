@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primaryColor">#00BCD4</color>
+
+    <color name="primaryColorDark">#0097A7</color>
+
+    <color name="accentColor">#009688</color>
+    <!--<color name="accentColor">#757575</color>-->
+
+    <color name="colorPrimaryText">#212121</color>
+
+    <color name="whiteTextColor">#FFF</color>
+
+    <color name="colorHighlight">#B6B6B6</color>
+
+    <color name="lightGray">#CCC</color>
+
+    <color name="lightGrayBackground">#eeeeee</color>
+
+    <color name="drawer_item_color">#87000000</color>
+
+    <color name="no_connection_msg">#757575</color>
+
+    <color name="adapter_row_title_color">#006064</color>
+
+    <color name="adapter_row_text_color">#757575</color>
+
+    <color name="txt_explore_disciplina_ver_color">#039BE5</color>
+
+
+    <!-- SwipeRefresh Layout cores -->
+    <color name="blue">#1E88E5</color>
+
+    <color name="green">#43A047</color>
+
+    <color name="yellow">#FFEB3B</color>
+
+
+    <!-- Calendar View test -->
+
+    <color name="event_color_01">#59dbe0</color>
+    <color name="event_color_02">#f57f68</color>
+    <color name="event_color_03">#87d288</color>
+    <color name="event_color_04">#f8b552</color>
+
+
+</resources>

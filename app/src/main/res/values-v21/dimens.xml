@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="app_bar_padding_top">0dp</dimen>
+    <dimen name="app_bar_padding_top_tabs">16dp</dimen>
+    <dimen name="toolbar_padding_translucent">24dp</dimen>
+    <dimen name="toolbar_height_normal">56dp</dimen>
+    <dimen name="toolbar_height_translucent">80dp</dimen>
+
+</resources>

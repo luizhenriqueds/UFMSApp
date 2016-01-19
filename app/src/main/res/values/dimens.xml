@@ -1,0 +1,53 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="app_bar_height">180dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="drawer_margin_top">24dp</dimen>
+    <dimen name="app_bar_padding_top">0dp</dimen>
+    <dimen name="drawer_item_size">48dp</dimen>
+    <dimen name="drawer_item_margin_left">16dp</dimen>
+    <dimen name="drawer_item_margin_right">16dp</dimen>
+    <dimen name="drawer_text_margin_left">16dp</dimen>
+
+    <dimen name="size_word">16dp</dimen>
+    <dimen name="size_text_primary">16sp</dimen>
+    <dimen name="size_text_secondary">14sp</dimen>
+    <dimen name="size_half_byte">4dp</dimen>
+    <dimen name="size_byte">8dp</dimen>
+    <dimen name="movie_thumbnail_width">54dp</dimen>
+    <dimen name="movie_thumbnail_height">80dp</dimen>
+    <dimen name="card_top_padding">10dp</dimen>
+    <dimen name="card_title_text_size">20sp</dimen>
+    <dimen name="more_button_text_size">13sp</dimen>
+    <dimen name="card_eventos_item_title_size">14sp</dimen>
+    <dimen name="disciplina_card_title_size">0dp</dimen>
+    <dimen name="disciplina_card_more_button_size">0dp</dimen>
+    <dimen name="disciplinas_card_more_button_padding">8dp</dimen>
+    <dimen name="card_item_margin_top">10dp</dimen>
+    <dimen name="card_item_layout_height">100dp</dimen>
+    <dimen name="card_item_image_width">100dp</dimen>
+    <dimen name="card_item_image_height">100dp</dimen>
+    <dimen name="card_item_image_margin">10dp</dimen>
+    <dimen name="card_item_txt_margin">10dp</dimen>
+    <dimen name="card_eventos_margin_bottom">10dp</dimen>
+    <dimen name="card_eventos_margin_top">10dp</dimen>
+    <dimen name="recycler_view_size">310dp</dimen>
+
+    <dimen name="drawer_left_margin">16dp</dimen>
+    <dimen name="drawer_right_margin">16dp</dimen>
+
+    <dimen name="drawer_text_size">14sp</dimen>
+
+    <dimen name="spacing_xsmall">2dp</dimen>
+    <dimen name="spacing_medium">8dp</dimen>
+    <dimen name="spacing_large">16dp</dimen>
+    <dimen name="spacing_xlarge">32dp</dimen>
+
+
+    <dimen name="elevation_low">9dp</dimen>
+    <dimen name="elevation_high">12dp</dimen>
+    <dimen name="status_bar_height">25dp</dimen>
+</resources>

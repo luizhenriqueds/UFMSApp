@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/primaryColor"
+    android:gravity="center_vertical"
+    android:orientation="vertical">
+
+
+    <com.pkmmte.view.CircularImageView
+        android:id="@+id/image_profile"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="@dimen/drawer_right_margin"
+        android:layout_marginStart="@dimen/drawer_left_margin"
+        android:layout_marginTop="32dp"
+        android:src="@mipmap/ic_account_circle_white_48dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_gravity="bottom"
+        android:gravity="center"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/drawer_right_margin"
+            android:layout_marginStart="@dimen/drawer_left_margin"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/txt2"
+            android:textColor="@android:color/white"
+            android:textSize="14sp" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/drawer_right_margin"
+            android:layout_marginStart="@dimen/drawer_left_margin"
+            android:fontFamily="sans-serif-regular"
+            android:text="@string/txt3"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
+</LinearLayout>

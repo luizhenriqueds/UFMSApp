@@ -1,0 +1,51 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_layout_files"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lightGrayBackground"
+    tools:context="ufms.br.com.ufmsapp.fragment.EventosFragment">
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_files_disciplina"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical" />
+
+
+    <ImageView
+        android:id="@+id/file_empty_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="30dp"
+        android:contentDescription="@string/txt_content_description_no_connection"
+        android:gravity="center"
+        android:src="@mipmap/ic_attachment_black_24dp"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/file_txt_empty_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:textColor="@color/drawer_item_color"
+        android:textSize="18sp"
+        android:visibility="gone"
+        tools:text="Sem conexão" />
+
+
+    <fr.castorflex.android.circularprogressbar.CircularProgressBar
+        android:id="@+id/progress_bar_list_files"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="?attr/actionBarSize"
+        app:cpb_colors="@array/colors"
+        tools:visibility="visible" />
+
+</FrameLayout>

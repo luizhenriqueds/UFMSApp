@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="MySQL - henriqueweb@mysql01.henriqueweb.hospedagemdesites.ws" uuid="780dede2-020c-4f69-a946-3f1b6b644e74">
+      <secret-storage>master_key</secret-storage>
+      <user-name>henriqueweb</user-name>
+      <schema-pattern>henriqueweb.*</schema-pattern>
+      <default-schemas>henriqueweb.*</default-schemas>
+    </data-source>
+  </component>
+</project>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:id="@+id/group1"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_drawer_explore"
+            android:checked="true"
+            android:icon="@mipmap/ic_explore_black_24dp"
+            android:title="@string/txt_drawer_explore" />
+
+        <item
+            android:id="@+id/nav_drawer_eventos"
+            android:icon="@mipmap/ic_event_black_24dp"
+            android:title="@string/txt_drawer_evento" />
+        <item
+            android:id="@+id/nav_drawer_disciplina"
+            android:icon="@mipmap/ic_assignment_black_24dp"
+            android:title="@string/txt_drawer_disciplina" />
+        <item
+            android:id="@+id/nav_drawer_notas"
+            android:icon="@mipmap/ic_grade_black_24dp"
+            android:title="@string/txt_drawer_notas" />
+        <item
+            android:id="@+id/nav_drawer_curso"
+            android:icon="@mipmap/ic_class_black_24dp"
+            android:title="@string/txt_drawer_curso" />
+    </group>
+
+    <group
+        android:id="@+id/group2"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_drawer_config"
+            android:icon="@mipmap/ic_settings_black_24dp"
+            android:title="@string/txt_drawer_config" />
+        <item
+            android:id="@+id/nav_drawer_feedback"
+            android:icon="@mipmap/ic_feedback_black_24dp"
+            android:title="@string/txt_feedback" />
+
+    </group>
+
+</menu>

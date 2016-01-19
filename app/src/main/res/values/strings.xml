@@ -1,0 +1,84 @@
+<resources>
+    <string name="app_name">UFMS App</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="filter_event">Filtrar</string>
+    <string name="search_event">Buscar</string>
+
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+
+    <string name="txt1">Welcome</string>
+    <string name="txt2">Henrique</string>
+    <string name="txt3">luizhsda@gmail.com</string>
+    <string name="evento_first_item_content_description">Imagem de descrição do evento</string>
+    <string name="txt_image_content_description">Imagem do usuário</string>
+
+    <string name="txt_drawer_evento">Eventos</string>
+    <string name="txt_drawer_disciplina">Disciplina</string>
+    <string name="txt_drawer_notas">Notas</string>
+    <string name="txt_drawer_curso">Curso</string>
+    <string name="txt_drawer_config">Configuração</string>
+    <string name="txt_drawer_ajuda">Ajuda &amp; feedback</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="txt_drawer_explore">Explore</string>
+    <string name="txt_sobre">Sobre</string>
+    <string name="txt_feedback">Feedback</string>
+    <string name="txt_card_title">Card Group Imagem</string>
+    <string name="txt_content_description_evento">Imagem do evento</string>
+    <string name="txt_description_disciplina">Imagem da disciplina</string>
+    <string name="txt_content_description_no_connection">Ícone sem conexão com internet</string>
+
+    <string name="txt_detalhe_evento">Detalhes do Evento</string>
+
+    <string name="txt_sem_eventos_lista">Nenhum evento disponível</string>
+    <string name="txt_sem_disciplinas_lista">Suas disciplinas irão aparecer aqui</string>
+
+    <string name="txt_no_connection_msg">Sem conexão com a Internet</string>
+    <string name="txt_retry_connection">Tentar</string>
+    <string name="txt_search_hint">Buscar</string>
+    <string name="txt_cd_detalhes_evento">Detalhes Evento Imagem</string>
+    <string name="txt_disciplina_no_content">Nenhuma disciplina disponível</string>
+    <string name="txt_explore_disciplina_ver">VER</string>
+    <string name="txt_content_description_disciplina">Tipo de disciplina detalhes</string>
+    <string name="txt_rating_count">Número de usuários rating</string>
+
+    <string name="evento_details_evento">Evento</string>
+    <string name="evento_details_disciplina">Disciplina</string>
+    <string name="evento_details_anexo">Anexo(s)</string>
+
+    <string name="evento_detail_deadline_icon">Data Limite Evento Icon</string>
+
+    <string name="evento_detail_notification_title">Notificações</string>
+    <string name="evento_detail_notification_disable">Desativar notificações para esta disciplina</string>
+    <string name="txt_download_finalizado">Download finalizado.</string>
+    <string name="txt_download_em_progresso">Download em progresso...</string>
+    <string name="txt_download_error">"Download error: "</string>
+
+
+    <integer-array name="colors">
+        <item name="color1">@color/green</item>
+        <item name="color2">@color/blue</item>
+        <item name="color3">@color/yellow</item>
+    </integer-array>
+
+
+    <string-array name="tabs">
+        <item>Informações</item>
+        <item>Alunos</item>
+        <item>Materiais</item>
+    </string-array>
+
+    <string-array name="week_days">
+        <item>Dom</item>
+        <item>Seg</item>
+        <item>Ter</item>
+        <item>Qua</item>
+        <item>Qui</item>
+        <item>Sex</item>
+        <item>Sáb</item>
+    </string-array>
+
+
+</resources>

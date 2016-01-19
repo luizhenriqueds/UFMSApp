@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="3b98dc33-65d5-474e-9115-dda290a2363a" name="WebService UFMS FTP" url="http://ftp.henriqueweb.com.br">
+        <fileTransfer host="ftp.henriqueweb.com.br" port="21" rootFolder="/public_html/webservice" password="dfe6dfdfdfc3dfd0dfe6dfdfdfc3dfd0df9bdf9a" username="henriqueweb">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

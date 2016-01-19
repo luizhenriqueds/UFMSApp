@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:background="@drawable/custom_bg"
+    android:clickable="true"
+    android:orientation="horizontal"
+    tools:ignore="UseCompoundDrawables">
+
+    <ImageView
+        android:id="@+id/drawer_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="@dimen/drawer_item_margin_right"
+        android:layout_marginStart="@dimen/drawer_item_margin_left"
+        android:contentDescription="@string/txt_image_content_description"
+        android:src="@android:drawable/ic_menu_camera" />
+
+    <TextView
+        android:id="@+id/drawer_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="72dp"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="@color/drawer_item_color"
+        android:textSize="@dimen/drawer_text_size"
+        tools:text="Camera" />
+
+</RelativeLayout>
+
+
