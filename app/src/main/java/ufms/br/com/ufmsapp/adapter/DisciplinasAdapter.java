@@ -82,7 +82,7 @@ public class DisciplinasAdapter extends RecyclerView.Adapter<DisciplinasAdapter.
         disciplinaViewHolder.disciplinaTitle.setText(disciplina.getTitulo());
         disciplinaViewHolder.disciplinaProfessor.setText(professor.getNome());
         disciplinaViewHolder.disciplinaDescricao.setText(disciplina.getDescricao());
-        disciplinaViewHolder.disciplinaScore.setText(String.valueOf(disciplina.getScore()));
+        disciplinaViewHolder.disciplinaScore.setText(String.valueOf(3.2));
 
 
         setAnimation(disciplinaViewHolder.disciplinaAdapterLayout, i);

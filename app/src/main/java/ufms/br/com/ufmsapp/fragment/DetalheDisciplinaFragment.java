@@ -62,10 +62,10 @@ public class DetalheDisciplinaFragment extends Fragment {
             disciplinaProfessor.setText(professor.getNome());
             disciplinaCargaHoraria.setText(String.valueOf(disciplina.getCargaHoraria() + CARGA_HORARIA_UN_TEMPO));
 
-            disciplinaRating.setRating(disciplina.getScore());
+            disciplinaRating.setRating(3.2F);
             disciplinaRating.setAlpha(1.0F);
 
-            disciplinaRatingValue.setText(String.valueOf(disciplina.getScore()));
+            disciplinaRatingValue.setText(String.valueOf(3.2F));
         }
 
 

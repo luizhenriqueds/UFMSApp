@@ -9,12 +9,14 @@ import android.util.Log;
 public class DataHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "ufmsapp.db";
-    private static final int DB_VERSION = 23;
+    private static final int DB_VERSION = 24;
     private static final String COMMA_SEPARATOR = ", ";
     private static final String APP_TAG = "log_db";
 
 
     private static final String SQL_DROP_TABLE_TIPO_CURSO = "DROP TABLE IF EXISTS " + DataContract.TipoCursoEntry.TABLE_NAME_TIPO_CURSO;
+
+    private static final String SQL_DROP_TABLE_RATING_DISCIPLINA = "DROP TABLE IF EXISTS " + DataContract.RatingDisciplinaEntry.TABLE_NAME_RATING_DISCIPLINA;
 
     private static final String SQL_DROP_TABLE_MATERIAIS = "DROP TABLE IF EXISTS " + DataContract.EventoUploadsEntry.TABLE_NAME_EVENTO_UPLOADS;
 
@@ -101,7 +103,6 @@ public class DataHelper extends SQLiteOpenHelper {
             DataContract.DisciplinaEntry.COLUMN_NOME + " TEXT NOT NULL" + COMMA_SEPARATOR +
             DataContract.DisciplinaEntry.COLUMN_DESCRICAO + " TEXT NOT NULL" + COMMA_SEPARATOR +
             DataContract.DisciplinaEntry.COLUMN_CARGA_HORARIA + " INTEGER NOT NULL" + COMMA_SEPARATOR +
-            DataContract.DisciplinaEntry.COLUMN_SCORE + " REAL NOT NULL" + COMMA_SEPARATOR +
 
             DataContract.DisciplinaEntry.COLUMN_ID_SERVIDOR + " INTEGER UNIQUE" + COMMA_SEPARATOR +
 
@@ -199,6 +200,20 @@ public class DataHelper extends SQLiteOpenHelper {
             DataContract.EventoEntry.TABLE_NAME_EVENTO + " (" + DataContract.EventoEntry.COLUMN_ID +
             "))";
 
+    private static final String SQL_CREATE_TABLE_RATING_DISCIPLINA = "CREATE TABLE " + DataContract.RatingDisciplinaEntry.TABLE_NAME_RATING_DISCIPLINA + "(" +
+            DataContract.RatingDisciplinaEntry.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT" + COMMA_SEPARATOR +
+
+            DataContract.RatingDisciplinaEntry.COLUMN_ALUNO_FK + " INTEGER NOT NULL" + COMMA_SEPARATOR +
+            DataContract.RatingDisciplinaEntry.COLUMN_DISCIPLINA_FK + " INTEGER NOT NULL" + COMMA_SEPARATOR +
+            DataContract.RatingDisciplinaEntry.COLUMN_RATING + " REAL NOT NULL" + COMMA_SEPARATOR +
+
+            " FOREIGN KEY (" + DataContract.RatingDisciplinaEntry.COLUMN_ALUNO_FK + ") REFERENCES " +
+            DataContract.AlunoEntry.TABLE_NAME_ALUNO + " (" + DataContract.AlunoEntry.COLUMN_ID +
+            ")" + COMMA_SEPARATOR +
+
+            "FOREIGN KEY (" + DataContract.RatingDisciplinaEntry.COLUMN_DISCIPLINA_FK + ") REFERENCES " +
+            DataContract.DisciplinaEntry.TABLE_NAME_DISCIPLINA + " (" + DataContract.DisciplinaEntry.COLUMN_ID + "));";
+
 
     private static final String SQL_CREATE_TABLE_TURMA = "CREATE TABLE " + DataContract.TurmaEntry.TABLE_NAME_TURMA + "(" +
             DataContract.TurmaEntry.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT" + COMMA_SEPARATOR +
@@ -250,6 +265,7 @@ public class DataHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_TABLE_STATUS_DISCIPLINA);
         db.execSQL(SQL_CREATE_TABLE_ALUNO_X_DISCIPLINA);
         db.execSQL(SQL_CREATE_TABLE_NOTA);
+        db.execSQL(SQL_CREATE_TABLE_RATING_DISCIPLINA);
 
         Log.i(APP_TAG, "DB Created!");
     }
@@ -272,6 +288,7 @@ public class DataHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_DROP_TABLE_STATUS_DISCIPLINA);
         db.execSQL(SQL_DROP_TABLE_ALUNO_X_DISCIPLINA);
         db.execSQL(SQL_DROP_TABLE_NOTA);
+        db.execSQL(SQL_DROP_TABLE_RATING_DISCIPLINA);
 
         Log.i(APP_TAG, "DB Dropped!");
 

@@ -64,4 +64,9 @@ public class Endpoints {
 
         return UrlEndpoints.URL_ENDPOINT + UrlEndpoints.LIST_TITULO_PROFESSOR;
     }
+
+    public static String getRequestUrlRatingDisciplina() {
+
+        return UrlEndpoints.URL_ENDPOINT + UrlEndpoints.LIST_RATING_DISCIPLINAS;
+    }
 }

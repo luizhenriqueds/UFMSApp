@@ -24,6 +24,7 @@ import ufms.br.com.ufmsapp.task.TaskLoadAlunos;
 import ufms.br.com.ufmsapp.task.TaskLoadMateriais;
 import ufms.br.com.ufmsapp.task.TaskLoadMatriculas;
 import ufms.br.com.ufmsapp.task.TaskLoadProfessores;
+import ufms.br.com.ufmsapp.task.TaskLoadRatingDisciplinas;
 import ufms.br.com.ufmsapp.task.TaskLoadStatusAlunos;
 import ufms.br.com.ufmsapp.task.TaskLoadStatusDisciplina;
 import ufms.br.com.ufmsapp.task.TaskLoadTipoDisciplina;
@@ -82,8 +83,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         new TaskLoadProfessores().execute();
 
-        //Log.i("DB_TEST", "INSERTED!!!!");
-        //new TaskLoadDisciplinas().execute();
+        new TaskLoadRatingDisciplinas().execute();
 
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.nav_drawer);

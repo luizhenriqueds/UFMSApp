@@ -19,6 +19,7 @@ import ufms.br.com.ufmsapp.pojo.Evento;
 import ufms.br.com.ufmsapp.pojo.Material;
 import ufms.br.com.ufmsapp.pojo.Nota;
 import ufms.br.com.ufmsapp.pojo.Professor;
+import ufms.br.com.ufmsapp.pojo.RatingDisciplina;
 import ufms.br.com.ufmsapp.pojo.StatusAluno;
 import ufms.br.com.ufmsapp.pojo.StatusDisciplina;
 import ufms.br.com.ufmsapp.pojo.TipoCurso;
@@ -46,7 +47,6 @@ public class AppDAO {
             DataContract.DisciplinaEntry.COLUMN_NOME,
             DataContract.DisciplinaEntry.COLUMN_DESCRICAO,
             DataContract.DisciplinaEntry.COLUMN_CARGA_HORARIA,
-            DataContract.DisciplinaEntry.COLUMN_SCORE,
             DataContract.DisciplinaEntry.COLUMN_ID_SERVIDOR,
             DataContract.DisciplinaEntry.TIPO_DISCIPLINA_FK,
             DataContract.DisciplinaEntry.PROFESSOR_FK
@@ -60,6 +60,13 @@ public class AppDAO {
             DataContract.ProfessorEntry.COLUMN_PROFESSOR_ID_SERVIDOR,
             DataContract.ProfessorEntry.COLUMN_FORMACAO,
             DataContract.ProfessorEntry.TITULO_PROFESSOR_FK
+    };
+
+    public static final String[] PROJECTION_RATING_DISCIPLINAS = {
+            DataContract.RatingDisciplinaEntry.COLUMN_ID,
+            DataContract.RatingDisciplinaEntry.COLUMN_ALUNO_FK,
+            DataContract.RatingDisciplinaEntry.COLUMN_DISCIPLINA_FK,
+            DataContract.RatingDisciplinaEntry.COLUMN_RATING
     };
 
     public static final String[] PROJECTION_EVENTO = {
@@ -304,7 +311,6 @@ public class AppDAO {
             values.put(DataContract.DisciplinaEntry.COLUMN_NOME, currentDisciplina.getTitulo());
             values.put(DataContract.DisciplinaEntry.COLUMN_DESCRICAO, currentDisciplina.getDescricao());
             values.put(DataContract.DisciplinaEntry.COLUMN_CARGA_HORARIA, currentDisciplina.getCargaHoraria());
-            values.put(DataContract.DisciplinaEntry.COLUMN_SCORE, currentDisciplina.getScore());
             values.put(DataContract.DisciplinaEntry.COLUMN_ID_SERVIDOR, currentDisciplina.getIdDisciplinaServidor());
             values.put(DataContract.DisciplinaEntry.TIPO_DISCIPLINA_FK, currentDisciplina.getTipoDisciplina());
             values.put(DataContract.DisciplinaEntry.PROFESSOR_FK, currentDisciplina.getProfessor());
@@ -359,7 +365,7 @@ public class AppDAO {
         String selectQuery =
                 "SELECT " +
                         DataContract.DisciplinaEntry.TABLE_NAME_DISCIPLINA + "." + DataContract.DisciplinaEntry.COLUMN_ID + ", " + DataContract.DisciplinaEntry.COLUMN_CODIGO + ", " + DataContract.DisciplinaEntry.COLUMN_NOME + ", " + DataContract.DisciplinaEntry.COLUMN_DESCRICAO + ", " +
-                        DataContract.DisciplinaEntry.COLUMN_CARGA_HORARIA + ", " + DataContract.DisciplinaEntry.COLUMN_SCORE + ", " + DataContract.DisciplinaEntry.COLUMN_ID_SERVIDOR + ", " + DataContract.DisciplinaEntry.TIPO_DISCIPLINA_FK +
+                        DataContract.DisciplinaEntry.COLUMN_CARGA_HORARIA + ", " + DataContract.DisciplinaEntry.COLUMN_ID_SERVIDOR + ", " + DataContract.DisciplinaEntry.TIPO_DISCIPLINA_FK +
                         ", " + DataContract.DisciplinaEntry.PROFESSOR_FK + " FROM " + DataContract.AlunoXDisciplinaEntry.TABLE_NAME_ALUNO_X_DISCIPLINA + ", " + DataContract.DisciplinaEntry.TABLE_NAME_DISCIPLINA + ", " + DataContract.AlunoEntry.TABLE_NAME_ALUNO + ", "
                         + DataContract.StatusDisciplinaEntry.TABLE_NAME_STATUS_DISCIPLINA + " WHERE (" + DataContract.AlunoXDisciplinaEntry.DISCIPLINA_FK + " = " + DataContract.DisciplinaEntry.COLUMN_ID_SERVIDOR + ") " +
                         "AND (" + DataContract.AlunoXDisciplinaEntry.ALUNO_FK + " = " + DataContract.AlunoEntry.COLUMN_ALUNO_ID_SERVIDOR + ") AND (" + DataContract.AlunoXDisciplinaEntry.STATUS_DISCIPLINA_FK + " = "
@@ -408,6 +414,34 @@ public class AppDAO {
 
             returnedId = (int) database.insert(DataContract.EventoUploadsEntry.TABLE_NAME_EVENTO_UPLOADS, null, values);
             currentMaterial.setIdMaterial(returnedId);
+        }
+
+
+        return returnedId;
+
+    }
+
+
+    public int ratingDisciplina(ArrayList<RatingDisciplina> ratingList, boolean clearPrevious) {
+
+        if (clearPrevious) {
+            deleteTable(DataContract.RatingDisciplinaEntry.TABLE_NAME_RATING_DISCIPLINA);
+        }
+
+        ContentValues values = new ContentValues();
+        int returnedId = -1;
+
+
+        for (int i = 0; i < ratingList.size(); i++) {
+            RatingDisciplina rating = ratingList.get(i);
+
+            values.put(DataContract.RatingDisciplinaEntry.COLUMN_ALUNO_FK, rating.getAlunoKey());
+            values.put(DataContract.RatingDisciplinaEntry.COLUMN_DISCIPLINA_FK, rating.getDisciplinaKey());
+            values.put(DataContract.RatingDisciplinaEntry.COLUMN_RATING, rating.getRating());
+
+
+            returnedId = (int) database.insert(DataContract.RatingDisciplinaEntry.TABLE_NAME_RATING_DISCIPLINA, null, values);
+            rating.setIdRatingDisciplina(returnedId);
         }
 
 
@@ -753,6 +787,27 @@ public class AppDAO {
             }
 
             return statusDisciplinas;
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+
+    }
+
+    public RatingDisciplina getRatingDisciplina() {
+
+        Cursor cursor = database.query(DataContract.RatingDisciplinaEntry.TABLE_NAME_RATING_DISCIPLINA, PROJECTION_RATING_DISCIPLINAS, null, null, null, null, DataContract.RatingDisciplinaEntry.COLUMN_ID);
+
+        RatingDisciplina ratingDisciplina = null;
+        try {
+            if (cursor.moveToFirst()) {
+                do {
+                    ratingDisciplina = AppDAO.fromCursorRatingDisciplina(cursor);
+                } while (cursor.moveToNext());
+            }
+
+            return ratingDisciplina;
         } finally {
             if (cursor != null) {
                 cursor.close();
@@ -1277,6 +1332,16 @@ public class AppDAO {
         return new StatusDisciplina(id, nomeStatusDisciplina, statusDisciplinaIdServidor);
     }
 
+    private static RatingDisciplina fromCursorRatingDisciplina(Cursor cursor) {
+        int id = cursor.getInt(cursor.getColumnIndex(DataContract.RatingDisciplinaEntry.COLUMN_ID));
+        int alunoKey = cursor.getInt(cursor.getColumnIndex(DataContract.RatingDisciplinaEntry.COLUMN_ALUNO_FK));
+        int disciplinaKey = cursor.getInt(cursor.getColumnIndex(DataContract.RatingDisciplinaEntry.COLUMN_DISCIPLINA_FK));
+        float rating = cursor.getFloat(cursor.getColumnIndex(DataContract.RatingDisciplinaEntry.COLUMN_RATING));
+
+
+        return new RatingDisciplina(id, alunoKey, disciplinaKey, rating);
+    }
+
     private static Turma fromCursorTurma(Cursor cursor) {
         int id = cursor.getInt(cursor.getColumnIndex(DataContract.TurmaEntry.COLUMN_ID));
         String nomeTurma = cursor.getString(cursor.getColumnIndex(DataContract.TurmaEntry.COLUMN_NOME));
@@ -1349,13 +1414,12 @@ public class AppDAO {
         String nome = cursor.getString(cursor.getColumnIndex(DataContract.DisciplinaEntry.COLUMN_NOME));
         String descricao = cursor.getString(cursor.getColumnIndex(DataContract.DisciplinaEntry.COLUMN_DESCRICAO));
         int cargaHoraria = cursor.getInt(cursor.getColumnIndex(DataContract.DisciplinaEntry.COLUMN_CARGA_HORARIA));
-        float score = cursor.getFloat(cursor.getColumnIndex(DataContract.DisciplinaEntry.COLUMN_SCORE));
         int idServidorDisciplina = cursor.getInt(cursor.getColumnIndex(DataContract.DisciplinaEntry.COLUMN_ID_SERVIDOR));
 
         int tipoDisciplina = cursor.getInt(cursor.getColumnIndex(DataContract.DisciplinaEntry.TIPO_DISCIPLINA_FK));
         int professor = cursor.getInt(cursor.getColumnIndex(DataContract.DisciplinaEntry.PROFESSOR_FK));
 
-        return new Disciplina(id, nome, codigo, descricao, cargaHoraria, score, idServidorDisciplina, tipoDisciplina, professor);
+        return new Disciplina(id, nome, codigo, descricao, cargaHoraria, idServidorDisciplina, tipoDisciplina, professor);
     }
 
     /**

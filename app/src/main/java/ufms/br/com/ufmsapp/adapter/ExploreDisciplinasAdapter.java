@@ -63,7 +63,7 @@ public class ExploreDisciplinasAdapter extends RecyclerView.Adapter<ExploreDisci
 
         disciplinasViewHolder.disciplinaTitle.setText(disciplina.getTitulo());
         disciplinasViewHolder.disciplinaDescription.setText("12 Alunos Matriculados");
-        disciplinasViewHolder.disciplinaScore.setRating(disciplina.getScore() / 1.0F);
+        disciplinasViewHolder.disciplinaScore.setRating(4.2F);
         disciplinasViewHolder.disciplinaScore.setAlpha(1.0F);
 
         setAnimation(disciplinasViewHolder.mCardTopLayout, i);

@@ -11,7 +11,6 @@ public class Disciplina implements Parcelable {
     private String codigo;
     private String descricao;
     private int cargaHoraria;
-    private float score;
     private int idDisciplinaServidor;
     private int tipoDisciplina;
     private int professor;
@@ -20,13 +19,12 @@ public class Disciplina implements Parcelable {
         // construtor vazio utilizado para criação padrão de um objeto Disciplina
     }
 
-    public Disciplina(int id, String titulo, String codigo, String descricao, int cargaHoraria, float score, int idDisciplinaServidor, int tipoDisciplina, int professor) {
+    public Disciplina(int id, String titulo, String codigo, String descricao, int cargaHoraria, int idDisciplinaServidor, int tipoDisciplina, int professor) {
         this.id = id;
         this.titulo = titulo;
         this.codigo = codigo;
         this.descricao = descricao;
         this.cargaHoraria = cargaHoraria;
-        this.score = score;
         this.idDisciplinaServidor = idDisciplinaServidor;
         this.tipoDisciplina = tipoDisciplina;
         this.professor = professor;
@@ -38,7 +36,6 @@ public class Disciplina implements Parcelable {
         codigo = input.readString();
         descricao = input.readString();
         cargaHoraria = input.readInt();
-        score = input.readFloat();
         idDisciplinaServidor = input.readInt();
         tipoDisciplina = input.readInt();
         professor = input.readInt();
@@ -58,14 +55,6 @@ public class Disciplina implements Parcelable {
 
     public void setIdDisciplinaServidor(int idDisciplinaServidor) {
         this.idDisciplinaServidor = idDisciplinaServidor;
-    }
-
-    public float getScore() {
-        return score;
-    }
-
-    public void setScore(float score) {
-        this.score = score;
     }
 
     public int getId() {
@@ -124,7 +113,6 @@ public class Disciplina implements Parcelable {
                 ", codigo='" + codigo + '\'' +
                 ", descricao='" + descricao + '\'' +
                 ", cargaHoraria=" + cargaHoraria +
-                ", score=" + score +
                 ", idDisciplinaServidor=" + idDisciplinaServidor +
                 ", tipoDisciplina=" + tipoDisciplina +
                 ", professor=" + professor +
@@ -143,7 +131,6 @@ public class Disciplina implements Parcelable {
         dest.writeString(codigo);
         dest.writeString(descricao);
         dest.writeInt(cargaHoraria);
-        dest.writeFloat(score);
         dest.writeInt(idDisciplinaServidor);
         dest.writeInt(tipoDisciplina);
         dest.writeInt(professor);

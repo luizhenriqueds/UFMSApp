@@ -66,6 +66,16 @@ public class Keys {
 
     }
 
+    public static class RatingDisciplinaEndpointColumns implements BaseColumns {
+
+        public static final String KEY_RATING_DISCIPLINA = "ratingDisciplinas";
+        //public static final String KEY_ID_RATING_DISCIPLINA = "app_id_rating_disciplina";
+        public static final String KEY_ALUNO_KEY = "app_aluno_key";
+        public static final String KEY_DISCIPLINA_KEY = "app_disciplina_key";
+        public static final String KEY_RATING = "app_rating";
+
+    }
+
     public static class StatusAlunoEndpointColumns implements BaseColumns {
 
         public static final String KEY_STATUS_ALUNO = "statusAlunos";

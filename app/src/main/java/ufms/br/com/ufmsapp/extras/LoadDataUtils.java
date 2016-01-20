@@ -13,6 +13,7 @@ import ufms.br.com.ufmsapp.JSONParsers.ListDisciplinasParser;
 import ufms.br.com.ufmsapp.JSONParsers.ListEventosParser;
 import ufms.br.com.ufmsapp.JSONParsers.ListMateriaisUploadParser;
 import ufms.br.com.ufmsapp.JSONParsers.ListProfessoresParser;
+import ufms.br.com.ufmsapp.JSONParsers.ListRatingDisciplinaParser;
 import ufms.br.com.ufmsapp.JSONParsers.ListStatusAlunosParser;
 import ufms.br.com.ufmsapp.JSONParsers.ListStatusDisciplinaParser;
 import ufms.br.com.ufmsapp.JSONParsers.ListTipoDisciplinaParser;
@@ -28,6 +29,7 @@ import ufms.br.com.ufmsapp.pojo.Disciplina;
 import ufms.br.com.ufmsapp.pojo.Evento;
 import ufms.br.com.ufmsapp.pojo.Material;
 import ufms.br.com.ufmsapp.pojo.Professor;
+import ufms.br.com.ufmsapp.pojo.RatingDisciplina;
 import ufms.br.com.ufmsapp.pojo.StatusAluno;
 import ufms.br.com.ufmsapp.pojo.StatusDisciplina;
 import ufms.br.com.ufmsapp.pojo.TipoDisciplina;
@@ -133,6 +135,14 @@ public class LoadDataUtils {
         MyApplication.getWritableDatabase().criarTituloProfessor(listTituloProfessor, true);
 
         return listTituloProfessor;
+    }
+
+    public static ArrayList<RatingDisciplina> loadRatingDisciplinas(RequestQueue requestQueue) {
+        JSONObject response = Requestor.requestJSON(requestQueue, Endpoints.getRequestUrlRatingDisciplina());
+        ArrayList<RatingDisciplina> listRatingDisciplina = ListRatingDisciplinaParser.listRatingDisciplinasParser(response);
+        MyApplication.getWritableDatabase().ratingDisciplina(listRatingDisciplina, true);
+
+        return listRatingDisciplina;
     }
 
     public static ArrayList<AlunoXDisciplina> loadMatriculas(RequestQueue requestQueue) {

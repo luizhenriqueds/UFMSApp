@@ -6,7 +6,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 
 import ufms.br.com.ufmsapp.extras.Keys;
@@ -26,7 +25,6 @@ public class ListDisciplinasParser {
             String tituloDisciplina = Constants.NA;
             String descricaoDisciplina = Constants.NA;
             int cargaHorariaDisciplina = -1;
-            float disciplinaScore = -1;
             int idDisciplinaServidor = -1;
             int tipoDisciplina = -1;
             int professor = -1;
@@ -58,9 +56,9 @@ public class ListDisciplinasParser {
                         cargaHorariaDisciplina = currentObject.getInt(Keys.DisciplinasEndpointColumns.KEY_CARGA_HORARIA);
                     }
 
-                    if (JSONUtils.contains(currentObject, Keys.DisciplinasEndpointColumns.KEY_DISCIPLINA_SCORE)) {
+                   /* if (JSONUtils.contains(currentObject, Keys.DisciplinasEndpointColumns.KEY_DISCIPLINA_SCORE)) {
                         disciplinaScore = BigDecimal.valueOf(currentObject.getDouble(Keys.DisciplinasEndpointColumns.KEY_DISCIPLINA_SCORE)).floatValue();
-                    }
+                    }*/
 
                     if (JSONUtils.contains(currentObject, Keys.DisciplinasEndpointColumns.KEY_DISCIPLINA_ID_SERVIDOR)) {
                         idDisciplinaServidor = currentObject.getInt(Keys.DisciplinasEndpointColumns.KEY_DISCIPLINA_ID_SERVIDOR);
@@ -83,9 +81,9 @@ public class ListDisciplinasParser {
                     disciplina.setDescricao(descricaoDisciplina);
                     disciplina.setCargaHoraria(cargaHorariaDisciplina);
 
-                    if (disciplinaScore >= 0 && disciplinaScore <= 5) {
+                   /* if (disciplinaScore >= 0 && disciplinaScore <= 5) {
                         disciplina.setScore(disciplinaScore);
-                    }
+                    }*/
 
                     if (tipoDisciplina != -1 && professor != -1 && idDisciplinaServidor != -1) {
                         disciplina.setTipoDisciplina(tipoDisciplina);

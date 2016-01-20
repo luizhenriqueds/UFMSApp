@@ -42,6 +42,20 @@ public class DataContract {
 
     }
 
+    public class RatingDisciplinaEntry implements BaseColumns {
+
+        public static final String TABLE_NAME_RATING_DISCIPLINA = "app_rating_disciplina";
+
+        public static final String COLUMN_ID = "_id";
+
+        public static final String COLUMN_ALUNO_FK = "app_rating_aluno_key";
+
+        public static final String COLUMN_DISCIPLINA_FK = "app_rating_disciplina_key";
+
+        public static final String COLUMN_RATING = "app_rating_value";
+
+    }
+
     public class PeriodoCursoEntry implements BaseColumns {
 
         /* Constante que representa o nome da tabela período do curso que será referenciada no código de criação do banco */

@@ -24,8 +24,8 @@ if ($isQueryOk) {
 
         $jsonRow = array(
             "app_id_rating_disciplina" => $result["app_id_rating_disciplina"],
-            "app_disciplina_key" => $result["app_disciplina_key"],
             "app_aluno_key" => $result["app_aluno_key"],
+            "app_disciplina_key" => $result["app_disciplina_key"],
             "app_rating" => $result["app_rating"]
         );
 

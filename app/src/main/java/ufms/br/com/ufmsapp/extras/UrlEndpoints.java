@@ -30,5 +30,7 @@ public class UrlEndpoints {
 
     public static final String LIST_TITULO_PROFESSOR = "webservice/list/listTituloProfessor.php";
 
+    public static final String LIST_RATING_DISCIPLINAS = "webservice/list/listRatingDisciplinas.php";
+
 
 }
