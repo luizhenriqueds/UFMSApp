@@ -24,9 +24,9 @@ import ufms.br.com.ufmsapp.task.DownloadTask;
 
 public class MateriaisDisciplinaFragment extends Fragment implements MateriaisAdapter.OnMaterialClickListener {
 
-    private RecyclerView mRecyclerMateriais;
-    private MateriaisAdapter adapter;
-    private Disciplina disciplina;
+    protected RecyclerView mRecyclerMateriais;
+    protected MateriaisAdapter adapter;
+    protected Disciplina disciplina;
     ProgressDialog mProgressDialog;
 
     public MateriaisDisciplinaFragment() {
@@ -40,6 +40,8 @@ public class MateriaisDisciplinaFragment extends Fragment implements MateriaisAd
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        setRetainInstance(true);
 
         View view = inflater.inflate(R.layout.fragment_materiais_disciplina, container, false);
 

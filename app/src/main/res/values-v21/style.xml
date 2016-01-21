@@ -11,6 +11,7 @@
             @android:transition/move
         </item>
 
+
     </style>
 
     <!--<style name="AppTheme.Translucent" parent="AppTheme">

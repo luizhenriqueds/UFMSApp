@@ -230,17 +230,34 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:text="Avalie esta disciplina"
-                android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Subtitle"
-                android:textColor="@color/adapter_row_title_color" />
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="10dp"
+                    android:text="Avalie esta disciplina"
+                    android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Subtitle"
+                    android:textColor="@color/adapter_row_title_color" />
+
+                <ImageButton
+                    android:id="@+id/btn_editar_rating"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="0.1"
+                    android:background="@android:color/transparent"
+                    android:src="@mipmap/ic_settings_black_18dp" />
+            </LinearLayout>
+
 
             <RatingBar
                 android:id="@+id/disciplina_detalhes_rating_bar"
-                style="?android:attr/ratingBarStyleIndicator"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -274,6 +291,7 @@
                     android:padding="3dp">
 
                     <ImageView
+                        android:id="@+id/img_count_rating"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="2dp"
@@ -295,12 +313,26 @@
 
 
             <TextView
+                android:id="@+id/txt_rating_status"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:padding="5dp"
-                android:text="Avaliação geral desta disciplina"
                 android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:background="#ccc" />
+
+            <Button
+                android:id="@+id/btn_rate"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_bg"
+                android:text="Avaliar" />
 
 
         </LinearLayout>

@@ -795,9 +795,21 @@ public class AppDAO {
 
     }
 
-    public RatingDisciplina getRatingDisciplina() {
+    public RatingDisciplina getRatingDisciplina(int idAluno, int idDisciplina) {
 
-        Cursor cursor = database.query(DataContract.RatingDisciplinaEntry.TABLE_NAME_RATING_DISCIPLINA, PROJECTION_RATING_DISCIPLINAS, null, null, null, null, DataContract.RatingDisciplinaEntry.COLUMN_ID);
+
+        String selectQuery =
+                "SELECT " + DataContract.RatingDisciplinaEntry.TABLE_NAME_RATING_DISCIPLINA + "." + DataContract.RatingDisciplinaEntry.COLUMN_ID + "," + DataContract.RatingDisciplinaEntry.COLUMN_ALUNO_FK + "," + DataContract.RatingDisciplinaEntry.COLUMN_DISCIPLINA_FK + "," + DataContract.RatingDisciplinaEntry.COLUMN_RATING
+                        + " FROM " + DataContract.RatingDisciplinaEntry.TABLE_NAME_RATING_DISCIPLINA + "," + DataContract.DisciplinaEntry.TABLE_NAME_DISCIPLINA + ", " + DataContract.AlunoEntry.TABLE_NAME_ALUNO +
+                        " WHERE " + "(" + DataContract.RatingDisciplinaEntry.COLUMN_ALUNO_FK + "=" + DataContract.AlunoEntry.COLUMN_ALUNO_ID_SERVIDOR + ")" +
+                        " AND " + "(" + DataContract.RatingDisciplinaEntry.COLUMN_DISCIPLINA_FK + "=" + DataContract.DisciplinaEntry.COLUMN_ID_SERVIDOR + ")" +
+                        " AND " + "(" + DataContract.RatingDisciplinaEntry.COLUMN_ALUNO_FK + " = " + idAluno + ")" +
+                        " AND " + "(" + DataContract.RatingDisciplinaEntry.COLUMN_DISCIPLINA_FK + " = " + idDisciplina + ")";
+
+        //Cursor cursor = database.query(DataContract.RatingDisciplinaEntry.TABLE_NAME_RATING_DISCIPLINA, PROJECTION_RATING_DISCIPLINAS, null, null, null, null, DataContract.RatingDisciplinaEntry.COLUMN_ID);
+        Log.i("TEST_QUERY", selectQuery);
+
+        Cursor cursor = database.rawQuery(selectQuery, null);
 
         RatingDisciplina ratingDisciplina = null;
         try {
@@ -814,6 +826,32 @@ public class AppDAO {
             }
         }
 
+    }
+
+    public int getRatingDisciplinaCount(int idDisciplina) {
+
+        String countQuery = "SELECT COUNT(" + DataContract.RatingDisciplinaEntry.TABLE_NAME_RATING_DISCIPLINA + "." + DataContract.RatingDisciplinaEntry.COLUMN_ID + ") FROM " + DataContract.RatingDisciplinaEntry.TABLE_NAME_RATING_DISCIPLINA + " WHERE (" + DataContract.RatingDisciplinaEntry.COLUMN_DISCIPLINA_FK + " = " + idDisciplina + ");";
+
+        Cursor cursor = database.rawQuery(countQuery, null);
+        cursor.moveToFirst();
+        int count = cursor.getInt(0);
+        cursor.close();
+
+        return count;
+    }
+
+    public float getRatingDisciplinaAVG(int idDisciplina) {
+
+        String countAVG = "SELECT AVG(" + DataContract.RatingDisciplinaEntry.COLUMN_RATING + ") FROM " + DataContract.RatingDisciplinaEntry.TABLE_NAME_RATING_DISCIPLINA + " WHERE (" + DataContract.RatingDisciplinaEntry.COLUMN_DISCIPLINA_FK + " = " + idDisciplina + ");";
+
+        Cursor cursor = database.rawQuery(countAVG, null);
+
+        cursor.moveToFirst();
+        float avg = cursor.getFloat(0);
+        cursor.close();
+
+
+        return avg;
     }
 
     public ArrayList<TipoDisciplina> listarTipoDisciplinas() {

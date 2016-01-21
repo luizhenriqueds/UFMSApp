@@ -10,6 +10,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.android.volley.toolbox.ImageLoader;
@@ -24,6 +25,7 @@ import ufms.br.com.ufmsapp.R;
 import ufms.br.com.ufmsapp.network.VolleySingleton;
 import ufms.br.com.ufmsapp.pojo.Disciplina;
 import ufms.br.com.ufmsapp.pojo.Professor;
+import ufms.br.com.ufmsapp.pojo.RatingDisciplina;
 
 public class DisciplinasAdapter extends RecyclerView.Adapter<DisciplinasAdapter.DisciplinaViewHolder> implements View.OnClickListener {
 
@@ -79,10 +81,22 @@ public class DisciplinasAdapter extends RecyclerView.Adapter<DisciplinasAdapter.
 
         Professor professor = MyApplication.getWritableDatabase().professorById(disciplina.getProfessor());
 
+        RatingDisciplina rating = MyApplication.getWritableDatabase().getRatingDisciplina(1, disciplina.getIdDisciplinaServidor());
+
+        float ratingAVG = MyApplication.getWritableDatabase().getRatingDisciplinaAVG(disciplina.getIdDisciplinaServidor());
+
         disciplinaViewHolder.disciplinaTitle.setText(disciplina.getTitulo());
         disciplinaViewHolder.disciplinaProfessor.setText(professor.getNome());
         disciplinaViewHolder.disciplinaDescricao.setText(disciplina.getDescricao());
-        disciplinaViewHolder.disciplinaScore.setText(String.valueOf(3.2));
+
+
+        if (rating != null) {
+            disciplinaViewHolder.disciplinaRatingBar.setVisibility(View.VISIBLE);
+            disciplinaViewHolder.disciplinaScore.setText(String.format("%.01f", ratingAVG));
+        } else {
+            disciplinaViewHolder.disciplinaRatingBar.setVisibility(View.GONE);
+            disciplinaViewHolder.disciplinaScore.setText(null);
+        }
 
 
         setAnimation(disciplinaViewHolder.disciplinaAdapterLayout, i);
@@ -120,6 +134,7 @@ public class DisciplinasAdapter extends RecyclerView.Adapter<DisciplinasAdapter.
         protected TextView disciplinaDescricao;
         protected TextView disciplinaScore;
         protected ImageView disciplinaSmallIcon;
+        protected RatingBar disciplinaRatingBar;
 
 
         public DisciplinaViewHolder(View v) {
@@ -130,6 +145,7 @@ public class DisciplinasAdapter extends RecyclerView.Adapter<DisciplinasAdapter.
             disciplinaProfessor = (TextView) v.findViewById(R.id.txt_disciplina_professor);
             disciplinaDescricao = (TextView) v.findViewById(R.id.txt_disciplina_descricao);
             disciplinaScore = (TextView) v.findViewById(R.id.disciplina_score);
+            disciplinaRatingBar = (RatingBar) v.findViewById(R.id.adapter_rating_bar);
 
         }
     }
