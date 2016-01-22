@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import ufms.br.com.ufmsapp.MyApplication;
 import ufms.br.com.ufmsapp.R;
 import ufms.br.com.ufmsapp.pojo.Disciplina;
 
@@ -62,8 +63,13 @@ public class ExploreDisciplinasAdapter extends RecyclerView.Adapter<ExploreDisci
         disciplina = disciplinaList.get(i);
 
         disciplinasViewHolder.disciplinaTitle.setText(disciplina.getTitulo());
-        disciplinasViewHolder.disciplinaDescription.setText("12 Alunos Matriculados");
-        disciplinasViewHolder.disciplinaScore.setRating(4.2F);
+
+        float ratingDisciplina = MyApplication.getWritableDatabase().getRatingDisciplinaAVG(disciplina.getIdDisciplinaServidor());
+
+        String matriculas = MyApplication.getWritableDatabase().getMatriculasCount(disciplina.getIdDisciplinaServidor()) + " Aluno(s) Matriculado(s)";
+
+        disciplinasViewHolder.disciplinaDescription.setText(matriculas);
+        disciplinasViewHolder.disciplinaScore.setRating(ratingDisciplina);
         disciplinasViewHolder.disciplinaScore.setAlpha(1.0F);
 
         setAnimation(disciplinasViewHolder.mCardTopLayout, i);

@@ -840,6 +840,18 @@ public class AppDAO {
         return count;
     }
 
+    public int getMatriculasCount(int idDisciplina) {
+
+        String countQuery = "SELECT COUNT(" + DataContract.AlunoXDisciplinaEntry.TABLE_NAME_ALUNO_X_DISCIPLINA + "." + DataContract.AlunoXDisciplinaEntry.COLUMN_ID + ") FROM " + DataContract.AlunoXDisciplinaEntry.TABLE_NAME_ALUNO_X_DISCIPLINA + " WHERE (" + DataContract.AlunoXDisciplinaEntry.DISCIPLINA_FK + " = " + idDisciplina + ");";
+
+        Cursor cursor = database.rawQuery(countQuery, null);
+        cursor.moveToFirst();
+        int count = cursor.getInt(0);
+        cursor.close();
+
+        return count;
+    }
+
     public float getRatingDisciplinaAVG(int idDisciplina) {
 
         String countAVG = "SELECT AVG(" + DataContract.RatingDisciplinaEntry.COLUMN_RATING + ") FROM " + DataContract.RatingDisciplinaEntry.TABLE_NAME_RATING_DISCIPLINA + " WHERE (" + DataContract.RatingDisciplinaEntry.COLUMN_DISCIPLINA_FK + " = " + idDisciplina + ");";
