@@ -16,9 +16,9 @@ $alunoKey = $json->{'alunoKey'};
 $disciplinaKey = $json->{'disciplinaKey'};
 $disciplinaRating = $json->{'disciplinaRating'};*/
 
-$alunoKey = $_POST['alunoKey'];
-$disciplinaKey = $_POST['disciplinaKey'];
-$disciplinaRating = $_POST['disciplinaRating'];
+$alunoKey = $_REQUEST['alunoKey'];
+$disciplinaKey = $_REQUEST['disciplinaKey'];
+$disciplinaRating = $_REQUEST['disciplinaRating'];
 
 $query->execute(array($alunoKey, $disciplinaKey, $disciplinaRating));
 
