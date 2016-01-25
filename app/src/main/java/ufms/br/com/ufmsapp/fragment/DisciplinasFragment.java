@@ -69,6 +69,7 @@ public class DisciplinasFragment extends Fragment implements DisciplinasLoadedLi
     public void onResume() {
         super.onResume();
         getActivity().registerReceiver(receiver, filter);
+        updateList();
     }
 
     @Override
@@ -149,6 +150,7 @@ public class DisciplinasFragment extends Fragment implements DisciplinasLoadedLi
 
         return view;
     }
+
 
     private void checkAdapterIsEmpty() {
         if (adapter.getItemCount() == 0) {

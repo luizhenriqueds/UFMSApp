@@ -35,6 +35,11 @@ public class Endpoints {
         return UrlEndpoints.URL_ENDPOINT + UrlEndpoints.LIST_ALUNOS;
     }
 
+    public static String getRequestUrlInsertRating() {
+
+        return UrlEndpoints.URL_ENDPOINT + UrlEndpoints.INSERT_RATING_DISCIPLINA;
+    }
+
     public static String getRequestUrlStatusAlunos() {
 
         return UrlEndpoints.URL_ENDPOINT + UrlEndpoints.LIST_STATUS_ALUNOS;

@@ -59,6 +59,9 @@
     <string name="txt_download_error">"Download error: "</string>
     <string name="txt_dialog_msg">Deseja avaliar esta disciplina?</string>
     <string name="txt_disciplina_rating_status">Você ainda não avaliou esta disciplina.</string>
+    <string name="txt_cancel">Cancelar</string>
+    <string name="txt_avaliar">Avaliar</string>
+    <string name="txt_rated_success">Disciplina avaliada com sucesso.</string>
 
 
     <integer-array name="colors">
@@ -87,6 +90,14 @@
         <item>Qui</item>
         <item>Sex</item>
         <item>Sáb</item>
+    </string-array>
+
+    <string-array name="rating_desc_items">
+        <item>Péssimo</item>
+        <item>Não gostei</item>
+        <item>Mais ou menos</item>
+        <item>Bom</item>
+        <item>Excelente</item>
     </string-array>
 
 

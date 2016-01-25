@@ -43,7 +43,6 @@ public class DetalheDisciplinaFragment extends Fragment implements AvaliarDiscip
         return new DetalheDisciplinaFragment();
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -79,23 +78,8 @@ public class DetalheDisciplinaFragment extends Fragment implements AvaliarDiscip
 
             final RatingDisciplina ratingDisciplina = MyApplication.getWritableDatabase().getRatingDisciplina(1, disciplina.getIdDisciplinaServidor());
 
-            int ratingCount = MyApplication.getWritableDatabase().getRatingDisciplinaCount(disciplina.getIdDisciplinaServidor());
-
             if (ratingDisciplina != null) {
-                btnRate.setEnabled(false);
-
-                disciplinaRating.setRating(ratingDisciplina.getRating());
-                disciplinaRating.setAlpha(1.0F);
-
-                disciplinaRating.setIsIndicator(true);
-
-                disciplinaRatingValue.setVisibility(View.VISIBLE);
-                disciplinaRatingCount.setVisibility(View.VISIBLE);
-                disciplinaRatingCountImg.setVisibility(View.VISIBLE);
-
-                disciplinaRatingValue.setText(String.valueOf(ratingDisciplina.getRating()));
-                disciplinaRatingCount.setText(String.valueOf(ratingCount));
-                disciplinaRatingStatus.setVisibility(View.GONE);
+                setRatingBar(false, ratingDisciplina.getRating(), disciplina.getIdDisciplinaServidor());
 
             } else {
                 btnRate.setEnabled(true);
@@ -121,9 +105,30 @@ public class DetalheDisciplinaFragment extends Fragment implements AvaliarDiscip
         return view;
     }
 
+    private void setRatingBar(boolean btnEnable, float rating, int idDisciplina) {
+        btnRate.setEnabled(btnEnable);
+
+        disciplinaRating.setRating(rating);
+        disciplinaRating.setAlpha(1.0F);
+
+        disciplinaRating.setIsIndicator(true);
+
+        disciplinaRatingValue.setVisibility(View.VISIBLE);
+        disciplinaRatingCount.setVisibility(View.VISIBLE);
+        disciplinaRatingCountImg.setVisibility(View.VISIBLE);
+
+        disciplinaRatingValue.setText(String.valueOf(rating));
+
+        int ratingCount = MyApplication.getWritableDatabase().getRatingDisciplinaCount(idDisciplina);
+
+        disciplinaRatingCount.setText(String.valueOf(ratingCount));
+        disciplinaRatingStatus.setVisibility(View.GONE);
+    }
+
+
     @Override
     public void onRatingDisciplina(int idAluno, int idDisciplina, float rating) {
-
+        setRatingBar(false, rating, idDisciplina);
     }
 
     @Override

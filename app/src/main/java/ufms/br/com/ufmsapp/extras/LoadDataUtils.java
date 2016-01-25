@@ -113,6 +113,7 @@ public class LoadDataUtils {
         return listAlunos;
     }
 
+
     public static ArrayList<Material> loadMateriais(RequestQueue requestQueue) {
         JSONObject response = Requestor.requestJSON(requestQueue, Endpoints.getRequestUrlMateriais());
         ArrayList<Material> listMateriais = ListMateriaisUploadParser.parseMaterialJSON(response);

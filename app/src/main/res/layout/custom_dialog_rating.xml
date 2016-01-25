@@ -24,6 +24,15 @@
         android:rating="3" />
 
     <TextView
+        android:id="@+id/txt_dialog_rating_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+        android:textColor="@color/accentColor" />
+
+    <TextView
         android:id="@+id/txt_dialog_rating"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

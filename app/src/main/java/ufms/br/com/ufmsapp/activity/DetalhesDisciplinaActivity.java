@@ -28,6 +28,7 @@ public class DetalhesDisciplinaActivity extends AppCompatActivity {
     protected ViewPager mPager;
     protected Toolbar toolbar;
     private Disciplina disciplina;
+    ViewPagerAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,7 +87,8 @@ public class DetalhesDisciplinaActivity extends AppCompatActivity {
         alunosFragment.setArguments(bundle);
         materiaisDisciplinaFragment.setArguments(bundle);
 
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        adapter = new ViewPagerAdapter(getSupportFragmentManager());
+
         adapter.addFragment(detalhesFragment, tabs[0]);
         adapter.addFragment(alunosFragment, tabs[1]);
         adapter.addFragment(materiaisDisciplinaFragment, tabs[2]);

@@ -421,6 +421,23 @@ public class AppDAO {
 
     }
 
+    public int ratingDisciplina(RatingDisciplina rating) {
+
+        ContentValues values = new ContentValues();
+        int returnedId = -1;
+
+        values.put(DataContract.RatingDisciplinaEntry.COLUMN_ALUNO_FK, rating.getAlunoKey());
+        values.put(DataContract.RatingDisciplinaEntry.COLUMN_DISCIPLINA_FK, rating.getDisciplinaKey());
+        values.put(DataContract.RatingDisciplinaEntry.COLUMN_RATING, rating.getRating());
+
+        returnedId = (int) database.insert(DataContract.RatingDisciplinaEntry.TABLE_NAME_RATING_DISCIPLINA, null, values);
+        rating.setIdRatingDisciplina(returnedId);
+
+
+        return returnedId;
+
+    }
+
 
     public int ratingDisciplina(ArrayList<RatingDisciplina> ratingList, boolean clearPrevious) {
 
@@ -440,6 +457,7 @@ public class AppDAO {
             values.put(DataContract.RatingDisciplinaEntry.COLUMN_RATING, rating.getRating());
 
 
+            Log.i("RATING_TEST", "INSERTED!!!");
             returnedId = (int) database.insert(DataContract.RatingDisciplinaEntry.TABLE_NAME_RATING_DISCIPLINA, null, values);
             rating.setIdRatingDisciplina(returnedId);
         }
@@ -806,9 +824,6 @@ public class AppDAO {
                         " AND " + "(" + DataContract.RatingDisciplinaEntry.COLUMN_ALUNO_FK + " = " + idAluno + ")" +
                         " AND " + "(" + DataContract.RatingDisciplinaEntry.COLUMN_DISCIPLINA_FK + " = " + idDisciplina + ")";
 
-        //Cursor cursor = database.query(DataContract.RatingDisciplinaEntry.TABLE_NAME_RATING_DISCIPLINA, PROJECTION_RATING_DISCIPLINAS, null, null, null, null, DataContract.RatingDisciplinaEntry.COLUMN_ID);
-        Log.i("TEST_QUERY", selectQuery);
-
         Cursor cursor = database.rawQuery(selectQuery, null);
 
         RatingDisciplina ratingDisciplina = null;
@@ -831,6 +846,8 @@ public class AppDAO {
     public int getRatingDisciplinaCount(int idDisciplina) {
 
         String countQuery = "SELECT COUNT(" + DataContract.RatingDisciplinaEntry.TABLE_NAME_RATING_DISCIPLINA + "." + DataContract.RatingDisciplinaEntry.COLUMN_ID + ") FROM " + DataContract.RatingDisciplinaEntry.TABLE_NAME_RATING_DISCIPLINA + " WHERE (" + DataContract.RatingDisciplinaEntry.COLUMN_DISCIPLINA_FK + " = " + idDisciplina + ");";
+
+        Log.i("COUNT_QUERY", countQuery);
 
         Cursor cursor = database.rawQuery(countQuery, null);
         cursor.moveToFirst();

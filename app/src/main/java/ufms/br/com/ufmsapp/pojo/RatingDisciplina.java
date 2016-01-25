@@ -11,6 +11,12 @@ public class RatingDisciplina {
     public RatingDisciplina() {
     }
 
+    public RatingDisciplina(int alunoKey, int disciplinaKey, float rating) {
+        this.alunoKey = alunoKey;
+        this.disciplinaKey = disciplinaKey;
+        this.rating = rating;
+    }
+
     public RatingDisciplina(int idRatingDisciplina, int alunoKey, int disciplinaKey, float rating) {
         this.idRatingDisciplina = idRatingDisciplina;
         this.alunoKey = alunoKey;
