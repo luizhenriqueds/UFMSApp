@@ -19,6 +19,9 @@ import ufms.br.com.ufmsapp.pojo.RatingDisciplina;
 
 public class RatingDisciplinaParser {
 
+    private static final String ALUNO_KEY = "alunoKey";
+    private static final String DISCIPLINA_KEY = "disciplinaKey";
+    private static final String RATING = "disciplinaRating";
     static int idInserted;
 
     public static int newRatingDisciplina(final RatingDisciplina ratingDisciplina) {
@@ -47,10 +50,10 @@ public class RatingDisciplinaParser {
         ) {
             @Override
             protected Map<String, String> getParams() {
-                Map<String, String> params = new HashMap<String, String>();
-                params.put("alunoKey", String.valueOf(ratingDisciplina.getAlunoKey()));
-                params.put("disciplinaKey", String.valueOf(ratingDisciplina.getDisciplinaKey()));
-                params.put("disciplinaRating", String.valueOf(ratingDisciplina.getRating()));
+                Map<String, String> params = new HashMap<>();
+                params.put(ALUNO_KEY, String.valueOf(ratingDisciplina.getAlunoKey()));
+                params.put(DISCIPLINA_KEY, String.valueOf(ratingDisciplina.getDisciplinaKey()));
+                params.put(RATING, String.valueOf(ratingDisciplina.getRating()));
 
                 return params;
             }
