@@ -21,9 +21,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginBottom="30dp"
-        android:contentDescription="@string/txt_content_description_no_connection"
+        android:contentDescription="@string/txt_no_upload"
         android:gravity="center"
-        android:src="@mipmap/ic_attachment_black_24dp"
+        android:src="@mipmap/ic_attachment_black_48dp"
         android:visibility="gone" />
 
     <TextView

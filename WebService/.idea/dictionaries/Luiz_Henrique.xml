@@ -4,16 +4,20 @@
       <w>aluno</w>
       <w>alunos</w>
       <w>anexo</w>
+      <w>atualizado</w>
+      <w>atualizar</w>
       <w>banco</w>
       <w>caminho</w>
       <w>carga</w>
       <w>codigo</w>
       <w>conecta</w>
       <w>conexão</w>
+      <w>controle</w>
       <w>dados</w>
       <w>descricao</w>
       <w>disciplina</w>
       <w>disciplinas</w>
+      <w>erro</w>
       <w>evento</w>
       <w>eventos</w>
       <w>formacao</w>
@@ -23,11 +27,14 @@
       <w>limite</w>
       <w>matriculas</w>
       <w>professores</w>
+      <w>registro</w>
       <w>retorna</w>
+      <w>sucesso</w>
       <w>tipo</w>
       <w>titulo</w>
       <w>turma</w>
       <w>turmas</w>
+      <w>variável</w>
     </words>
   </dictionary>
 </component>

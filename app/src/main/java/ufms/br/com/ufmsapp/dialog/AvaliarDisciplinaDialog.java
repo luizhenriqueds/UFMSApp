@@ -24,7 +24,6 @@ import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -38,6 +37,7 @@ import ufms.br.com.ufmsapp.fragment.DetalheDisciplinaFragment;
 import ufms.br.com.ufmsapp.pojo.Disciplina;
 import ufms.br.com.ufmsapp.pojo.RatingDisciplina;
 import ufms.br.com.ufmsapp.task.TaskRateDisciplina;
+import ufms.br.com.ufmsapp.task.TaskUpdateRateDisciplina;
 
 public class AvaliarDisciplinaDialog extends DialogFragment implements OnClickListener {
 
@@ -53,6 +53,7 @@ public class AvaliarDisciplinaDialog extends DialogFragment implements OnClickLi
     protected RatingBar ratingBar;
     protected RatingBar ratingDetails;
     private int myValue;
+    private TextView disciplinaRatingValue;
 
     public static AvaliarDisciplinaDialog newInstance(int idAluno, int idDisciplina, float rating, OnRatingDisciplinaListener listener, RatingBar ratingDetails) {
         AvaliarDisciplinaDialog dialog = new AvaliarDisciplinaDialog();
@@ -61,6 +62,17 @@ public class AvaliarDisciplinaDialog extends DialogFragment implements OnClickLi
         dialog.rating = rating;
         dialog.listener = listener;
         dialog.ratingDetails = ratingDetails;
+        return dialog;
+    }
+
+    public static AvaliarDisciplinaDialog newInstance(int idAluno, int idDisciplina, float rating, OnRatingDisciplinaListener listener, RatingBar ratingDetails, TextView disciplinaRating) {
+        AvaliarDisciplinaDialog dialog = new AvaliarDisciplinaDialog();
+        dialog.idAluno = idAluno;
+        dialog.idDisciplina = idDisciplina;
+        dialog.rating = rating;
+        dialog.listener = listener;
+        dialog.ratingDetails = ratingDetails;
+        dialog.disciplinaRatingValue = disciplinaRating;
         return dialog;
     }
 
@@ -140,24 +152,27 @@ public class AvaliarDisciplinaDialog extends DialogFragment implements OnClickLi
     public void onClick(DialogInterface dialog, int which) {
         if (which == DialogInterface.BUTTON_POSITIVE && listener != null) {
 
-            if (myValue == 0) {
-                RatingDisciplina ratingDisciplina = new RatingDisciplina(idAluno, idDisciplina, ratingBar.getRating());
+            RatingDisciplina ratingDisciplina = new RatingDisciplina(idAluno, idDisciplina, ratingBar.getRating());
 
+            if (myValue == 0) {
                 TaskRateDisciplina task = new TaskRateDisciplina();
+                task.setActivityContext(getActivity());
                 task.execute(ratingDisciplina);
 
-                int idReturned = MyApplication.getWritableDatabase().ratingDisciplina(ratingDisciplina);
-
-                if (idReturned > 0) {
-                    Snackbar.make(getActivity().findViewById(android.R.id.content), R.string.txt_rated_success, Snackbar.LENGTH_LONG).show();
-                }
+                MyApplication.getWritableDatabase().ratingDisciplina(ratingDisciplina);
 
                 listener.onRatingDisciplina(idAluno, idDisciplina, ratingBar.getRating());
-            } else {
+
+            } else if (myValue == 1) {
+                Toast.makeText(getActivity(), "RATING=> " + ratingDisciplina.getRating(), Toast.LENGTH_LONG).show();
+                TaskUpdateRateDisciplina updateTask = new TaskUpdateRateDisciplina();
+                updateTask.setActivityContext(getActivity());
+                updateTask.execute(ratingDisciplina);
+
                 MyApplication.getWritableDatabase().updateRatingDisciplina(idAluno, idDisciplina, ratingBar.getRating());
 
-                Toast.makeText(getActivity(), "UPDATED", Toast.LENGTH_LONG).show();
-                //ratingDetails.setRating();
+                ratingDetails.setRating(ratingBar.getRating());
+                disciplinaRatingValue.setText(String.valueOf(ratingBar.getRating()));
             }
 
 

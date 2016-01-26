@@ -152,7 +152,7 @@ public class DetalheDisciplinaFragment extends Fragment implements AvaliarDiscip
         switch (v.getId()) {
             case R.id.btn_editar_rating:
                 ratingDisciplina = MyApplication.getWritableDatabase().getRatingDisciplina(1, disciplina.getIdDisciplinaServidor());
-                AvaliarDisciplinaDialog editDialog = AvaliarDisciplinaDialog.newInstance(1, disciplina.getIdDisciplinaServidor(), ratingDisciplina.getRating(), DetalheDisciplinaFragment.this, disciplinaRating);
+                AvaliarDisciplinaDialog editDialog = AvaliarDisciplinaDialog.newInstance(1, disciplina.getIdDisciplinaServidor(), disciplinaRating.getRating(), DetalheDisciplinaFragment.this, disciplinaRating, disciplinaRatingValue);
                 bundle.putInt(DIALOG_MODE, editMode);
                 editDialog.setArguments(bundle);
                 editDialog.show(getActivity().getFragmentManager(), DIALOG_EDIT_TAG);

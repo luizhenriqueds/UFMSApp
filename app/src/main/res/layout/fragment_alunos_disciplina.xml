@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginBottom="30dp"
-        android:contentDescription="@string/txt_content_description_no_connection"
+        android:contentDescription="@string/txt_content_description_no_student"
         android:gravity="center"
         android:src="@mipmap/ic_face_black_24dp"
         android:visibility="gone" />

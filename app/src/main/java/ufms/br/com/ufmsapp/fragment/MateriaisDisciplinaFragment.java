@@ -1,18 +1,21 @@
 package ufms.br.com.ufmsapp.fragment;
 
 
-import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import fr.castorflex.android.circularprogressbar.CircularProgressBar;
 import ufms.br.com.ufmsapp.MyApplication;
 import ufms.br.com.ufmsapp.R;
 import ufms.br.com.ufmsapp.adapter.MateriaisAdapter;
@@ -27,7 +30,9 @@ public class MateriaisDisciplinaFragment extends Fragment implements MateriaisAd
     protected RecyclerView mRecyclerMateriais;
     protected MateriaisAdapter adapter;
     protected Disciplina disciplina;
-    //ProgressDialog mProgressDialog;
+    CircularProgressBar mProgressDialog;
+    TextView emptyListText;
+    ImageView emptyListIcon;
 
     public MateriaisDisciplinaFragment() {
     }
@@ -48,6 +53,12 @@ public class MateriaisDisciplinaFragment extends Fragment implements MateriaisAd
         mRecyclerMateriais = (RecyclerView) view.findViewById(R.id.recycler_files_disciplina);
         mRecyclerMateriais.setLayoutManager(new LinearLayoutManager(getActivity()));
 
+        mProgressDialog = (CircularProgressBar) view.findViewById(R.id.progress_bar_list_files);
+
+        emptyListText = (TextView) view.findViewById(R.id.file_txt_empty_text);
+        emptyListIcon = (ImageView) view.findViewById(R.id.file_empty_icon);
+        emptyListIcon.setColorFilter(ContextCompat.getColor(getActivity(), R.color.no_connection_msg));
+
         disciplina = getActivity().getIntent().getParcelableExtra(DisciplinasFragment.DISCIPLINA_EXTRA);
 
         ArrayList<Material> uploads = MyApplication.getWritableDatabase().listarMateriaisByDisciplina(disciplina.getIdDisciplinaServidor());
@@ -57,9 +68,41 @@ public class MateriaisDisciplinaFragment extends Fragment implements MateriaisAd
         adapter.setUploadList(uploads);
 
 
-        mRecyclerMateriais.setAdapter(adapter);
+        updateList();
 
         return view;
+    }
+
+    public void updateList() {
+        adapter.setMaterialClickListener(this);
+        mRecyclerMateriais.setAdapter(adapter);
+        setupRecyclerView();
+    }
+
+    private void checkAdapterIsEmpty() {
+
+        if (adapter.getItemCount() == 0) {
+            emptyListIcon.setVisibility(View.VISIBLE);
+            emptyListText.setVisibility(View.VISIBLE);
+            emptyListText.setText(R.string.txt_no_upload_available);
+        } else {
+            emptyListIcon.setVisibility(View.GONE);
+            emptyListText.setVisibility(View.GONE);
+        }
+
+    }
+
+    protected void setupRecyclerView() {
+        adapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
+            @Override
+            public void onChanged() {
+                super.onChanged();
+                checkAdapterIsEmpty();
+            }
+        });
+
+
+        checkAdapterIsEmpty();
     }
 
     @Override

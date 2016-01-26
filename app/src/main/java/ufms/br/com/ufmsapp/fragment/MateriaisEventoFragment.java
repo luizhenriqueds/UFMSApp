@@ -30,8 +30,8 @@ public class MateriaisEventoFragment extends Fragment implements MateriaisAdapte
     protected MateriaisAdapter adapter;
     protected Evento evento;
     protected ArrayList<Material> uploads;
-    private TextView EmptyListText;
-    private ImageView EmptyListIcon;
+    private TextView emptyListText;
+    private ImageView emptyListIcon;
 
     public static MateriaisEventoFragment newInstance() {
         return new MateriaisEventoFragment();
@@ -49,9 +49,9 @@ public class MateriaisEventoFragment extends Fragment implements MateriaisAdapte
 
         evento = getActivity().getIntent().getParcelableExtra(EventosFragment.EVENTO_EXTRA);
 
-        EmptyListText = (TextView) view.findViewById(R.id.no_upload_txt);
-        EmptyListIcon = (ImageView) view.findViewById(R.id.no_upload_icon);
-        EmptyListIcon.setColorFilter(ContextCompat.getColor(getActivity(), R.color.no_connection_msg));
+        emptyListText = (TextView) view.findViewById(R.id.no_upload_txt);
+        emptyListIcon = (ImageView) view.findViewById(R.id.no_upload_icon);
+        emptyListIcon.setColorFilter(ContextCompat.getColor(getActivity(), R.color.no_connection_msg));
 
         eventosUploadsRecycler = (RecyclerView) view.findViewById(R.id.recycler_uploads_evento);
         eventosUploadsRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -75,12 +75,12 @@ public class MateriaisEventoFragment extends Fragment implements MateriaisAdapte
     private void checkAdapterIsEmpty() {
 
         if (adapter.getItemCount() == 0) {
-            EmptyListIcon.setVisibility(View.VISIBLE);
-            EmptyListText.setVisibility(View.VISIBLE);
-            EmptyListText.setText(R.string.txt_sem_anexos_lista);
+            emptyListIcon.setVisibility(View.VISIBLE);
+            emptyListText.setVisibility(View.VISIBLE);
+            emptyListText.setText(R.string.txt_sem_anexos_lista);
         } else {
-            EmptyListIcon.setVisibility(View.GONE);
-            EmptyListText.setVisibility(View.GONE);
+            emptyListIcon.setVisibility(View.GONE);
+            emptyListText.setVisibility(View.GONE);
         }
 
     }

@@ -34,5 +34,7 @@ public class UrlEndpoints {
 
     public static final String INSERT_RATING_DISCIPLINA = "webservice/insert/rateDisciplina.php";
 
+    public static final String UPDATE_RATING_DISCIPLINA = "webservice/update/updateRateDisciplina.php";
+
 
 }
