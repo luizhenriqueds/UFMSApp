@@ -34,6 +34,7 @@ import ufms.br.com.ufmsapp.pojo.Disciplina;
 import ufms.br.com.ufmsapp.task.TaskLoadDisciplinas;
 import ufms.br.com.ufmsapp.task.TaskLoadMateriais;
 import ufms.br.com.ufmsapp.task.TaskLoadMatriculas;
+import ufms.br.com.ufmsapp.task.TaskLoadRatingDisciplinas;
 import ufms.br.com.ufmsapp.utils.ConnectionUtils;
 import ufms.br.com.ufmsapp.utils.OrientationUtils;
 
@@ -248,6 +249,9 @@ public class DisciplinasFragment extends Fragment implements DisciplinasLoadedLi
 
             //sincroniza uploads
             new TaskLoadMateriais().execute();
+
+            //sincroniza disciplinas rating
+            new TaskLoadRatingDisciplinas().execute();
 
             mTaskDisciplinas = new TaskLoadDisciplinas(this, listDisciplinasProgressBar, true, txtEmptyList, imgEmptyView);
             mTaskDisciplinas.execute();

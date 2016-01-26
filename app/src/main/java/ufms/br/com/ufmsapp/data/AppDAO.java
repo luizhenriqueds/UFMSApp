@@ -813,6 +813,48 @@ public class AppDAO {
 
     }
 
+    public RatingDisciplina getRatingDisciplina(int idDisciplina) {
+
+
+        String selectQuery =
+                "SELECT " + DataContract.RatingDisciplinaEntry.TABLE_NAME_RATING_DISCIPLINA + "." + DataContract.RatingDisciplinaEntry.COLUMN_ID + "," + DataContract.RatingDisciplinaEntry.COLUMN_ALUNO_FK + "," + DataContract.RatingDisciplinaEntry.COLUMN_DISCIPLINA_FK + "," + DataContract.RatingDisciplinaEntry.COLUMN_RATING
+                        + " FROM " + DataContract.RatingDisciplinaEntry.TABLE_NAME_RATING_DISCIPLINA + "," + DataContract.DisciplinaEntry.TABLE_NAME_DISCIPLINA + ", " + DataContract.AlunoEntry.TABLE_NAME_ALUNO +
+                        " WHERE " + "(" + DataContract.RatingDisciplinaEntry.COLUMN_ALUNO_FK + "=" + DataContract.AlunoEntry.COLUMN_ALUNO_ID_SERVIDOR + ")" +
+                        " AND " + "(" + DataContract.RatingDisciplinaEntry.COLUMN_DISCIPLINA_FK + "=" + DataContract.DisciplinaEntry.COLUMN_ID_SERVIDOR + ")" +
+                        " AND " + "(" + DataContract.RatingDisciplinaEntry.COLUMN_DISCIPLINA_FK + " = " + idDisciplina + ")";
+
+        Cursor cursor = database.rawQuery(selectQuery, null);
+
+        RatingDisciplina ratingDisciplina = null;
+        try {
+            if (cursor.moveToFirst()) {
+                do {
+                    ratingDisciplina = AppDAO.fromCursorRatingDisciplina(cursor);
+                } while (cursor.moveToNext());
+            }
+
+            return ratingDisciplina;
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+
+    }
+
+    public void updateRatingDisciplina(int idAluno, int idDisciplina, float rating) {
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(DataContract.RatingDisciplinaEntry.COLUMN_RATING, rating);
+
+        String updateQuery = "UPDATE " + DataContract.RatingDisciplinaEntry.TABLE_NAME_RATING_DISCIPLINA + " SET " + DataContract.RatingDisciplinaEntry.COLUMN_RATING +
+                " = " + rating + " WHERE (" + DataContract.RatingDisciplinaEntry.COLUMN_ALUNO_FK + " = " + idAluno + ") AND (" + DataContract.RatingDisciplinaEntry.COLUMN_DISCIPLINA_FK + " = " + idDisciplina + ");";
+
+        Cursor cursor = database.rawQuery(updateQuery, null);
+        cursor.moveToFirst();
+        cursor.close();
+    }
+
     public RatingDisciplina getRatingDisciplina(int idAluno, int idDisciplina) {
 
 

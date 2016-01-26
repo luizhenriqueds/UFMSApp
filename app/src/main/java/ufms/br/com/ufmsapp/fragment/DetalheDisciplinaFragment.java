@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -31,10 +32,14 @@ public class DetalheDisciplinaFragment extends Fragment implements AvaliarDiscip
     protected Disciplina disciplina;
     protected static final String CARGA_HORARIA_UN_TEMPO = "h";
     protected static final String DIALOG_TAG = "ratingDialog";
+    public static final String DIALOG_EDIT_TAG = "editRatingDialog";
+    public static final String DIALOG_MODE = "dialogMode";
     protected Button btnRate;
+    protected ImageButton btnEditRating;
     protected TextView disciplinaRatingCount;
     protected TextView disciplinaRatingStatus;
     protected ImageView disciplinaRatingCountImg;
+    private RatingDisciplina ratingDisciplina;
 
     public DetalheDisciplinaFragment() {
     }
@@ -62,6 +67,7 @@ public class DetalheDisciplinaFragment extends Fragment implements AvaliarDiscip
         disciplinaRatingCount = (TextView) view.findViewById(R.id.disciplina_detalhes_rating_count);
         disciplinaRatingStatus = (TextView) view.findViewById(R.id.txt_rating_status);
         disciplinaRatingCountImg = (ImageView) view.findViewById(R.id.img_count_rating);
+        btnEditRating = (ImageButton) view.findViewById(R.id.btn_editar_rating);
         disciplinaRating = (RatingBar) view.findViewById(R.id.disciplina_detalhes_rating_bar);
         btnRate = (Button) view.findViewById(R.id.btn_rate);
 
@@ -76,12 +82,13 @@ public class DetalheDisciplinaFragment extends Fragment implements AvaliarDiscip
             disciplinaProfessor.setText(professor.getNome());
             disciplinaCargaHoraria.setText(String.valueOf(disciplina.getCargaHoraria() + CARGA_HORARIA_UN_TEMPO));
 
-            final RatingDisciplina ratingDisciplina = MyApplication.getWritableDatabase().getRatingDisciplina(1, disciplina.getIdDisciplinaServidor());
+            ratingDisciplina = MyApplication.getWritableDatabase().getRatingDisciplina(1, disciplina.getIdDisciplinaServidor());
 
             if (ratingDisciplina != null) {
                 setRatingBar(false, ratingDisciplina.getRating(), disciplina.getIdDisciplinaServidor());
 
             } else {
+                btnEditRating.setVisibility(View.GONE);
                 btnRate.setEnabled(true);
 
                 disciplinaRatingStatus.setVisibility(View.VISIBLE);
@@ -106,6 +113,7 @@ public class DetalheDisciplinaFragment extends Fragment implements AvaliarDiscip
     }
 
     private void setRatingBar(boolean btnEnable, float rating, int idDisciplina) {
+        btnEditRating.setVisibility(View.VISIBLE);
         btnRate.setEnabled(btnEnable);
 
         disciplinaRating.setRating(rating);
@@ -123,6 +131,8 @@ public class DetalheDisciplinaFragment extends Fragment implements AvaliarDiscip
 
         disciplinaRatingCount.setText(String.valueOf(ratingCount));
         disciplinaRatingStatus.setVisibility(View.GONE);
+
+        btnEditRating.setOnClickListener(this);
     }
 
 
@@ -133,8 +143,29 @@ public class DetalheDisciplinaFragment extends Fragment implements AvaliarDiscip
 
     @Override
     public void onClick(View v) {
-        AvaliarDisciplinaDialog dialog = AvaliarDisciplinaDialog.newInstance(1, disciplina.getIdDisciplinaServidor(), disciplinaRating.getRating(), DetalheDisciplinaFragment.this, disciplinaRating);
-        dialog.show(getActivity().getFragmentManager(), DIALOG_TAG);
+
+        int createMode = 0;
+        int editMode = 1;
+
+        Bundle bundle = new Bundle();
+
+        switch (v.getId()) {
+            case R.id.btn_editar_rating:
+                ratingDisciplina = MyApplication.getWritableDatabase().getRatingDisciplina(1, disciplina.getIdDisciplinaServidor());
+                AvaliarDisciplinaDialog editDialog = AvaliarDisciplinaDialog.newInstance(1, disciplina.getIdDisciplinaServidor(), ratingDisciplina.getRating(), DetalheDisciplinaFragment.this, disciplinaRating);
+                bundle.putInt(DIALOG_MODE, editMode);
+                editDialog.setArguments(bundle);
+                editDialog.show(getActivity().getFragmentManager(), DIALOG_EDIT_TAG);
+                break;
+
+            case R.id.btn_rate:
+                AvaliarDisciplinaDialog dialog = AvaliarDisciplinaDialog.newInstance(1, disciplina.getIdDisciplinaServidor(), disciplinaRating.getRating(), DetalheDisciplinaFragment.this, disciplinaRating);
+                bundle.putInt(DIALOG_MODE, createMode);
+                dialog.setArguments(bundle);
+                dialog.show(getActivity().getFragmentManager(), DIALOG_TAG);
+                break;
+        }
+
 
     }
 }

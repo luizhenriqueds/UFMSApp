@@ -27,7 +27,7 @@ public class MateriaisDisciplinaFragment extends Fragment implements MateriaisAd
     protected RecyclerView mRecyclerMateriais;
     protected MateriaisAdapter adapter;
     protected Disciplina disciplina;
-    ProgressDialog mProgressDialog;
+    //ProgressDialog mProgressDialog;
 
     public MateriaisDisciplinaFragment() {
     }

@@ -81,7 +81,7 @@ public class DisciplinasAdapter extends RecyclerView.Adapter<DisciplinasAdapter.
 
         Professor professor = MyApplication.getWritableDatabase().professorById(disciplina.getProfessor());
 
-        RatingDisciplina rating = MyApplication.getWritableDatabase().getRatingDisciplina(1, disciplina.getIdDisciplinaServidor());
+        RatingDisciplina rating = MyApplication.getWritableDatabase().getRatingDisciplina(disciplina.getIdDisciplinaServidor());
 
         float ratingAVG = MyApplication.getWritableDatabase().getRatingDisciplinaAVG(disciplina.getIdDisciplinaServidor());
 

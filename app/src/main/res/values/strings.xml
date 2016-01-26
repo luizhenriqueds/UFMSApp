@@ -58,10 +58,13 @@
     <string name="txt_download_em_progresso">Download em progresso &#8230;</string>
     <string name="txt_download_error">"Download error: "</string>
     <string name="txt_dialog_msg">Deseja avaliar esta disciplina?</string>
+    <string name="txt_dialog_msg_edit">Deseja editar sua avaliação?</string>
     <string name="txt_disciplina_rating_status">Você ainda não avaliou esta disciplina.</string>
     <string name="txt_cancel">Cancelar</string>
     <string name="txt_avaliar">Avaliar</string>
+    <string name="txt_editar">Editar</string>
     <string name="txt_rated_success">Disciplina avaliada com sucesso.</string>
+    <string name="txt_content_description_avaliacao">Editar Avaliação da Disciplina</string>
 
 
     <integer-array name="colors">
