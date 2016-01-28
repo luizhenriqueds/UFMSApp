@@ -1,5 +1,7 @@
 <?php
 
+header('Content-Type: application/json; Charset=UTF-8');
+
 include("../connection/Connect.php");
 
 $db = new Connect();
@@ -11,15 +13,13 @@ $sql = "UPDATE app_rating_disciplina SET app_rating = ? WHERE (app_aluno_key = ?
 
 $query = $connection->prepare($sql);
 
-$disciplinaRating = $_REQUEST['disciplinaRating'];
-$alunoKey = $_REQUEST['alunoKey'];
-$disciplinaKey = $_REQUEST['disciplinaKey'];
+$disciplinaRating = $_POST['disciplinaRating'];
+$alunoKey = $_POST['alunoKey'];
+$disciplinaKey = $_POST['disciplinaKey'];
 
 $query->execute(array($disciplinaRating, $alunoKey, $disciplinaKey));
 
-$returnJson = array("result" => $query->rowCount());
-
-header("Content-type: application/json");
+$returnJson = array("updated" => $query->rowCount());
 
 echo json_encode($returnJson);
 

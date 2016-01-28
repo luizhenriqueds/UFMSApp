@@ -24,6 +24,7 @@ import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -100,14 +101,31 @@ public class AvaliarDisciplinaDialog extends DialogFragment implements OnClickLi
         ratingBar.setRating(rating);
 
 
-        ratingDialog.setText(String.valueOf(rating));
-        setRatingDescription(rating);
+        if (rating > 0.0) {
+            ratingDialogDesc.setVisibility(View.VISIBLE);
+            ratingDialog.setVisibility(View.VISIBLE);
+            ratingDialog.setText(String.valueOf(rating));
+            setRatingDescription(rating);
+        } else {
+            ratingDialogDesc.setVisibility(View.GONE);
+            ratingDialog.setVisibility(View.GONE);
+        }
+
 
         ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             public void onRatingChanged(RatingBar ratingBar, float newRating,
                                         boolean fromUser) {
-                ratingDialog.setText(String.valueOf(newRating));
-                setRatingDescription(newRating);
+
+                if (newRating > 0.0) {
+                    ratingDialogDesc.setVisibility(View.VISIBLE);
+                    ratingDialog.setVisibility(View.VISIBLE);
+                    ratingDialog.setText(String.valueOf(newRating));
+                    setRatingDescription(newRating);
+                } else {
+                    ratingDialogDesc.setVisibility(View.GONE);
+                    ratingDialog.setVisibility(View.GONE);
+                }
+
             }
         });
 
@@ -154,25 +172,35 @@ public class AvaliarDisciplinaDialog extends DialogFragment implements OnClickLi
 
             RatingDisciplina ratingDisciplina = new RatingDisciplina(idAluno, idDisciplina, ratingBar.getRating());
 
-            if (myValue == 0) {
-                TaskRateDisciplina task = new TaskRateDisciplina();
-                task.setActivityContext(getActivity());
-                task.execute(ratingDisciplina);
+            if (ratingDisciplina.getRating() > 0.0) {
+                if (myValue == 0) {
 
-                MyApplication.getWritableDatabase().ratingDisciplina(ratingDisciplina);
+                    TaskRateDisciplina task = new TaskRateDisciplina();
+                    task.setActivityContext(getActivity());
+                    task.execute(ratingDisciplina);
 
-                listener.onRatingDisciplina(idAluno, idDisciplina, ratingBar.getRating());
+                    MyApplication.getWritableDatabase().ratingDisciplina(ratingDisciplina);
 
-            } else if (myValue == 1) {
-                Toast.makeText(getActivity(), "RATING=> " + ratingDisciplina.getRating(), Toast.LENGTH_LONG).show();
-                TaskUpdateRateDisciplina updateTask = new TaskUpdateRateDisciplina();
-                updateTask.setActivityContext(getActivity());
-                updateTask.execute(ratingDisciplina);
+                    listener.onRatingDisciplina(idAluno, idDisciplina, ratingBar.getRating());
 
-                MyApplication.getWritableDatabase().updateRatingDisciplina(idAluno, idDisciplina, ratingBar.getRating());
 
-                ratingDetails.setRating(ratingBar.getRating());
-                disciplinaRatingValue.setText(String.valueOf(ratingBar.getRating()));
+                } else if (myValue == 1) {
+
+                    new TaskUpdateRateDisciplina().execute(ratingDisciplina);
+
+                    MyApplication.getWritableDatabase().updateRatingDisciplina(idAluno, idDisciplina, ratingBar.getRating());
+
+                    ratingDetails.setRating(ratingBar.getRating());
+
+                    disciplinaRatingValue.setText(String.valueOf(ratingBar.getRating()));
+
+                    Snackbar.make(getActivity().findViewById(android.R.id.content), R.string.txt_rated_edit_success, Snackbar.LENGTH_LONG).show();
+
+                }
+            } else {
+                Toast.makeText(getActivity(), R.string.txt_rated_not_allowed, Toast.LENGTH_LONG).show();
+                dialog.dismiss();
+                ratingDetails.setRating(0);
             }
 
 

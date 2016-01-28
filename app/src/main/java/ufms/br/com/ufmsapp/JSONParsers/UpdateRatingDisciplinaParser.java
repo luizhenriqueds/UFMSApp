@@ -22,10 +22,13 @@ public class UpdateRatingDisciplinaParser {
     private static final String ALUNO_KEY = "alunoKey";
     private static final String DISCIPLINA_KEY = "disciplinaKey";
     private static final String RATING = "disciplinaRating";
-    static int updateStatusResponse;
+    //private static final String UPDATED = "updated";
+    //private int updateStatusResponse = 44;
 
-    public static String updateRatingDisciplinaParser(final RatingDisciplina ratingDisciplina) {
-        final StringRequest postRequest = new StringRequest(Request.Method.POST, Endpoints.getRequestUrlUpdateRating(),
+    public static void updateRatingDisciplinaParser(final RatingDisciplina ratingDisciplina) {
+
+
+        StringRequest postRequest = new StringRequest(Request.Method.POST, Endpoints.getRequestUrlUpdateRating(),
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -34,7 +37,8 @@ public class UpdateRatingDisciplinaParser {
 
                         try {
                             jsonResponse = new JSONObject(response);
-                            updateStatusResponse = jsonResponse.getInt("result");
+                            Log.i("JSON_RESPONSE", response);
+                            //updateStatusResponse = jsonResponse.getInt(UPDATED);
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -60,7 +64,6 @@ public class UpdateRatingDisciplinaParser {
 
         VolleySingleton.getInstance().getRequestQueue().add(postRequest);
 
-        return postRequest.toString();
 
     }
 

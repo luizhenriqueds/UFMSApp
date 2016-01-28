@@ -90,7 +90,7 @@ public class DisciplinasAdapter extends RecyclerView.Adapter<DisciplinasAdapter.
         disciplinaViewHolder.disciplinaDescricao.setText(disciplina.getDescricao());
 
 
-        if (rating != null) {
+        if (rating != null && rating.getRating() > 0.0) {
             disciplinaViewHolder.disciplinaRatingBar.setVisibility(View.VISIBLE);
             disciplinaViewHolder.disciplinaScore.setText(String.format("%.01f", ratingAVG));
         } else {

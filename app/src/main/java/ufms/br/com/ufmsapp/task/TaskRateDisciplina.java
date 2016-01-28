@@ -36,8 +36,8 @@ public class TaskRateDisciplina extends AsyncTask<RatingDisciplina, Integer, Int
     protected void onPostExecute(Integer integer) {
         super.onPostExecute(integer);
 
-        if (integer > 0) {
-            Snackbar.make(activity.findViewById(android.R.id.content), R.string.txt_rated_success, Snackbar.LENGTH_LONG).show();
-        }
+        //if (integer > 0) {
+        Snackbar.make(activity.findViewById(android.R.id.content), R.string.txt_rated_success, Snackbar.LENGTH_LONG).show();
+        // }
     }
 }

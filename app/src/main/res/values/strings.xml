@@ -63,8 +63,9 @@
     <string name="txt_cancel">Cancelar</string>
     <string name="txt_avaliar">Avaliar</string>
     <string name="txt_editar">Editar</string>
-    <string name="txt_rated_success">Review gravado com sucesso.</string>
-    <string name="txt_rated_edit_success">Review editado com sucesso.</string>
+    <string name="txt_rated_success">Avaliação gravada com sucesso.</string>
+    <string name="txt_rated_edit_success">Avaliação editada com sucesso.</string>
+    <string name="txt_rated_not_allowed">Selecione uma nota diferente para a avaliação.</string>
     <string name="txt_content_description_avaliacao">Editar Avaliação da Disciplina</string>
     <string name="txt_no_upload">Nenhum anexo disponivel</string>
     <string name="txt_no_upload_available">Nenhum anexo disponível.</string>

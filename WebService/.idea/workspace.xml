@@ -2,24 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f27fee75-9493-4c44-a8c3-c12b7695b42b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/update/updateRateDisciplina.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/JSONParsers/UpdateRatingDisciplinaParser.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/task/TaskUpdateRateDisciplina.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/dictionaries/Luiz_Henrique.xml" afterPath="$PROJECT_DIR$/../.idea/dictionaries/Luiz_Henrique.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/../.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/Luiz_Henrique.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/Luiz_Henrique.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/update/updateRateDisciplina.php" afterPath="$PROJECT_DIR$/update/updateRateDisciplina.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/JSONParsers/UpdateRatingDisciplinaParser.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/JSONParsers/UpdateRatingDisciplinaParser.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/dialog/AvaliarDisciplinaDialog.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/dialog/AvaliarDisciplinaDialog.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/extras/UrlEndpoints.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/extras/UrlEndpoints.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/fragment/AlunosDisciplinaFragment.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/fragment/AlunosDisciplinaFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/fragment/DetalheDisciplinaFragment.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/fragment/DetalheDisciplinaFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/fragment/MateriaisDisciplinaFragment.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/fragment/MateriaisDisciplinaFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/fragment/MateriaisEventoFragment.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/fragment/MateriaisEventoFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/json/Endpoints.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/json/Endpoints.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/task/TaskRateDisciplina.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/task/TaskRateDisciplina.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout/fragment_alunos_disciplina.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/fragment_alunos_disciplina.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout/fragment_materiais_disciplina.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/fragment_materiais_disciplina.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/values/strings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/task/TaskUpdateRateDisciplina.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/task/TaskUpdateRateDisciplina.java" />
     </list>
     <ignored path="WebService.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -61,11 +48,11 @@
       <file leaf-file-name="updateRateDisciplina.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/update/updateRateDisciplina.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+            <state relative-caret-position="726">
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding>
-                <marker date="1453843441518" expanded="true" signature="108:210" placeholder="UPDATE app_r... " />
-                <marker date="1453843441518" expanded="true" signature="114:210" placeholder="INSERT INTO app_rating_disciplina... " />
+                <marker date="1454004387770" expanded="true" signature="166:268" placeholder="UPDATE app_r... " />
+                <marker date="1454004387770" expanded="true" signature="172:268" placeholder="INSERT INTO app_rating_disciplina... " />
               </folding>
             </state>
           </provider>
@@ -139,7 +126,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -189,6 +175,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -276,14 +263,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-13" y="-13" width="3226" height="1746" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21979435" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19955012" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Remote Host" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21818766" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20340617" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14974293" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28122914" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28093645" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -329,8 +316,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1453843441518" expanded="true" signature="108:210" placeholder="UPDATE app_r... " />
-            <marker date="1453843441518" expanded="true" signature="114:210" placeholder="INSERT INTO app_rating_disciplina... " />
+            <marker date="1454004387770" expanded="true" signature="166:268" placeholder="UPDATE app_r... " />
+            <marker date="1454004387770" expanded="true" signature="172:268" placeholder="INSERT INTO app_rating_disciplina... " />
           </folding>
         </state>
       </provider>
@@ -340,8 +327,30 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1453843441518" expanded="true" signature="108:210" placeholder="UPDATE app_r... " />
-            <marker date="1453843441518" expanded="true" signature="114:210" placeholder="INSERT INTO app_rating_disciplina... " />
+            <marker date="1454004387770" expanded="true" signature="166:268" placeholder="UPDATE app_r... " />
+            <marker date="1454004387770" expanded="true" signature="172:268" placeholder="INSERT INTO app_rating_disciplina... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/update/updateRateDisciplina.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1454004387770" expanded="true" signature="166:268" placeholder="UPDATE app_r... " />
+            <marker date="1454004387770" expanded="true" signature="172:268" placeholder="INSERT INTO app_rating_disciplina... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/update/updateRateDisciplina.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1454004387770" expanded="true" signature="166:268" placeholder="UPDATE app_r... " />
+            <marker date="1454004387770" expanded="true" signature="172:268" placeholder="INSERT INTO app_rating_disciplina... " />
           </folding>
         </state>
       </provider>
@@ -364,16 +373,39 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
           <caret line="4" column="20" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
+          <folding>
+            <marker date="1453479840646" expanded="true" signature="108:206" placeholder="INSERT INTO app_rating_disciplina... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/list/listEventos.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1081">
+          <caret line="51" column="47" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="49" />
+          <folding>
+            <marker date="1452112101892" expanded="true" signature="165:588" placeholder="SELECT app_i... app_evento" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/list/listAlunos.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="33">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="56" />
+          <folding>
+            <marker date="1452112039036" expanded="true" signature="165:379" placeholder="SELECT app_i... app_aluno" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/update/updateRateDisciplina.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        <state relative-caret-position="726">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding>
-            <marker date="1453843441518" expanded="true" signature="108:210" placeholder="UPDATE app_r... " />
-            <marker date="1453843441518" expanded="true" signature="114:210" placeholder="INSERT INTO app_rating_disciplina... " />
+            <marker date="1454004387770" expanded="true" signature="166:268" placeholder="UPDATE app_r... " />
+            <marker date="1454004387770" expanded="true" signature="172:268" placeholder="INSERT INTO app_rating_disciplina... " />
           </folding>
         </state>
       </provider>
