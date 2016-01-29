@@ -42,6 +42,8 @@
     <string name="txt_search_hint">Buscar</string>
     <string name="txt_cd_detalhes_evento">Detalhes Evento Imagem</string>
     <string name="txt_disciplina_no_content">Nenhuma disciplina disponível</string>
+    <string name="txt_notas_no_content">Suas notas irão aparecer aqui</string>
+    <string name="txt_notas_not_available">Notas não disponíveis no momento</string>
     <string name="txt_explore_disciplina_ver">VER</string>
     <string name="txt_content_description_disciplina">Tipo de disciplina detalhes</string>
     <string name="txt_rating_count">Número de usuários rating</string>
@@ -72,6 +74,8 @@
     <string name="txt_no_student">Nenhum aluno matriculado.</string>
     <string name="txt_content_description_no_student">Ícone sem Aluno Cadastrado</string>
     <string name="txt_success_download_snack_bar">Download finalizado com sucesso.</string>
+    <string name="txt_nota_icone_content_description">Ícone nota do usuário</string>
+    <string name="nota_atividade_content_description">Ícone nota atividade</string>
 
 
     <integer-array name="colors">
