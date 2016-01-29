@@ -172,8 +172,10 @@ public class AvaliarDisciplinaDialog extends DialogFragment implements OnClickLi
 
             RatingDisciplina ratingDisciplina = new RatingDisciplina(idAluno, idDisciplina, ratingBar.getRating());
 
-            if (ratingDisciplina.getRating() > 0.0) {
-                if (myValue == 0) {
+
+            if (myValue == 0) {
+
+                if (ratingDisciplina.getRating() > 0.0) {
 
                     TaskRateDisciplina task = new TaskRateDisciplina();
                     task.setActivityContext(getActivity());
@@ -183,24 +185,31 @@ public class AvaliarDisciplinaDialog extends DialogFragment implements OnClickLi
 
                     listener.onRatingDisciplina(idAluno, idDisciplina, ratingBar.getRating());
 
+                } else {
+                    Toast.makeText(getActivity(), R.string.txt_rated_not_allowed, Toast.LENGTH_LONG).show();
+                    dialog.dismiss();
+                    ratingDetails.setRating(0);
+                }
 
-                } else if (myValue == 1) {
+
+            } else if (myValue == 1) {
+
+                if (ratingDisciplina.getRating() > 0.0) {
 
                     new TaskUpdateRateDisciplina().execute(ratingDisciplina);
-
                     MyApplication.getWritableDatabase().updateRatingDisciplina(idAluno, idDisciplina, ratingBar.getRating());
-
                     ratingDetails.setRating(ratingBar.getRating());
-
                     disciplinaRatingValue.setText(String.valueOf(ratingBar.getRating()));
 
                     Snackbar.make(getActivity().findViewById(android.R.id.content), R.string.txt_rated_edit_success, Snackbar.LENGTH_LONG).show();
 
+                } else {
+                    RatingDisciplina rating = MyApplication.getWritableDatabase().getRatingDisciplina(1, ratingDisciplina.getDisciplinaKey());
+                    Toast.makeText(getActivity(), R.string.txt_rated_not_allowed, Toast.LENGTH_LONG).show();
+                    dialog.dismiss();
+                    ratingDetails.setRating(rating.getRating());
                 }
-            } else {
-                Toast.makeText(getActivity(), R.string.txt_rated_not_allowed, Toast.LENGTH_LONG).show();
-                dialog.dismiss();
-                ratingDetails.setRating(0);
+
             }
 
 

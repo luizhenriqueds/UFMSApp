@@ -61,30 +61,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         setHomeContent();
 
-        new TaskLoadAlunos().execute();
-
-        new TaskLoadTipoEventos().execute();
-
-        new TaskLoadTipoDisciplina().execute();
-
-        new TaskLoadTituloProfessores().execute();
-
-        new TaskLoadStatusAlunos().execute();
-
-        new TaskLoadStatusDisciplina().execute();
-
-        new TaskLoadTurmas().execute();
-
-        new TaskLoadMatriculas().execute();
-
-        new TaskLoadMateriais().execute();
-
-        new TaskLoadTituloProfessores().execute();
-
-        new TaskLoadProfessores().execute();
-
-        new TaskLoadRatingDisciplinas().execute();
-
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.nav_drawer);
 

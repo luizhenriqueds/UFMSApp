@@ -114,7 +114,7 @@ public class MateriaisDisciplinaFragment extends Fragment implements MateriaisAd
                 Toast.makeText(getActivity(), "FILE DOWNLOAD TEST => " + material.getPathMaterial().replace("/uploads/", ""), Toast.LENGTH_LONG).show();
                 break;
             case R.id.btn_file_download:
-                final DownloadTask downloadTask = new DownloadTask(getActivity(), R.mipmap.ic_file_download_black_24dp, material.getPathMaterial(), getActivity().getResources().getString(R.string.txt_download_em_progresso));
+                final DownloadTask downloadTask = new DownloadTask(getActivity(), R.mipmap.ic_file_download_black_24dp, material.getPathMaterial(), getActivity().getResources().getString(R.string.txt_download_em_progresso), getActivity());
 
                 ufms.br.com.ufmsapp.utils.RequestPermission.verifyStoragePermissions(getActivity());
 

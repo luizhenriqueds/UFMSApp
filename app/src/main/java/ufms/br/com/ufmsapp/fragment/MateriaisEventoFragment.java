@@ -1,7 +1,11 @@
 package ufms.br.com.ufmsapp.fragment;
 
 
+import android.app.PendingIntent;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
@@ -11,8 +15,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import java.io.File;
 import java.util.ArrayList;
 
 import ufms.br.com.ufmsapp.MyApplication;
@@ -22,6 +26,7 @@ import ufms.br.com.ufmsapp.extras.UrlEndpoints;
 import ufms.br.com.ufmsapp.pojo.Evento;
 import ufms.br.com.ufmsapp.pojo.Material;
 import ufms.br.com.ufmsapp.task.DownloadTask;
+import ufms.br.com.ufmsapp.utils.GetFileMimeType;
 
 
 public class MateriaisEventoFragment extends Fragment implements MateriaisAdapter.OnMaterialClickListener {
@@ -32,6 +37,7 @@ public class MateriaisEventoFragment extends Fragment implements MateriaisAdapte
     protected ArrayList<Material> uploads;
     private TextView emptyListText;
     private ImageView emptyListIcon;
+    protected PendingIntent piOpenNotification;
 
     public static MateriaisEventoFragment newInstance() {
         return new MateriaisEventoFragment();
@@ -98,14 +104,27 @@ public class MateriaisEventoFragment extends Fragment implements MateriaisAdapte
         checkAdapterIsEmpty();
     }
 
+    private void openDocument(String path) {
+        String fileName = path.replace(DownloadTask.UPLOAD_PATH_REPLACE, "");
+        Intent intent = new Intent();
+        intent.setAction(android.content.Intent.ACTION_VIEW);
+        File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), fileName);
+        intent.setDataAndType(Uri.fromFile(file), GetFileMimeType.getMimeType(fileName));
+        intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+        startActivity(intent);
+    }
+
     @Override
     public void onMaterialClick(View v, int position, Material material) {
         switch (v.getId()) {
             case R.id.root_open_document:
-                Toast.makeText(getActivity(), "FILE DOWNLOAD TEST => " + material.getPathMaterial().replace("/uploads/", ""), Toast.LENGTH_LONG).show();
+                //TODO
+
+                openDocument(material.getPathMaterial());
+
                 break;
             case R.id.btn_file_download:
-                final DownloadTask downloadTask = new DownloadTask(getActivity(), R.mipmap.ic_file_download_black_24dp, material.getPathMaterial(), getActivity().getResources().getString(R.string.txt_download_em_progresso));
+                final DownloadTask downloadTask = new DownloadTask(getActivity(), R.mipmap.ic_file_download_black_24dp, material.getPathMaterial(), getActivity().getResources().getString(R.string.txt_download_em_progresso), getActivity());
 
                 ufms.br.com.ufmsapp.utils.RequestPermission.verifyStoragePermissions(getActivity());
 

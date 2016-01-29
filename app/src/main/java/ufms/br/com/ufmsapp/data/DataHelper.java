@@ -6,10 +6,22 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import ufms.br.com.ufmsapp.task.TaskLoadAlunos;
+import ufms.br.com.ufmsapp.task.TaskLoadMateriais;
+import ufms.br.com.ufmsapp.task.TaskLoadMatriculas;
+import ufms.br.com.ufmsapp.task.TaskLoadProfessores;
+import ufms.br.com.ufmsapp.task.TaskLoadRatingDisciplinas;
+import ufms.br.com.ufmsapp.task.TaskLoadStatusAlunos;
+import ufms.br.com.ufmsapp.task.TaskLoadStatusDisciplina;
+import ufms.br.com.ufmsapp.task.TaskLoadTipoDisciplina;
+import ufms.br.com.ufmsapp.task.TaskLoadTipoEventos;
+import ufms.br.com.ufmsapp.task.TaskLoadTituloProfessores;
+import ufms.br.com.ufmsapp.task.TaskLoadTurmas;
+
 public class DataHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "ufmsapp.db";
-    private static final int DB_VERSION = 24;
+    private static final int DB_VERSION = 25;
     private static final String COMMA_SEPARATOR = ", ";
     private static final String APP_TAG = "log_db";
 
@@ -247,6 +259,32 @@ public class DataHelper extends SQLiteOpenHelper {
 
     }
 
+    private void sincronizarDados() {
+        new TaskLoadAlunos().execute();
+
+        new TaskLoadTipoEventos().execute();
+
+        new TaskLoadTipoDisciplina().execute();
+
+        new TaskLoadTituloProfessores().execute();
+
+        new TaskLoadStatusAlunos().execute();
+
+        new TaskLoadStatusDisciplina().execute();
+
+        new TaskLoadTurmas().execute();
+
+        new TaskLoadMatriculas().execute();
+
+        new TaskLoadMateriais().execute();
+
+        new TaskLoadTituloProfessores().execute();
+
+        new TaskLoadProfessores().execute();
+
+        new TaskLoadRatingDisciplinas().execute();
+    }
+
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(SQL_CREATE_TABLE_TIPO_CURSO);
@@ -268,6 +306,8 @@ public class DataHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_TABLE_RATING_DISCIPLINA);
 
         Log.i(APP_TAG, "DB Created!");
+
+        sincronizarDados();
     }
 
     @Override

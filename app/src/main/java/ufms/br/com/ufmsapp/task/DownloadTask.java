@@ -1,6 +1,7 @@
 package ufms.br.com.ufmsapp.task;
 
 
+import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -10,6 +11,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Environment;
 import android.os.PowerManager;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.NotificationCompat;
 import android.widget.Toast;
 
@@ -33,18 +35,20 @@ public class DownloadTask extends AsyncTask<String, Integer, String> {
     String msg;
 
     private String fileName;
-    private static final String UPLOAD_PATH_REPLACE = "/uploads/";
+    public static final String UPLOAD_PATH_REPLACE = "/uploads/";
     public static final int NOTIFICATION_ID = 100;
     static NotificationCompat.Builder builder;
     static NotificationManager manager;
     protected PendingIntent piOpenNotification;
+    private Activity activity;
 
     public DownloadTask(Context context, int iconResId,
-                        String title, String msg) {
+                        String title, String msg, Activity activity) {
         this.context = context;
         this.iconResId = iconResId;
         this.title = title;
         this.msg = msg;
+        this.activity = activity;
 
         fileName = title.replace(UPLOAD_PATH_REPLACE, "");
 
@@ -109,6 +113,7 @@ public class DownloadTask extends AsyncTask<String, Integer, String> {
             builder.setContentText(context.getString(R.string.txt_download_finalizado));
             builder.setProgress(0, 0, false);
             manager.notify(NOTIFICATION_ID, builder.build());
+            Snackbar.make(activity.findViewById(android.R.id.content), R.string.txt_success_download_snack_bar, Snackbar.LENGTH_LONG).show();
         }
     }
 

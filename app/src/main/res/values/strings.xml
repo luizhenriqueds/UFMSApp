@@ -71,6 +71,7 @@
     <string name="txt_no_upload_available">Nenhum anexo disponível.</string>
     <string name="txt_no_student">Nenhum aluno matriculado.</string>
     <string name="txt_content_description_no_student">Ícone sem Aluno Cadastrado</string>
+    <string name="txt_success_download_snack_bar">Download finalizado com sucesso.</string>
 
 
     <integer-array name="colors">
