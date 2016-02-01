@@ -138,7 +138,9 @@ public class AppDAO {
             DataContract.AlunoXDisciplinaEntry.ALUNO_FK,
             DataContract.AlunoXDisciplinaEntry.DISCIPLINA_FK,
             DataContract.AlunoXDisciplinaEntry.STATUS_DISCIPLINA_FK,
-            DataContract.AlunoXDisciplinaEntry.TURMA_FK
+            DataContract.AlunoXDisciplinaEntry.TURMA_FK,
+            DataContract.AlunoXDisciplinaEntry.COLUMN_ID_SERVIDOR
+
     };
 
 
@@ -438,6 +440,60 @@ public class AppDAO {
 
     }
 
+    public int criarNota(ArrayList<Nota> notas, boolean clearPrevious) {
+
+        if (clearPrevious) {
+            deleteTable(DataContract.NotaEntry.TABLE_NAME_NOTA);
+        }
+
+        ContentValues values = new ContentValues();
+        int returnedId = -1;
+
+
+        for (int i = 0; i < notas.size(); i++) {
+            Nota nota = notas.get(i);
+            values.put(DataContract.NotaEntry.COLUMN_DESCRICAO_NOTA, nota.getDescricaoNota());
+            values.put(DataContract.NotaEntry.COLUMN_NOTA, nota.getNota());
+            values.put(DataContract.NotaEntry.ALUNO_X_DISCIPLINA_FK, nota.getAlunoXDisciplina());
+
+            returnedId = (int) database.insert(DataContract.NotaEntry.TABLE_NAME_NOTA, null, values);
+            nota.setId(returnedId);
+        }
+
+        return returnedId;
+
+    }
+
+    public ArrayList<Nota> listarNotas(int disciplinaId) {
+
+        ArrayList<Nota> notas = new ArrayList<>();
+
+        String selectQuery =
+                "SELECT * FROM " + DataContract.NotaEntry.TABLE_NAME_NOTA + "," + DataContract.AlunoXDisciplinaEntry.TABLE_NAME_ALUNO_X_DISCIPLINA +
+                        " WHERE " + "(" + DataContract.NotaEntry.ALUNO_X_DISCIPLINA_FK + "=" + DataContract.AlunoXDisciplinaEntry.COLUMN_ID_SERVIDOR + ")" +
+                        " AND " + "(" + DataContract.AlunoXDisciplinaEntry.DISCIPLINA_FK + " = " + disciplinaId + ")";
+
+        Cursor cursor = database.rawQuery(selectQuery, null);
+
+        Log.i("DB_TEST_QUERY", selectQuery);
+
+        try {
+            if (cursor.moveToFirst()) {
+                do {
+                    Nota nota = AppDAO.fromCursorNota(cursor);
+                    notas.add(nota);
+                } while (cursor.moveToNext());
+            }
+
+            return notas;
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+
+    }
+
 
     public int ratingDisciplina(ArrayList<RatingDisciplina> ratingList, boolean clearPrevious) {
 
@@ -729,6 +785,7 @@ public class AppDAO {
             values.put(DataContract.AlunoXDisciplinaEntry.DISCIPLINA_FK, currentAlunoXDisciplina.getDisciplina());
             values.put(DataContract.AlunoXDisciplinaEntry.STATUS_DISCIPLINA_FK, currentAlunoXDisciplina.getStatusDisciplina());
             values.put(DataContract.AlunoXDisciplinaEntry.TURMA_FK, currentAlunoXDisciplina.getTurma());
+            values.put(DataContract.AlunoXDisciplinaEntry.COLUMN_ID_SERVIDOR, currentAlunoXDisciplina.getAlunoXDisciplinaIdServidor());
 
             returnedId = (int) database.insert(DataContract.AlunoXDisciplinaEntry.TABLE_NAME_ALUNO_X_DISCIPLINA, null, values);
             currentAlunoXDisciplina.setId(returnedId);
@@ -1426,9 +1483,10 @@ public class AppDAO {
         int disciplina = cursor.getInt(cursor.getColumnIndex(DataContract.AlunoXDisciplinaEntry.DISCIPLINA_FK));
         int statusDisciplina = cursor.getInt(cursor.getColumnIndex(DataContract.AlunoXDisciplinaEntry.STATUS_DISCIPLINA_FK));
         int turma = cursor.getInt(cursor.getColumnIndex(DataContract.AlunoXDisciplinaEntry.TURMA_FK));
+        int idServidor = cursor.getInt(cursor.getColumnIndex(DataContract.AlunoXDisciplinaEntry.COLUMN_ID_SERVIDOR));
 
 
-        return new AlunoXDisciplina(id, aluno, disciplina, statusDisciplina, turma);
+        return new AlunoXDisciplina(id, aluno, disciplina, statusDisciplina, turma, idServidor);
     }
 
 
@@ -1498,6 +1556,16 @@ public class AppDAO {
 
 
         return new TituloProfessor(id, descricaoTituloProfessor, tituloProfessorIdServidor);
+    }
+
+    private static Nota fromCursorNota(Cursor cursor) {
+        int id = cursor.getInt(cursor.getColumnIndex(DataContract.NotaEntry.COLUMN_ID));
+        String descricaoNota = cursor.getString(cursor.getColumnIndex(DataContract.NotaEntry.COLUMN_DESCRICAO_NOTA));
+        float nota = cursor.getInt(cursor.getColumnIndex(DataContract.NotaEntry.COLUMN_NOTA));
+        int alunoXDisciplinaKey = cursor.getInt(cursor.getColumnIndex(DataContract.NotaEntry.ALUNO_X_DISCIPLINA_FK));
+
+
+        return new Nota(id, descricaoNota, nota, alunoXDisciplinaKey);
     }
 
     private static Material fromCursorMaterial(Cursor cursor) {

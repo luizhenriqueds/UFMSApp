@@ -8,16 +8,26 @@ public class AlunoXDisciplina {
     int disciplina;
     int statusDisciplina;
     int turma;
+    int alunoXDisciplinaIdServidor;
 
-    public AlunoXDisciplina(int id, int aluno, int disciplina, int statusDisciplina, int turma) {
+    public AlunoXDisciplina(int id, int aluno, int disciplina, int statusDisciplina, int turma, int alunoXDisciplinaIdServidor) {
         this.id = id;
         this.aluno = aluno;
         this.disciplina = disciplina;
         this.statusDisciplina = statusDisciplina;
         this.turma = turma;
+        this.alunoXDisciplinaIdServidor = alunoXDisciplinaIdServidor;
     }
 
     public AlunoXDisciplina() {
+    }
+
+    public int getAlunoXDisciplinaIdServidor() {
+        return alunoXDisciplinaIdServidor;
+    }
+
+    public void setAlunoXDisciplinaIdServidor(int alunoXDisciplinaIdServidor) {
+        this.alunoXDisciplinaIdServidor = alunoXDisciplinaIdServidor;
     }
 
     public int getId() {

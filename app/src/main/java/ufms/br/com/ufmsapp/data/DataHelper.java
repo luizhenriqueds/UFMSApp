@@ -9,6 +9,7 @@ import android.util.Log;
 import ufms.br.com.ufmsapp.task.TaskLoadAlunos;
 import ufms.br.com.ufmsapp.task.TaskLoadMateriais;
 import ufms.br.com.ufmsapp.task.TaskLoadMatriculas;
+import ufms.br.com.ufmsapp.task.TaskLoadNotas;
 import ufms.br.com.ufmsapp.task.TaskLoadProfessores;
 import ufms.br.com.ufmsapp.task.TaskLoadRatingDisciplinas;
 import ufms.br.com.ufmsapp.task.TaskLoadStatusAlunos;
@@ -21,7 +22,7 @@ import ufms.br.com.ufmsapp.task.TaskLoadTurmas;
 public class DataHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "ufmsapp.db";
-    private static final int DB_VERSION = 25;
+    private static final int DB_VERSION = 27;
     private static final String COMMA_SEPARATOR = ", ";
     private static final String APP_TAG = "log_db";
 
@@ -186,6 +187,7 @@ public class DataHelper extends SQLiteOpenHelper {
             DataContract.AlunoXDisciplinaEntry.DISCIPLINA_FK + " INTEGER NOT NULL" + COMMA_SEPARATOR +
             DataContract.AlunoXDisciplinaEntry.STATUS_DISCIPLINA_FK + " INTEGER NOT NULL" + COMMA_SEPARATOR +
             DataContract.AlunoXDisciplinaEntry.TURMA_FK + " INTEGER NOT NULL" + COMMA_SEPARATOR +
+            DataContract.AlunoXDisciplinaEntry.COLUMN_ID_SERVIDOR + " INTEGER UNIQUE" + COMMA_SEPARATOR +
 
             " FOREIGN KEY (" + DataContract.AlunoXDisciplinaEntry.ALUNO_FK + ") REFERENCES " +
             DataContract.AlunoEntry.TABLE_NAME_ALUNO + " (" + DataContract.AlunoEntry.COLUMN_ID +
@@ -235,6 +237,7 @@ public class DataHelper extends SQLiteOpenHelper {
 
     private static final String SQL_CREATE_TABLE_NOTA = "CREATE TABLE " + DataContract.NotaEntry.TABLE_NAME_NOTA + "(" +
             DataContract.NotaEntry.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT" + COMMA_SEPARATOR +
+            DataContract.NotaEntry.COLUMN_DESCRICAO_NOTA + " TEXT NOT NULL" + COMMA_SEPARATOR +
             DataContract.NotaEntry.COLUMN_NOTA + " REAL NOT NULL" + COMMA_SEPARATOR +
 
             DataContract.NotaEntry.ALUNO_X_DISCIPLINA_FK + " INTEGER NOT NULL" + COMMA_SEPARATOR +
@@ -283,6 +286,8 @@ public class DataHelper extends SQLiteOpenHelper {
         new TaskLoadProfessores().execute();
 
         new TaskLoadRatingDisciplinas().execute();
+
+        new TaskLoadNotas().execute();
     }
 
     @Override

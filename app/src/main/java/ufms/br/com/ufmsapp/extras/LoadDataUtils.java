@@ -12,6 +12,7 @@ import ufms.br.com.ufmsapp.JSONParsers.ListAlunosParser;
 import ufms.br.com.ufmsapp.JSONParsers.ListDisciplinasParser;
 import ufms.br.com.ufmsapp.JSONParsers.ListEventosParser;
 import ufms.br.com.ufmsapp.JSONParsers.ListMateriaisUploadParser;
+import ufms.br.com.ufmsapp.JSONParsers.ListNotasParser;
 import ufms.br.com.ufmsapp.JSONParsers.ListProfessoresParser;
 import ufms.br.com.ufmsapp.JSONParsers.ListRatingDisciplinaParser;
 import ufms.br.com.ufmsapp.JSONParsers.ListStatusAlunosParser;
@@ -28,6 +29,7 @@ import ufms.br.com.ufmsapp.pojo.AlunoXDisciplina;
 import ufms.br.com.ufmsapp.pojo.Disciplina;
 import ufms.br.com.ufmsapp.pojo.Evento;
 import ufms.br.com.ufmsapp.pojo.Material;
+import ufms.br.com.ufmsapp.pojo.Nota;
 import ufms.br.com.ufmsapp.pojo.Professor;
 import ufms.br.com.ufmsapp.pojo.RatingDisciplina;
 import ufms.br.com.ufmsapp.pojo.StatusAluno;
@@ -152,5 +154,13 @@ public class LoadDataUtils {
         MyApplication.getWritableDatabase().criarMatricula(listMatriculas, true);
 
         return listMatriculas;
+    }
+
+    public static ArrayList<Nota> loadNotas(RequestQueue requestQueue) {
+        JSONObject response = Requestor.requestJSON(requestQueue, Endpoints.getRequestUrlNotas());
+        ArrayList<Nota> notas = ListNotasParser.parseNotasJSON(response);
+        MyApplication.getWritableDatabase().criarNota(notas, true);
+
+        return notas;
     }
 }

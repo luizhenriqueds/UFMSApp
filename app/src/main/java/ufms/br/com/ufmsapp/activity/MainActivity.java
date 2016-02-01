@@ -20,17 +20,6 @@ import ufms.br.com.ufmsapp.R;
 import ufms.br.com.ufmsapp.fragment.DisciplinasFragment;
 import ufms.br.com.ufmsapp.fragment.EventosFragment;
 import ufms.br.com.ufmsapp.fragment.ExploreFragment;
-import ufms.br.com.ufmsapp.task.TaskLoadAlunos;
-import ufms.br.com.ufmsapp.task.TaskLoadMateriais;
-import ufms.br.com.ufmsapp.task.TaskLoadMatriculas;
-import ufms.br.com.ufmsapp.task.TaskLoadProfessores;
-import ufms.br.com.ufmsapp.task.TaskLoadRatingDisciplinas;
-import ufms.br.com.ufmsapp.task.TaskLoadStatusAlunos;
-import ufms.br.com.ufmsapp.task.TaskLoadStatusDisciplina;
-import ufms.br.com.ufmsapp.task.TaskLoadTipoDisciplina;
-import ufms.br.com.ufmsapp.task.TaskLoadTipoEventos;
-import ufms.br.com.ufmsapp.task.TaskLoadTituloProfessores;
-import ufms.br.com.ufmsapp.task.TaskLoadTurmas;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -60,7 +49,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
         setHomeContent();
-
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.nav_drawer);
 

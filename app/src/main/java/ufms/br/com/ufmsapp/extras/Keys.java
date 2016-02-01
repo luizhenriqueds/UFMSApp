@@ -128,6 +128,15 @@ public class Keys {
 
     }
 
+    public static class NotasEndpointColumns implements BaseColumns {
+
+        public static final String KEY_NOTAS = "notas";
+        public static final String KEY_NOTA = "app_nota";
+        public static final String KEY_DESCRICAO_NOTA = "app_nota_descricao";
+        public static final String KEY_MATRICULA_FK = "app_aluno_x_disciplina_fk";
+
+    }
+
     public static class AlunoXDisciplinaEndpointColumns implements BaseColumns {
 
         public static final String KEY_MATRICULAS = "matriculas";
@@ -136,6 +145,8 @@ public class Keys {
         public static final String KEY_DISCIPLINA_FK = "app_disciplina_fk";
         public static final String KEY_STATUS_DISCIPLINA_FK = "app_status_disciplina_fk";
         public static final String KEY_TURMA_FK = "app_turma_key";
+        public static final String KEY_ID_SERVIDOR = "app_id_aluno_x_disciplina";
+
 
     }
 

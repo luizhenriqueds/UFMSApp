@@ -23,6 +23,7 @@ public class ListAlunoXDisciplinaParser {
             int disciplinaKey = -1;
             int statusDisciplinaKey = -1;
             int turmaKey = -1;
+            int idServidor = -1;
 
 
             try {
@@ -48,14 +49,19 @@ public class ListAlunoXDisciplinaParser {
                         turmaKey = currentObject.getInt(Keys.AlunoXDisciplinaEndpointColumns.KEY_TURMA_FK);
                     }
 
+                    if (JSONUtils.contains(currentObject, Keys.AlunoXDisciplinaEndpointColumns.KEY_ID_SERVIDOR)) {
+                        idServidor = currentObject.getInt(Keys.AlunoXDisciplinaEndpointColumns.KEY_ID_SERVIDOR);
+                    }
+
 
                     AlunoXDisciplina matricula = new AlunoXDisciplina();
 
-                    if (alunoKey != -1 && disciplinaKey != -1 && statusDisciplinaKey != -1 && turmaKey != -1) {
+                    if (alunoKey != -1 && disciplinaKey != -1 && statusDisciplinaKey != -1 && turmaKey != -1 && idServidor != -1) {
                         matricula.setAluno(alunoKey);
                         matricula.setDisciplina(disciplinaKey);
                         matricula.setStatusDisciplina(statusDisciplinaKey);
                         matricula.setTurma(turmaKey);
+                        matricula.setAlunoXDisciplinaIdServidor(idServidor);
                     }
 
                     listMatriculas.add(matricula);

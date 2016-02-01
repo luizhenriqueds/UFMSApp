@@ -296,6 +296,9 @@ public class DataContract {
 
         public static final String TURMA_FK = "app_turma_fk";
 
+        public static final String COLUMN_ID_SERVIDOR = "aluno_x_disciplina_id_servidor";
+
+
     }
 
     public class NotaEntry implements BaseColumns {
@@ -308,6 +311,9 @@ public class DataContract {
 
         /* Coluna nota será armazenada como real */
         public static final String COLUMN_NOTA = "app_nota_nota";
+
+        /* Coluna descrição da nota será armazenada como string */
+        public static final String COLUMN_DESCRICAO_NOTA = "app_descricao_nota";
 
         /* Coluna chave estrangeira da tabela aluno_x_disciplina será armazenada como inteiro */
         public static final String ALUNO_X_DISCIPLINA_FK = "app_aluno_x_disciplina_fk";

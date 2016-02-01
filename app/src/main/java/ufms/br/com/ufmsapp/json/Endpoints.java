@@ -60,6 +60,11 @@ public class Endpoints {
         return UrlEndpoints.URL_ENDPOINT + UrlEndpoints.LIST_ALUNOXDISCIPLINAS;
     }
 
+    public static String getRequestUrlNotas() {
+
+        return UrlEndpoints.URL_ENDPOINT + UrlEndpoints.LIST_NOTAS;
+    }
+
     public static String getRequestUrlStatusDisciplina() {
 
         return UrlEndpoints.URL_ENDPOINT + UrlEndpoints.LIST_STATUS_DISCIPLINA;
