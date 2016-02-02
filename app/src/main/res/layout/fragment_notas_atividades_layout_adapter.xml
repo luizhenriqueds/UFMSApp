@@ -7,11 +7,14 @@
     android:background="@color/whiteTextColor"
     tools:context="ufms.br.com.ufmsapp.fragment.EventosFragment">
 
+    <include layout="@layout/toolbar" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_notas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/lightGrayBackground"
+        android:layout_marginTop="?actionBarSize"
         android:clickable="true" />
 
 

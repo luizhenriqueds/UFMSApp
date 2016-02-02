@@ -16,6 +16,7 @@
             android:id="@+id/recycler_notas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/lightGrayBackground"
             android:clickable="true" />
     </android.support.v4.widget.SwipeRefreshLayout>
 

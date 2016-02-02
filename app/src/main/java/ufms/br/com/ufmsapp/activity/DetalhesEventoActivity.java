@@ -1,26 +1,35 @@
 package ufms.br.com.ufmsapp.activity;
 
 
+import android.graphics.Bitmap;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.graphics.Palette;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.squareup.picasso.Picasso;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import ufms.br.com.ufmsapp.R;
+import ufms.br.com.ufmsapp.extras.UrlEndpoints;
 import ufms.br.com.ufmsapp.fragment.DetalhesEventoFragment;
 import ufms.br.com.ufmsapp.fragment.EventosFragment;
 import ufms.br.com.ufmsapp.fragment.MateriaisEventoFragment;
 import ufms.br.com.ufmsapp.pojo.Disciplina;
 import ufms.br.com.ufmsapp.pojo.Evento;
+import ufms.br.com.ufmsapp.utils.VersionUtils;
 
 
 public class DetalhesEventoActivity extends AppCompatActivity {
@@ -31,7 +40,7 @@ public class DetalhesEventoActivity extends AppCompatActivity {
 
     protected TabLayout mTabs;
     protected ViewPager mPager;
-
+    private AppBarLayout appBar;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -43,6 +52,7 @@ public class DetalhesEventoActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         mTabs = (TabLayout) findViewById(R.id.tabs);
         mPager = (ViewPager) findViewById(R.id.viewpager);
+        appBar = (AppBarLayout) findViewById(R.id.appBar);
 
         setupToolbar(evento.getTitulo());
 
@@ -60,8 +70,6 @@ public class DetalhesEventoActivity extends AppCompatActivity {
     }
 
     public void setupToolbar(String titulo) {
-        // if landscape
-
         setSupportActionBar(toolbar);
 
         android.support.v7.app.ActionBar toolbar = getSupportActionBar();
@@ -72,9 +80,30 @@ public class DetalhesEventoActivity extends AppCompatActivity {
         }
 
         if (toolbar != null) {
+
+            new ImageLoaderWorker().execute(UrlEndpoints.URL_ENDPOINT + evento.getSmallIcon());
+
             toolbar.setTitle(titulo);
             toolbar.setDisplayShowTitleEnabled(true);
         }
+    }
+
+    public void setColor(Bitmap bitmap) {
+        Palette.from(bitmap).generate(new Palette.PaletteAsyncListener() {
+            @Override
+            public void onGenerated(Palette palette) {
+                int defaultColor = 0x000000;
+
+                int lightMutedColor = palette.getLightMutedColor(defaultColor);
+                int mutedColor = palette.getMutedColor(defaultColor);
+
+                if (VersionUtils.isGraterThanLollipop()) {
+                    getWindow().setStatusBarColor(mutedColor);
+                }
+                mTabs.setBackgroundColor(lightMutedColor);
+                toolbar.setBackgroundColor(lightMutedColor);
+            }
+        });
     }
 
 
@@ -141,6 +170,30 @@ public class DetalhesEventoActivity extends AppCompatActivity {
         }
     }
 
+    private class ImageLoaderWorker extends AsyncTask<String, Void, Bitmap> {
+
+        @Override
+        protected Bitmap doInBackground(String... params) {
+
+            Bitmap image = null;
+
+            try {
+                image = Picasso.with(DetalhesEventoActivity.this).load(params[0]).get();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return image;
+        }
+
+        @Override
+        protected void onPostExecute(Bitmap bitmap) {
+            super.onPostExecute(bitmap);
+
+            setColor(bitmap);
+        }
+
+
+    }
 
 }
 

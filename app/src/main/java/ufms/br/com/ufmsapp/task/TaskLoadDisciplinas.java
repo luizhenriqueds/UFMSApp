@@ -11,8 +11,10 @@ import com.android.volley.RequestQueue;
 
 import java.util.ArrayList;
 
+import fr.castorflex.android.circularprogressbar.CircularProgressBar;
 import ufms.br.com.ufmsapp.callbacks.DisciplinasLoadedListener;
 import ufms.br.com.ufmsapp.extras.LoadDataUtils;
+import ufms.br.com.ufmsapp.fragment.NotasFragment;
 import ufms.br.com.ufmsapp.network.VolleySingleton;
 import ufms.br.com.ufmsapp.pojo.Disciplina;
 
@@ -35,6 +37,8 @@ public class TaskLoadDisciplinas extends AsyncTask<Void, Integer, ArrayList<Disc
         this.noResultsText = noResultsText;
         this.noResultsImage = noResultsImage;
     }
+
+
 
     @Override
     protected void onPreExecute() {

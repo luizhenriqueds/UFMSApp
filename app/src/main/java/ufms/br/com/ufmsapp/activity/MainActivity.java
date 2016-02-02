@@ -20,6 +20,7 @@ import ufms.br.com.ufmsapp.R;
 import ufms.br.com.ufmsapp.fragment.DisciplinasFragment;
 import ufms.br.com.ufmsapp.fragment.EventosFragment;
 import ufms.br.com.ufmsapp.fragment.ExploreFragment;
+import ufms.br.com.ufmsapp.fragment.NotasFragment;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -154,14 +155,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 fragmentTransaction.commit();
                 break;
             case R.id.nav_drawer_notas:
-                // fragment = DetalhesEvento.newInstance();
-                // disciplinasContainer.setVisibility(View.GONE);
-                // eventosContainer.setVisibility(View.GONE);
-                //  mainContainer.setVisibility(View.VISIBLE);
-                // fragmentTransaction.replace(R.id.main_layout_container, fragment);
-                // fragmentTransaction.commit();
-                //startActivity(new Intent(this, DetalhesEventoActivity.class));
-                // overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                fragment = NotasFragment.newInstance();
+                fragmentTransaction.replace(R.id.main_layout_container, fragment);
+                fragmentTransaction.commit();
                 break;
 
         }

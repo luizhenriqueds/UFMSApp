@@ -43,12 +43,6 @@
         android:visibility="gone"
         tools:text="Sem conexão" />
 
-    <!--   <ProgressBar
-           android:tipoEventoId="@+tipoEventoId/progress_bar_list_eventos"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:layout_gravity="center"
-           android:visibility="gone" />-->
 
     <fr.castorflex.android.circularprogressbar.CircularProgressBar
         android:id="@+id/progress_bar_list_eventos"

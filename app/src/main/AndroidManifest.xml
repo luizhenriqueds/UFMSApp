@@ -59,6 +59,15 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name="ufms.br.com.ufmsapp.activity.NotasAtividadesActivity"
+            android:parentActivityName=".activity.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.MainActivity" />
+
+        </activity>
+
     </application>
 
 </manifest>

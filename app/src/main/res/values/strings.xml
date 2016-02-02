@@ -76,6 +76,8 @@
     <string name="txt_success_download_snack_bar">Download finalizado com sucesso.</string>
     <string name="txt_nota_icone_content_description">Ícone nota do usuário</string>
     <string name="nota_atividade_content_description">Ícone nota atividade</string>
+    <string name="txt_no_disciplina_nota">Disciplinas com notas disponíveis vão aparecer aqui.</string>
+    <string name="txt_atividade_empty">Suas notas irão aparecer aqui.</string>
 
 
     <integer-array name="colors">
