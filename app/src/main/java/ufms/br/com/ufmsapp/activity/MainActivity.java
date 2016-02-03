@@ -1,7 +1,10 @@
 package ufms.br.com.ufmsapp.activity;
 
+import android.app.Dialog;
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.design.widget.NavigationView;
@@ -15,12 +18,17 @@ import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
+
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GoogleApiAvailability;
 
 import ufms.br.com.ufmsapp.R;
 import ufms.br.com.ufmsapp.fragment.DisciplinasFragment;
 import ufms.br.com.ufmsapp.fragment.EventosFragment;
 import ufms.br.com.ufmsapp.fragment.ExploreFragment;
 import ufms.br.com.ufmsapp.fragment.NotasFragment;
+import ufms.br.com.ufmsapp.gcm.UfmsListenerService;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -33,6 +41,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     ActionBarDrawerToggle mDrawerToggle;
 
     private static final String SELECTED_MENU_ITEM = "menuItem";
+
+    public static final int REQUEST_PLAY_SERVICES = 1;
 
     private static NavigationView navigationView = null;
 
@@ -71,7 +81,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         selectOptionsMenu(navigationView.getMenu().findItem(mSelectedPosition));
 
+        startGooglePlayService();
     }
+
 
     public void setHomeContent() {
         FragmentManager manager = getSupportFragmentManager();
@@ -127,6 +139,31 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(MenuItem item) {
         selectOptionsMenu(item);
         return true;
+    }
+
+    private void startGooglePlayService() {
+        GoogleApiAvailability api = GoogleApiAvailability.getInstance();
+        int resultCode = api.isGooglePlayServicesAvailable(this);
+        if (resultCode != ConnectionResult.SUCCESS) {
+            if (api.isUserResolvableError(resultCode)) {
+                Dialog dialog = api.getErrorDialog(this, resultCode, REQUEST_PLAY_SERVICES);
+                dialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+                    @Override
+                    public void onCancel(DialogInterface dialogInterface) {
+                        finish();
+                    }
+                });
+                dialog.show();
+            } else {
+                Toast.makeText(this, R.string.gcm_nao_suportado,
+                        Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        } else {
+            Intent it = new Intent(this, UfmsListenerService.class);
+            it.putExtra(UfmsListenerService.EXTRA_REGISTRAR, true);
+            startService(it);
+        }
     }
 
 

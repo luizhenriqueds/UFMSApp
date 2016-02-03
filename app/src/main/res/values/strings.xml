@@ -39,6 +39,10 @@
 
     <string name="txt_no_connection_msg">Sem conexão com a Internet</string>
     <string name="txt_retry_connection">Tentar</string>
+
+    <string name="txt_notificacao">Lista de Eventos atualizada!</string>
+    <string name="gcm_nao_suportado">Aparelho não compatível com o GCM.</string>
+
     <string name="txt_search_hint">Buscar</string>
     <string name="txt_cd_detalhes_evento">Detalhes Evento Imagem</string>
     <string name="txt_disciplina_no_content">Nenhuma disciplina disponível</string>
