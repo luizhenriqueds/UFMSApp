@@ -4,75 +4,59 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <permission
         android:name="ufms.br.com.ufmsapp.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
+
     <uses-permission android:name="ufms.br.com.ufmsapp.permission.C2D_MESSAGE" />
 
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
     <application
-        android:name="ufms.br.com.ufmsapp.MyApplication"
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".activity.MainActivity"
-            android:label="@string/app_name">
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
+        <activity android:name=".activity.MainActivity">
             <meta-data
                 android:name="android.app.searchable"
                 android:resource="@xml/searchable" />
-
         </activity>
-
         <activity
             android:name=".activity.DetalhesEventoActivity"
             android:parentActivityName=".activity.MainActivity">
-
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activity.MainActivity" />
-
         </activity>
-
         <activity
             android:name=".activity.DetalhesDisciplinaActivity"
             android:parentActivityName=".activity.MainActivity">
-
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activity.MainActivity" />
-
         </activity>
-
         <activity android:name=".activity.SearchResultActivity">
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
             </intent-filter>
         </activity>
-
         <activity
-            android:name="ufms.br.com.ufmsapp.activity.NotasAtividadesActivity"
+            android:name=".activity.NotasAtividadesActivity"
             android:parentActivityName=".activity.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activity.MainActivity" />
-
         </activity>
-
 
         <receiver
             android:name="com.google.android.gms.gcm.GcmReceiver"
@@ -80,6 +64,7 @@
             android:permission="com.google.android.c2dm.permission.SEND">
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+
                 <category android:name="ufms.br.com.ufmsapp" />
             </intent-filter>
         </receiver>
@@ -87,7 +72,6 @@
         <service
             android:name=".service.EventoSyncIntentService"
             android:exported="false" />
-
         <service
             android:name=".gcm.UfmsGcmListenerService"
             android:exported="false">
@@ -95,7 +79,6 @@
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
             </intent-filter>
         </service>
-
         <service
             android:name=".gcm.UfmsListenerService"
             android:exported="false">
@@ -104,6 +87,20 @@
             </intent-filter>
         </service>
 
+        <activity
+            android:name=".activity.LoginActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.RegistrarActivity"
+            android:label="@string/title_activity_registrar"
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>

@@ -14,6 +14,7 @@ import com.google.android.gms.gcm.GcmListenerService;
 
 import ufms.br.com.ufmsapp.R;
 import ufms.br.com.ufmsapp.activity.MainActivity;
+import ufms.br.com.ufmsapp.task.TaskLoadEventosOnStart;
 
 public class UfmsGcmListenerService extends GcmListenerService {
 
@@ -23,14 +24,17 @@ public class UfmsGcmListenerService extends GcmListenerService {
     @Override
     public void onMessageReceived(String from, Bundle data) {
         super.onMessageReceived(from, data);
-        //startService(new Intent(this, HotelIntentService.class));
+
         //sincronizar com o servidor
+        new TaskLoadEventosOnStart().execute();
+
+        //disparar notificação
         if (data != null) {
-            dispararNotificacao(data.getString("mensagem"));
+            buildNewEventosNotification(data.getString("mensagem"));
         }
     }
 
-    private void dispararNotificacao(String msg) {
+    private void buildNewEventosNotification(String msg) {
         NotificationManagerCompat nm = NotificationManagerCompat.from(this);
         Intent it = new Intent(this, MainActivity.class);
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);

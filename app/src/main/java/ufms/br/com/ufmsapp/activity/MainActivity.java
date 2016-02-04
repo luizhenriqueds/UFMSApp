@@ -5,8 +5,10 @@ import android.app.SearchManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.PersistableBundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -16,14 +18,25 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
+import com.google.android.gms.gcm.GoogleCloudMessaging;
+import com.google.android.gms.iid.InstanceID;
+
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 import ufms.br.com.ufmsapp.R;
+import ufms.br.com.ufmsapp.data.DataHelper;
+import ufms.br.com.ufmsapp.extras.UrlEndpoints;
 import ufms.br.com.ufmsapp.fragment.DisciplinasFragment;
 import ufms.br.com.ufmsapp.fragment.EventosFragment;
 import ufms.br.com.ufmsapp.fragment.ExploreFragment;
@@ -44,12 +57,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     public static final int REQUEST_PLAY_SERVICES = 1;
 
+    public static final String URL_DO_SERVIDOR = UrlEndpoints.URL_ENDPOINT + "server/updateUserGCM.php";
+
+    public static final int ALUNO_ID_REGISTRAR = 1;
+
+    public static final String ENVIADO_SERVIDOR = "enviadoProServidor";
+
+
     private static NavigationView navigationView = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        DataHelper.newInstance(this).getWritableDatabase();
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
 
@@ -59,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
 
-        setHomeContent();
+        //setHomeContent();
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.nav_drawer);
 
@@ -68,12 +90,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mDrawerLayout.setDrawerListener(mDrawerToggle);
         mDrawerToggle.syncState();
 
-
         navigationView = (NavigationView) findViewById(R.id.navigation_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-
         if (savedInstanceState == null) {
+
             mSelectedPosition = R.id.nav_drawer_explore;
         } else {
             mSelectedPosition = savedInstanceState.getInt(SELECTED_MENU_ITEM);
@@ -89,8 +110,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         FragmentManager manager = getSupportFragmentManager();
 
         if (manager != null) {
-            manager.beginTransaction().replace(R.id.main_layout_container, ExploreFragment.newInstance()).commit();
 
+            Log.i("TASK_TEST", "EXPLORE FRAGMENT OPENED");
+            manager.beginTransaction().replace(R.id.main_layout_container, ExploreFragment.newInstance()).commit();
         }
 
     }
@@ -204,4 +226,61 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mDrawerLayout.closeDrawer(GravityCompat.START);
     }
 
+    public void registerUser(View view) {
+        new Thread() {
+            @Override
+            public void run() {
+                super.run();
+                InstanceID instanceID = InstanceID.getInstance(MainActivity.this);
+                try {
+                    String token = instanceID.getToken(
+                            getString(R.string.gcm_defaultSenderId),
+                            GoogleCloudMessaging.INSTANCE_ID_SCOPE, null);
+                    updateRegistrationOnServer(token);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
+    }
+
+    private void updateRegistrationOnServer(final String key) {
+        new Thread() {
+            @Override
+            public void run() {
+                try {
+                    URL url = new URL(URL_DO_SERVIDOR);
+                    HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                    connection.setRequestMethod("POST");
+                    connection.setDoOutput(true);
+                    OutputStream os = connection.getOutputStream();
+                    os.write(("acao=updateUser&regId=" + key + "&alunoId=" + ALUNO_ID_REGISTRAR).getBytes());
+                    os.flush();
+                    os.close();
+                    connection.connect();
+                    int responseCode = connection.getResponseCode();
+                    if (responseCode == HttpURLConnection.HTTP_OK) {
+                        setEnviadoServidor(true);
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Toast.makeText(MainActivity.this, "Atualizado com sucesso", Toast.LENGTH_LONG).show();
+                            }
+                        });
+                    } else {
+                        throw new RuntimeException("Erro ao atualizar servidor");
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
+    }
+
+    private void setEnviadoServidor(boolean enviado) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putBoolean(ENVIADO_SERVIDOR, enviado);
+        editor.apply();
+    }
 }

@@ -20,8 +20,9 @@ import ufms.br.com.ufmsapp.extras.UrlEndpoints;
 public class UfmsListenerService extends InstanceIDListenerService {
     public static final String URL_DO_SERVIDOR = UrlEndpoints.URL_ENDPOINT + "server/gcmserver.php";
     public static final String REGISTRATION_ID = "registrationId";
-    public static final String ENVIADO_SERVIDOR = "enviadoProServidor";
+    public static final String ENVIADO_SERVIDOR = "getEnviadoServidor";
     public static final String EXTRA_REGISTRAR = "registrar";
+    public static final int ALUNO_ID_REGISTRAR = 0;
 
 
     @Override
@@ -30,7 +31,7 @@ public class UfmsListenerService extends InstanceIDListenerService {
             try {
                 if (getRegistrationId() == null) {
                     getToken();
-                } else if (!enviadoProServidor()) {
+                } else if (!getEnviadoServidor()) {
                     sendRegistrationIdToServer(getRegistrationId());
                 }
             } catch (IOException e) {
@@ -44,7 +45,7 @@ public class UfmsListenerService extends InstanceIDListenerService {
     public void onTokenRefresh() {
         super.onTokenRefresh();
         setRegistrationId(null);
-        setEnviadoProServidor(false);
+        setEnviadoServidor(false);
         try {
             getToken();
         } catch (IOException e) {
@@ -81,13 +82,13 @@ public class UfmsListenerService extends InstanceIDListenerService {
                     connection.setRequestMethod("POST");
                     connection.setDoOutput(true);
                     OutputStream os = connection.getOutputStream();
-                    os.write(("acao=registrar&regId=" + key).getBytes());
+                    os.write(("acao=registrar&regId=" + key + "&alunoId=" + ALUNO_ID_REGISTRAR).getBytes());
                     os.flush();
                     os.close();
                     connection.connect();
                     int responseCode = connection.getResponseCode();
                     if (responseCode == HttpURLConnection.HTTP_OK) {
-                        setEnviadoProServidor(true);
+                        setEnviadoServidor(true);
                     } else {
                         throw new RuntimeException("Erro ao salvar no servidor");
                     }
@@ -98,14 +99,14 @@ public class UfmsListenerService extends InstanceIDListenerService {
         }.start();
     }
 
-    private void setEnviadoProServidor(boolean enviado) {
+    private void setEnviadoServidor(boolean enviado) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = prefs.edit();
         editor.putBoolean(ENVIADO_SERVIDOR, enviado);
         editor.apply();
     }
 
-    private boolean enviadoProServidor() {
+    private boolean getEnviadoServidor() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         return prefs.getBoolean(ENVIADO_SERVIDOR, false);
     }

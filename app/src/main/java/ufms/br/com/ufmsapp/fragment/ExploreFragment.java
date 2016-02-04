@@ -15,10 +15,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 
 import java.util.ArrayList;
 
+import fr.castorflex.android.circularprogressbar.CircularProgressBar;
 import ufms.br.com.ufmsapp.MyApplication;
 import ufms.br.com.ufmsapp.R;
 import ufms.br.com.ufmsapp.activity.DetalhesDisciplinaActivity;
@@ -40,7 +40,7 @@ public class ExploreFragment extends Fragment implements ExploreEventosAdapter.O
     RecyclerView listEventos;
     protected ArrayList<Evento> eventos;
     protected ArrayList<Disciplina> disciplinas;
-    protected ProgressBar exploreProgressBar;
+    protected CircularProgressBar exploreProgressBar;
 
     protected LinearLayout cardContent;
 
@@ -69,7 +69,7 @@ public class ExploreFragment extends Fragment implements ExploreEventosAdapter.O
         Button btnMoreEvents = (Button) view.findViewById(R.id.btn_explore_more_events);
         Button btnMoreDisciplinas = (Button) view.findViewById(R.id.explore_more_disciplinas);
 
-        exploreProgressBar = (ProgressBar) view.findViewById(R.id.progress_bar_explore);
+        exploreProgressBar = (CircularProgressBar) view.findViewById(R.id.progress_bar_explore);
         cardContent = (LinearLayout) view.findViewById(R.id.explore_card_content);
 
         listDisciplinas = (RecyclerView) view.findViewById(R.id.list_disciplinas);
@@ -77,9 +77,6 @@ public class ExploreFragment extends Fragment implements ExploreEventosAdapter.O
 
         listEventos.setLayoutManager(new CustomLinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
         listDisciplinas.setLayoutManager(new CustomLinearGridLayoutManager(getActivity(), 3));
-
-
-        new TaskLoadExplore().execute();
 
         final android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
 
@@ -108,9 +105,11 @@ public class ExploreFragment extends Fragment implements ExploreEventosAdapter.O
             }
         });
 
+        new TaskLoadExplore().execute();
 
         return view;
     }
+
 
     @Override
     public void onExploreEventClick(View v, int position, Evento evento) {
@@ -154,20 +153,17 @@ public class ExploreFragment extends Fragment implements ExploreEventosAdapter.O
         @Override
         protected Void doInBackground(Void... params) {
 
-            ArrayList<Disciplina> disciplinas = MyApplication.getWritableDatabase().listarDisciplinas(1);
-
+            disciplinas = MyApplication.getWritableDatabase().listarDisciplinas(1);
             eventos = new ArrayList<>();
 
             for (int i = 0; i < disciplinas.size(); i++) {
                 eventos.addAll(MyApplication.getWritableDatabase().listarEventos(disciplinas.get(i).getIdDisciplinaServidor(), 3));
             }
+
             disciplinas = MyApplication.getWritableDatabase().listarDisciplinas(1, 3);
 
             eventosAdapter.setExploreEventosList(eventos);
             disciplinasAdapter.setDisciplinaList(disciplinas);
-
-            // just for testing purposes
-            // SystemClock.sleep(1000);
 
             return null;
 

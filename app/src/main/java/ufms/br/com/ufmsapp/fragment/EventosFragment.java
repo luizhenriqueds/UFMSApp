@@ -9,11 +9,8 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.util.Pair;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -278,14 +275,6 @@ public class EventosFragment extends Fragment implements EventosLoadedListener, 
 
     @Override
     public void onEventClick(View v, int position, Evento evento) {
-
-
-        @SuppressWarnings("unchecked") ActivityOptionsCompat options =
-                ActivityOptionsCompat.makeSceneTransitionAnimation(
-                        getActivity(),
-                        Pair.create(v.findViewById(R.id.icon_item_evento), EventosAdapter.SHARED_TRANSITION_ICON_KEY)
-                        // Pair.create(v.findViewById(R.id.txt_evento_title), EventosAdapter.SHARED_TRANSITION_TITLE_KEY)
-                );
 
         Intent intent = new Intent(getActivity(), DetalhesEventoActivity.class);
         intent.putExtra(EVENTO_EXTRA, evento);

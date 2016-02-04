@@ -532,7 +532,11 @@
         <mandatory>1</mandatory>
         <data-type>varchar(200)</data-type>
       </column>
-      <key id="145" parent="20" name="PRIMARY">
+      <column id="145" parent="20" name="aluno_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <key id="146" parent="20" name="PRIMARY">
         <columns>registration_id</columns>
         <primary>1</primary>
       </key>

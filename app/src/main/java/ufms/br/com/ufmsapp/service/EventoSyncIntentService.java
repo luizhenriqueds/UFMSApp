@@ -14,7 +14,13 @@ public class EventoSyncIntentService extends IntentService {
     @Override
     protected void onHandleIntent(Intent intent) {
         if (intent != null) {
-            //new TaskLoadEventos();
+            //  new TaskLoadMatriculas().execute();
+
+            //  new TaskLoadMateriais().execute();
+
+            //   new TaskLoadEventosOnStart().execute();
         }
     }
+
+
 }

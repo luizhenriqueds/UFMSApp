@@ -119,6 +119,20 @@
         <item>Bom</item>
         <item>Excelente</item>
     </string-array>
+    <string name="title_activity_login">Login</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Senha</string>
+    <string name="txt_create_account">Criar uma conta</string>
+    <string name="txt_entrar">Entrar</string>
+    <string name="txt_content_description_logo_login">Logo do app tela de login</string>
+    <string name="title_activity_registrar">RegistrarActivity</string>
+    <string name="txt_hint_nome">Nome</string>
+    <string name="txt_hint_rga">RGA</string>
+    <string name="txt_button_registrar">Registrar</string>
+    <string name="txt_button_go_to_login">Já possui conta? Entrar</string>
+    <string name="txt_content_description_senha">Mostrar/Esconder senha</string>
 
 
 </resources>

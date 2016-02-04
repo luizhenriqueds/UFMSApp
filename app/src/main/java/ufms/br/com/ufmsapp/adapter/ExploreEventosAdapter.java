@@ -109,7 +109,6 @@ public class ExploreEventosAdapter extends RecyclerView.Adapter<ExploreEventosAd
     }
 
     private void setAnimation(View viewToAnimate, int position) {
-        // If the bound view wasn't previously displayed on screen, it's animated
         if (position > lastPosition) {
             Animation animation = AnimationUtils.loadAnimation(itemView.getContext(), android.R.anim.slide_in_left);
             viewToAnimate.startAnimation(animation);
@@ -127,7 +126,6 @@ public class ExploreEventosAdapter extends RecyclerView.Adapter<ExploreEventosAd
         protected TextView eventoItemTimeStamp;
         protected View mCardTopLayout;
         protected ImageView exploreEventosIcon;
-        //protected CardView mCardItemLayout;
 
         public EventosViewHolder(View v) {
             super(v);

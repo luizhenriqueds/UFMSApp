@@ -11,5 +11,14 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="TextLabel" parent="TextAppearance.AppCompat">
+
+        <item name="android:textColorHint">@color/whiteTextColor</item>
+
+        <item name="colorAccent">@color/whiteTextColor</item>
+        <item name="colorControlNormal">@color/whiteTextColor</item>
+        <item name="colorControlActivated">@color/whiteTextColor</item>
+    </style>
+
 
 </resources>

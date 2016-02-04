@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import ufms.br.com.ufmsapp.task.TaskLoadAlunos;
+import ufms.br.com.ufmsapp.task.TaskLoadDisciplinasOnStart;
+import ufms.br.com.ufmsapp.task.TaskLoadEventosOnStart;
 import ufms.br.com.ufmsapp.task.TaskLoadMateriais;
 import ufms.br.com.ufmsapp.task.TaskLoadMatriculas;
 import ufms.br.com.ufmsapp.task.TaskLoadNotas;
@@ -22,7 +24,7 @@ import ufms.br.com.ufmsapp.task.TaskLoadTurmas;
 public class DataHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "ufmsapp.db";
-    private static final int DB_VERSION = 27;
+    private static final int DB_VERSION = 44;
     private static final String COMMA_SEPARATOR = ", ";
     private static final String APP_TAG = "log_db";
 
@@ -288,6 +290,10 @@ public class DataHelper extends SQLiteOpenHelper {
         new TaskLoadRatingDisciplinas().execute();
 
         new TaskLoadNotas().execute();
+
+        new TaskLoadDisciplinasOnStart().execute();
+
+        new TaskLoadEventosOnStart().execute();
     }
 
     @Override
