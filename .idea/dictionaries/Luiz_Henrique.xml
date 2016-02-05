@@ -29,6 +29,8 @@
       <w>buscar</w>
       <w>cada</w>
       <w>cancelar</w>
+      <w>caractere</w>
+      <w>caracteres</w>
       <w>commita</w>
       <w>complementares</w>
       <w>componente</w>
@@ -37,6 +39,7 @@
       <w>configuração</w>
       <w>construtor</w>
       <w>conta</w>
+      <w>conter</w>
       <w>criado</w>
       <w>dados</w>
       <w>definir</w>
@@ -48,8 +51,10 @@
       <w>deste</w>
       <w>detalhe</w>
       <w>detalhes</w>
+      <w>deve</w>
       <w>deverá</w>
       <w>diagrama</w>
+      <w>digite</w>
       <w>disparar</w>
       <w>disponíveis</w>
       <w>disponível</w>
@@ -71,13 +76,16 @@
       <w>finalizado</w>
       <w>formas</w>
       <w>formata</w>
+      <w>foto</w>
       <w>gcmserver</w>
+      <w>geralmente</w>
       <w>gostei</w>
       <w>grande</w>
       <w>gravado</w>
       <w>henriqueweb</w>
       <w>icone</w>
       <w>imagem</w>
+      <w>inclui</w>
       <w>informações</w>
       <w>inicia</w>
       <w>insatisfeito</w>
@@ -107,13 +115,16 @@
       <w>modo</w>
       <w>momento</w>
       <w>médio</w>
+      <w>mínimo</w>
       <w>nenhum</w>
       <w>neste</w>
+      <w>notificacao</w>
       <w>notificacoes</w>
       <w>notificação</w>
       <w>notificações</w>
       <w>nulo</w>
       <w>objeto</w>
+      <w>opcional</w>
       <w>outras</w>
       <w>padrão</w>
       <w>paisagem</w>
@@ -166,6 +177,7 @@
       <w>verifica</w>
       <w>você</w>
       <w>voltada</w>
+      <w>válido</w>
       <w>ícone</w>
     </words>
   </dictionary>

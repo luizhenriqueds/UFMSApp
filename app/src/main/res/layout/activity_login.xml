@@ -36,9 +36,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/prompt_email"
-                android:imeActionId="@+id/login"
-                android:imeOptions="actionUnspecified"
-                android:inputType="textEmailAddress"
+                android:inputType="textEmailAddress|textAutoComplete"
                 android:maxLines="1"
                 android:singleLine="true"
                 android:textColor="@color/whiteTextColor"
@@ -61,19 +59,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/prompt_password"
-                    android:imeActionId="@+id/login"
-                    android:imeOptions="actionUnspecified"
                     android:inputType="textPassword"
                     android:maxLength="16"
                     android:maxLines="1"
-                    android:singleLine="true"
                     android:textColor="@color/whiteTextColor"
                     android:textSize="18sp" />
 
             </android.support.design.widget.TextInputLayout>
 
             <ImageButton
-                android:id="@+id/login_show_hide_button"
+                android:id="@+id/login_show_button"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -84,6 +79,20 @@
                 android:onClick="showHidePassword"
                 android:scaleType="fitEnd"
                 android:src="@mipmap/ic_visibility_white_18dp"
+                android:visibility="gone" />
+
+            <ImageButton
+                android:id="@+id/login_hide_button"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="10dp"
+                android:contentDescription="@string/txt_content_description_senha"
+                android:onClick="showHidePassword"
+                android:scaleType="fitEnd"
+                android:src="@mipmap/ic_visibility_off_white_18dp"
                 android:visibility="gone"
                 tools:visibility="visible" />
         </RelativeLayout>

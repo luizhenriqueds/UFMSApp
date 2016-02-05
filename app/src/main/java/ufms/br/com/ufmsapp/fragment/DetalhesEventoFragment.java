@@ -6,7 +6,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import java.text.DateFormat;
@@ -20,9 +22,10 @@ import ufms.br.com.ufmsapp.pojo.Evento;
 import ufms.br.com.ufmsapp.pojo.Professor;
 import ufms.br.com.ufmsapp.pojo.TipoEvento;
 import ufms.br.com.ufmsapp.pojo.TituloProfessor;
+import ufms.br.com.ufmsapp.preferences.NotifyUserPreference;
 
 
-public class DetalhesEventoFragment extends Fragment {
+public class DetalhesEventoFragment extends Fragment implements CompoundButton.OnCheckedChangeListener {
 
     protected Evento evento;
     protected Disciplina disciplina;
@@ -35,6 +38,8 @@ public class DetalhesEventoFragment extends Fragment {
     protected TextView tituloModoPaisagem;
     protected TextView dataLimiteEvento;
     protected ImageView imageEvento;
+    protected NotifyUserPreference notifyUserPreference;
+    protected Switch desativarNotificacaoSwitch;
 
     DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", new Locale("pt", "br"));
 
@@ -54,6 +59,8 @@ public class DetalhesEventoFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_detalhes_evento_content, container, false);
 
+        notifyUserPreference = new NotifyUserPreference(getActivity());
+
         tipoEvento = (TextView) view.findViewById(R.id.detalhes_evento_tipo_evento);
         tituloEvento = (TextView) view.findViewById(R.id.detalhes_evento_title);
         descricaoEvento = (TextView) view.findViewById(R.id.detalhes_evento_description);
@@ -62,13 +69,15 @@ public class DetalhesEventoFragment extends Fragment {
         tituloModoPaisagem = (TextView) view.findViewById(R.id.image_title);
         dataLimiteEvento = (TextView) view.findViewById(R.id.detalhes_evento_deadline);
         imageEvento = (ImageView) view.findViewById(R.id.img_detalhes);
+        desativarNotificacaoSwitch = (Switch) view.findViewById(R.id.detalhes_evento_switch);
+        desativarNotificacaoSwitch.setOnCheckedChangeListener(this);
 
 
         if (evento != null) {
 
             TipoEvento tipoEventoObj = MyApplication.getWritableDatabase().tipoEventoById(evento.getTipoEvento());
 
-            Disciplina disciplina = MyApplication.getWritableDatabase().disciplinaById(evento.getDisciplina());
+            disciplina = MyApplication.getWritableDatabase().disciplinaById(evento.getDisciplina());
 
             Professor professor = MyApplication.getWritableDatabase().professorById(disciplina.getProfessor());
 
@@ -82,9 +91,29 @@ public class DetalhesEventoFragment extends Fragment {
             descricaoEvento.setText(evento.getDescricao());
             tituloDisciplina.setText(disciplina.getTitulo());
             dataLimiteEvento.setText(dateFormat.format(evento.getDataLimiteEvento()));
+
+
+           /* if (notifyUserPreference.getNotifyUser() == disciplina.getIdDisciplinaServidor()) {
+                desativarNotificacaoSwitch.setChecked(true);
+            } else {
+                desativarNotificacaoSwitch.setChecked(false);
+            }*/
+
+
         }
 
         return view;
     }
 
+    @Override
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+        if (isChecked) {
+            //notifyUserPreference.setNotifyUser(disciplina.getIdDisciplinaServidor());
+        } else {
+            //notifyUserPreference.setNotifyUser(-1);
+
+        }
+
+    }
 }

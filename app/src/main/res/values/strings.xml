@@ -123,7 +123,7 @@
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
-    <string name="prompt_password">Senha</string>
+    <string name="prompt_password">Senha (min 6 caracteres)</string>
     <string name="txt_create_account">Criar uma conta</string>
     <string name="txt_entrar">Entrar</string>
     <string name="txt_content_description_logo_login">Logo do app tela de login</string>
@@ -133,6 +133,7 @@
     <string name="txt_button_registrar">Registrar</string>
     <string name="txt_button_go_to_login">Já possui conta? Entrar</string>
     <string name="txt_content_description_senha">Mostrar/Esconder senha</string>
+    <string name="txt_foto_opt">Foto (opcional)</string>
 
 
 </resources>
