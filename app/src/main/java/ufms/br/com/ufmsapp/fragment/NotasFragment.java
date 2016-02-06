@@ -11,7 +11,6 @@ import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -31,7 +30,6 @@ import ufms.br.com.ufmsapp.callbacks.DisciplinasLoadedListener;
 import ufms.br.com.ufmsapp.pojo.Disciplina;
 import ufms.br.com.ufmsapp.task.TaskLoadDisciplinas;
 import ufms.br.com.ufmsapp.utils.ConnectionUtils;
-import ufms.br.com.ufmsapp.utils.OrientationUtils;
 
 
 public class NotasFragment extends Fragment implements ListaDisciplinaNotasAdapter.OnDisciplinaClickListener, SwipeRefreshLayout.OnRefreshListener, DisciplinasLoadedListener {
@@ -99,11 +97,11 @@ public class NotasFragment extends Fragment implements ListaDisciplinaNotasAdapt
         swipeRefreshNotas.setColorSchemeResources(R.color.green, R.color.blue, R.color.yellow);
 
 
-        if (OrientationUtils.isPortrait(getResources().getConfiguration())) {
-            mRecyclerDisciplinasNota.setLayoutManager(new LinearLayoutManager(getActivity()));
-        } else {
-            mRecyclerDisciplinasNota.setLayoutManager(new GridLayoutManager(getActivity(), 2));
-        }
+        //  if (OrientationUtils.isPortrait(getResources().getConfiguration())) {
+        mRecyclerDisciplinasNota.setLayoutManager(new LinearLayoutManager(getActivity()));
+        //} else {
+        // mRecyclerDisciplinasNota.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+        // }
 
         progressBar = (CircularProgressBar) view.findViewById(R.id.progress_bar_list_notas);
 

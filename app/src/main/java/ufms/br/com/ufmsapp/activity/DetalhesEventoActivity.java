@@ -4,7 +4,6 @@ package ufms.br.com.ufmsapp.activity;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -40,7 +39,6 @@ public class DetalhesEventoActivity extends AppCompatActivity {
 
     protected TabLayout mTabs;
     protected ViewPager mPager;
-    private AppBarLayout appBar;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -52,7 +50,6 @@ public class DetalhesEventoActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         mTabs = (TabLayout) findViewById(R.id.tabs);
         mPager = (ViewPager) findViewById(R.id.viewpager);
-        appBar = (AppBarLayout) findViewById(R.id.appBar);
 
         setupToolbar(evento.getTitulo());
 

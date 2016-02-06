@@ -12,7 +12,6 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -36,7 +35,6 @@ import ufms.br.com.ufmsapp.task.TaskLoadMateriais;
 import ufms.br.com.ufmsapp.task.TaskLoadMatriculas;
 import ufms.br.com.ufmsapp.task.TaskLoadRatingDisciplinas;
 import ufms.br.com.ufmsapp.utils.ConnectionUtils;
-import ufms.br.com.ufmsapp.utils.OrientationUtils;
 
 public class DisciplinasFragment extends Fragment implements DisciplinasLoadedListener, DisciplinasAdapter.OnDisciplinaClickListener, SwipeRefreshLayout.OnRefreshListener {
 
@@ -118,11 +116,11 @@ public class DisciplinasFragment extends Fragment implements DisciplinasLoadedLi
         listDisciplinas = new ArrayList<>();
 
 
-        if (OrientationUtils.isPortrait(getResources().getConfiguration())) {
-            mRecyclerDisciplinas.setLayoutManager(new LinearLayoutManager(getActivity()));
-        } else {
-            mRecyclerDisciplinas.setLayoutManager(new GridLayoutManager(getActivity(), 2));
-        }
+        //if (OrientationUtils.isPortrait(getResources().getConfiguration())) {
+        mRecyclerDisciplinas.setLayoutManager(new LinearLayoutManager(getActivity()));
+        //} else {
+        //     mRecyclerDisciplinas.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+        // }
 
         adapter = new DisciplinasAdapter(getActivity());
 

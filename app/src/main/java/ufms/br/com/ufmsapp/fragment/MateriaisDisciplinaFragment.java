@@ -4,6 +4,7 @@ package ufms.br.com.ufmsapp.fragment;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -23,6 +24,7 @@ import ufms.br.com.ufmsapp.extras.UrlEndpoints;
 import ufms.br.com.ufmsapp.pojo.Disciplina;
 import ufms.br.com.ufmsapp.pojo.Material;
 import ufms.br.com.ufmsapp.task.DownloadTask;
+import ufms.br.com.ufmsapp.utils.OrientationUtils;
 
 
 public class MateriaisDisciplinaFragment extends Fragment implements MateriaisAdapter.OnMaterialClickListener {
@@ -51,7 +53,13 @@ public class MateriaisDisciplinaFragment extends Fragment implements MateriaisAd
         View view = inflater.inflate(R.layout.fragment_materiais_disciplina, container, false);
 
         mRecyclerMateriais = (RecyclerView) view.findViewById(R.id.recycler_files_disciplina);
-        mRecyclerMateriais.setLayoutManager(new LinearLayoutManager(getActivity()));
+        //mRecyclerMateriais.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        if (OrientationUtils.isPortrait(getResources().getConfiguration())) {
+            mRecyclerMateriais.setLayoutManager(new LinearLayoutManager(getActivity()));
+        } else {
+            mRecyclerMateriais.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+        }
 
         mProgressDialog = (CircularProgressBar) view.findViewById(R.id.progress_bar_list_files);
 

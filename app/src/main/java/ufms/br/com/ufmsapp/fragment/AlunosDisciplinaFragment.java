@@ -3,6 +3,7 @@ package ufms.br.com.ufmsapp.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -19,6 +20,7 @@ import ufms.br.com.ufmsapp.R;
 import ufms.br.com.ufmsapp.adapter.AlunosAdapter;
 import ufms.br.com.ufmsapp.pojo.AlunoXDisciplina;
 import ufms.br.com.ufmsapp.pojo.Disciplina;
+import ufms.br.com.ufmsapp.utils.OrientationUtils;
 
 
 public class AlunosDisciplinaFragment extends Fragment {
@@ -50,7 +52,13 @@ public class AlunosDisciplinaFragment extends Fragment {
         disciplina = getActivity().getIntent().getParcelableExtra(DisciplinasFragment.DISCIPLINA_EXTRA);
 
         mRecyclerAlunos = (RecyclerView) view.findViewById(R.id.recycler_alunos_disciplina);
-        mRecyclerAlunos.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        if (OrientationUtils.isPortrait(getResources().getConfiguration())) {
+            mRecyclerAlunos.setLayoutManager(new LinearLayoutManager(getActivity()));
+        } else {
+            mRecyclerAlunos.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+        }
+
         progressBar = (CircularProgressBar) view.findViewById(R.id.progress_bar_list_alunos);
 
         emptyListText = (TextView) view.findViewById(R.id.aluno_txt_empty_text);

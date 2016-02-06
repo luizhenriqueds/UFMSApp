@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -27,6 +28,7 @@ import ufms.br.com.ufmsapp.pojo.Evento;
 import ufms.br.com.ufmsapp.pojo.Material;
 import ufms.br.com.ufmsapp.task.DownloadTask;
 import ufms.br.com.ufmsapp.utils.GetFileMimeType;
+import ufms.br.com.ufmsapp.utils.OrientationUtils;
 
 
 public class MateriaisEventoFragment extends Fragment implements MateriaisAdapter.OnMaterialClickListener {
@@ -60,7 +62,14 @@ public class MateriaisEventoFragment extends Fragment implements MateriaisAdapte
         emptyListIcon.setColorFilter(ContextCompat.getColor(getActivity(), R.color.no_connection_msg));
 
         eventosUploadsRecycler = (RecyclerView) view.findViewById(R.id.recycler_uploads_evento);
-        eventosUploadsRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        if (OrientationUtils.isPortrait(getResources().getConfiguration())) {
+            eventosUploadsRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
+        } else {
+            eventosUploadsRecycler.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+        }
+
+
         adapter = new MateriaisAdapter(getActivity());
 
         uploads = MyApplication.getWritableDatabase().listarMateriaisByEvento(evento.getIdEventoServidor());

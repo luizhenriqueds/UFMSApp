@@ -31,6 +31,7 @@ public class LoginActivity extends AppCompatActivity {
         showPasswordImgButton = (ImageButton) findViewById(R.id.login_show_button);
         hidePasswordImgButton = (ImageButton) findViewById(R.id.login_hide_button);
 
+
         passwordLogin.addTextChangedListener(new TextWatcher() {
 
             public void afterTextChanged(Editable s) {

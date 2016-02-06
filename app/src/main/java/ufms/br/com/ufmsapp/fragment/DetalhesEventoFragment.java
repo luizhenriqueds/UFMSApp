@@ -35,9 +35,7 @@ public class DetalhesEventoFragment extends Fragment implements CompoundButton.O
     protected TextView descricaoEvento;
     protected TextView tituloDisciplina;
     protected TextView nomeProfessor;
-    protected TextView tituloModoPaisagem;
     protected TextView dataLimiteEvento;
-    protected ImageView imageEvento;
     protected NotifyUserPreference notifyUserPreference;
     protected Switch desativarNotificacaoSwitch;
 
@@ -66,9 +64,7 @@ public class DetalhesEventoFragment extends Fragment implements CompoundButton.O
         descricaoEvento = (TextView) view.findViewById(R.id.detalhes_evento_description);
         tituloDisciplina = (TextView) view.findViewById(R.id.detalhes_disciplina_title);
         nomeProfessor = (TextView) view.findViewById(R.id.detalhes_disciplina_professor);
-        tituloModoPaisagem = (TextView) view.findViewById(R.id.image_title);
         dataLimiteEvento = (TextView) view.findViewById(R.id.detalhes_evento_deadline);
-        imageEvento = (ImageView) view.findViewById(R.id.img_detalhes);
         desativarNotificacaoSwitch = (Switch) view.findViewById(R.id.detalhes_evento_switch);
         desativarNotificacaoSwitch.setOnCheckedChangeListener(this);
 
