@@ -38,4 +38,5 @@ dependencies {
     compile 'com.github.alamkanak:android-week-view:1.2.4'
     compile 'com.prolificinteractive:material-calendarview:1.1.0'
     compile 'com.google.android.gms:play-services-gcm:8.3.0'
+    compile 'com.google.android.gms:play-services-appindexing:8.3.0'
 }

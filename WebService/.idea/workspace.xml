@@ -2,19 +2,41 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f27fee75-9493-4c44-a8c3-c12b7695b42b" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../app/src/main/res/layout/eventos_list_adapter_row.xml" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/gcmserver.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webservice/access/register.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webservice/access/userAccess.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webservice/connection/Connect.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webservice/index.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webservice/list/listAlunos.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webservice/list/listAlunoxDisciplinas.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webservice/list/listDisciplinas.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webservice/list/listEventos.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webservice/list/listMateriais.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webservice/list/listNotas.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webservice/list/listProfessores.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webservice/list/listRatingDisciplinas.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webservice/list/listStatusAluno.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webservice/list/listStatusDisciplina.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webservice/list/listTipoDisciplinas.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webservice/list/listTipoEventos.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webservice/list/listTituloProfessor.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webservice/list/listTurmas.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webservice/update/updateRateDisciplina.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/delete/DeleteCourseById.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/delete/DeleteUserById.php" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/dictionaries/Luiz_Henrique.xml" afterPath="$PROJECT_DIR$/../.idea/dictionaries/Luiz_Henrique.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/Luiz_Henrique.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/Luiz_Henrique.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/app.iml" afterPath="$PROJECT_DIR$/../app/app.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/build.gradle" afterPath="$PROJECT_DIR$/../app/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/../app/src/main/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/activity/LoginActivity.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/activity/LoginActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/activity/MainActivity.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/activity/MainActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/activity/RegistrarActivity.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/activity/RegistrarActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/fragment/AlunosDisciplinaFragment.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/fragment/AlunosDisciplinaFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/fragment/DisciplinasFragment.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/fragment/DisciplinasFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/fragment/EventosFragment.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/fragment/EventosFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/fragment/MateriaisDisciplinaFragment.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/fragment/MateriaisDisciplinaFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/utils/PasswordHashGenerator.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/utils/PasswordHashGenerator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout-land/activity_registrar.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout-land/activity_registrar.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout/activity_registrar.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/activity_registrar.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/data/AppDAO.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/data/AppDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout/drawer_header.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/drawer_header.xml" />
     </list>
     <ignored path="WebService.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -45,6 +67,20 @@
         <option name="myItemId" value="MySQL - henriqueweb@mysql01.henriqueweb.hospedagemdesites.ws" />
         <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
       </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="app_user_access" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+    </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="MySQL - henriqueweb@mysql01.henriqueweb.hospedagemdesites.ws" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
     </PATH>
     <PATH>
       <PATH_ELEMENT>
@@ -56,7 +92,7 @@
         <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
       </PATH_ELEMENT>
       <PATH_ELEMENT>
-        <option name="myItemId" value="app_dispositivo" />
+        <option name="myItemId" value="app_aluno" />
         <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
       </PATH_ELEMENT>
     </PATH>
@@ -67,23 +103,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
-      <file leaf-file-name="enviar_msg_gcm.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/enviar_msg_gcm.html">
+      <file leaf-file-name="userAccess.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webservice/access/userAccess.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="363">
-              <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
-              <folding />
+            <state relative-caret-position="198">
+              <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
+              <folding>
+                <marker date="1454976827416" expanded="true" signature="186:443" placeholder="SELECT app_a... app_user_access" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="updateUserGCM.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/server/updateUserGCM.php">
+      <file leaf-file-name="register.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/webservice/access/register.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+            <state relative-caret-position="1056">
+              <caret line="51" column="74" selection-start-line="51" selection-start-column="74" selection-end-line="51" selection-end-column="74" />
               <folding>
-                <marker date="1454527364330" expanded="true" signature="199:280" placeholder="UPDATE app_d... " />
+                <marker date="1454987822066" expanded="true" signature="350:483" placeholder="SELECT app_e... app_aluno" />
+                <marker date="1454987822066" expanded="true" signature="571:700" placeholder="SELECT app_r... app_aluno" />
+                <marker date="1454987822066" expanded="true" signature="969:1080" placeholder="INSERT INTO app_aluno... " />
+                <marker date="1454987822066" expanded="true" signature="1328:1404" placeholder="INSERT INTO app_user_access... " />
               </folding>
             </state>
           </provider>
@@ -119,6 +160,12 @@
         <option value="$PROJECT_DIR$/server/gcmserver.php" />
         <option value="$PROJECT_DIR$/server/updateUserGCM.php" />
         <option value="$PROJECT_DIR$/insert/rateDisciplina.php" />
+        <option value="$PROJECT_DIR$/webservice/insert/rateDisciplina.php" />
+        <option value="$PROJECT_DIR$/insert/userAccess.php" />
+        <option value="&lt;3b98dc33-65d5-474e-9115-dda290a2363a&gt;/insert/userAccess.php" />
+        <option value="$PROJECT_DIR$/webservice/insert/userAccess.php" />
+        <option value="$PROJECT_DIR$/webservice/access/userAccess.php" />
+        <option value="$PROJECT_DIR$/webservice/access/register.php" />
       </list>
     </option>
   </component>
@@ -162,6 +209,30 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="WebService">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scratches">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.intellij.ide.scratch.ScratchProjectViewPane$MyProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -190,7 +261,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
+              <option name="myItemId" value="webservice" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -204,46 +275,12 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="insert" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WebService" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WebService" />
+              <option name="myItemId" value="webservice" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="connection" />
+              <option name="myItemId" value="list" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scratches">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.intellij.ide.scratch.ScratchProjectViewPane$MyProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="WebService">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -251,7 +288,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="true" />
@@ -259,17 +296,19 @@
     <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
     <property name="dynamic.classpath" value="false" />
-    <property name="settings.editor.selected.configurable" value="SQL Dialects" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\AndroidStudioProjects\UFMSApp\WebService\webservice\access" />
+      <recent name="C:\AndroidStudioProjects\UFMSApp\WebService\webservice\insert" />
+      <recent name="C:\AndroidStudioProjects\UFMSApp\WebService\insert" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\AndroidStudioProjects\UFMSApp\WebService\server" />
       <recent name="C:\AndroidStudioProjects\UFMSApp\WebService\list" />
       <recent name="C:\AndroidStudioProjects\UFMSApp\WebService\update" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\AndroidStudioProjects\UFMSApp\WebService\insert" />
     </key>
   </component>
   <component name="RunManager">
@@ -335,14 +374,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-13" y="-13" width="3226" height="1746" extended-state="7" />
+    <frame x="-13" y="-13" width="3226" height="1746" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14138818" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22043702" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15102828" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22750643" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14974293" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14942159" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -384,20 +423,25 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/server/enviar_msg_gcm.html">
+    <entry file="file://$PROJECT_DIR$/webservice/access/userAccess.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
-          <folding />
+        <state relative-caret-position="198">
+          <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
+          <folding>
+            <marker date="1454976827416" expanded="true" signature="186:443" placeholder="SELECT app_a... app_user_access" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/updateUserGCM.php">
+    <entry file="file://$PROJECT_DIR$/webservice/access/register.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1454527364330" expanded="true" signature="199:280" placeholder="UPDATE app_d... " />
+            <marker date="1454987822066" expanded="true" signature="350:483" placeholder="SELECT app_e... app_aluno" />
+            <marker date="1454987822066" expanded="true" signature="571:700" placeholder="SELECT app_r... app_aluno" />
+            <marker date="1454987822066" expanded="true" signature="969:1080" placeholder="INSERT INTO app_aluno... " />
+            <marker date="1454987822066" expanded="true" signature="1328:1404" placeholder="INSERT INTO app_user_access... " />
           </folding>
         </state>
       </provider>
@@ -406,7 +450,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="363">
           <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -414,9 +457,76 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1454527364330" expanded="true" signature="199:280" placeholder="UPDATE app_d... " />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/enviar_msg_gcm.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/updateUserGCM.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/enviar_msg_gcm.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/updateUserGCM.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/enviar_msg_gcm.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/updateUserGCM.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/enviar_msg_gcm.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/updateUserGCM.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/enviar_msg_gcm.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/updateUserGCM.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -431,7 +541,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="66">
           <caret line="2" column="34" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -520,14 +629,14 @@
       </provider>
     </entry>
     <entry file="dbDummy://dbtable:/ffb7cd95/780dede2-020c-4f69-a946-3f1b6b644e74/henriqueweb.app_dispositivo">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -545,24 +654,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/gcmserver.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/list/listStatusDisciplina.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/insert/rateDisciplina.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -573,20 +668,132 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/enviar_msg_gcm.html">
+    <entry file="uml://DATABASE/780dede2-020c-4f69-a946-3f1b6b644e74">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>DATABASE</ID>
+          <OriginalElement>780dede2-020c-4f69-a946-3f1b6b644e74</OriginalElement>
+          <nodes>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_status_aluno</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_curso</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_status_disciplina</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_aluno_x_disciplina</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_rating_disciplina</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_periodo_curso</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_evento_uploads</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_nota</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_professor</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_tipo_evento</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_tipo_curso</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_disciplina_tipo</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_evento</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_aluno</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_dispositivo</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_disciplina</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_titulo_professor</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_turma</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_professor_x_disciplina</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.5287226001511716" x="1771.0" y="1280.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Columns</Category>
+            <Category>Key columns</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webservice/list/listAlunoxDisciplinas.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
-          <folding />
+        <state relative-caret-position="-472">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/gcmserver.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="8" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/updateUserGCM.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        <state relative-caret-position="33">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/enviar_msg_gcm.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webservice/update/updateRateDisciplina.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/list/listAlunoxDisciplinas.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-274">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/insert/rateDisciplina.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="792">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webservice/access/userAccess.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
           <folding>
-            <marker date="1454527364330" expanded="true" signature="199:280" placeholder="UPDATE app_d... " />
+            <marker date="1454976827416" expanded="true" signature="186:443" placeholder="SELECT app_a... app_user_access" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webservice/list/listAlunos.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-33">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/ffb7cd95/780dede2-020c-4f69-a946-3f1b6b644e74/henriqueweb.app_aluno">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webservice/access/register.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1056">
+          <caret line="51" column="74" selection-start-line="51" selection-start-column="74" selection-end-line="51" selection-end-column="74" />
+          <folding>
+            <marker date="1454987822066" expanded="true" signature="350:483" placeholder="SELECT app_e... app_aluno" />
+            <marker date="1454987822066" expanded="true" signature="571:700" placeholder="SELECT app_r... app_aluno" />
+            <marker date="1454987822066" expanded="true" signature="969:1080" placeholder="INSERT INTO app_aluno... " />
+            <marker date="1454987822066" expanded="true" signature="1328:1404" placeholder="INSERT INTO app_user_access... " />
           </folding>
         </state>
       </provider>

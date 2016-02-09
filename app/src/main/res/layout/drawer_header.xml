@@ -26,6 +26,7 @@
 
 
         <TextView
+            android:id="@+id/name_user_logged"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/drawer_right_margin"
@@ -37,6 +38,7 @@
 
 
         <TextView
+            android:id="@+id/email_user_logged"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/drawer_right_margin"

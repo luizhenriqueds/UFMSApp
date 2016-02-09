@@ -1033,6 +1033,24 @@ public class AppDAO {
 
     }
 
+    public int criarAluno(Aluno aluno) {
+
+        ContentValues values = new ContentValues();
+        int returnedId = -1;
+
+        values.put(DataContract.AlunoEntry.COLUMN_NOME, aluno.getNome());
+        values.put(DataContract.AlunoEntry.COLUMN_EMAIL, aluno.getEmail());
+        values.put(DataContract.AlunoEntry.COLUMN_RGA, aluno.getRga());
+        values.put(DataContract.AlunoEntry.COLUMN_ALUNO_ID_SERVIDOR, aluno.getAlunoIdServidor());
+        values.put(DataContract.AlunoEntry.STATUS_FK, aluno.getStatusAluno());
+
+        returnedId = (int) database.insert(DataContract.AlunoEntry.TABLE_NAME_ALUNO, null, values);
+        aluno.setId(returnedId);
+
+        return  returnedId;
+
+    }
+
 
     public ArrayList<Aluno> listarAlunos() {
 
@@ -1263,6 +1281,29 @@ public class AppDAO {
 
         Cursor cursor = database.query(DataContract.AlunoEntry.TABLE_NAME_ALUNO, PROJECTION_ALUNOS,
                 DataContract.AlunoEntry.COLUMN_ALUNO_ID_SERVIDOR + " = ?", new String[]{String.valueOf(id)}, null, null, null);
+
+        Aluno aluno = null;
+
+        try {
+            if (cursor.moveToFirst()) {
+                do {
+                    aluno = fromCursorAluno(cursor);
+                } while (cursor.moveToNext());
+            }
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+
+
+        return aluno;
+    }
+
+    public Aluno alunoByEmail(String email) {
+
+        Cursor cursor = database.query(DataContract.AlunoEntry.TABLE_NAME_ALUNO, PROJECTION_ALUNOS,
+                DataContract.AlunoEntry.COLUMN_EMAIL + " = ?", new String[]{String.valueOf(email)}, null, null, null);
 
         Aluno aluno = null;
 

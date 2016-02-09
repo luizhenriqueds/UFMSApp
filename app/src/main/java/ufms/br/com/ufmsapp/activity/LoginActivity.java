@@ -8,23 +8,57 @@ import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import ufms.br.com.ufmsapp.MyApplication;
 import ufms.br.com.ufmsapp.R;
+import ufms.br.com.ufmsapp.network.VolleySingleton;
+import ufms.br.com.ufmsapp.pojo.Aluno;
+import ufms.br.com.ufmsapp.preferences.UserSessionPreference;
+import ufms.br.com.ufmsapp.task.TaskLoadAlunos;
+import ufms.br.com.ufmsapp.utils.PasswordHashGenerator;
 
 public class LoginActivity extends AppCompatActivity {
 
+    private static final String LOGIN_ACCESS_URL = "http://www.henriqueweb.com.br/webservice/access/userAccess.php?acao=login";
     private EditText emailLogin;
     private EditText passwordLogin;
     private ImageButton showPasswordImgButton;
     private ImageButton hidePasswordImgButton;
+    private UserSessionPreference prefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        prefs = new UserSessionPreference(this);
+
+        if (!prefs.isFirstTime()) {
+            Intent intent = new Intent(getApplicationContext(),
+                    MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+            startActivity(intent);
+            finish();
+        } else {
+            new TaskLoadAlunos().execute();
+        }
+
 
         emailLogin = (EditText) findViewById(R.id.login_email);
         passwordLogin = (EditText) findViewById(R.id.login_password);
@@ -54,11 +88,62 @@ public class LoginActivity extends AppCompatActivity {
 
     public void userCreateAccount(View view) {
         startActivity(new Intent(this, RegistrarActivity.class));
+        finish();
     }
 
     public void userLogin(View view) {
         if (validateForm()) {
-            startActivity(new Intent(this, MainActivity.class));
+
+            final StringRequest postRequest = new StringRequest(Request.Method.POST, LOGIN_ACCESS_URL,
+                    new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+
+                            JSONObject jsonResponse;
+
+                            try {
+                                jsonResponse = new JSONObject(response);
+
+                                if (jsonResponse.getInt("result") == 1) {
+
+                                    Aluno aluno = MyApplication.getWritableDatabase().alunoByEmail(emailLogin.getText().toString());
+
+                                    prefs.setName(aluno.getNome());
+                                    prefs.setEmail(aluno.getEmail());
+                                    prefs.setOld(true);
+
+                                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                                } else {
+                                    Toast.makeText(LoginActivity.this, "Login Inválido", Toast.LENGTH_LONG).show();
+                                }
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Log.d("Error.Response", error.getMessage());
+                        }
+                    }
+            ) {
+                @Override
+                protected Map<String, String> getParams() {
+
+                    String salt = "Random$SaltValue#WithSpecialCharacters12@$@4&#%^$*";
+                    String password = PasswordHashGenerator.md5(passwordLogin.getText().toString().concat(salt));
+
+                    Map<String, String> params = new HashMap<>();
+                    params.put("email", emailLogin.getText().toString());
+                    params.put("password", password);
+
+                    return params;
+                }
+            };
+
+            VolleySingleton.getInstance().getRequestQueue().add(postRequest);
         }
     }
 

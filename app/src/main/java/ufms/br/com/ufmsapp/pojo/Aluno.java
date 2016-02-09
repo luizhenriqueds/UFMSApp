@@ -10,6 +10,16 @@ public class Aluno {
     int statusAluno;
     int alunoIdServidor;
 
+    public Aluno(String nome, String email, String rga, int statusAluno, int alunoIdServidor) {
+        this.id = id;
+        this.nome = nome;
+        this.email = email;
+        this.rga = rga;
+        this.statusAluno = statusAluno;
+        this.alunoIdServidor = alunoIdServidor;
+    }
+
+
     public Aluno(int id, String nome, String email, String rga, int statusAluno, int alunoIdServidor) {
         this.id = id;
         this.nome = nome;
