@@ -21,7 +21,6 @@ import ufms.br.com.ufmsapp.utils.JSONUtils;
 public class ListEventosParser {
 
     public static ArrayList<Evento> parseEventosJSON(JSONObject response) {
-        //DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", new Locale("en", "us"));
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", new Locale("en", "us"));
         ArrayList<Evento> listEventos = new ArrayList<>();
 
@@ -37,7 +36,6 @@ public class ListEventosParser {
             int idServidorEvento = -1;
             String dataEventoCriado = Constants.NA;
             String dataLimiteEvento = Constants.NA;
-            String anexoPath = Constants.NA;
 
 
             try {
@@ -84,11 +82,6 @@ public class ListEventosParser {
 
                     if (JSONUtils.contains(currentObject, Keys.EventosEndpointColumns.KEY_DATA_LIMITE_EVENTO)) {
                         dataLimiteEvento = currentObject.getString(Keys.EventosEndpointColumns.KEY_DATA_LIMITE_EVENTO);
-                    }
-
-
-                    if (JSONUtils.contains(currentObject, Keys.EventosEndpointColumns.KEY_ANEXO_CAMINHO)) {
-                        anexoPath = currentObject.getString(Keys.EventosEndpointColumns.KEY_ANEXO_CAMINHO);
                     }
 
 

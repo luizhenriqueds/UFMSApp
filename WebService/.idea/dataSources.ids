@@ -6,7 +6,7 @@
       <identifier-quote-string>`</identifier-quote-string>
     </database-info>
     <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
-    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.4">
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.5">
       <schema id="1" name="henriqueweb"/>
       <table id="2" parent="1" name="app_aluno"/>
       <table id="3" parent="1" name="app_aluno_x_disciplina"/>
@@ -31,6 +31,7 @@
       <column id="22" parent="2" name="app_id_aluno">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
       </column>
       <column id="23" parent="2" name="app_nome_aluno">
         <mandatory>1</mandatory>
@@ -63,6 +64,7 @@
       <column id="30" parent="3" name="app_id_aluno_x_disciplina">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
       </column>
       <column id="31" parent="3" name="app_aluno_fk">
         <data-type>int(11)</data-type>
@@ -124,6 +126,7 @@
       <column id="44" parent="4" name="app_id_curso">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
       </column>
       <column id="45" parent="4" name="app_nome_curso">
         <mandatory>1</mandatory>
@@ -169,6 +172,7 @@
       <column id="55" parent="5" name="app_id_disciplina">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
       </column>
       <column id="56" parent="5" name="app_codigo_disciplina">
         <mandatory>1</mandatory>
@@ -223,6 +227,7 @@
       <column id="68" parent="6" name="app_id_disciplina_tipo">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
       </column>
       <column id="69" parent="6" name="app_descricao_disciplina_tipo">
         <mandatory>1</mandatory>
@@ -235,6 +240,7 @@
       <column id="71" parent="7" name="app_id_evento">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
       </column>
       <column id="72" parent="7" name="app_nome_evento">
         <mandatory>1</mandatory>
@@ -258,308 +264,325 @@
       <column id="77" parent="7" name="app_evento_big_icon">
         <data-type>text</data-type>
       </column>
-      <column id="78" parent="7" name="app_tipo_evento_fk">
+      <column id="78" parent="7" name="app_evento_notify_status">
+        <mandatory>1</mandatory>
+        <data-type>int(1)</data-type>
+      </column>
+      <column id="79" parent="7" name="app_tipo_evento_fk">
         <data-type>int(11)</data-type>
       </column>
-      <column id="79" parent="7" name="app_disciplina_fk">
+      <column id="80" parent="7" name="app_disciplina_fk">
         <data-type>int(11)</data-type>
       </column>
-      <index id="80" parent="7" name="app_disciplina_fk">
+      <index id="81" parent="7" name="app_disciplina_fk">
         <columns>app_disciplina_fk</columns>
         <desc-columns></desc-columns>
       </index>
-      <index id="81" parent="7" name="app_tipo_evento_fk">
+      <index id="82" parent="7" name="app_tipo_evento_fk">
         <columns>app_tipo_evento_fk</columns>
         <desc-columns></desc-columns>
       </index>
-      <key id="82" parent="7" name="PRIMARY">
+      <key id="83" parent="7" name="PRIMARY">
         <columns>app_id_evento</columns>
         <primary>1</primary>
       </key>
-      <foreign-key id="83" parent="7" name="app_evento_ibfk_1">
+      <foreign-key id="84" parent="7" name="app_evento_ibfk_1">
         <columns>app_tipo_evento_fk</columns>
         <ref-key>~.app_tipo_evento.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <foreign-key id="84" parent="7" name="app_evento_ibfk_2">
+      <foreign-key id="85" parent="7" name="app_evento_ibfk_2">
         <columns>app_disciplina_fk</columns>
         <ref-key>~.app_disciplina.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <column id="85" parent="8" name="app_evento_upload_id">
+      <column id="86" parent="8" name="app_evento_upload_id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
       </column>
-      <column id="86" parent="8" name="app_upload_path">
+      <column id="87" parent="8" name="app_upload_path">
         <data-type>varchar(512)</data-type>
       </column>
-      <column id="87" parent="8" name="app_evento_key">
+      <column id="88" parent="8" name="app_evento_key">
         <data-type>int(11)</data-type>
       </column>
-      <index id="88" parent="8" name="app_evento_key">
+      <index id="89" parent="8" name="app_evento_key">
         <columns>app_evento_key</columns>
         <desc-columns></desc-columns>
       </index>
-      <key id="89" parent="8" name="PRIMARY">
+      <key id="90" parent="8" name="PRIMARY">
         <columns>app_evento_upload_id</columns>
         <primary>1</primary>
       </key>
-      <foreign-key id="90" parent="8" name="app_evento_uploads_ibfk_1">
+      <foreign-key id="91" parent="8" name="app_evento_uploads_ibfk_1">
         <columns>app_evento_key</columns>
         <ref-key>~.app_evento.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <column id="91" parent="9" name="app_id_nota">
+      <column id="92" parent="9" name="app_id_nota">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
       </column>
-      <column id="92" parent="9" name="app_nota">
+      <column id="93" parent="9" name="app_nota">
         <data-type>float</data-type>
       </column>
-      <column id="93" parent="9" name="app_nota_descricao">
+      <column id="94" parent="9" name="app_nota_descricao">
         <mandatory>1</mandatory>
         <data-type>varchar(100)</data-type>
       </column>
-      <column id="94" parent="9" name="app_aluno_x_disciplina_fk">
+      <column id="95" parent="9" name="app_aluno_x_disciplina_fk">
         <data-type>int(11)</data-type>
       </column>
-      <index id="95" parent="9" name="app_aluno_x_disciplina_fk">
+      <index id="96" parent="9" name="app_aluno_x_disciplina_fk">
         <columns>app_aluno_x_disciplina_fk</columns>
         <desc-columns></desc-columns>
       </index>
-      <key id="96" parent="9" name="PRIMARY">
+      <key id="97" parent="9" name="PRIMARY">
         <columns>app_id_nota</columns>
         <primary>1</primary>
       </key>
-      <foreign-key id="97" parent="9" name="app_nota_ibfk_1">
+      <foreign-key id="98" parent="9" name="app_nota_ibfk_1">
         <columns>app_aluno_x_disciplina_fk</columns>
         <ref-key>~.app_aluno_x_disciplina.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <column id="98" parent="10" name="app_id_periodo_curso">
+      <column id="99" parent="10" name="app_id_periodo_curso">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
       </column>
-      <column id="99" parent="10" name="app_descricao_periodo_curso">
+      <column id="100" parent="10" name="app_descricao_periodo_curso">
         <data-type>varchar(45)</data-type>
       </column>
-      <key id="100" parent="10" name="PRIMARY">
+      <key id="101" parent="10" name="PRIMARY">
         <columns>app_id_periodo_curso</columns>
         <primary>1</primary>
       </key>
-      <column id="101" parent="11" name="app_id_professor">
+      <column id="102" parent="11" name="app_id_professor">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
       </column>
-      <column id="102" parent="11" name="app_nome_professor">
+      <column id="103" parent="11" name="app_nome_professor">
         <mandatory>1</mandatory>
         <data-type>varchar(50)</data-type>
       </column>
-      <column id="103" parent="11" name="app_email_professor">
+      <column id="104" parent="11" name="app_email_professor">
         <mandatory>1</mandatory>
         <data-type>varchar(50)</data-type>
       </column>
-      <column id="104" parent="11" name="app_ano_ingresso_professor">
+      <column id="105" parent="11" name="app_ano_ingresso_professor">
         <data-type>date</data-type>
       </column>
-      <column id="105" parent="11" name="app_formacao_professor">
+      <column id="106" parent="11" name="app_formacao_professor">
         <data-type>varchar(50)</data-type>
       </column>
-      <column id="106" parent="11" name="app_titulo_professor_fk">
+      <column id="107" parent="11" name="app_titulo_professor_fk">
         <data-type>int(11)</data-type>
       </column>
-      <index id="107" parent="11" name="app_titulo_professor_fk">
+      <index id="108" parent="11" name="app_titulo_professor_fk">
         <columns>app_titulo_professor_fk</columns>
         <desc-columns></desc-columns>
       </index>
-      <key id="108" parent="11" name="PRIMARY">
+      <key id="109" parent="11" name="PRIMARY">
         <columns>app_id_professor</columns>
         <primary>1</primary>
       </key>
-      <foreign-key id="109" parent="11" name="app_professor_ibfk_1">
+      <foreign-key id="110" parent="11" name="app_professor_ibfk_1">
         <columns>app_titulo_professor_fk</columns>
         <ref-key>~.app_titulo_professor.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <column id="110" parent="12" name="app_professor_x_disciplina_id">
+      <column id="111" parent="12" name="app_professor_x_disciplina_id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
       </column>
-      <column id="111" parent="12" name="app_professor_fk">
+      <column id="112" parent="12" name="app_professor_fk">
         <data-type>int(11)</data-type>
       </column>
-      <column id="112" parent="12" name="app_disciplina_fk">
+      <column id="113" parent="12" name="app_disciplina_fk">
         <data-type>int(11)</data-type>
       </column>
-      <index id="113" parent="12" name="app_disciplina_fk">
+      <index id="114" parent="12" name="app_disciplina_fk">
         <columns>app_disciplina_fk</columns>
         <desc-columns></desc-columns>
       </index>
-      <index id="114" parent="12" name="app_professor_fk">
+      <index id="115" parent="12" name="app_professor_fk">
         <columns>app_professor_fk</columns>
         <desc-columns></desc-columns>
       </index>
-      <key id="115" parent="12" name="PRIMARY">
+      <key id="116" parent="12" name="PRIMARY">
         <columns>app_professor_x_disciplina_id</columns>
         <primary>1</primary>
       </key>
-      <foreign-key id="116" parent="12" name="app_professor_x_disciplina_ibfk_1">
+      <foreign-key id="117" parent="12" name="app_professor_x_disciplina_ibfk_1">
         <columns>app_professor_fk</columns>
         <ref-key>~.app_professor.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <foreign-key id="117" parent="12" name="app_professor_x_disciplina_ibfk_2">
+      <foreign-key id="118" parent="12" name="app_professor_x_disciplina_ibfk_2">
         <columns>app_disciplina_fk</columns>
         <ref-key>~.app_disciplina.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <column id="118" parent="13" name="app_id_status_aluno">
+      <column id="119" parent="13" name="app_id_status_aluno">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
       </column>
-      <column id="119" parent="13" name="app_descricao_status_aluno">
+      <column id="120" parent="13" name="app_descricao_status_aluno">
         <mandatory>1</mandatory>
         <data-type>varchar(45)</data-type>
       </column>
-      <key id="120" parent="13" name="PRIMARY">
+      <key id="121" parent="13" name="PRIMARY">
         <columns>app_id_status_aluno</columns>
         <primary>1</primary>
       </key>
-      <column id="121" parent="14" name="app_id_status_disciplina">
+      <column id="122" parent="14" name="app_id_status_disciplina">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
       </column>
-      <column id="122" parent="14" name="app_descricao_status_disciplina">
+      <column id="123" parent="14" name="app_descricao_status_disciplina">
         <mandatory>1</mandatory>
         <data-type>varchar(45)</data-type>
       </column>
-      <key id="123" parent="14" name="PRIMARY">
+      <key id="124" parent="14" name="PRIMARY">
         <columns>app_id_status_disciplina</columns>
         <primary>1</primary>
       </key>
-      <column id="124" parent="15" name="app_id_tipo_curso">
+      <column id="125" parent="15" name="app_id_tipo_curso">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
       </column>
-      <column id="125" parent="15" name="app_descricao_tipo_curso">
+      <column id="126" parent="15" name="app_descricao_tipo_curso">
         <mandatory>1</mandatory>
         <data-type>varchar(45)</data-type>
       </column>
-      <key id="126" parent="15" name="PRIMARY">
+      <key id="127" parent="15" name="PRIMARY">
         <columns>app_id_tipo_curso</columns>
         <primary>1</primary>
       </key>
-      <column id="127" parent="16" name="app_id_tipo_evento">
+      <column id="128" parent="16" name="app_id_tipo_evento">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
       </column>
-      <column id="128" parent="16" name="app_descricao_tipo_evento">
+      <column id="129" parent="16" name="app_descricao_tipo_evento">
         <mandatory>1</mandatory>
         <data-type>varchar(45)</data-type>
       </column>
-      <key id="129" parent="16" name="PRIMARY">
+      <key id="130" parent="16" name="PRIMARY">
         <columns>app_id_tipo_evento</columns>
         <primary>1</primary>
       </key>
-      <column id="130" parent="17" name="app_id_titulo_professor">
+      <column id="131" parent="17" name="app_id_titulo_professor">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
       </column>
-      <column id="131" parent="17" name="app_descricao_titulo_professor">
+      <column id="132" parent="17" name="app_descricao_titulo_professor">
         <mandatory>1</mandatory>
         <data-type>varchar(45)</data-type>
       </column>
-      <key id="132" parent="17" name="PRIMARY">
+      <key id="133" parent="17" name="PRIMARY">
         <columns>app_id_titulo_professor</columns>
         <primary>1</primary>
       </key>
-      <column id="133" parent="18" name="app_turma_id">
+      <column id="134" parent="18" name="app_turma_id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
       </column>
-      <column id="134" parent="18" name="app_turma_nome">
+      <column id="135" parent="18" name="app_turma_nome">
         <mandatory>1</mandatory>
         <data-type>varchar(100)</data-type>
       </column>
-      <key id="135" parent="18" name="PRIMARY">
+      <key id="136" parent="18" name="PRIMARY">
         <columns>app_turma_id</columns>
         <primary>1</primary>
       </key>
-      <column id="136" parent="19" name="app_id_rating_disciplina">
+      <column id="137" parent="19" name="app_id_rating_disciplina">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
       </column>
-      <column id="137" parent="19" name="app_disciplina_key">
+      <column id="138" parent="19" name="app_disciplina_key">
         <data-type>int(11)</data-type>
       </column>
-      <column id="138" parent="19" name="app_aluno_key">
+      <column id="139" parent="19" name="app_aluno_key">
         <data-type>int(11)</data-type>
       </column>
-      <column id="139" parent="19" name="app_rating">
+      <column id="140" parent="19" name="app_rating">
         <data-type>float</data-type>
       </column>
-      <index id="140" parent="19" name="app_aluno_key">
+      <index id="141" parent="19" name="app_aluno_key">
         <columns>app_aluno_key</columns>
         <desc-columns></desc-columns>
       </index>
-      <index id="141" parent="19" name="app_disciplina_key">
+      <index id="142" parent="19" name="app_disciplina_key">
         <columns>app_disciplina_key</columns>
         <desc-columns></desc-columns>
       </index>
-      <key id="142" parent="19" name="PRIMARY">
+      <key id="143" parent="19" name="PRIMARY">
         <columns>app_id_rating_disciplina</columns>
         <primary>1</primary>
       </key>
-      <foreign-key id="143" parent="19" name="app_rating_disciplina_ibfk_1">
+      <foreign-key id="144" parent="19" name="app_rating_disciplina_ibfk_1">
         <columns>app_disciplina_key</columns>
         <ref-key>~.app_disciplina.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <foreign-key id="144" parent="19" name="app_rating_disciplina_ibfk_2">
+      <foreign-key id="145" parent="19" name="app_rating_disciplina_ibfk_2">
         <columns>app_aluno_key</columns>
         <ref-key>~.app_aluno.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <column id="145" parent="20" name="registration_id">
+      <column id="146" parent="20" name="registration_id">
         <mandatory>1</mandatory>
         <data-type>varchar(200)</data-type>
       </column>
-      <column id="146" parent="20" name="aluno_id">
+      <column id="147" parent="20" name="aluno_id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <key id="147" parent="20" name="PRIMARY">
+      <key id="148" parent="20" name="PRIMARY">
         <columns>registration_id</columns>
         <primary>1</primary>
       </key>
-      <column id="148" parent="21" name="app_access_id">
+      <column id="149" parent="21" name="app_access_id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
       </column>
-      <column id="149" parent="21" name="app_aluno_id">
+      <column id="150" parent="21" name="app_aluno_id">
         <data-type>int(11)</data-type>
       </column>
-      <column id="150" parent="21" name="app_aluno_password">
+      <column id="151" parent="21" name="app_aluno_password">
         <data-type>varchar(256)</data-type>
       </column>
-      <index id="151" parent="21" name="app_aluno_id">
+      <index id="152" parent="21" name="app_aluno_id">
         <columns>app_aluno_id</columns>
         <desc-columns></desc-columns>
       </index>
-      <key id="152" parent="21" name="PRIMARY">
+      <key id="153" parent="21" name="PRIMARY">
         <columns>app_access_id</columns>
         <primary>1</primary>
       </key>
-      <foreign-key id="153" parent="21" name="app_user_access_ibfk_1">
+      <foreign-key id="154" parent="21" name="app_user_access_ibfk_1">
         <columns>app_aluno_id</columns>
         <ref-key>~.app_aluno.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>

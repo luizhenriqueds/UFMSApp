@@ -69,6 +69,22 @@ public class DataContract {
 
     }
 
+    public class NotifyStatusEvento implements BaseColumns {
+
+        /* Constante que representa o nome da tabela período do curso que será referenciada no código de criação do banco */
+        public static final String TABLE_NAME_NOTIFY_STATUS = "app_evento_notify_status";
+
+        /* Coluna id da tabela app_evento_notify_status será armazenada com inteiro chave primária */
+        public static final String COLUMN_ID = "_id";
+
+        /* Coluna status de notificação será armazenado como int - 0 ou 1 */
+        public static final String COLUMN_NOTIFY_STATUS = "app_notify_status";
+
+        /* Coluna chave estrangeira do evento*/
+        public static final String EVENTO_FK = "app_evento_key";
+    }
+
+
     public class ProfessorEntry implements BaseColumns {
 
         /* Constante que representa o nome da tabela professor que será referenciada no código de criação do banco */
@@ -181,6 +197,9 @@ public class DataContract {
 
         /* Coluna caminho do ícone grande será armazenada como string */
         public static final String COLUMN_BIG_ICON_PATH = "app_evento_big_icon";
+
+        /* Coluna notify status será armazenada como int */
+        public static final String COLUMN_NOTIFY_STATUS = "app_evento_notify_status";
 
         public static final String COLUMN_ID_SERVIDOR_EVENTO = "app_evento_id_servidor";
 

@@ -3,11 +3,11 @@ package ufms.br.com.ufmsapp.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
-import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
 
@@ -19,6 +19,7 @@ import ufms.br.com.ufmsapp.MyApplication;
 import ufms.br.com.ufmsapp.R;
 import ufms.br.com.ufmsapp.pojo.Disciplina;
 import ufms.br.com.ufmsapp.pojo.Evento;
+import ufms.br.com.ufmsapp.pojo.NotifyStatus;
 import ufms.br.com.ufmsapp.pojo.Professor;
 import ufms.br.com.ufmsapp.pojo.TipoEvento;
 import ufms.br.com.ufmsapp.pojo.TituloProfessor;
@@ -26,6 +27,8 @@ import ufms.br.com.ufmsapp.preferences.NotifyUserPreference;
 
 
 public class DetalhesEventoFragment extends Fragment implements CompoundButton.OnCheckedChangeListener {
+
+    private static final String UPDATE_NOTIFY_STATUS_URL = "http://www.henriqueweb.com.br/webservice/update/updateNotifyStatus.php";
 
     protected Evento evento;
     protected Disciplina disciplina;
@@ -88,12 +91,21 @@ public class DetalhesEventoFragment extends Fragment implements CompoundButton.O
             tituloDisciplina.setText(disciplina.getTitulo());
             dataLimiteEvento.setText(dateFormat.format(evento.getDataLimiteEvento()));
 
+            if (MyApplication.getWritableDatabase().countNotifyStatus(evento.getIdEventoServidor()) == 0) {
+                MyApplication.getWritableDatabase().criarNotificationStatus(new NotifyStatus(0, evento.getIdEventoServidor()));
+            }
 
-           /* if (notifyUserPreference.getNotifyUser() == disciplina.getIdDisciplinaServidor()) {
-                desativarNotificacaoSwitch.setChecked(true);
+            NotifyStatus status = MyApplication.getWritableDatabase().notifyById(evento.getIdEventoServidor());
+
+            if (status != null) {
+                if (status.getNotifyStatus() == 1) {
+                    desativarNotificacaoSwitch.setChecked(true);
+                } else if (status.getNotifyStatus() == 0) {
+                    desativarNotificacaoSwitch.setChecked(false);
+                }
             } else {
                 desativarNotificacaoSwitch.setChecked(false);
-            }*/
+            }
 
 
         }
@@ -105,11 +117,11 @@ public class DetalhesEventoFragment extends Fragment implements CompoundButton.O
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
         if (isChecked) {
-            //notifyUserPreference.setNotifyUser(disciplina.getIdDisciplinaServidor());
+            MyApplication.getWritableDatabase().updateNotifyStatus(new NotifyStatus(1, evento.getIdEventoServidor()));
         } else {
-            //notifyUserPreference.setNotifyUser(-1);
-
+            MyApplication.getWritableDatabase().updateNotifyStatus(new NotifyStatus(0, evento.getIdEventoServidor()));
         }
 
     }
+
 }

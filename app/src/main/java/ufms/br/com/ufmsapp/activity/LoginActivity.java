@@ -1,5 +1,7 @@
 package ufms.br.com.ufmsapp.activity;
 
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -18,6 +20,8 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GoogleApiAvailability;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -27,11 +31,12 @@ import java.util.Map;
 
 import ufms.br.com.ufmsapp.MyApplication;
 import ufms.br.com.ufmsapp.R;
+import ufms.br.com.ufmsapp.gcm.UfmsListenerService;
 import ufms.br.com.ufmsapp.network.VolleySingleton;
 import ufms.br.com.ufmsapp.pojo.Aluno;
 import ufms.br.com.ufmsapp.preferences.UserSessionPreference;
 import ufms.br.com.ufmsapp.task.TaskLoadAlunos;
-import ufms.br.com.ufmsapp.utils.PasswordHashGenerator;
+import ufms.br.com.ufmsapp.utils.PasswordEncryptionUtil;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -42,10 +47,14 @@ public class LoginActivity extends AppCompatActivity {
     private ImageButton hidePasswordImgButton;
     private UserSessionPreference prefs;
 
+    public static final int REQUEST_PLAY_SERVICES = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        startGooglePlayService();
 
         prefs = new UserSessionPreference(this);
 
@@ -85,6 +94,32 @@ public class LoginActivity extends AppCompatActivity {
         });
 
     }
+
+    private void startGooglePlayService() {
+        GoogleApiAvailability api = GoogleApiAvailability.getInstance();
+        int resultCode = api.isGooglePlayServicesAvailable(this);
+        if (resultCode != ConnectionResult.SUCCESS) {
+            if (api.isUserResolvableError(resultCode)) {
+                Dialog dialog = api.getErrorDialog(this, resultCode, REQUEST_PLAY_SERVICES);
+                dialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+                    @Override
+                    public void onCancel(DialogInterface dialogInterface) {
+                        finish();
+                    }
+                });
+                dialog.show();
+            } else {
+                Toast.makeText(this, R.string.gcm_nao_suportado,
+                        Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        } else {
+            Intent it = new Intent(this, UfmsListenerService.class);
+            it.putExtra(UfmsListenerService.EXTRA_REGISTRAR, true);
+            startService(it);
+        }
+    }
+
 
     public void userCreateAccount(View view) {
         startActivity(new Intent(this, RegistrarActivity.class));
@@ -133,7 +168,7 @@ public class LoginActivity extends AppCompatActivity {
                 protected Map<String, String> getParams() {
 
                     String salt = "Random$SaltValue#WithSpecialCharacters12@$@4&#%^$*";
-                    String password = PasswordHashGenerator.md5(passwordLogin.getText().toString().concat(salt));
+                    String password = PasswordEncryptionUtil.md5(passwordLogin.getText().toString().concat(salt));
 
                     Map<String, String> params = new HashMap<>();
                     params.put("email", emailLogin.getText().toString());

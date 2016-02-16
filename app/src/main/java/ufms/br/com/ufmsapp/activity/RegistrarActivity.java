@@ -37,10 +37,11 @@ import java.util.Map;
 import ufms.br.com.ufmsapp.MyApplication;
 import ufms.br.com.ufmsapp.R;
 import ufms.br.com.ufmsapp.extras.UrlEndpoints;
+import ufms.br.com.ufmsapp.gcm.UfmsListenerService;
 import ufms.br.com.ufmsapp.network.VolleySingleton;
 import ufms.br.com.ufmsapp.pojo.Aluno;
 import ufms.br.com.ufmsapp.preferences.UserSessionPreference;
-import ufms.br.com.ufmsapp.utils.PasswordHashGenerator;
+import ufms.br.com.ufmsapp.utils.PasswordEncryptionUtil;
 
 public class RegistrarActivity extends AppCompatActivity {
 
@@ -48,9 +49,9 @@ public class RegistrarActivity extends AppCompatActivity {
 
     public static final String URL_DO_SERVIDOR = UrlEndpoints.URL_ENDPOINT + "server/updateUserGCM.php";
 
-    public static final int ALUNO_ID_REGISTRAR = 1;
+    //public static final int ALUNO_ID_REGISTRAR = 1;
 
-    public static final String ENVIADO_SERVIDOR = "enviadoProServidor";
+    public static final String UPDATED_SERVIDOR = "updatedServidor";
 
     private EditText registrarNome;
     private EditText registrarEmail;
@@ -113,19 +114,22 @@ public class RegistrarActivity extends AppCompatActivity {
                             try {
                                 jsonResponse = new JSONObject(response);
 
-                                if (jsonResponse.getInt("registered") == -1) {
+                                int inserted = jsonResponse.getInt("registered");
+                                int userId = jsonResponse.getInt("userId");
+
+                                if (inserted == -1) {
                                     btnSignIn.setEnabled(true);
                                     Toast.makeText(RegistrarActivity.this, "Email ou RGA já existem.", Toast.LENGTH_LONG).show();
-                                } else if (jsonResponse.getInt("registered") > 0) {
+                                } else if (inserted > 0) {
                                     btnSignIn.setEnabled(false);
-
-                                    registerUser();
 
                                     Aluno aluno = new Aluno(registrarNome.getText().toString(), registrarEmail.getText().toString(), String.valueOf(registrarRga.getText().toString()), 1, jsonResponse.getInt("userId"));
 
                                     int returnedId = MyApplication.getWritableDatabase().criarAluno(aluno);
 
                                     if (returnedId != -1) {
+                                        registerUser(userId);
+
                                         prefs.setName(aluno.getNome());
                                         prefs.setEmail(aluno.getEmail());
                                         prefs.setOld(true);
@@ -156,7 +160,7 @@ public class RegistrarActivity extends AppCompatActivity {
                 protected Map<String, String> getParams() {
 
                     String salt = "Random$SaltValue#WithSpecialCharacters12@$@4&#%^$*";
-                    String password = PasswordHashGenerator.md5(registrarSenha.getText().toString().concat(salt));
+                    String password = PasswordEncryptionUtil.md5(registrarSenha.getText().toString().concat(salt));
 
                     Map<String, String> params = new HashMap<>();
                     params.put("nome", registrarNome.getText().toString());
@@ -178,7 +182,7 @@ public class RegistrarActivity extends AppCompatActivity {
         Toast.makeText(this, "LOAD PICTURE!!!", Toast.LENGTH_LONG).show();
     }
 
-    private void registerUser() {
+    private void registerUser(final int alunoId) {
         new Thread() {
             @Override
             public void run() {
@@ -188,7 +192,7 @@ public class RegistrarActivity extends AppCompatActivity {
                     String token = instanceID.getToken(
                             getString(R.string.gcm_defaultSenderId),
                             GoogleCloudMessaging.INSTANCE_ID_SCOPE, null);
-                    updateRegistrationOnServer(token);
+                    updateRegistrationOnServer(token, alunoId);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -196,7 +200,7 @@ public class RegistrarActivity extends AppCompatActivity {
         }.start();
     }
 
-    private void updateRegistrationOnServer(final String key) {
+    private void updateRegistrationOnServer(final String key, final int alunoId) {
         new Thread() {
             @Override
             public void run() {
@@ -206,13 +210,14 @@ public class RegistrarActivity extends AppCompatActivity {
                     connection.setRequestMethod("POST");
                     connection.setDoOutput(true);
                     OutputStream os = connection.getOutputStream();
-                    os.write(("acao=updateUser&regId=" + key + "&alunoId=" + ALUNO_ID_REGISTRAR).getBytes());
+                    UfmsListenerService service = new UfmsListenerService();
+                    os.write(("acao=updateUser&regId=" + key + "&alunoId=" + alunoId).getBytes());
                     os.flush();
                     os.close();
                     connection.connect();
                     int responseCode = connection.getResponseCode();
                     if (responseCode == HttpURLConnection.HTTP_OK) {
-                        setEnviadoServidor(true);
+                        setUpdatedServidor(true);
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
@@ -229,11 +234,16 @@ public class RegistrarActivity extends AppCompatActivity {
         }.start();
     }
 
-    private void setEnviadoServidor(boolean enviado) {
+    private void setUpdatedServidor(boolean updated) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = prefs.edit();
-        editor.putBoolean(ENVIADO_SERVIDOR, enviado);
+        editor.putBoolean(UPDATED_SERVIDOR, updated);
         editor.apply();
+    }
+
+    private boolean getUpdatedServidor() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        return prefs.getBoolean(UPDATED_SERVIDOR, false);
     }
 
     public void showHidePasswordRegistrar(View view) {

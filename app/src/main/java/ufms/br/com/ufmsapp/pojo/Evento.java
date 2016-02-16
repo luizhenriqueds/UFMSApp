@@ -62,6 +62,7 @@ public class Evento implements Parcelable {
         this.idEventoServidor = idEventoServidor;
     }
 
+
     public int getId() {
         return id;
     }
@@ -138,7 +139,7 @@ public class Evento implements Parcelable {
     @Override
     public String toString() {
         return "Evento{" +
-                "tipoEventoId=" + id +
+                "id=" + id +
                 ", titulo='" + titulo + '\'' +
                 ", descricao='" + descricao + '\'' +
                 ", dataEventoCriado=" + dataEventoCriado +

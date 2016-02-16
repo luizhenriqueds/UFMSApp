@@ -4,6 +4,7 @@ package ufms.br.com.ufmsapp.gcm;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.util.Log;
 
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.google.android.gms.iid.InstanceID;
@@ -82,6 +83,7 @@ public class UfmsListenerService extends InstanceIDListenerService {
                     connection.setRequestMethod("POST");
                     connection.setDoOutput(true);
                     OutputStream os = connection.getOutputStream();
+                    //Log.d("GCM_SERVICE", "I'M CALLING HERE");
                     os.write(("acao=registrar&regId=" + key + "&alunoId=" + ALUNO_ID_REGISTRAR).getBytes());
                     os.flush();
                     os.close();
@@ -118,7 +120,7 @@ public class UfmsListenerService extends InstanceIDListenerService {
         editor.apply();
     }
 
-    private String getRegistrationId() {
+    public String getRegistrationId() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         return prefs.getString(REGISTRATION_ID, null);
     }

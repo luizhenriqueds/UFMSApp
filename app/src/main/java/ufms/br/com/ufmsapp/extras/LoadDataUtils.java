@@ -38,20 +38,32 @@ import ufms.br.com.ufmsapp.pojo.TipoDisciplina;
 import ufms.br.com.ufmsapp.pojo.TipoEvento;
 import ufms.br.com.ufmsapp.pojo.TituloProfessor;
 import ufms.br.com.ufmsapp.pojo.Turma;
+import ufms.br.com.ufmsapp.preferences.UserSessionPreference;
 
 public class LoadDataUtils {
+    private static UserSessionPreference prefs = new UserSessionPreference(MyApplication.getAppContext());
 
     public static ArrayList<Evento> loadEventos(RequestQueue requestQueue) {
         JSONObject response = Requestor.requestJSON(requestQueue, Endpoints.getRequestUrlEventos());
         ArrayList<Evento> listEventos = ListEventosParser.parseEventosJSON(response);
         MyApplication.getWritableDatabase().criarEvento(listEventos, true);
 
-        ArrayList<Disciplina> disciplinas = MyApplication.getWritableDatabase().listarDisciplinas(1);
 
-        ArrayList<Evento> eventos = new ArrayList<>();
+        Aluno aluno = null;
+        if (!prefs.isFirstTime()) {
+            aluno = MyApplication.getWritableDatabase().alunoByEmail(prefs.getEmail());
+        }
 
-        for (int i = 0; i < disciplinas.size(); i++) {
-            eventos.addAll(MyApplication.getWritableDatabase().listarEventos(disciplinas.get(i).getIdDisciplinaServidor()));
+        ArrayList<Evento> eventos = null;
+        if (aluno != null) {
+            ArrayList<Disciplina> disciplinas = MyApplication.getWritableDatabase().listarDisciplinas(aluno.getAlunoIdServidor());
+
+            eventos = new ArrayList<>();
+
+            for (int i = 0; i < disciplinas.size(); i++) {
+                eventos.addAll(MyApplication.getWritableDatabase().listarEventos(disciplinas.get(i).getIdDisciplinaServidor()));
+            }
+
         }
 
         // return listEventos;
@@ -64,7 +76,7 @@ public class LoadDataUtils {
         MyApplication.getWritableDatabase().criarDisciplina(listDisciplinas, true);
 
         //return listDisciplinas;
-        return MyApplication.getWritableDatabase().listarDisciplinas(1);
+        return MyApplication.getWritableDatabase().listarDisciplinas(MyApplication.getWritableDatabase().alunoByEmail(prefs.getEmail()).getAlunoIdServidor());
     }
 
     public static ArrayList<Professor> loadProfessores(RequestQueue requestQueue) {

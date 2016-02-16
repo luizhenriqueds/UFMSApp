@@ -11,7 +11,6 @@ public class Keys {
         public static final String KEY_ID_EVENTO = "app_id_evento";
         public static final String KEY_NOME_EVENTO = "app_nome_evento";
         public static final String KEY_DESCRICAO_EVENTO = "app_descricao_evento";
-        public static final String KEY_ANEXO_CAMINHO = "app_anexo_caminho_evento";
         public static final String KEY_DATA_EVENTO_CRIADO = "app_evento_timestamp";
         public static final String KEY_DATA_LIMITE_EVENTO = "app_evento_data_limite";
         public static final String KEY_SMALL_ICON = "app_evento_small_icon";

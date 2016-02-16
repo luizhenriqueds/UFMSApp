@@ -10,10 +10,11 @@ $connection = $db->connect();
 
 if ($acao == "registrar") {
 
-    $stmt = $connection->prepare("INSERT INTO app_dispositivo (registration_id) VALUES (?)");
+    $stmt = $connection->prepare("INSERT INTO app_dispositivo (registration_id, aluno_id) VALUES (?, ?)");
     $json = json_decode(file_get_contents('php://input'));
     $registrationId = $_POST['regId'];
-    $stmt->execute(array($registrationId));
+    $alunoId = $_POST['alunoId'];
+    $stmt->execute(array($registrationId, $alunoId));
 
 } else if ($acao == "enviar") {
 
@@ -36,6 +37,7 @@ if ($acao == "registrar") {
     $jsonData = array(
         "registration_ids" => $jsonArray,
         "data" => array(
+            "type" => "evento",
             "mensagem" => $mensagem
         )
     );

@@ -18,6 +18,7 @@ import ufms.br.com.ufmsapp.pojo.Disciplina;
 import ufms.br.com.ufmsapp.pojo.Evento;
 import ufms.br.com.ufmsapp.pojo.Material;
 import ufms.br.com.ufmsapp.pojo.Nota;
+import ufms.br.com.ufmsapp.pojo.NotifyStatus;
 import ufms.br.com.ufmsapp.pojo.Professor;
 import ufms.br.com.ufmsapp.pojo.RatingDisciplina;
 import ufms.br.com.ufmsapp.pojo.StatusAluno;
@@ -86,6 +87,12 @@ public class AppDAO {
             DataContract.TipoEventoEntry.COLUMN_ID,
             DataContract.TipoEventoEntry.COLUMN_NOME,
             DataContract.TipoEventoEntry.COLUMN_TIPO_EVENTO_ID_SERVIDOR
+    };
+
+    public static final String[] PROJECTION_NOTIFY_EVENTO = {
+            DataContract.NotifyStatusEvento.COLUMN_ID,
+            DataContract.NotifyStatusEvento.COLUMN_NOTIFY_STATUS,
+            DataContract.NotifyStatusEvento.EVENTO_FK
     };
 
     public static final String[] PROJECTION_STATUS_DISCIPLINA = {
@@ -899,6 +906,45 @@ public class AppDAO {
 
     }
 
+    public int countNotifyStatus(int eventoId) {
+
+        String countQuery = "SELECT COUNT(" + DataContract.NotifyStatusEvento.TABLE_NAME_NOTIFY_STATUS + "." + DataContract.NotifyStatusEvento.COLUMN_ID + ") FROM " + DataContract.NotifyStatusEvento.TABLE_NAME_NOTIFY_STATUS + " WHERE (" + DataContract.NotifyStatusEvento.EVENTO_FK + " = " + eventoId + ");";
+
+        Cursor cursor = database.rawQuery(countQuery, null);
+        cursor.moveToFirst();
+        int count = cursor.getInt(0);
+
+        cursor.close();
+
+        return count;
+    }
+
+    public int criarNotificationStatus(NotifyStatus notifyStatus) {
+
+        ContentValues values = new ContentValues();
+        int returnedId;
+
+        values.put(DataContract.NotifyStatusEvento.COLUMN_NOTIFY_STATUS, notifyStatus.getNotifyStatus());
+        values.put(DataContract.NotifyStatusEvento.EVENTO_FK, notifyStatus.getEventoKey());
+
+        returnedId = (int) database.insert(DataContract.NotifyStatusEvento.TABLE_NAME_NOTIFY_STATUS, null, values);
+        notifyStatus.setNotifyId(returnedId);
+
+        return returnedId;
+
+    }
+
+    public void updateNotifyStatus(NotifyStatus status) {
+
+        String updateQuery = "UPDATE " + DataContract.NotifyStatusEvento.TABLE_NAME_NOTIFY_STATUS + " SET " + DataContract.NotifyStatusEvento.COLUMN_NOTIFY_STATUS +
+                " = " + status.getNotifyStatus() + " WHERE (" + DataContract.NotifyStatusEvento.EVENTO_FK + " = " + status.getEventoKey() + ");";
+
+        Cursor cursor = database.rawQuery(updateQuery, null);
+        cursor.moveToFirst();
+        cursor.close();
+
+    }
+
     public void updateRatingDisciplina(int idAluno, int idDisciplina, float rating) {
 
         ContentValues contentValues = new ContentValues();
@@ -1047,7 +1093,7 @@ public class AppDAO {
         returnedId = (int) database.insert(DataContract.AlunoEntry.TABLE_NAME_ALUNO, null, values);
         aluno.setId(returnedId);
 
-        return  returnedId;
+        return returnedId;
 
     }
 
@@ -1198,6 +1244,7 @@ public class AppDAO {
 
     }*/
 
+
     public Disciplina disciplinaById(int id) {
 
         Cursor cursor = database.query(DataContract.DisciplinaEntry.TABLE_NAME_DISCIPLINA, PROJECTION_DISCIPLINA,
@@ -1253,6 +1300,53 @@ public class AppDAO {
 
         return matriculas;
     }
+
+    public Evento eventoById(int id) {
+
+        Cursor cursor = database.query(DataContract.EventoEntry.TABLE_NAME_EVENTO, PROJECTION_EVENTO,
+                DataContract.EventoEntry.COLUMN_ID_SERVIDOR_EVENTO + " = ?", new String[]{String.valueOf(id)}, null, null, null);
+
+        Evento evento = null;
+
+        try {
+            if (cursor.moveToFirst()) {
+                do {
+                    evento = fromCursorEvento(cursor);
+                } while (cursor.moveToNext());
+            }
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+
+
+        return evento;
+    }
+
+    public NotifyStatus notifyById(int eventoId) {
+
+        Cursor cursor = database.query(DataContract.NotifyStatusEvento.TABLE_NAME_NOTIFY_STATUS, PROJECTION_NOTIFY_EVENTO,
+                DataContract.NotifyStatusEvento.EVENTO_FK + " = ?", new String[]{String.valueOf(eventoId)}, null, null, null);
+
+        NotifyStatus notifyStatus = null;
+
+        try {
+            if (cursor.moveToFirst()) {
+                do {
+                    notifyStatus = fromCursorNotifyEvento(cursor);
+                } while (cursor.moveToNext());
+            }
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+
+
+        return notifyStatus;
+    }
+
 
     public TipoEvento tipoEventoById(int id) {
 
@@ -1516,6 +1610,16 @@ public class AppDAO {
 
 
         return new TipoEvento(id, nomeTipoEvento, tipoEventoIdServidor);
+    }
+
+
+    private static NotifyStatus fromCursorNotifyEvento(Cursor cursor) {
+        int id = cursor.getInt(cursor.getColumnIndex(DataContract.NotifyStatusEvento.COLUMN_ID));
+        int notify = cursor.getInt(cursor.getColumnIndex(DataContract.NotifyStatusEvento.COLUMN_NOTIFY_STATUS));
+        int eventoKey = cursor.getInt(cursor.getColumnIndex(DataContract.NotifyStatusEvento.EVENTO_FK));
+
+
+        return new NotifyStatus(id, notify, eventoKey);
     }
 
     private static AlunoXDisciplina fromCursorAlunoXDisciplina(Cursor cursor) {
