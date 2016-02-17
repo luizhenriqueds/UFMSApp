@@ -24,7 +24,7 @@ import ufms.br.com.ufmsapp.task.TaskLoadTurmas;
 public class DataHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "ufmsapp.db";
-    private static final int DB_VERSION = 57;
+    private static final int DB_VERSION = 58;
     private static final String COMMA_SEPARATOR = ", ";
     private static final String APP_TAG = "log_db";
 

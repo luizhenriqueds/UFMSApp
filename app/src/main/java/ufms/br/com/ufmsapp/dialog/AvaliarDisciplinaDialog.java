@@ -204,7 +204,7 @@ public class AvaliarDisciplinaDialog extends DialogFragment implements OnClickLi
                     Snackbar.make(getActivity().findViewById(android.R.id.content), R.string.txt_rated_edit_success, Snackbar.LENGTH_LONG).show();
 
                 } else {
-                    RatingDisciplina rating = MyApplication.getWritableDatabase().getRatingDisciplina(1, ratingDisciplina.getDisciplinaKey());
+                    RatingDisciplina rating = MyApplication.getWritableDatabase().getRatingDisciplina(idAluno, ratingDisciplina.getDisciplinaKey());
                     Toast.makeText(getActivity(), R.string.txt_rated_not_allowed, Toast.LENGTH_LONG).show();
                     dialog.dismiss();
                     ratingDetails.setRating(rating.getRating());

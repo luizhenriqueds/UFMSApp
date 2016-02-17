@@ -30,6 +30,7 @@ import ufms.br.com.ufmsapp.activity.DetalhesDisciplinaActivity;
 import ufms.br.com.ufmsapp.adapter.DisciplinasAdapter;
 import ufms.br.com.ufmsapp.callbacks.DisciplinasLoadedListener;
 import ufms.br.com.ufmsapp.pojo.Disciplina;
+import ufms.br.com.ufmsapp.preferences.UserSessionPreference;
 import ufms.br.com.ufmsapp.task.TaskLoadDisciplinas;
 import ufms.br.com.ufmsapp.task.TaskLoadMateriais;
 import ufms.br.com.ufmsapp.task.TaskLoadMatriculas;
@@ -128,8 +129,13 @@ public class DisciplinasFragment extends Fragment implements DisciplinasLoadedLi
             listDisciplinas = savedInstanceState.getParcelableArrayList(STATE_DISCIPLINAS);
             adapter.setDisciplinasList(listDisciplinas);
         } else {
-            // Aluno ID como parâmetro
-            listDisciplinas = MyApplication.getWritableDatabase().listarDisciplinas(1);
+            UserSessionPreference prefs = new UserSessionPreference(getActivity());
+
+            if (!prefs.isFirstTime()) {
+                // Aluno ID como parâmetro
+                listDisciplinas = MyApplication.getWritableDatabase().listarDisciplinas(MyApplication.getWritableDatabase().alunoByEmail(prefs.getEmail()).getAlunoIdServidor());
+            }
+
             adapter.setDisciplinasList(listDisciplinas);
 
             if (listDisciplinas.isEmpty()) {

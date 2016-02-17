@@ -1,28 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f27fee75-9493-4c44-a8c3-c12b7695b42b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/update/updateNotifyStatus.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/utils/PasswordEncryptionUtil.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/utils/PasswordHashGenerator.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/dictionaries/Luiz_Henrique.xml" afterPath="$PROJECT_DIR$/../.idea/dictionaries/Luiz_Henrique.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/gcmserver.php" afterPath="$PROJECT_DIR$/server/gcmserver.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/../app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/JSONParsers/ListEventosParser.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/JSONParsers/ListEventosParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/activity/LoginActivity.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/activity/LoginActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/activity/MainActivity.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/activity/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/activity/RegistrarActivity.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/activity/RegistrarActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/data/AppDAO.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/data/AppDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/data/DataContract.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/data/DataContract.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/data/DataHelper.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/data/DataHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/extras/Keys.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/extras/Keys.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/fragment/DetalhesEventoFragment.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/fragment/DetalhesEventoFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/gcm/UfmsGcmListenerService.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/gcm/UfmsGcmListenerService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/pojo/Evento.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/pojo/Evento.java" />
-    </list>
+    <list default="true" id="f27fee75-9493-4c44-a8c3-c12b7695b42b" name="Default" comment="" />
     <ignored path="WebService.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -323,7 +302,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-13" y="-13" width="3226" height="1746" extended-state="7" />
+    <frame x="-13" y="-13" width="3226" height="1746" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14974293" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />

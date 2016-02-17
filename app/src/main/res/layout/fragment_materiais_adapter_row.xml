@@ -41,6 +41,7 @@
                 android:textSize="16sp" />
 
             <ImageButton
+                android:contentDescription="@string/txt_download_file"
                 android:id="@+id/btn_file_download"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"

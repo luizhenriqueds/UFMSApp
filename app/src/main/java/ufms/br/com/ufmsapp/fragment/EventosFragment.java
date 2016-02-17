@@ -31,6 +31,7 @@ import ufms.br.com.ufmsapp.adapter.EventosAdapter;
 import ufms.br.com.ufmsapp.callbacks.EventosLoadedListener;
 import ufms.br.com.ufmsapp.pojo.Disciplina;
 import ufms.br.com.ufmsapp.pojo.Evento;
+import ufms.br.com.ufmsapp.preferences.UserSessionPreference;
 import ufms.br.com.ufmsapp.task.TaskLoadEventos;
 import ufms.br.com.ufmsapp.task.TaskLoadMateriais;
 import ufms.br.com.ufmsapp.task.TaskLoadMatriculas;
@@ -131,7 +132,15 @@ public class EventosFragment extends Fragment implements EventosLoadedListener, 
             adapter.setEventosList(eventos);
         } else {
 
-            ArrayList<Disciplina> disciplinas = MyApplication.getWritableDatabase().listarDisciplinas(1);
+
+            UserSessionPreference prefs = new UserSessionPreference(getActivity());
+
+            ArrayList<Disciplina> disciplinas = new ArrayList<>();
+
+            if (!prefs.isFirstTime()) {
+                disciplinas = MyApplication.getWritableDatabase().listarDisciplinas(MyApplication.getWritableDatabase().alunoByEmail(prefs.getEmail()).getAlunoIdServidor());
+            }
+
 
             for (int i = 0; i < disciplinas.size(); i++) {
                 eventos.addAll(MyApplication.getWritableDatabase().listarEventos(disciplinas.get(i).getIdDisciplinaServidor()));

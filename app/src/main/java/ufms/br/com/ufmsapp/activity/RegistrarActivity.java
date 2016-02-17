@@ -135,7 +135,7 @@ public class RegistrarActivity extends AppCompatActivity {
                                         prefs.setOld(true);
 
                                         startActivity(new Intent(RegistrarActivity.this, MainActivity.class));
-                                        finish();
+                                        RegistrarActivity.this.finish();
                                     }
 
                                 } else {

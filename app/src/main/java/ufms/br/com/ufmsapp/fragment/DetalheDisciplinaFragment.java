@@ -19,6 +19,7 @@ import ufms.br.com.ufmsapp.pojo.Disciplina;
 import ufms.br.com.ufmsapp.pojo.Professor;
 import ufms.br.com.ufmsapp.pojo.RatingDisciplina;
 import ufms.br.com.ufmsapp.pojo.TipoDisciplina;
+import ufms.br.com.ufmsapp.preferences.UserSessionPreference;
 
 
 public class DetalheDisciplinaFragment extends Fragment implements AvaliarDisciplinaDialog.OnRatingDisciplinaListener, View.OnClickListener {
@@ -40,6 +41,7 @@ public class DetalheDisciplinaFragment extends Fragment implements AvaliarDiscip
     protected TextView disciplinaRatingStatus;
     protected ImageView disciplinaRatingCountImg;
     protected RatingDisciplina ratingDisciplina;
+    UserSessionPreference prefs;
 
     public DetalheDisciplinaFragment() {
     }
@@ -58,6 +60,7 @@ public class DetalheDisciplinaFragment extends Fragment implements AvaliarDiscip
 
         disciplina = getActivity().getIntent().getParcelableExtra(DisciplinasFragment.DISCIPLINA_EXTRA);
 
+        prefs = new UserSessionPreference(getActivity());
 
         disciplinaEmenta = (TextView) view.findViewById(R.id.disciplina_details);
         disciplinaCargaHoraria = (TextView) view.findViewById(R.id.disciplina_detalhes_carga_horaria);
@@ -82,7 +85,10 @@ public class DetalheDisciplinaFragment extends Fragment implements AvaliarDiscip
             disciplinaProfessor.setText(professor.getNome());
             disciplinaCargaHoraria.setText(String.valueOf(disciplina.getCargaHoraria() + CARGA_HORARIA_UN_TEMPO));
 
-            ratingDisciplina = MyApplication.getWritableDatabase().getRatingDisciplina(1, disciplina.getIdDisciplinaServidor());
+
+            if (!prefs.isFirstTime()) {
+                ratingDisciplina = MyApplication.getWritableDatabase().getRatingDisciplina(MyApplication.getWritableDatabase().alunoByEmail(prefs.getEmail()).getAlunoIdServidor(), disciplina.getIdDisciplinaServidor());
+            }
 
             if (ratingDisciplina != null) {
                 setRatingBar(false, ratingDisciplina.getRating(), disciplina.getIdDisciplinaServidor());
@@ -151,15 +157,17 @@ public class DetalheDisciplinaFragment extends Fragment implements AvaliarDiscip
 
         switch (v.getId()) {
             case R.id.btn_editar_rating:
-                //ratingDisciplina = MyApplication.getWritableDatabase().getRatingDisciplina(1, disciplina.getIdDisciplinaServidor());
-                AvaliarDisciplinaDialog editDialog = AvaliarDisciplinaDialog.newInstance(1, disciplina.getIdDisciplinaServidor(), disciplinaRating.getRating(), DetalheDisciplinaFragment.this, disciplinaRating, disciplinaRatingValue);
-                bundle.putInt(DIALOG_MODE, editMode);
-                editDialog.setArguments(bundle);
-                editDialog.show(getActivity().getFragmentManager(), DIALOG_EDIT_TAG);
+                if (!prefs.isFirstTime()) {
+                    //ratingDisciplina = MyApplication.getWritableDatabase().getRatingDisciplina(1, disciplina.getIdDisciplinaServidor());
+                    AvaliarDisciplinaDialog editDialog = AvaliarDisciplinaDialog.newInstance(MyApplication.getWritableDatabase().alunoByEmail(prefs.getEmail()).getAlunoIdServidor(), disciplina.getIdDisciplinaServidor(), disciplinaRating.getRating(), DetalheDisciplinaFragment.this, disciplinaRating, disciplinaRatingValue);
+                    bundle.putInt(DIALOG_MODE, editMode);
+                    editDialog.setArguments(bundle);
+                    editDialog.show(getActivity().getFragmentManager(), DIALOG_EDIT_TAG);
+                }
                 break;
 
             case R.id.btn_rate:
-                AvaliarDisciplinaDialog dialog = AvaliarDisciplinaDialog.newInstance(1, disciplina.getIdDisciplinaServidor(), disciplinaRating.getRating(), DetalheDisciplinaFragment.this, disciplinaRating);
+                AvaliarDisciplinaDialog dialog = AvaliarDisciplinaDialog.newInstance(MyApplication.getWritableDatabase().alunoByEmail(prefs.getEmail()).getAlunoIdServidor(), disciplina.getIdDisciplinaServidor(), disciplinaRating.getRating(), DetalheDisciplinaFragment.this, disciplinaRating);
                 bundle.putInt(DIALOG_MODE, createMode);
                 dialog.setArguments(bundle);
                 dialog.show(getActivity().getFragmentManager(), DIALOG_TAG);

@@ -29,6 +29,7 @@ import ufms.br.com.ufmsapp.adapter.ExploreDisciplinasAdapter;
 import ufms.br.com.ufmsapp.adapter.ExploreEventosAdapter;
 import ufms.br.com.ufmsapp.pojo.Disciplina;
 import ufms.br.com.ufmsapp.pojo.Evento;
+import ufms.br.com.ufmsapp.preferences.UserSessionPreference;
 import ufms.br.com.ufmsapp.utils.CustomLinearGridLayoutManager;
 import ufms.br.com.ufmsapp.utils.CustomLinearLayoutManager;
 
@@ -153,17 +154,24 @@ public class ExploreFragment extends Fragment implements ExploreEventosAdapter.O
         @Override
         protected Void doInBackground(Void... params) {
 
-            disciplinas = MyApplication.getWritableDatabase().listarDisciplinas(1);
-            eventos = new ArrayList<>();
+            UserSessionPreference prefs = new UserSessionPreference(getActivity());
 
-            for (int i = 0; i < disciplinas.size(); i++) {
-                eventos.addAll(MyApplication.getWritableDatabase().listarEventos(disciplinas.get(i).getIdDisciplinaServidor(), 3));
+            if (!prefs.isFirstTime()) {
+
+
+                disciplinas = MyApplication.getWritableDatabase().listarDisciplinas(MyApplication.getWritableDatabase().alunoByEmail(prefs.getEmail()).getAlunoIdServidor());
+                eventos = new ArrayList<>();
+
+                for (int i = 0; i < disciplinas.size(); i++) {
+                    eventos.addAll(MyApplication.getWritableDatabase().listarEventos(disciplinas.get(i).getIdDisciplinaServidor(), 3));
+                }
+
+                // Aluno ID como parâmetro
+                ArrayList<Disciplina> disciplinas = MyApplication.getWritableDatabase().listarDisciplinas(MyApplication.getWritableDatabase().alunoByEmail(prefs.getEmail()).getAlunoIdServidor(), 3);
+
+                eventosAdapter.setExploreEventosList(eventos);
+                disciplinasAdapter.setDisciplinaList(disciplinas);
             }
-
-            disciplinas = MyApplication.getWritableDatabase().listarDisciplinas(1, 3);
-
-            eventosAdapter.setExploreEventosList(eventos);
-            disciplinasAdapter.setDisciplinaList(disciplinas);
 
             return null;
 

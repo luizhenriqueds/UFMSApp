@@ -15,7 +15,7 @@ public class RequestPermission {
     };
 
 
-    public static void verifyStoragePermissions(Activity activity) {
+    public static boolean verifyStoragePermissions(Activity activity) {
         int permission = ActivityCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE);
 
         if (permission != PackageManager.PERMISSION_GRANTED) {
@@ -24,6 +24,10 @@ public class RequestPermission {
                     PERMISSIONS_STORAGE,
                     REQUEST_EXTERNAL_STORAGE
             );
+
+            return false;
+        } else {
+            return true;
         }
     }
 }

@@ -2,7 +2,6 @@ package ufms.br.com.ufmsapp.task;
 
 
 import android.app.Activity;
-import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -30,9 +29,9 @@ public class DownloadTask extends AsyncTask<String, Integer, String> {
 
     private Context context;
     private PowerManager.WakeLock mWakeLock;
-    int iconResId;
-    String title;
-    String msg;
+    private int iconResId;
+    private String title;
+    private String msg;
 
     private String fileName;
     public static final String UPLOAD_PATH_REPLACE = "/uploads/";
@@ -65,7 +64,6 @@ public class DownloadTask extends AsyncTask<String, Integer, String> {
         builder.setSmallIcon(iconResId);
         builder.setContentTitle(fileName);
         builder.setContentText(msg);
-        builder.setDefaults(Notification.DEFAULT_ALL);
 
         builder.setAutoCancel(true);
 
@@ -85,8 +83,6 @@ public class DownloadTask extends AsyncTask<String, Integer, String> {
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-        // take CPU lock to prevent CPU from going off if the user
-        // presses the power button during download
         PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
         mWakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,
                 getClass().getName());
@@ -100,16 +96,19 @@ public class DownloadTask extends AsyncTask<String, Integer, String> {
     protected void onProgressUpdate(Integer... progress) {
         super.onProgressUpdate(progress);
         builder.setProgress(100, progress[0], false);
-        //manager.notify(NOTIFICATION_ID, builder.build());
+        manager.notify(100, builder.build());
     }
 
     @Override
     protected void onPostExecute(String result) {
+        super.onPostExecute(result);
+
         mWakeLock.release();
 
         if (result != null) {
             Toast.makeText(context, context.getString(R.string.txt_download_error) + result, Toast.LENGTH_LONG).show();
         } else {
+            //builder.setDefaults(Notification.DEFAULT_ALL);
             builder.setContentText(context.getString(R.string.txt_download_finalizado));
             builder.setProgress(0, 0, false);
             manager.notify(NOTIFICATION_ID, builder.build());
@@ -128,18 +127,13 @@ public class DownloadTask extends AsyncTask<String, Integer, String> {
             connection = (HttpURLConnection) url.openConnection();
             connection.connect();
 
-            // expect HTTP 200 OK, so we don't mistakenly save error report
-            // instead of the file
             if (connection.getResponseCode() != HttpURLConnection.HTTP_OK) {
                 return "Server returned HTTP " + connection.getResponseCode()
                         + " " + connection.getResponseMessage();
             }
 
-            // this will be useful to display download percentage
-            // might be -1: server did not report the length
             int fileLength = connection.getContentLength();
 
-            // download the file
             input = connection.getInputStream();
             output = new FileOutputStream(new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), fileName));
 
@@ -147,14 +141,12 @@ public class DownloadTask extends AsyncTask<String, Integer, String> {
             long total = 0;
             int count;
             while ((count = input.read(data)) != -1) {
-                // allow canceling with back button
                 if (isCancelled()) {
                     input.close();
                     return null;
                 }
                 total += count;
-                // publishing the progress....
-                if (fileLength > 0) // only if total length is known
+                if (fileLength > 0)
                     publishProgress((int) (total * 100 / fileLength));
                 output.write(data, 0, count);
             }

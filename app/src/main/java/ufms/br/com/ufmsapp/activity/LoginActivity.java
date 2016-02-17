@@ -63,7 +63,7 @@ public class LoginActivity extends AppCompatActivity {
                     MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
             startActivity(intent);
-            finish();
+            this.finish();
         } else {
             new TaskLoadAlunos().execute();
         }

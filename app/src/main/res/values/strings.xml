@@ -134,6 +134,8 @@
     <string name="txt_button_go_to_login">Já possui conta? Entrar</string>
     <string name="txt_content_description_senha">Mostrar/Esconder senha</string>
     <string name="txt_foto_opt">Foto (opcional)</string>
+    <string name="txt_download_file">Icone de baixar arquivo.</string>
+    <string name="txt_open_document">Abrir</string>
 
 
 </resources>
