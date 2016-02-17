@@ -24,7 +24,7 @@ import ufms.br.com.ufmsapp.task.TaskLoadTurmas;
 public class DataHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "ufmsapp.db";
-    private static final int DB_VERSION = 58;
+    private static final int DB_VERSION = 63;
     private static final String COMMA_SEPARATOR = ", ";
     private static final String APP_TAG = "log_db";
 
@@ -32,6 +32,10 @@ public class DataHelper extends SQLiteOpenHelper {
     private static final String SQL_DROP_TABLE_TIPO_CURSO = "DROP TABLE IF EXISTS " + DataContract.TipoCursoEntry.TABLE_NAME_TIPO_CURSO;
 
     private static final String SQL_DROP_TABLE_NOTIFY_EVENTO = "DROP TABLE IF EXISTS " + DataContract.NotifyStatusEvento.TABLE_NAME_NOTIFY_STATUS;
+
+    private static final String SQL_DROP_TABLE_EVENTO_READ = "DROP TABLE IF EXISTS " + DataContract.EventoReadEntry.TABLE_NAME_EVENTO_READ;
+
+    private static final String SQL_DROP_TABLE_EVENTO_FAVORITE = "DROP TABLE IF EXISTS " + DataContract.EventoFavoriteEntry.TABLE_NAME_EVENTO_FAVORITE;
 
     private static final String SQL_DROP_TABLE_RATING_DISCIPLINA = "DROP TABLE IF EXISTS " + DataContract.RatingDisciplinaEntry.TABLE_NAME_RATING_DISCIPLINA;
 
@@ -101,6 +105,24 @@ public class DataHelper extends SQLiteOpenHelper {
             DataContract.NotifyStatusEvento.EVENTO_FK + " INTEGER NOT NULL" + COMMA_SEPARATOR +
 
             " FOREIGN KEY (" + DataContract.NotifyStatusEvento.EVENTO_FK + ") REFERENCES " +
+            DataContract.EventoEntry.TABLE_NAME_EVENTO + " (" + DataContract.EventoEntry.COLUMN_ID +
+            "))";
+
+    private static final String SQL_CREATE_TABLE_EVENTO_READ = "CREATE TABLE " + DataContract.EventoReadEntry.TABLE_NAME_EVENTO_READ + "(" +
+            DataContract.EventoReadEntry.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT" + COMMA_SEPARATOR +
+            DataContract.EventoReadEntry.COLUMN_EVENTO_READ + " INTEGER NOT NULL" + COMMA_SEPARATOR +
+            DataContract.EventoReadEntry.EVENTO_FK + " INTEGER NOT NULL" + COMMA_SEPARATOR +
+
+            " FOREIGN KEY (" + DataContract.EventoReadEntry.EVENTO_FK + ") REFERENCES " +
+            DataContract.EventoEntry.TABLE_NAME_EVENTO + " (" + DataContract.EventoEntry.COLUMN_ID +
+            "))";
+
+    private static final String SQL_CREATE_TABLE_EVENTO_FAVORITE = "CREATE TABLE " + DataContract.EventoFavoriteEntry.TABLE_NAME_EVENTO_FAVORITE + "(" +
+            DataContract.EventoFavoriteEntry.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT" + COMMA_SEPARATOR +
+            DataContract.EventoFavoriteEntry.COLUMN_EVENTO_FAVORITE + " INTEGER NOT NULL" + COMMA_SEPARATOR +
+            DataContract.EventoFavoriteEntry.EVENTO_FK + " INTEGER NOT NULL" + COMMA_SEPARATOR +
+
+            " FOREIGN KEY (" + DataContract.EventoFavoriteEntry.EVENTO_FK + ") REFERENCES " +
             DataContract.EventoEntry.TABLE_NAME_EVENTO + " (" + DataContract.EventoEntry.COLUMN_ID +
             "))";
 
@@ -328,6 +350,8 @@ public class DataHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_TABLE_NOTA);
         db.execSQL(SQL_CREATE_TABLE_RATING_DISCIPLINA);
         db.execSQL(SQL_CREATE_TABLE_EVENTO_NOTIFY_STATUS);
+        db.execSQL(SQL_CREATE_TABLE_EVENTO_READ);
+        db.execSQL(SQL_CREATE_TABLE_EVENTO_FAVORITE);
 
         Log.i(APP_TAG, "DB Created!");
 
@@ -354,6 +378,8 @@ public class DataHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_DROP_TABLE_NOTA);
         db.execSQL(SQL_DROP_TABLE_RATING_DISCIPLINA);
         db.execSQL(SQL_DROP_TABLE_NOTIFY_EVENTO);
+        db.execSQL(SQL_DROP_TABLE_EVENTO_READ);
+        db.execSQL(SQL_DROP_TABLE_EVENTO_FAVORITE);
 
         Log.i(APP_TAG, "DB Dropped!");
 

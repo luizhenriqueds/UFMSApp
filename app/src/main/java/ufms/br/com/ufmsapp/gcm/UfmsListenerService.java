@@ -4,7 +4,6 @@ package ufms.br.com.ufmsapp.gcm;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.util.Log;
 
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.google.android.gms.iid.InstanceID;
@@ -19,7 +18,11 @@ import ufms.br.com.ufmsapp.R;
 import ufms.br.com.ufmsapp.extras.UrlEndpoints;
 
 public class UfmsListenerService extends InstanceIDListenerService {
-    public static final String URL_DO_SERVIDOR = UrlEndpoints.URL_ENDPOINT + "server/gcmserver.php";
+    public static final String URL_SERVIDOR_GCM_REGISTRAR = UrlEndpoints.URL_ENDPOINT + "server/gcmServerRegister.php";
+    //public static final String URL_SERVIDOR_GCM_EVENTOS = UrlEndpoints.URL_ENDPOINT + "server/gcmServerEventosHandler.php";
+    //public static final String URL_SERVIDOR_GCM_DISCIPLINAS = UrlEndpoints.URL_ENDPOINT + "server/gcmServerDisciplinasHandler.php";
+    //public static final String URL_SERVIDOR_GCM_NOTAS = UrlEndpoints.URL_ENDPOINT + "server/gcmServerNotasHandler.php";
+
     public static final String REGISTRATION_ID = "registrationId";
     public static final String ENVIADO_SERVIDOR = "getEnviadoServidor";
     public static final String EXTRA_REGISTRAR = "registrar";
@@ -78,7 +81,7 @@ public class UfmsListenerService extends InstanceIDListenerService {
             @Override
             public void run() {
                 try {
-                    URL url = new URL(URL_DO_SERVIDOR);
+                    URL url = new URL(URL_SERVIDOR_GCM_REGISTRAR);
                     HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                     connection.setRequestMethod("POST");
                     connection.setDoOutput(true);

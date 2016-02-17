@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f27fee75-9493-4c44-a8c3-c12b7695b42b" name="Default" comment="" />
+    <list default="true" id="f27fee75-9493-4c44-a8c3-c12b7695b42b" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/gcmServerDisciplinasHandler.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/gcmServerNotasHandler.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/gcmServerRegister.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/send_msg_gcm_disciplinas.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/send_msg_gcm_notas.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/server/gcmserver.php" afterPath="$PROJECT_DIR$/server/gcmServerEventosHandler.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/gcm/UfmsListenerService.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/gcm/UfmsListenerService.java" />
+    </list>
     <ignored path="WebService.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -29,14 +40,67 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
-      <file leaf-file-name="gcmserver.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/server/gcmserver.php">
+      <file leaf-file-name="gcmServerDisciplinasHandler.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server/gcmServerDisciplinasHandler.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-41">
+            <state relative-caret-position="165">
               <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
               <folding>
-                <marker date="1455651343809" expanded="true" signature="198:267" placeholder="INSERT INTO app_dispositivo... " />
-                <marker date="1455651343809" expanded="true" signature="570:641" placeholder="SELECT app_d... app_dispositivo" />
+                <marker date="1455733518519" expanded="true" signature="240:311" placeholder="SELECT app_d... app_dispositivo" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gcmServerNotasHandler.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/gcmServerNotasHandler.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="11" column="2" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
+              <folding>
+                <marker date="1455729646041" expanded="true" signature="589:660" placeholder="SELECT app_d... app_dispositivo" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="send_msg_gcm_eventos.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/send_msg_gcm_eventos.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="363">
+              <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="send_msg_gcm_notas.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/send_msg_gcm_notas.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="66">
+              <caret line="2" column="34" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="send_msg_gcm_disciplinas.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/send_msg_gcm_disciplinas.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="66">
+              <caret line="2" column="34" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gcmServerRegister.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/gcmServerRegister.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="627">
+              <caret line="19" column="2" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
+              <folding>
+                <marker date="1455729540497" expanded="true" signature="198:267" placeholder="INSERT INTO app_dispositivo... " />
               </folding>
             </state>
           </provider>
@@ -80,6 +144,13 @@
         <option value="$PROJECT_DIR$/webservice/list/listEventos.php" />
         <option value="$PROJECT_DIR$/server/updateUserGCM.php" />
         <option value="$PROJECT_DIR$/server/gcmserver.php" />
+        <option value="$PROJECT_DIR$/server/gcmServerRegister.php" />
+        <option value="$PROJECT_DIR$/server/gcmServerEventosHandler.php" />
+        <option value="$PROJECT_DIR$/server/gcmServerNotasHandler.php" />
+        <option value="$PROJECT_DIR$/server/send_msg_gcm_disciplinas.html" />
+        <option value="$PROJECT_DIR$/server/send_msg_gcm_notas.html" />
+        <option value="$PROJECT_DIR$/server/send_msg_gcm_eventos.html" />
+        <option value="$PROJECT_DIR$/server/gcmServerDisciplinasHandler.php" />
       </list>
     </option>
   </component>
@@ -189,16 +260,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.intellij.ide.scratch.ScratchProjectViewPane$MyProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="Scope">
         <subPane subId="Project Files">
           <PATH>
@@ -209,6 +270,16 @@
             <PATH_ELEMENT USER_OBJECT="WebService">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scratches">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.intellij.ide.scratch.ScratchProjectViewPane$MyProjectNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -228,15 +299,15 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\AndroidStudioProjects\UFMSApp\WebService\update" />
-      <recent name="C:\AndroidStudioProjects\UFMSApp\WebService\server" />
-      <recent name="C:\AndroidStudioProjects\UFMSApp\WebService\list" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\AndroidStudioProjects\UFMSApp\WebService\webservice\access" />
       <recent name="C:\AndroidStudioProjects\UFMSApp\WebService\webservice\insert" />
       <recent name="C:\AndroidStudioProjects\UFMSApp\WebService\insert" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\AndroidStudioProjects\UFMSApp\WebService\server" />
+      <recent name="C:\AndroidStudioProjects\UFMSApp\WebService\update" />
+      <recent name="C:\AndroidStudioProjects\UFMSApp\WebService\list" />
     </key>
   </component>
   <component name="RunManager">
@@ -306,11 +377,11 @@
     <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14974293" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2368252" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24003856" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14910026" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27989313" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27959865" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -353,13 +424,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/webservice/access/userAccess.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/webservice/access/register.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -367,35 +431,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webservice/access/userAccess.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webservice/access/register.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webservice/access/userAccess.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webservice/access/register.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/enviar_msg_gcm.html">
+    <entry file="file://$PROJECT_DIR$/server/send_msg_gcm_eventos.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="363">
           <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
@@ -409,7 +445,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/enviar_msg_gcm.html">
+    <entry file="file://$PROJECT_DIR$/server/send_msg_gcm_eventos.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="363">
           <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
@@ -423,7 +459,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/enviar_msg_gcm.html">
+    <entry file="file://$PROJECT_DIR$/server/send_msg_gcm_eventos.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="363">
           <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
@@ -437,7 +473,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/enviar_msg_gcm.html">
+    <entry file="file://$PROJECT_DIR$/server/send_msg_gcm_eventos.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="363">
           <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
@@ -451,7 +487,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/enviar_msg_gcm.html">
+    <entry file="file://$PROJECT_DIR$/server/send_msg_gcm_eventos.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="363">
           <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
@@ -465,7 +501,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/enviar_msg_gcm.html">
+    <entry file="file://$PROJECT_DIR$/server/send_msg_gcm_eventos.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="363">
           <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
@@ -479,14 +515,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/gcmserver.php">
+    <entry file="file://$PROJECT_DIR$/server/gcmServerEventosHandler.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/enviar_msg_gcm.html">
+    <entry file="file://$PROJECT_DIR$/server/send_msg_gcm_eventos.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="66">
           <caret line="2" column="34" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
@@ -716,13 +752,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/enviar_msg_gcm.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/update/updateNotifyStatus.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="693">
@@ -734,9 +763,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
           <caret line="15" column="33" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
-          <folding>
-            <marker date="1454527364330" expanded="true" signature="199:280" placeholder="UPDATE app_d... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -744,22 +770,69 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="157">
           <caret line="24" column="48" selection-start-line="24" selection-start-column="48" selection-end-line="24" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/gcmServerRegister.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="627">
+          <caret line="19" column="2" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
           <folding>
-            <marker date="1454987822066" expanded="true" signature="350:483" placeholder="SELECT app_e... app_aluno" />
-            <marker date="1454987822066" expanded="true" signature="571:700" placeholder="SELECT app_r... app_aluno" />
-            <marker date="1454987822066" expanded="true" signature="969:1080" placeholder="INSERT INTO app_aluno... " />
-            <marker date="1454987822066" expanded="true" signature="1328:1404" placeholder="INSERT INTO app_user_access... " />
+            <marker date="1455729540497" expanded="true" signature="198:267" placeholder="INSERT INTO app_dispositivo... " />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/gcmserver.php">
+    <entry file="file://$PROJECT_DIR$/server/send_msg_gcm_disciplinas.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-41">
+        <state relative-caret-position="66">
+          <caret line="2" column="34" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/send_msg_gcm_notas.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="2" column="34" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/send_msg_gcm_eventos.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/gcmServerEventosHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="782">
+          <caret line="41" column="31" selection-start-line="41" selection-start-column="31" selection-end-line="41" selection-end-column="31" />
+          <folding>
+            <marker date="1455729568680" expanded="true" signature="589:660" placeholder="SELECT app_d... app_dispositivo" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/gcmServerNotasHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="2" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
+          <folding>
+            <marker date="1455729646041" expanded="true" signature="589:660" placeholder="SELECT app_d... app_dispositivo" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/gcmServerDisciplinasHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
           <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding>
-            <marker date="1455651343809" expanded="true" signature="198:267" placeholder="INSERT INTO app_dispositivo... " />
-            <marker date="1455651343809" expanded="true" signature="570:641" placeholder="SELECT app_d... app_dispositivo" />
+            <marker date="1455733518519" expanded="true" signature="240:311" placeholder="SELECT app_d... app_dispositivo" />
           </folding>
         </state>
       </provider>

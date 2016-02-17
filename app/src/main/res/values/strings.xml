@@ -40,7 +40,10 @@
     <string name="txt_no_connection_msg">Sem conexão com a Internet</string>
     <string name="txt_retry_connection">Tentar</string>
 
-    <string name="txt_notificacao">Lista de Eventos atualizada!</string>
+    <string name="txt_notificacao_eventos">Novo Evento Adicionado</string>
+    <string name="txt_notificacao_disciplinas">Nova(s) Disciplina(s) Cadastrada(s)</string>
+    <string name="txt_notificacao_notas">Nova(s) Nota(s) Adicionada(s)</string>
+
     <string name="gcm_nao_suportado">Aparelho não compatível com o GCM.</string>
 
     <string name="txt_search_hint">Buscar</string>

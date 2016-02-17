@@ -17,6 +17,7 @@
         android:layout_marginTop="10dp"
         android:contentDescription="@string/txt_content_description_evento" />
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

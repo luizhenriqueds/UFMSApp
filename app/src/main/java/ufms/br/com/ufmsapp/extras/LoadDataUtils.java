@@ -28,6 +28,7 @@ import ufms.br.com.ufmsapp.pojo.Aluno;
 import ufms.br.com.ufmsapp.pojo.AlunoXDisciplina;
 import ufms.br.com.ufmsapp.pojo.Disciplina;
 import ufms.br.com.ufmsapp.pojo.Evento;
+import ufms.br.com.ufmsapp.pojo.EventoRead;
 import ufms.br.com.ufmsapp.pojo.Material;
 import ufms.br.com.ufmsapp.pojo.Nota;
 import ufms.br.com.ufmsapp.pojo.Professor;
@@ -48,7 +49,6 @@ public class LoadDataUtils {
         ArrayList<Evento> listEventos = ListEventosParser.parseEventosJSON(response);
         MyApplication.getWritableDatabase().criarEvento(listEventos, true);
 
-
         Aluno aluno = null;
         if (!prefs.isFirstTime()) {
             aluno = MyApplication.getWritableDatabase().alunoByEmail(prefs.getEmail());
@@ -62,6 +62,13 @@ public class LoadDataUtils {
 
             for (int i = 0; i < disciplinas.size(); i++) {
                 eventos.addAll(MyApplication.getWritableDatabase().listarEventos(disciplinas.get(i).getIdDisciplinaServidor()));
+            }
+
+
+            for (int j = 0; j < eventos.size(); j++) {
+                if (MyApplication.getWritableDatabase().countEventoRead(eventos.get(j).getIdEventoServidor()) == 0) {
+                    MyApplication.getWritableDatabase().setEventoRead(new EventoRead(0, eventos.get(j).getIdEventoServidor()));
+                }
             }
 
         }

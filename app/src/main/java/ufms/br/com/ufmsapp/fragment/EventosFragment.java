@@ -31,6 +31,7 @@ import ufms.br.com.ufmsapp.adapter.EventosAdapter;
 import ufms.br.com.ufmsapp.callbacks.EventosLoadedListener;
 import ufms.br.com.ufmsapp.pojo.Disciplina;
 import ufms.br.com.ufmsapp.pojo.Evento;
+import ufms.br.com.ufmsapp.pojo.EventoRead;
 import ufms.br.com.ufmsapp.preferences.UserSessionPreference;
 import ufms.br.com.ufmsapp.task.TaskLoadEventos;
 import ufms.br.com.ufmsapp.task.TaskLoadMateriais;
@@ -70,6 +71,7 @@ public class EventosFragment extends Fragment implements EventosLoadedListener, 
     public void onResume() {
         super.onResume();
         getActivity().registerReceiver(receiver, filter);
+        adapter.notifyDataSetChanged();
     }
 
     @Override
@@ -282,6 +284,8 @@ public class EventosFragment extends Fragment implements EventosLoadedListener, 
 
     @Override
     public void onEventClick(View v, int position, Evento evento) {
+
+        MyApplication.getWritableDatabase().updateEventoRead(new EventoRead(1, evento.getIdEventoServidor()));
 
         Intent intent = new Intent(getActivity(), DetalhesEventoActivity.class);
         intent.putExtra(EVENTO_EXTRA, evento);

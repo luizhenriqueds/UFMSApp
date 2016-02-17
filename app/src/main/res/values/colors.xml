@@ -13,6 +13,8 @@
 
     <color name="colorHighlight">#B6B6B6</color>
 
+    <color name="listColor">#f7f7f7</color>
+
     <color name="lightGray">#CCC</color>
 
     <color name="lightGrayBackground">#eeeeee</color>

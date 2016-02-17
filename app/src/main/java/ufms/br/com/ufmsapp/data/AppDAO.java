@@ -16,6 +16,8 @@ import ufms.br.com.ufmsapp.pojo.AlunoXDisciplina;
 import ufms.br.com.ufmsapp.pojo.Curso;
 import ufms.br.com.ufmsapp.pojo.Disciplina;
 import ufms.br.com.ufmsapp.pojo.Evento;
+import ufms.br.com.ufmsapp.pojo.EventoFavorite;
+import ufms.br.com.ufmsapp.pojo.EventoRead;
 import ufms.br.com.ufmsapp.pojo.Material;
 import ufms.br.com.ufmsapp.pojo.Nota;
 import ufms.br.com.ufmsapp.pojo.NotifyStatus;
@@ -93,6 +95,18 @@ public class AppDAO {
             DataContract.NotifyStatusEvento.COLUMN_ID,
             DataContract.NotifyStatusEvento.COLUMN_NOTIFY_STATUS,
             DataContract.NotifyStatusEvento.EVENTO_FK
+    };
+
+    public static final String[] PROJECTION_EVENTO_READ = {
+            DataContract.EventoReadEntry.COLUMN_ID,
+            DataContract.EventoReadEntry.COLUMN_EVENTO_READ,
+            DataContract.EventoReadEntry.EVENTO_FK
+    };
+
+    public static final String[] PROJECTION_EVENTO_FAVORITE = {
+            DataContract.EventoFavoriteEntry.COLUMN_ID,
+            DataContract.EventoFavoriteEntry.COLUMN_EVENTO_FAVORITE,
+            DataContract.EventoFavoriteEntry.EVENTO_FK
     };
 
     public static final String[] PROJECTION_STATUS_DISCIPLINA = {
@@ -945,6 +959,84 @@ public class AppDAO {
 
     }
 
+
+    public int countEventoRead(int eventoId) {
+
+        String countQuery = "SELECT COUNT(" + DataContract.EventoReadEntry.TABLE_NAME_EVENTO_READ + "." + DataContract.EventoReadEntry.COLUMN_ID + ") FROM " + DataContract.EventoReadEntry.TABLE_NAME_EVENTO_READ + " WHERE (" + DataContract.EventoReadEntry.EVENTO_FK + " = " + eventoId + ");";
+
+        Cursor cursor = database.rawQuery(countQuery, null);
+        cursor.moveToFirst();
+        int count = cursor.getInt(0);
+
+        cursor.close();
+
+        return count;
+    }
+
+    public int setEventoRead(EventoRead eventoRead) {
+
+        ContentValues values = new ContentValues();
+        int returnedId;
+
+        values.put(DataContract.EventoReadEntry.COLUMN_EVENTO_READ, eventoRead.getEventoReadStatus());
+        values.put(DataContract.EventoReadEntry.EVENTO_FK, eventoRead.getEventoKey());
+
+        returnedId = (int) database.insert(DataContract.EventoReadEntry.TABLE_NAME_EVENTO_READ, null, values);
+        eventoRead.setEventoReadId(returnedId);
+
+        return returnedId;
+
+    }
+
+    public void updateEventoRead(EventoRead eventoRead) {
+
+        String updateQuery = "UPDATE " + DataContract.EventoReadEntry.TABLE_NAME_EVENTO_READ + " SET " + DataContract.EventoReadEntry.COLUMN_EVENTO_READ +
+                " = " + eventoRead.getEventoReadStatus() + " WHERE (" + DataContract.EventoReadEntry.EVENTO_FK + " = " + eventoRead.getEventoKey() + ");";
+
+        Cursor cursor = database.rawQuery(updateQuery, null);
+        cursor.moveToFirst();
+        cursor.close();
+    }
+
+    public int countEventoFavorite(int eventoId) {
+
+        String countQuery = "SELECT COUNT(" + DataContract.EventoFavoriteEntry.TABLE_NAME_EVENTO_FAVORITE + "." + DataContract.EventoFavoriteEntry.COLUMN_ID + ") FROM " + DataContract.EventoFavoriteEntry.TABLE_NAME_EVENTO_FAVORITE + " WHERE (" + DataContract.EventoFavoriteEntry.EVENTO_FK + " = " + eventoId + ");";
+
+        Cursor cursor = database.rawQuery(countQuery, null);
+        cursor.moveToFirst();
+        int count = cursor.getInt(0);
+
+        cursor.close();
+
+        return count;
+    }
+
+    public int setEventoFavorite(EventoFavorite eventoFavorite) {
+
+        ContentValues values = new ContentValues();
+        int returnedId;
+
+        values.put(DataContract.EventoFavoriteEntry.COLUMN_EVENTO_FAVORITE, eventoFavorite.getEventoFavoriteStatus());
+        values.put(DataContract.EventoFavoriteEntry.EVENTO_FK, eventoFavorite.getEventoKey());
+
+        returnedId = (int) database.insert(DataContract.EventoReadEntry.TABLE_NAME_EVENTO_READ, null, values);
+        eventoFavorite.setEventoFavoriteId(returnedId);
+
+        return returnedId;
+
+    }
+
+    public void updateEventoFavorite(EventoFavorite eventoFavorite) {
+
+        String updateQuery = "UPDATE " + DataContract.EventoFavoriteEntry.TABLE_NAME_EVENTO_FAVORITE + " SET " + DataContract.EventoFavoriteEntry.COLUMN_EVENTO_FAVORITE +
+                " = " + eventoFavorite.getEventoFavoriteStatus() + " WHERE (" + DataContract.EventoFavoriteEntry.EVENTO_FK + " = " + eventoFavorite.getEventoKey() + ");";
+
+        Cursor cursor = database.rawQuery(updateQuery, null);
+        cursor.moveToFirst();
+        cursor.close();
+    }
+
+
     public void updateRatingDisciplina(int idAluno, int idDisciplina, float rating) {
 
         ContentValues contentValues = new ContentValues();
@@ -1324,6 +1416,29 @@ public class AppDAO {
         return evento;
     }
 
+    public EventoRead eventoReadById(int eventoId) {
+
+        Cursor cursor = database.query(DataContract.EventoReadEntry.TABLE_NAME_EVENTO_READ, PROJECTION_EVENTO_READ,
+                DataContract.EventoReadEntry.EVENTO_FK + " = ?", new String[]{String.valueOf(eventoId)}, null, null, null);
+
+        EventoRead eventoRead = null;
+
+        try {
+            if (cursor.moveToFirst()) {
+                do {
+                    eventoRead = fromCursorEventoRead(cursor);
+                } while (cursor.moveToNext());
+            }
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+
+
+        return eventoRead;
+    }
+
     public NotifyStatus notifyById(int eventoId) {
 
         Cursor cursor = database.query(DataContract.NotifyStatusEvento.TABLE_NAME_NOTIFY_STATUS, PROJECTION_NOTIFY_EVENTO,
@@ -1620,6 +1735,15 @@ public class AppDAO {
 
 
         return new NotifyStatus(id, notify, eventoKey);
+    }
+
+    private static EventoRead fromCursorEventoRead(Cursor cursor) {
+        int id = cursor.getInt(cursor.getColumnIndex(DataContract.EventoReadEntry.COLUMN_ID));
+        int eventoRead = cursor.getInt(cursor.getColumnIndex(DataContract.EventoReadEntry.COLUMN_EVENTO_READ));
+        int eventoKey = cursor.getInt(cursor.getColumnIndex(DataContract.EventoReadEntry.EVENTO_FK));
+
+
+        return new EventoRead(id, eventoRead, eventoKey);
     }
 
     private static AlunoXDisciplina fromCursorAlunoXDisciplina(Cursor cursor) {

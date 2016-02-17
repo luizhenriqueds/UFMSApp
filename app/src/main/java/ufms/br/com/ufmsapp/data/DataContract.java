@@ -84,6 +84,36 @@ public class DataContract {
         public static final String EVENTO_FK = "app_evento_key";
     }
 
+    public class EventoReadEntry implements BaseColumns {
+
+        /* Constante que representa o nome da tabela evento lido que será referenciada no código de criação do banco */
+        public static final String TABLE_NAME_EVENTO_READ = "app_evento_read";
+
+        /* Coluna id da tabela app_evento_read será armazenada com inteiro chave primária */
+        public static final String COLUMN_ID = "_id";
+
+        /* Coluna evento lido será armazenado como int - 0 ou 1 */
+        public static final String COLUMN_EVENTO_READ = "app_evento_read_status";
+
+        /* Coluna chave estrangeira do evento*/
+        public static final String EVENTO_FK = "app_evento_read_key";
+    }
+
+    public class EventoFavoriteEntry implements BaseColumns {
+
+        /* Constante que representa o nome da tabela evento favorito que será referenciada no código de criação do banco */
+        public static final String TABLE_NAME_EVENTO_FAVORITE = "app_evento_favorite";
+
+        /* Coluna id da tabela app_evento_favorite será armazenada com inteiro chave primária */
+        public static final String COLUMN_ID = "_id";
+
+        /* Coluna evento favorito será armazenado como int - 0 ou 1 */
+        public static final String COLUMN_EVENTO_FAVORITE = "app_evento_favorite_status";
+
+        /* Coluna chave estrangeira do evento*/
+        public static final String EVENTO_FK = "app_evento_key";
+    }
+
 
     public class ProfessorEntry implements BaseColumns {
 

@@ -16,7 +16,9 @@ import com.google.android.gms.gcm.GcmListenerService;
 
 import ufms.br.com.ufmsapp.R;
 import ufms.br.com.ufmsapp.activity.MainActivity;
+import ufms.br.com.ufmsapp.task.TaskLoadDisciplinasOnStart;
 import ufms.br.com.ufmsapp.task.TaskLoadEventosOnStart;
+import ufms.br.com.ufmsapp.task.TaskLoadNotas;
 
 public class UfmsGcmListenerService extends GcmListenerService {
 
@@ -37,17 +39,29 @@ public class UfmsGcmListenerService extends GcmListenerService {
             Log.d("GCM_TEST", "TYPE: " + type);
 
             if (!TextUtils.isEmpty(type) && type.equals(TYPE_EVENTO)) {
-                //sincronizar com o servidor
+                //sincronizar eventos com o servidor
                 new TaskLoadEventosOnStart().execute();
 
                 //disparar notificação
-                buildNewEventosNotification(getString(R.string.txt_notificacao), message);
+                buildGcmNotification(getString(R.string.txt_notificacao_eventos), message);
+            } else if (!TextUtils.isEmpty(type) && type.equals(TYPE_DISCIPLINA)) {
+                //sincronizar disciplinas com o servidor
+                new TaskLoadDisciplinasOnStart().execute();
+
+                //disparar notificação
+                buildGcmNotification(getString(R.string.txt_notificacao_disciplinas), message);
+            } else if (!TextUtils.isEmpty(type) && type.equals(TYPE_NOTA)) {
+                //sincroniza notas com o servidor
+                new TaskLoadNotas().execute();
+
+                //disparar notificação
+                buildGcmNotification(getString(R.string.txt_notificacao_notas), message);
             }
         }
 
     }
 
-    private void buildNewEventosNotification(String title, String msg) {
+    private void buildGcmNotification(String title, String msg) {
         NotificationManagerCompat nm = NotificationManagerCompat.from(this);
         Intent it = new Intent(this, MainActivity.class);
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);

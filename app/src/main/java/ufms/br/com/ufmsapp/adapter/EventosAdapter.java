@@ -27,6 +27,7 @@ import ufms.br.com.ufmsapp.extras.UrlEndpoints;
 import ufms.br.com.ufmsapp.network.VolleySingleton;
 import ufms.br.com.ufmsapp.pojo.Disciplina;
 import ufms.br.com.ufmsapp.pojo.Evento;
+import ufms.br.com.ufmsapp.pojo.EventoRead;
 
 public class EventosAdapter extends RecyclerView.Adapter<EventosAdapter.EventosViewHolder> implements View.OnClickListener {
 
@@ -79,6 +80,16 @@ public class EventosAdapter extends RecyclerView.Adapter<EventosAdapter.EventosV
     @Override
     public void onBindViewHolder(EventosViewHolder eventosViewHolder, int i) {
         evento = eventosList.get(i);
+
+        /*EventoRead eventoRead = MyApplication.getWritableDatabase().eventoReadById(evento.getIdEventoServidor());
+
+        if (eventoRead != null) {
+            if (eventoRead.getEventoReadStatus() == 0) {
+                eventosViewHolder.cardLayout.setBackground(itemView.getResources().getDrawable(R.drawable.custom_bg_list_read));
+            } else if (eventoRead.getEventoReadStatus() == 1) {
+                eventosViewHolder.cardLayout.setBackground(itemView.getResources().getDrawable(R.drawable.custom_bg));
+            }
+        }*/
 
         eventosViewHolder.eventoTitle.setText(evento.getTitulo());
 
