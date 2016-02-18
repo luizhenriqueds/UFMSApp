@@ -37,7 +37,6 @@ import java.util.Map;
 import ufms.br.com.ufmsapp.MyApplication;
 import ufms.br.com.ufmsapp.R;
 import ufms.br.com.ufmsapp.extras.UrlEndpoints;
-import ufms.br.com.ufmsapp.gcm.UfmsListenerService;
 import ufms.br.com.ufmsapp.network.VolleySingleton;
 import ufms.br.com.ufmsapp.pojo.Aluno;
 import ufms.br.com.ufmsapp.preferences.UserSessionPreference;
@@ -48,8 +47,6 @@ public class RegistrarActivity extends AppCompatActivity {
     private static final String REGISTER_ACCESS_URL = "http://www.henriqueweb.com.br/webservice/access/register.php?acao=register";
 
     public static final String URL_DO_SERVIDOR = UrlEndpoints.URL_ENDPOINT + "server/updateUserGCM.php";
-
-    //public static final int ALUNO_ID_REGISTRAR = 1;
 
     public static final String UPDATED_SERVIDOR = "updatedServidor";
 
@@ -128,7 +125,10 @@ public class RegistrarActivity extends AppCompatActivity {
                                     int returnedId = MyApplication.getWritableDatabase().criarAluno(aluno);
 
                                     if (returnedId != -1) {
-                                        registerUser(userId);
+
+                                        if (!getUpdatedServidor()) {
+                                            registerUser(userId);
+                                        }
 
                                         prefs.setName(aluno.getNome());
                                         prefs.setEmail(aluno.getEmail());
@@ -210,7 +210,7 @@ public class RegistrarActivity extends AppCompatActivity {
                     connection.setRequestMethod("POST");
                     connection.setDoOutput(true);
                     OutputStream os = connection.getOutputStream();
-                    UfmsListenerService service = new UfmsListenerService();
+                    // UfmsListenerService service = new UfmsListenerService();
                     os.write(("acao=updateUser&regId=" + key + "&alunoId=" + alunoId).getBytes());
                     os.flush();
                     os.close();

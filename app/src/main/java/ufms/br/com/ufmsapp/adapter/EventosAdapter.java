@@ -2,6 +2,8 @@ package ufms.br.com.ufmsapp.adapter;
 
 
 import android.content.Context;
+import android.graphics.Typeface;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -42,8 +44,10 @@ public class EventosAdapter extends RecyclerView.Adapter<EventosAdapter.EventosV
     private DateFormat df = new SimpleDateFormat("dd MMM", new Locale("pt", "br"));
     public static final String SHARED_TRANSITION_ICON_KEY = "icon";
     //public static final String SHARED_TRANSITION_TITLE_KEY = "title";
+    private Context context;
 
     public EventosAdapter(Context context) {
+        this.context = context;
         inflater = LayoutInflater.from(context);
         volleySingleton = VolleySingleton.getInstance();
         imageLoader = volleySingleton.getImageLoader();
@@ -81,15 +85,19 @@ public class EventosAdapter extends RecyclerView.Adapter<EventosAdapter.EventosV
     public void onBindViewHolder(EventosViewHolder eventosViewHolder, int i) {
         evento = eventosList.get(i);
 
-        /*EventoRead eventoRead = MyApplication.getWritableDatabase().eventoReadById(evento.getIdEventoServidor());
+        EventoRead eventoRead = MyApplication.getWritableDatabase().eventoReadById(evento.getIdEventoServidor());
 
         if (eventoRead != null) {
             if (eventoRead.getEventoReadStatus() == 0) {
-                eventosViewHolder.cardLayout.setBackground(itemView.getResources().getDrawable(R.drawable.custom_bg_list_read));
+                eventosViewHolder.cardLayout.setBackgroundColor(ContextCompat.getColor(context, R.color.whiteTextColor));
+                eventosViewHolder.eventoTitle.setTypeface(null, Typeface.BOLD);
+                eventosViewHolder.eventoSubtitle.setTypeface(null, Typeface.BOLD);
             } else if (eventoRead.getEventoReadStatus() == 1) {
-                eventosViewHolder.cardLayout.setBackground(itemView.getResources().getDrawable(R.drawable.custom_bg));
+                eventosViewHolder.eventoTitle.setTypeface(null, Typeface.NORMAL);
+                eventosViewHolder.eventoSubtitle.setTypeface(null, Typeface.NORMAL);
+                eventosViewHolder.cardLayout.setBackground(ContextCompat.getDrawable(context, R.drawable.custom_bg));
             }
-        }*/
+        }
 
         eventosViewHolder.eventoTitle.setText(evento.getTitulo());
 

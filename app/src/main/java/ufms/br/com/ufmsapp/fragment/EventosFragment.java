@@ -14,6 +14,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
@@ -39,6 +40,8 @@ import ufms.br.com.ufmsapp.task.TaskLoadMatriculas;
 import ufms.br.com.ufmsapp.utils.ConnectionUtils;
 
 public class EventosFragment extends Fragment implements EventosLoadedListener, SwipeRefreshLayout.OnRefreshListener, EventosAdapter.OnEventClickListener {
+
+    public static boolean mIsInForegroundMode;
 
     protected EventosAdapter adapter;
     protected SwipeRefreshLayout swipeRefreshLayout;
@@ -71,13 +74,21 @@ public class EventosFragment extends Fragment implements EventosLoadedListener, 
     public void onResume() {
         super.onResume();
         getActivity().registerReceiver(receiver, filter);
+        getActivity().registerReceiver(mMessageReceiver, new IntentFilter("updateEventos"));
         adapter.notifyDataSetChanged();
+        mIsInForegroundMode = true;
     }
 
     @Override
     public void onPause() {
         super.onPause();
         getActivity().unregisterReceiver(receiver);
+        getActivity().unregisterReceiver(mMessageReceiver);
+        mIsInForegroundMode = false;
+    }
+
+    public static boolean isInForeground() {
+        return mIsInForegroundMode;
     }
 
 
@@ -250,8 +261,11 @@ public class EventosFragment extends Fragment implements EventosLoadedListener, 
 
     @Override
     public void onEventosLoaded(ArrayList<Evento> listEventos) {
-        if (swipeRefreshLayout.isRefreshing()) {
-            swipeRefreshLayout.setRefreshing(false);
+
+        if (swipeRefreshLayout != null) {
+            if (swipeRefreshLayout.isRefreshing()) {
+                swipeRefreshLayout.setRefreshing(false);
+            }
         }
 
         if (!listEventos.isEmpty()) {
@@ -292,6 +306,16 @@ public class EventosFragment extends Fragment implements EventosLoadedListener, 
 
         startActivity(intent);
     }
+
+    private BroadcastReceiver mMessageReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+
+            if (intent != null) {
+               onRefresh();
+            }
+        }
+    };
 
 
     public class NetworkChangeReceiver extends BroadcastReceiver {

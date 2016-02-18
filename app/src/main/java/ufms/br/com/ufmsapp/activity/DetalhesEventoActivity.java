@@ -21,6 +21,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import ufms.br.com.ufmsapp.MyApplication;
 import ufms.br.com.ufmsapp.R;
 import ufms.br.com.ufmsapp.extras.UrlEndpoints;
 import ufms.br.com.ufmsapp.fragment.DetalhesEventoFragment;
@@ -45,7 +46,17 @@ public class DetalhesEventoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_detalhes_evento);
 
-        evento = getIntent().getParcelableExtra(EventosFragment.EVENTO_EXTRA);
+
+        int eventoId = -1;
+        if (getIntent().getStringExtra("EVENTO_CREATED") != null) {
+            eventoId = Integer.parseInt(getIntent().getStringExtra("EVENTO_CREATED"));
+        }
+
+        if (getIntent().getParcelableExtra(EventosFragment.EVENTO_EXTRA) != null) {
+            evento = getIntent().getParcelableExtra(EventosFragment.EVENTO_EXTRA);
+        } else {
+            evento = MyApplication.getWritableDatabase().eventoById(eventoId);
+        }
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         mTabs = (TabLayout) findViewById(R.id.tabs);

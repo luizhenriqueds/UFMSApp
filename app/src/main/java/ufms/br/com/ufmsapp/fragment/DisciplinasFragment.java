@@ -38,6 +38,7 @@ import ufms.br.com.ufmsapp.task.TaskLoadRatingDisciplinas;
 import ufms.br.com.ufmsapp.utils.ConnectionUtils;
 
 public class DisciplinasFragment extends Fragment implements DisciplinasLoadedListener, DisciplinasAdapter.OnDisciplinaClickListener, SwipeRefreshLayout.OnRefreshListener {
+    public static boolean mIsInForegroundMode;
 
     protected ArrayList<Disciplina> listDisciplinas;
     protected DisciplinasAdapter adapter;
@@ -69,14 +70,23 @@ public class DisciplinasFragment extends Fragment implements DisciplinasLoadedLi
     public void onResume() {
         super.onResume();
         getActivity().registerReceiver(receiver, filter);
+        getActivity().registerReceiver(mMessageReceiver, new IntentFilter("updateDisciplinas"));
         updateList();
+        mIsInForegroundMode = true;
     }
 
     @Override
     public void onPause() {
         super.onPause();
         getActivity().unregisterReceiver(receiver);
+        getActivity().unregisterReceiver(mMessageReceiver);
+        mIsInForegroundMode = false;
     }
+
+    public static boolean isInForeground() {
+        return mIsInForegroundMode;
+    }
+
 
     public static DisciplinasFragment newInstance() {
         return new DisciplinasFragment();
@@ -265,6 +275,16 @@ public class DisciplinasFragment extends Fragment implements DisciplinasLoadedLi
             swipeRefreshLayout.setRefreshing(false);
         }
     }
+
+    private BroadcastReceiver mMessageReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+
+            if (intent != null) {
+                onRefresh();
+            }
+        }
+    };
 
     public class NetworkChangeReceiver extends BroadcastReceiver {
 

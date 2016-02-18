@@ -41,8 +41,7 @@
                 android:fontFamily="sans-serif-regular"
                 android:maxLines="2"
                 android:textColor="@color/adapter_row_title_color"
-                android:textSize="14sp"
-                android:textStyle="bold" />
+                android:textSize="14sp" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -83,8 +82,7 @@
             android:layout_marginStart="5dp"
             android:fontFamily="sans-serif-regular"
             android:textColor="@color/adapter_row_text_color"
-            android:textSize="14sp"
-            android:textStyle="bold" />
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/txt_disciplina_descricao"

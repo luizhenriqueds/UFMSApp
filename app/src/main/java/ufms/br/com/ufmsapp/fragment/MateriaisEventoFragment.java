@@ -56,7 +56,18 @@ public class MateriaisEventoFragment extends Fragment implements MateriaisAdapte
 
         View view = inflater.inflate(R.layout.fragment_materiais_evento, container, false);
 
-        evento = getActivity().getIntent().getParcelableExtra(EventosFragment.EVENTO_EXTRA);
+        //evento = getActivity().getIntent().getParcelableExtra(EventosFragment.EVENTO_EXTRA);
+
+        int eventoId = -1;
+        if (getActivity().getIntent().getStringExtra("EVENTO_CREATED") != null) {
+            eventoId = Integer.parseInt(getActivity().getIntent().getStringExtra("EVENTO_CREATED"));
+        }
+
+        if (getActivity().getIntent().getParcelableExtra(EventosFragment.EVENTO_EXTRA) != null) {
+            evento = getActivity().getIntent().getParcelableExtra(EventosFragment.EVENTO_EXTRA);
+        } else {
+            evento = MyApplication.getWritableDatabase().eventoById(eventoId);
+        }
 
         emptyListText = (TextView) view.findViewById(R.id.no_upload_txt);
         emptyListIcon = (ImageView) view.findViewById(R.id.no_upload_icon);
@@ -73,7 +84,9 @@ public class MateriaisEventoFragment extends Fragment implements MateriaisAdapte
 
         adapter = new MateriaisAdapter(getActivity());
 
-        uploads = MyApplication.getWritableDatabase().listarMateriaisByEvento(evento.getIdEventoServidor());
+        if(evento != null){
+            uploads = MyApplication.getWritableDatabase().listarMateriaisByEvento(evento.getIdEventoServidor());
+        }
 
         adapter.setUploadList(uploads);
 

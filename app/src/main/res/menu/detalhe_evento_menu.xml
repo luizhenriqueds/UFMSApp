@@ -1,0 +1,19 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="ufms.br.com.ufmsapp.fragment.EventosFragment">
+
+
+    <item
+        android:id="@+id/action_mark_favorite"
+        android:icon="@mipmap/ic_favorite_border_white_24dp"
+        android:orderInCategory="100"
+        android:title="@string/txt_favorite"
+        app:showAsAction="ifRoom|withText" />
+
+    <item
+        android:id="@+id/action_mark_as_not_read"
+        android:orderInCategory="100"
+        android:title="@string/txt_mark_as_not_read"
+        app:showAsAction="never" />
+</menu>

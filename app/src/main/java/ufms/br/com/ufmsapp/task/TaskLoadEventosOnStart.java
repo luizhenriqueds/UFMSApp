@@ -7,12 +7,12 @@ import com.android.volley.RequestQueue;
 
 import java.util.ArrayList;
 
+import ufms.br.com.ufmsapp.callbacks.EventosLoadedListener;
 import ufms.br.com.ufmsapp.extras.LoadDataUtils;
 import ufms.br.com.ufmsapp.network.VolleySingleton;
 import ufms.br.com.ufmsapp.pojo.Evento;
 
 public class TaskLoadEventosOnStart extends AsyncTask<Void, Integer, ArrayList<Evento>> {
-
 
     protected VolleySingleton volleySingleton;
     private RequestQueue requestQueue;
@@ -23,9 +23,10 @@ public class TaskLoadEventosOnStart extends AsyncTask<Void, Integer, ArrayList<E
 
     }
 
+
     @Override
     protected ArrayList<Evento> doInBackground(Void... params) {
-
         return LoadDataUtils.loadEventos(requestQueue);
     }
+
 }

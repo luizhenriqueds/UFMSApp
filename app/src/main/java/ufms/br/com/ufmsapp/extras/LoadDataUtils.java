@@ -82,8 +82,14 @@ public class LoadDataUtils {
         ArrayList<Disciplina> listDisciplinas = ListDisciplinasParser.parseDisciplinasJSON(response);
         MyApplication.getWritableDatabase().criarDisciplina(listDisciplinas, true);
 
+        ArrayList<Disciplina> disciplinas = null;
+
+        if (!prefs.isFirstTime()) {
+            disciplinas = MyApplication.getWritableDatabase().listarDisciplinas(MyApplication.getWritableDatabase().alunoByEmail(prefs.getEmail()).getAlunoIdServidor());
+        }
+
         //return listDisciplinas;
-        return MyApplication.getWritableDatabase().listarDisciplinas(MyApplication.getWritableDatabase().alunoByEmail(prefs.getEmail()).getAlunoIdServidor());
+        return disciplinas;
     }
 
     public static ArrayList<Professor> loadProfessores(RequestQueue requestQueue) {

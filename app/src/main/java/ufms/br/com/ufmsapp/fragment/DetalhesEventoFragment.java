@@ -3,8 +3,9 @@ package ufms.br.com.ufmsapp.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
@@ -19,6 +20,8 @@ import ufms.br.com.ufmsapp.MyApplication;
 import ufms.br.com.ufmsapp.R;
 import ufms.br.com.ufmsapp.pojo.Disciplina;
 import ufms.br.com.ufmsapp.pojo.Evento;
+import ufms.br.com.ufmsapp.pojo.EventoFavorite;
+import ufms.br.com.ufmsapp.pojo.EventoRead;
 import ufms.br.com.ufmsapp.pojo.NotifyStatus;
 import ufms.br.com.ufmsapp.pojo.Professor;
 import ufms.br.com.ufmsapp.pojo.TipoEvento;
@@ -27,8 +30,6 @@ import ufms.br.com.ufmsapp.preferences.NotifyUserPreference;
 
 
 public class DetalhesEventoFragment extends Fragment implements CompoundButton.OnCheckedChangeListener {
-
-    private static final String UPDATE_NOTIFY_STATUS_URL = "http://www.henriqueweb.com.br/webservice/update/updateNotifyStatus.php";
 
     protected Evento evento;
     protected Disciplina disciplina;
@@ -51,12 +52,71 @@ public class DetalhesEventoFragment extends Fragment implements CompoundButton.O
     public DetalhesEventoFragment() {
     }
 
+    @Override
+    public void onPrepareOptionsMenu(Menu menu) {
+        super.onPrepareOptionsMenu(menu);
+        menu.clear();
+
+        getActivity().getMenuInflater().inflate(R.menu.detalhe_evento_menu, menu);
+
+        MenuItem item = menu.findItem(R.id.action_mark_favorite);
+
+        EventoFavorite eventoFavorite = MyApplication.getWritableDatabase().eventoFavoriteById(evento.getIdEventoServidor());
+
+        if (eventoFavorite != null) {
+            if (eventoFavorite.getEventoFavoriteStatus() == 0) {
+                item.setIcon(R.mipmap.ic_favorite_border_white_24dp);
+            } else if (eventoFavorite.getEventoFavoriteStatus() == 1) {
+                item.setIcon(R.mipmap.ic_favorite_white_24dp);
+            }
+        }
+
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int itemId = item.getItemId();
+
+        switch (itemId) {
+            case R.id.action_mark_favorite:
+                if (MyApplication.getWritableDatabase().countEventoFavorite(evento.getIdEventoServidor()) == 0) {
+                    MyApplication.getWritableDatabase().setEventoFavorite(new EventoFavorite(0, evento.getIdEventoServidor()));
+                } else if (MyApplication.getWritableDatabase().countEventoFavorite(evento.getIdEventoServidor()) == 1) {
+                    EventoFavorite eventoFavorite = MyApplication.getWritableDatabase().eventoFavoriteById(evento.getIdEventoServidor());
+                    if (eventoFavorite.getEventoFavoriteStatus() == 0) {
+                        MyApplication.getWritableDatabase().updateEventoFavorite(new EventoFavorite(1, evento.getIdEventoServidor()));
+                    } else {
+                        MyApplication.getWritableDatabase().updateEventoFavorite(new EventoFavorite(0, evento.getIdEventoServidor()));
+                    }
+                }
+                getActivity().invalidateOptionsMenu();
+                break;
+            case R.id.action_mark_as_not_read:
+                MyApplication.getWritableDatabase().updateEventoRead(new EventoRead(0, evento.getIdEventoServidor()));
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        setHasOptionsMenu(true);
+        //evento = getActivity().getIntent().getParcelableExtra(EventosFragment.EVENTO_EXTRA);
 
-        evento = getActivity().getIntent().getParcelableExtra(EventosFragment.EVENTO_EXTRA);
+        int eventoId = -1;
+        if (getActivity().getIntent().getStringExtra("EVENTO_CREATED") != null) {
+            eventoId = Integer.parseInt(getActivity().getIntent().getStringExtra("EVENTO_CREATED"));
+        }
+
+        if (getActivity().getIntent().getParcelableExtra(EventosFragment.EVENTO_EXTRA) != null) {
+            evento = getActivity().getIntent().getParcelableExtra(EventosFragment.EVENTO_EXTRA);
+        } else {
+            evento = MyApplication.getWritableDatabase().eventoById(eventoId);
+        }
+
 
         View view = inflater.inflate(R.layout.fragment_detalhes_evento_content, container, false);
 

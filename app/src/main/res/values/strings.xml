@@ -139,6 +139,8 @@
     <string name="txt_foto_opt">Foto (opcional)</string>
     <string name="txt_download_file">Icone de baixar arquivo.</string>
     <string name="txt_open_document">Abrir</string>
+    <string name="txt_mark_as_not_read">Marcar como não lido</string>
+    <string name="txt_favorite">Favoritar</string>
 
 
 </resources>

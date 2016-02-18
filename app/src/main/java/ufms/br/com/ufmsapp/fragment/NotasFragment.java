@@ -28,11 +28,13 @@ import ufms.br.com.ufmsapp.activity.NotasAtividadesActivity;
 import ufms.br.com.ufmsapp.adapter.ListaDisciplinaNotasAdapter;
 import ufms.br.com.ufmsapp.callbacks.DisciplinasLoadedListener;
 import ufms.br.com.ufmsapp.pojo.Disciplina;
+import ufms.br.com.ufmsapp.preferences.UserSessionPreference;
 import ufms.br.com.ufmsapp.task.TaskLoadDisciplinas;
 import ufms.br.com.ufmsapp.utils.ConnectionUtils;
 
 
 public class NotasFragment extends Fragment implements ListaDisciplinaNotasAdapter.OnDisciplinaClickListener, SwipeRefreshLayout.OnRefreshListener, DisciplinasLoadedListener {
+    public static boolean mIsInForegroundMode;
 
     private RecyclerView mRecyclerDisciplinasNota;
     private ListaDisciplinaNotasAdapter adapter;
@@ -70,12 +72,20 @@ public class NotasFragment extends Fragment implements ListaDisciplinaNotasAdapt
     public void onResume() {
         super.onResume();
         getActivity().registerReceiver(receiver, filter);
+        getActivity().registerReceiver(mMessageReceiver, new IntentFilter("updateNotas"));
+        mIsInForegroundMode = true;
     }
 
     @Override
     public void onPause() {
         super.onPause();
         getActivity().unregisterReceiver(receiver);
+        getActivity().unregisterReceiver(mMessageReceiver);
+        mIsInForegroundMode = false;
+    }
+
+    public static boolean isInForeground() {
+        return mIsInForegroundMode;
     }
 
 
@@ -110,7 +120,13 @@ public class NotasFragment extends Fragment implements ListaDisciplinaNotasAdapt
 
         adapter = new ListaDisciplinaNotasAdapter(getActivity());
 
-        listDisciplinas = MyApplication.getWritableDatabase().listarDisciplinas(1);
+        UserSessionPreference prefs = new UserSessionPreference(getActivity());
+
+        if (!prefs.isFirstTime()) {
+            listDisciplinas = MyApplication.getWritableDatabase().listarDisciplinas(MyApplication.getWritableDatabase().alunoByEmail(prefs.getEmail()).getAlunoIdServidor());
+        }
+
+        //listDisciplinas = MyApplication.getWritableDatabase().listarDisciplinas(1);
 
         if (listDisciplinas != null) {
             adapter.setDisciplinasList(listDisciplinas);
@@ -206,6 +222,16 @@ public class NotasFragment extends Fragment implements ListaDisciplinaNotasAdapt
             checkAdapterIsEmpty();
         }
     }
+
+    private BroadcastReceiver mMessageReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+
+            if (intent != null) {
+                onRefresh();
+            }
+        }
+    };
 
     public class NetworkChangeReceiver extends BroadcastReceiver {
 

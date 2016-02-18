@@ -3,7 +3,9 @@ package ufms.br.com.ufmsapp.activity;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -22,15 +24,22 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
+import com.google.android.gms.gcm.GoogleCloudMessaging;
+import com.google.android.gms.iid.InstanceID;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
 import ufms.br.com.ufmsapp.MyApplication;
 import ufms.br.com.ufmsapp.R;
+import ufms.br.com.ufmsapp.extras.UrlEndpoints;
 import ufms.br.com.ufmsapp.gcm.UfmsListenerService;
 import ufms.br.com.ufmsapp.network.VolleySingleton;
 import ufms.br.com.ufmsapp.pojo.Aluno;
@@ -41,6 +50,8 @@ import ufms.br.com.ufmsapp.utils.PasswordEncryptionUtil;
 public class LoginActivity extends AppCompatActivity {
 
     private static final String LOGIN_ACCESS_URL = "http://www.henriqueweb.com.br/webservice/access/userAccess.php?acao=login";
+    public static final String URL_DO_SERVIDOR = UrlEndpoints.URL_ENDPOINT + "server/updateUserGCM.php";
+    public static final String UPDATED_SERVIDOR = "updatedServidor";
     private EditText emailLogin;
     private EditText passwordLogin;
     private ImageButton showPasswordImgButton;
@@ -147,6 +158,10 @@ public class LoginActivity extends AppCompatActivity {
                                     prefs.setEmail(aluno.getEmail());
                                     prefs.setOld(true);
 
+                                    if (!getUpdatedServidor()) {
+                                        registerUser(aluno.getAlunoIdServidor());
+                                    }
+
                                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
                                 } else {
                                     Toast.makeText(LoginActivity.this, "Login Inválido", Toast.LENGTH_LONG).show();
@@ -196,6 +211,70 @@ public class LoginActivity extends AppCompatActivity {
                 passwordLogin.setTransformationMethod(PasswordTransformationMethod.getInstance());
                 break;
         }
+    }
+
+    private void registerUser(final int alunoId) {
+        new Thread() {
+            @Override
+            public void run() {
+                super.run();
+                InstanceID instanceID = InstanceID.getInstance(LoginActivity.this);
+                try {
+                    String token = instanceID.getToken(
+                            getString(R.string.gcm_defaultSenderId),
+                            GoogleCloudMessaging.INSTANCE_ID_SCOPE, null);
+                    updateRegistrationOnServer(token, alunoId);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
+    }
+
+    private void updateRegistrationOnServer(final String key, final int alunoId) {
+        new Thread() {
+            @Override
+            public void run() {
+                try {
+                    URL url = new URL(URL_DO_SERVIDOR);
+                    HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                    connection.setRequestMethod("POST");
+                    connection.setDoOutput(true);
+                    OutputStream os = connection.getOutputStream();
+                    // UfmsListenerService service = new UfmsListenerService();
+                    os.write(("acao=updateUser&regId=" + key + "&alunoId=" + alunoId).getBytes());
+                    os.flush();
+                    os.close();
+                    connection.connect();
+                    int responseCode = connection.getResponseCode();
+                    if (responseCode == HttpURLConnection.HTTP_OK) {
+                        setUpdatedServidor(true);
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Toast.makeText(LoginActivity.this, "Atualizado com sucesso", Toast.LENGTH_LONG).show();
+                            }
+                        });
+                    } else {
+                        throw new RuntimeException("Erro ao atualizar servidor");
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
+    }
+
+    private void setUpdatedServidor(boolean updated) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putBoolean(UPDATED_SERVIDOR, updated);
+        editor.apply();
+    }
+
+    private boolean getUpdatedServidor() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        return prefs.getBoolean(UPDATED_SERVIDOR, false);
     }
 
     private boolean validateForm() {

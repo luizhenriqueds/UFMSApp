@@ -1019,7 +1019,7 @@ public class AppDAO {
         values.put(DataContract.EventoFavoriteEntry.COLUMN_EVENTO_FAVORITE, eventoFavorite.getEventoFavoriteStatus());
         values.put(DataContract.EventoFavoriteEntry.EVENTO_FK, eventoFavorite.getEventoKey());
 
-        returnedId = (int) database.insert(DataContract.EventoReadEntry.TABLE_NAME_EVENTO_READ, null, values);
+        returnedId = (int) database.insert(DataContract.EventoFavoriteEntry.TABLE_NAME_EVENTO_FAVORITE, null, values);
         eventoFavorite.setEventoFavoriteId(returnedId);
 
         return returnedId;
@@ -1439,6 +1439,29 @@ public class AppDAO {
         return eventoRead;
     }
 
+    public EventoFavorite eventoFavoriteById(int eventoId) {
+
+        Cursor cursor = database.query(DataContract.EventoFavoriteEntry.TABLE_NAME_EVENTO_FAVORITE, PROJECTION_EVENTO_FAVORITE,
+                DataContract.EventoFavoriteEntry.EVENTO_FK + " = ?", new String[]{String.valueOf(eventoId)}, null, null, null);
+
+        EventoFavorite eventoFavorite = null;
+
+        try {
+            if (cursor.moveToFirst()) {
+                do {
+                    eventoFavorite = fromCursorEventoFavorite(cursor);
+                } while (cursor.moveToNext());
+            }
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+
+
+        return eventoFavorite;
+    }
+
     public NotifyStatus notifyById(int eventoId) {
 
         Cursor cursor = database.query(DataContract.NotifyStatusEvento.TABLE_NAME_NOTIFY_STATUS, PROJECTION_NOTIFY_EVENTO,
@@ -1744,6 +1767,15 @@ public class AppDAO {
 
 
         return new EventoRead(id, eventoRead, eventoKey);
+    }
+
+    private static EventoFavorite fromCursorEventoFavorite(Cursor cursor) {
+        int id = cursor.getInt(cursor.getColumnIndex(DataContract.EventoFavoriteEntry.COLUMN_ID));
+        int eventoFavorite = cursor.getInt(cursor.getColumnIndex(DataContract.EventoFavoriteEntry.COLUMN_EVENTO_FAVORITE));
+        int eventoKey = cursor.getInt(cursor.getColumnIndex(DataContract.EventoFavoriteEntry.EVENTO_FK));
+
+
+        return new EventoFavorite(id, eventoFavorite, eventoKey);
     }
 
     private static AlunoXDisciplina fromCursorAlunoXDisciplina(Cursor cursor) {
