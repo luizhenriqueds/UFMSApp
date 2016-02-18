@@ -4,14 +4,14 @@
     tools:context="ufms.br.com.ufmsapp.fragment.EventosFragment">
 
     <item
-        android:id="@+id/search"
+        android:id="@+id/search_disciplina"
         android:icon="@mipmap/ic_search_white_24dp"
         android:title="@string/search_event"
         app:actionViewClass="android.support.v7.widget.SearchView"
         app:showAsAction="collapseActionView|ifRoom" />
 
     <item
-        android:id="@+id/action_filter_event"
+        android:id="@+id/action_filter_disciplina"
         android:icon="@mipmap/ic_filter_list_white_24dp"
         android:orderInCategory="100"
         android:title="@string/filter_event"

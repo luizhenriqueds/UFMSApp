@@ -29,6 +29,7 @@ import ufms.br.com.ufmsapp.extras.UrlEndpoints;
 import ufms.br.com.ufmsapp.pojo.Disciplina;
 import ufms.br.com.ufmsapp.pojo.Material;
 import ufms.br.com.ufmsapp.task.DownloadTask;
+import ufms.br.com.ufmsapp.utils.Constants;
 import ufms.br.com.ufmsapp.utils.GetFileMimeType;
 import ufms.br.com.ufmsapp.utils.OrientationUtils;
 import ufms.br.com.ufmsapp.utils.RequestPermission;
@@ -74,7 +75,18 @@ public class MateriaisDisciplinaFragment extends Fragment implements MateriaisAd
         emptyListIcon = (ImageView) view.findViewById(R.id.file_empty_icon);
         emptyListIcon.setColorFilter(ContextCompat.getColor(getActivity(), R.color.no_connection_msg));
 
-        disciplina = getActivity().getIntent().getParcelableExtra(DisciplinasFragment.DISCIPLINA_EXTRA);
+        //disciplina = getActivity().getIntent().getParcelableExtra(DisciplinasFragment.DISCIPLINA_EXTRA);
+
+        int disciplinaId = -1;
+        if (getActivity().getIntent().getStringExtra(Constants.DISCIPLINA_CREATED_EXTRA) != null) {
+            disciplinaId = Integer.parseInt(getActivity().getIntent().getStringExtra(Constants.DISCIPLINA_CREATED_EXTRA));
+        }
+
+        if (getActivity().getIntent().getParcelableExtra(DisciplinasFragment.DISCIPLINA_EXTRA) != null) {
+            disciplina = getActivity().getIntent().getParcelableExtra(DisciplinasFragment.DISCIPLINA_EXTRA);
+        } else {
+            disciplina = MyApplication.getWritableDatabase().disciplinaById(disciplinaId);
+        }
 
         ArrayList<Material> uploads = MyApplication.getWritableDatabase().listarMateriaisByDisciplina(disciplina.getIdDisciplinaServidor());
 

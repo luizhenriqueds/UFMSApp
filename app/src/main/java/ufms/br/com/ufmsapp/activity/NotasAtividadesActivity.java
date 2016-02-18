@@ -1,12 +1,15 @@
 package ufms.br.com.ufmsapp.activity;
 
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -19,6 +22,7 @@ import ufms.br.com.ufmsapp.adapter.AtividadeNotaAdapter;
 import ufms.br.com.ufmsapp.fragment.NotasFragment;
 import ufms.br.com.ufmsapp.pojo.Disciplina;
 import ufms.br.com.ufmsapp.pojo.Nota;
+import ufms.br.com.ufmsapp.utils.Constants;
 import ufms.br.com.ufmsapp.utils.OrientationUtils;
 
 public class NotasAtividadesActivity extends AppCompatActivity {
@@ -37,7 +41,18 @@ public class NotasAtividadesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_notas_atividades_layout_adapter);
 
-        disciplina = getIntent().getParcelableExtra(NotasFragment.DISCIPLINA_EXTRA);
+        //disciplina = getIntent().getParcelableExtra(NotasFragment.DISCIPLINA_EXTRA);
+        int disciplinaId = -1;
+        if (getIntent().getStringExtra(Constants.NOTA_CREATED_EXTRA) != null) {
+            disciplinaId = Integer.parseInt(getIntent().getStringExtra(Constants.NOTA_CREATED_EXTRA));
+        }
+
+        if (getIntent().getParcelableExtra(NotasFragment.DISCIPLINA_EXTRA) != null) {
+            disciplina = getIntent().getParcelableExtra(NotasFragment.DISCIPLINA_EXTRA);
+        } else {
+            disciplina = MyApplication.getWritableDatabase().disciplinaById(disciplinaId);
+        }
+
         recyclerNotas = (RecyclerView) findViewById(R.id.recycler_notas);
 
         emptyListText = (TextView) findViewById(R.id.txt_no_atividade);
@@ -97,6 +112,20 @@ public class NotasAtividadesActivity extends AppCompatActivity {
             emptyListText.setVisibility(View.GONE);
         }
 
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                Intent parentIntent = NavUtils.getParentActivityIntent(this);
+                parentIntent.setFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT | Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                startActivity(parentIntent);
+
+                supportFinishAfterTransition();
+
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     protected void setupRecyclerView() {

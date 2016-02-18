@@ -234,7 +234,7 @@ public class AppDAO {
         }
 
     }
-
+    
     public ArrayList<Evento> listarEventos(int disciplinaId, int limit) {
 
         ArrayList<Evento> eventos = new ArrayList<>();

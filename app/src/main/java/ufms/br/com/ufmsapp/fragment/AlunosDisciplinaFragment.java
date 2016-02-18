@@ -20,6 +20,7 @@ import ufms.br.com.ufmsapp.R;
 import ufms.br.com.ufmsapp.adapter.AlunosAdapter;
 import ufms.br.com.ufmsapp.pojo.AlunoXDisciplina;
 import ufms.br.com.ufmsapp.pojo.Disciplina;
+import ufms.br.com.ufmsapp.utils.Constants;
 import ufms.br.com.ufmsapp.utils.OrientationUtils;
 
 
@@ -49,7 +50,18 @@ public class AlunosDisciplinaFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_alunos_disciplina, container, false);
 
 
-        disciplina = getActivity().getIntent().getParcelableExtra(DisciplinasFragment.DISCIPLINA_EXTRA);
+        //disciplina = getActivity().getIntent().getParcelableExtra(DisciplinasFragment.DISCIPLINA_EXTRA);
+
+        int disciplinaId = -1;
+        if (getActivity().getIntent().getStringExtra(Constants.DISCIPLINA_CREATED_EXTRA) != null) {
+            disciplinaId = Integer.parseInt(getActivity().getIntent().getStringExtra(Constants.DISCIPLINA_CREATED_EXTRA));
+        }
+
+        if (getActivity().getIntent().getParcelableExtra(DisciplinasFragment.DISCIPLINA_EXTRA) != null) {
+            disciplina = getActivity().getIntent().getParcelableExtra(DisciplinasFragment.DISCIPLINA_EXTRA);
+        } else {
+            disciplina = MyApplication.getWritableDatabase().disciplinaById(disciplinaId);
+        }
 
         mRecyclerAlunos = (RecyclerView) view.findViewById(R.id.recycler_alunos_disciplina);
 

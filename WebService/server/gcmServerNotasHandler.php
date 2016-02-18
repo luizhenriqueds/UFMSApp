@@ -33,6 +33,8 @@ if ($acao == "enviar") {
     }
 
     $mensagem = $_POST["mensagem"];
+    $notaId = $_POST["notaId"];
+
     $url = "https://gcm-http.googleapis.com/gcm/send";
     $apiKey = "AIzaSyD4-EStQ8w7G8FP2plyIkIOJ10LljchUpw";
     $ch = curl_init($url);
@@ -40,7 +42,8 @@ if ($acao == "enviar") {
         "registration_ids" => $jsonArray,
         "data" => array(
             "type" => "nota",
-            "mensagem" => $mensagem
+            "notaId" => $notaId,
+            "mensagem" => utf8_encode($mensagem)
         )
     );
     $jsonDataEncoded = json_encode($jsonData);

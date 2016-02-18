@@ -43,7 +43,7 @@ if ($acao == "enviar") {
         "data" => array(
             "type" => "evento",
             "eventoId" => $eventoId,
-            "mensagem" => $mensagem
+            "mensagem" => utf8_encode($mensagem)
         )
     );
     $jsonDataEncoded = json_encode($jsonData);

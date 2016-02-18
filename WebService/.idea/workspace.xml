@@ -2,63 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f27fee75-9493-4c44-a8c3-c12b7695b42b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-hdpi/ic_favorite_border_white_18dp.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-hdpi/ic_favorite_border_white_24dp.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-hdpi/ic_favorite_border_white_36dp.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-hdpi/ic_favorite_border_white_48dp.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-hdpi/ic_favorite_white_18dp.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-hdpi/ic_favorite_white_24dp.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-hdpi/ic_favorite_white_36dp.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-hdpi/ic_favorite_white_48dp.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-mdpi/ic_favorite_border_white_18dp.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-mdpi/ic_favorite_border_white_24dp.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-mdpi/ic_favorite_border_white_36dp.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-mdpi/ic_favorite_border_white_48dp.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-mdpi/ic_favorite_white_18dp.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-mdpi/ic_favorite_white_24dp.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-mdpi/ic_favorite_white_36dp.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-mdpi/ic_favorite_white_48dp.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-xhdpi/ic_favorite_border_white_18dp.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-xhdpi/ic_favorite_border_white_24dp.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-xhdpi/ic_favorite_border_white_36dp.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-xhdpi/ic_favorite_border_white_48dp.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-xhdpi/ic_favorite_white_18dp.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-xhdpi/ic_favorite_white_24dp.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-xhdpi/ic_favorite_white_36dp.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-xhdpi/ic_favorite_white_48dp.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-xxhdpi/ic_favorite_border_white_18dp.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-xxhdpi/ic_favorite_border_white_24dp.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-xxhdpi/ic_favorite_border_white_36dp.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-xxhdpi/ic_favorite_border_white_48dp.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-xxhdpi/ic_favorite_white_18dp.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-xxhdpi/ic_favorite_white_24dp.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-xxhdpi/ic_favorite_white_36dp.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-xxhdpi/ic_favorite_white_48dp.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-xxxhdpi/ic_favorite_border_white_18dp.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-xxxhdpi/ic_favorite_border_white_24dp.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-xxxhdpi/ic_favorite_border_white_36dp.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-xxxhdpi/ic_favorite_border_white_48dp.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-xxxhdpi/ic_favorite_white_18dp.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-xxxhdpi/ic_favorite_white_24dp.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-xxxhdpi/ic_favorite_white_36dp.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-xxxhdpi/ic_favorite_white_48dp.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/send_msg_gcm_eventos.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/res/menu/detalhe_evento_menu.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/gcmServerDisciplinasHandler.php" afterPath="$PROJECT_DIR$/server/gcmServerDisciplinasHandler.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/gcmServerEventosHandler.php" afterPath="$PROJECT_DIR$/server/gcmServerEventosHandler.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/adapter/EventosAdapter.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/adapter/EventosAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/data/AppDAO.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/data/AppDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/data/DataHelper.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/data/DataHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/fragment/DetalhesEventoFragment.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/fragment/DetalhesEventoFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/fragment/DisciplinasFragment.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/fragment/DisciplinasFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/gcmServerNotasHandler.php" afterPath="$PROJECT_DIR$/server/gcmServerNotasHandler.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/send_msg_gcm_disciplinas.html" afterPath="$PROJECT_DIR$/server/send_msg_gcm_disciplinas.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/send_msg_gcm_notas.html" afterPath="$PROJECT_DIR$/server/send_msg_gcm_notas.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/activity/DetalhesDisciplinaActivity.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/activity/DetalhesDisciplinaActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/activity/DetalhesEventoActivity.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/activity/DetalhesEventoActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/activity/MainActivity.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/activity/MainActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/fragment/EventosFragment.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/fragment/EventosFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/fragment/NotasFragment.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/fragment/NotasFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/gcm/UfmsGcmListenerService.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/gcm/UfmsGcmListenerService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/task/TaskLoadEventosOnStart.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/task/TaskLoadEventosOnStart.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout/disciplina_list_adapter_row.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/disciplina_list_adapter_row.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout/fragment_eventos_layout.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/fragment_eventos_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/values/colors.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/values/colors.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/values/strings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/utils/Constants.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/utils/Constants.java" />
     </list>
     <ignored path="WebService.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -87,11 +42,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
-      <file leaf-file-name="send_msg_gcm_eventos.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/server/send_msg_gcm_eventos.html">
+      <file leaf-file-name="gcmServerDisciplinasHandler.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/gcmServerDisciplinasHandler.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+            <state relative-caret-position="165">
+              <caret line="14" column="64" selection-start-line="14" selection-start-column="64" selection-end-line="14" selection-end-column="64" />
+              <folding>
+                <marker date="1455818100115" expanded="true" signature="240:311" placeholder="SELECT app_d... app_dispositivo" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gcmServerNotasHandler.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server/gcmServerNotasHandler.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="263">
+              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+              <folding>
+                <marker date="1455818132182" expanded="true" signature="589:660" placeholder="SELECT app_d... app_dispositivo" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="send_msg_gcm_disciplinas.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/send_msg_gcm_disciplinas.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="231">
+              <caret line="7" column="43" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -100,10 +79,10 @@
       <file leaf-file-name="gcmServerEventosHandler.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/gcmServerEventosHandler.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="759">
-              <caret line="43" column="31" selection-start-line="43" selection-start-column="31" selection-end-line="43" selection-end-column="31" />
+            <state relative-caret-position="462">
+              <caret line="32" column="5" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
               <folding>
-                <marker date="1455800661451" expanded="true" signature="589:660" placeholder="SELECT app_d... app_dispositivo" />
+                <marker date="1455818112366" expanded="true" signature="589:660" placeholder="SELECT app_d... app_dispositivo" />
               </folding>
             </state>
           </provider>
@@ -148,12 +127,12 @@
         <option value="$PROJECT_DIR$/server/updateUserGCM.php" />
         <option value="$PROJECT_DIR$/server/gcmserver.php" />
         <option value="$PROJECT_DIR$/server/gcmServerRegister.php" />
-        <option value="$PROJECT_DIR$/server/gcmServerNotasHandler.php" />
-        <option value="$PROJECT_DIR$/server/send_msg_gcm_disciplinas.html" />
+        <option value="$PROJECT_DIR$/server/send_msg_gcm_eventos.html" />
         <option value="$PROJECT_DIR$/server/send_msg_gcm_notas.html" />
+        <option value="$PROJECT_DIR$/server/send_msg_gcm_disciplinas.html" />
         <option value="$PROJECT_DIR$/server/gcmServerDisciplinasHandler.php" />
         <option value="$PROJECT_DIR$/server/gcmServerEventosHandler.php" />
-        <option value="$PROJECT_DIR$/server/send_msg_gcm_eventos.html" />
+        <option value="$PROJECT_DIR$/server/gcmServerNotasHandler.php" />
       </list>
     </option>
   </component>
@@ -427,13 +406,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/webservice/access/register.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/send_msg_gcm_eventos.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="363">
@@ -786,57 +758,67 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/send_msg_gcm_disciplinas.html">
+    <entry file="file://$PROJECT_DIR$/server/send_msg_gcm_notas.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="2" column="34" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
+        <state relative-caret-position="165">
+          <caret line="5" column="55" selection-start-line="5" selection-start-column="55" selection-end-line="5" selection-end-column="55" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/send_msg_gcm_notas.html">
+    <entry file="file://$PROJECT_DIR$/server/send_msg_gcm_eventos.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="2" column="34" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
+        <state relative-caret-position="99">
+          <caret line="3" column="7" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/send_msg_gcm_disciplinas.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="7" column="43" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/list/listDisciplinas.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="924">
+          <caret line="28" column="50" selection-start-line="28" selection-start-column="39" selection-end-line="28" selection-end-column="50" />
+          <folding>
+            <marker date="1452112075465" expanded="true" signature="165:533" placeholder="SELECT app_i... app_disciplina" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/gcmServerDisciplinasHandler.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <caret line="14" column="64" selection-start-line="14" selection-start-column="64" selection-end-line="14" selection-end-column="64" />
           <folding>
-            <marker date="1455733518519" expanded="true" signature="240:311" placeholder="SELECT app_d... app_dispositivo" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/gcmServerNotasHandler.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="11" column="2" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
-          <folding>
-            <marker date="1455729646041" expanded="true" signature="589:660" placeholder="SELECT app_d... app_dispositivo" />
+            <marker date="1455818100115" expanded="true" signature="240:311" placeholder="SELECT app_d... app_dispositivo" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/gcmServerEventosHandler.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="759">
-          <caret line="43" column="31" selection-start-line="43" selection-start-column="31" selection-end-line="43" selection-end-column="31" />
+        <state relative-caret-position="462">
+          <caret line="32" column="5" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
           <folding>
-            <marker date="1455800661451" expanded="true" signature="589:660" placeholder="SELECT app_d... app_dispositivo" />
+            <marker date="1455818112366" expanded="true" signature="589:660" placeholder="SELECT app_d... app_dispositivo" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/send_msg_gcm_eventos.html">
+    <entry file="file://$PROJECT_DIR$/server/gcmServerNotasHandler.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
-          <folding />
+        <state relative-caret-position="263">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding>
+            <marker date="1455818132182" expanded="true" signature="589:660" placeholder="SELECT app_d... app_dispositivo" />
+          </folding>
         </state>
       </provider>
     </entry>

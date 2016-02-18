@@ -1,6 +1,7 @@
 package ufms.br.com.ufmsapp.fragment;
 
 
+import android.app.SearchManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -14,9 +15,10 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
+import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -38,8 +40,9 @@ import ufms.br.com.ufmsapp.task.TaskLoadEventos;
 import ufms.br.com.ufmsapp.task.TaskLoadMateriais;
 import ufms.br.com.ufmsapp.task.TaskLoadMatriculas;
 import ufms.br.com.ufmsapp.utils.ConnectionUtils;
+import ufms.br.com.ufmsapp.utils.Constants;
 
-public class EventosFragment extends Fragment implements EventosLoadedListener, SwipeRefreshLayout.OnRefreshListener, EventosAdapter.OnEventClickListener {
+public class EventosFragment extends Fragment implements EventosLoadedListener, SwipeRefreshLayout.OnRefreshListener, EventosAdapter.OnEventClickListener, SearchView.OnQueryTextListener {
 
     public static boolean mIsInForegroundMode;
 
@@ -74,7 +77,7 @@ public class EventosFragment extends Fragment implements EventosLoadedListener, 
     public void onResume() {
         super.onResume();
         getActivity().registerReceiver(receiver, filter);
-        getActivity().registerReceiver(mMessageReceiver, new IntentFilter("updateEventos"));
+        getActivity().registerReceiver(mMessageReceiver, new IntentFilter(Constants.UPDATE_EVENTO_INTENT));
         adapter.notifyDataSetChanged();
         mIsInForegroundMode = true;
     }
@@ -96,15 +99,37 @@ public class EventosFragment extends Fragment implements EventosLoadedListener, 
         return new EventosFragment();
     }
 
-    @Override
+
+
+   /* @Override
     public void onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
         menu.clear();
 
         getActivity().getMenuInflater().inflate(R.menu.eventos_list_menu, menu);
 
-        //MenuItem item = menu.findItem(R.id.action_filter_event);
-        //item.setVisible(ConnectionUtils.hasConnection(getActivity()));
+        SearchManager searchManager =
+                (SearchManager) getActivity().getSystemService(Context.SEARCH_SERVICE);
+        SearchView searchView =
+                (SearchView) menu.findItem(R.id.search).getActionView();
+        searchView.setSearchableInfo(
+                searchManager.getSearchableInfo(getActivity().getComponentName()));
+
+    }*/
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        getActivity().getMenuInflater().inflate(R.menu.eventos_list_menu, menu);
+
+        SearchManager searchManager =
+                (SearchManager) getActivity().getSystemService(Context.SEARCH_SERVICE);
+        SearchView searchView =
+                (SearchView) menu.findItem(R.id.search).getActionView();
+        searchView.setOnQueryTextListener(this);
+        searchView.setQueryHint(getString(R.string.txt_busca));
+        searchView.setSearchableInfo(
+                searchManager.getSearchableInfo(getActivity().getComponentName()));
     }
 
     @Override
@@ -312,10 +337,36 @@ public class EventosFragment extends Fragment implements EventosLoadedListener, 
         public void onReceive(Context context, Intent intent) {
 
             if (intent != null) {
-               onRefresh();
+                onRefresh();
             }
         }
     };
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        final ArrayList<Evento> resultList = filter(eventos, newText);
+        adapter.setEventosList(resultList);
+        updateList();
+        return true;
+    }
+
+    private ArrayList<Evento> filter(ArrayList<Evento> eventos, String query) {
+        query = query.toLowerCase();
+
+        final ArrayList<Evento> filteredEventos = new ArrayList<>();
+        for (Evento evento : eventos) {
+            final String text = evento.getTitulo().toLowerCase();
+            if (text.contains(query)) {
+                filteredEventos.add(evento);
+            }
+        }
+        return filteredEventos;
+    }
 
 
     public class NetworkChangeReceiver extends BroadcastReceiver {

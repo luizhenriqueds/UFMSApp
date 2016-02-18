@@ -20,6 +20,7 @@ import ufms.br.com.ufmsapp.pojo.Professor;
 import ufms.br.com.ufmsapp.pojo.RatingDisciplina;
 import ufms.br.com.ufmsapp.pojo.TipoDisciplina;
 import ufms.br.com.ufmsapp.preferences.UserSessionPreference;
+import ufms.br.com.ufmsapp.utils.Constants;
 
 
 public class DetalheDisciplinaFragment extends Fragment implements AvaliarDisciplinaDialog.OnRatingDisciplinaListener, View.OnClickListener {
@@ -58,7 +59,18 @@ public class DetalheDisciplinaFragment extends Fragment implements AvaliarDiscip
 
         View view = inflater.inflate(R.layout.fragment_detalhe_disciplina, container, false);
 
-        disciplina = getActivity().getIntent().getParcelableExtra(DisciplinasFragment.DISCIPLINA_EXTRA);
+        //disciplina = getActivity().getIntent().getParcelableExtra(DisciplinasFragment.DISCIPLINA_EXTRA);
+
+        int disciplinaId = -1;
+        if (getActivity().getIntent().getStringExtra(Constants.DISCIPLINA_CREATED_EXTRA) != null) {
+            disciplinaId = Integer.parseInt(getActivity().getIntent().getStringExtra(Constants.DISCIPLINA_CREATED_EXTRA));
+        }
+
+        if (getActivity().getIntent().getParcelableExtra(DisciplinasFragment.DISCIPLINA_EXTRA) != null) {
+            disciplina = getActivity().getIntent().getParcelableExtra(DisciplinasFragment.DISCIPLINA_EXTRA);
+        } else {
+            disciplina = MyApplication.getWritableDatabase().disciplinaById(disciplinaId);
+        }
 
         prefs = new UserSessionPreference(getActivity());
 

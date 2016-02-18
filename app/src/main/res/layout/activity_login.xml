@@ -36,7 +36,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/prompt_email"
-                android:inputType="textEmailAddress|textAutoComplete"
+                android:inputType="textEmailAddress|textAutoCorrect"
                 android:maxLines="1"
                 android:singleLine="true"
                 android:textColor="@color/whiteTextColor"

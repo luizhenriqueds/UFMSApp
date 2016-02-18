@@ -1,6 +1,7 @@
 package ufms.br.com.ufmsapp.activity;
 
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -8,11 +9,13 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.NavUtils;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.graphics.Palette;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.MenuItem;
 
 import com.squareup.picasso.Picasso;
 
@@ -20,6 +23,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import ufms.br.com.ufmsapp.MyApplication;
 import ufms.br.com.ufmsapp.R;
 import ufms.br.com.ufmsapp.extras.UrlEndpoints;
 import ufms.br.com.ufmsapp.fragment.AlunosDisciplinaFragment;
@@ -27,6 +31,7 @@ import ufms.br.com.ufmsapp.fragment.DetalheDisciplinaFragment;
 import ufms.br.com.ufmsapp.fragment.DisciplinasFragment;
 import ufms.br.com.ufmsapp.fragment.MateriaisDisciplinaFragment;
 import ufms.br.com.ufmsapp.pojo.Disciplina;
+import ufms.br.com.ufmsapp.utils.Constants;
 import ufms.br.com.ufmsapp.utils.VersionUtils;
 
 public class DetalhesDisciplinaActivity extends AppCompatActivity {
@@ -47,7 +52,17 @@ public class DetalhesDisciplinaActivity extends AppCompatActivity {
         mTabs = (TabLayout) findViewById(R.id.tabs);
         mPager = (ViewPager) findViewById(R.id.viewpager);
 
-        disciplina = getIntent().getParcelableExtra(DisciplinasFragment.DISCIPLINA_EXTRA);
+        int disciplinaId = -1;
+        if (getIntent().getStringExtra(Constants.DISCIPLINA_CREATED_EXTRA) != null) {
+            disciplinaId = Integer.parseInt(getIntent().getStringExtra(Constants.DISCIPLINA_CREATED_EXTRA));
+        }
+
+        if (getIntent().getParcelableExtra(DisciplinasFragment.DISCIPLINA_EXTRA) != null) {
+            disciplina = getIntent().getParcelableExtra(DisciplinasFragment.DISCIPLINA_EXTRA);
+        } else {
+            disciplina = MyApplication.getWritableDatabase().disciplinaById(disciplinaId);
+        }
+
 
         setupToolbar();
 
@@ -121,6 +136,20 @@ public class DetalhesDisciplinaActivity extends AppCompatActivity {
         adapter.addFragment(alunosFragment, tabs[1]);
         adapter.addFragment(materiaisDisciplinaFragment, tabs[2]);
         viewPager.setAdapter(adapter);
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                Intent parentIntent = NavUtils.getParentActivityIntent(this);
+                parentIntent.setFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT | Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                startActivity(parentIntent);
+
+                supportFinishAfterTransition();
+
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 

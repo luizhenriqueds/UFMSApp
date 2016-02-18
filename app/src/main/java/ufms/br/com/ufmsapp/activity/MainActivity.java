@@ -1,7 +1,5 @@
 package ufms.br.com.ufmsapp.activity;
 
-import android.app.SearchManager;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -17,7 +15,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -41,7 +38,7 @@ import ufms.br.com.ufmsapp.fragment.NotasFragment;
 import ufms.br.com.ufmsapp.preferences.UserSessionPreference;
 import ufms.br.com.ufmsapp.utils.PasswordEncryptionUtil;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, SearchView.OnQueryTextListener {
 
     public static final String URL_DO_SERVIDOR = UrlEndpoints.URL_ENDPOINT + "server/updateUserGCM.php";
 
@@ -118,6 +115,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else {
             mSelectedPosition = savedInstanceState.getInt(SELECTED_MENU_ITEM);
         }
+
 
         selectOptionsMenu(navigationView.getMenu().findItem(mSelectedPosition));
 
@@ -203,28 +201,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mDrawerToggle.syncState();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        super.onCreateOptionsMenu(menu);
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-
-        SearchManager searchManager =
-                (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        SearchView searchView =
-                (SearchView) menu.findItem(R.id.search).getActionView();
-        searchView.setSearchableInfo(
-                searchManager.getSearchableInfo(getComponentName()));
-
-        return true;
-    }
-
-    @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
-        super.onPrepareOptionsMenu(menu);
-        menu.clear();    //remove all items
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
 
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -276,4 +252,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mDrawerLayout.closeDrawer(GravityCompat.START);
     }
 
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        Log.d("BUSCA", query);
+        Toast.makeText(this, "BUSCA ==>" + query, Toast.LENGTH_LONG).show();
+        return true;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        return false;
+    }
 }

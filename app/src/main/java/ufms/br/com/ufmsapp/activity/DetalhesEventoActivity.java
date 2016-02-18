@@ -1,6 +1,7 @@
 package ufms.br.com.ufmsapp.activity;
 
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.NavUtils;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.graphics.Palette;
@@ -29,6 +31,7 @@ import ufms.br.com.ufmsapp.fragment.EventosFragment;
 import ufms.br.com.ufmsapp.fragment.MateriaisEventoFragment;
 import ufms.br.com.ufmsapp.pojo.Disciplina;
 import ufms.br.com.ufmsapp.pojo.Evento;
+import ufms.br.com.ufmsapp.utils.Constants;
 import ufms.br.com.ufmsapp.utils.VersionUtils;
 
 
@@ -48,8 +51,8 @@ public class DetalhesEventoActivity extends AppCompatActivity {
 
 
         int eventoId = -1;
-        if (getIntent().getStringExtra("EVENTO_CREATED") != null) {
-            eventoId = Integer.parseInt(getIntent().getStringExtra("EVENTO_CREATED"));
+        if (getIntent().getStringExtra(Constants.EVENTO_CREATED_EXTRA) != null) {
+            eventoId = Integer.parseInt(getIntent().getStringExtra(Constants.EVENTO_CREATED_EXTRA));
         }
 
         if (getIntent().getParcelableExtra(EventosFragment.EVENTO_EXTRA) != null) {
@@ -118,10 +121,13 @@ public class DetalhesEventoActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                //Intent parentIntent = NavUtils.getParentActivityIntent(this);
-                // parentIntent.setFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT | Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-                // startActivity(parentIntent);
+                Intent parentIntent = NavUtils.getParentActivityIntent(this);
+                //parentIntent.putExtra("NAV_VALUE", getIntent().getIntExtra("NAV_UP", -1));
+                parentIntent.setFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT | Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                startActivity(parentIntent);
+
                 supportFinishAfterTransition();
+
                 return true;
         }
         return super.onOptionsItemSelected(item);

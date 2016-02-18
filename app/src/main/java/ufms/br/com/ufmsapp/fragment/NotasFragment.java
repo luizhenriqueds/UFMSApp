@@ -1,6 +1,7 @@
 package ufms.br.com.ufmsapp.fragment;
 
 
+import android.app.SearchManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -13,7 +14,10 @@ import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -28,12 +32,13 @@ import ufms.br.com.ufmsapp.activity.NotasAtividadesActivity;
 import ufms.br.com.ufmsapp.adapter.ListaDisciplinaNotasAdapter;
 import ufms.br.com.ufmsapp.callbacks.DisciplinasLoadedListener;
 import ufms.br.com.ufmsapp.pojo.Disciplina;
+import ufms.br.com.ufmsapp.pojo.Evento;
 import ufms.br.com.ufmsapp.preferences.UserSessionPreference;
 import ufms.br.com.ufmsapp.task.TaskLoadDisciplinas;
 import ufms.br.com.ufmsapp.utils.ConnectionUtils;
 
 
-public class NotasFragment extends Fragment implements ListaDisciplinaNotasAdapter.OnDisciplinaClickListener, SwipeRefreshLayout.OnRefreshListener, DisciplinasLoadedListener {
+public class NotasFragment extends Fragment implements ListaDisciplinaNotasAdapter.OnDisciplinaClickListener, SwipeRefreshLayout.OnRefreshListener, DisciplinasLoadedListener, SearchView.OnQueryTextListener {
     public static boolean mIsInForegroundMode;
 
     private RecyclerView mRecyclerDisciplinasNota;
@@ -61,8 +66,7 @@ public class NotasFragment extends Fragment implements ListaDisciplinaNotasAdapt
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        setRetainInstance(true);
+        setHasOptionsMenu(true);
 
         filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
         receiver = new NetworkChangeReceiver();
@@ -88,6 +92,21 @@ public class NotasFragment extends Fragment implements ListaDisciplinaNotasAdapt
         return mIsInForegroundMode;
     }
 
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        getActivity().getMenuInflater().inflate(R.menu.notas_list_menu, menu);
+
+        SearchManager searchManager =
+                (SearchManager) getActivity().getSystemService(Context.SEARCH_SERVICE);
+        SearchView searchView =
+                (SearchView) menu.findItem(R.id.search_nota).getActionView();
+        searchView.setOnQueryTextListener(this);
+        searchView.setQueryHint(getString(R.string.txt_busca));
+        searchView.setSearchableInfo(
+                searchManager.getSearchableInfo(getActivity().getComponentName()));
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -207,6 +226,33 @@ public class NotasFragment extends Fragment implements ListaDisciplinaNotasAdapt
             }
         }).show();
     }
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        final ArrayList<Disciplina> resultList = filter(listDisciplinas, newText);
+        adapter.setDisciplinasList(resultList);
+        updateList();
+        return true;
+    }
+
+    private ArrayList<Disciplina> filter(ArrayList<Disciplina> disciplinas, String query) {
+        query = query.toLowerCase();
+
+        final ArrayList<Disciplina> filteredDisciplinas = new ArrayList<>();
+        for (Disciplina disciplina : disciplinas) {
+            final String text = disciplina.getTitulo().toLowerCase();
+            if (text.contains(query)) {
+                filteredDisciplinas.add(disciplina);
+            }
+        }
+        return filteredDisciplinas;
+    }
+
 
 
     @Override

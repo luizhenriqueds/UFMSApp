@@ -1,6 +1,7 @@
 package ufms.br.com.ufmsapp.fragment;
 
 
+import android.app.SearchManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -14,8 +15,10 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -37,7 +40,7 @@ import ufms.br.com.ufmsapp.task.TaskLoadMatriculas;
 import ufms.br.com.ufmsapp.task.TaskLoadRatingDisciplinas;
 import ufms.br.com.ufmsapp.utils.ConnectionUtils;
 
-public class DisciplinasFragment extends Fragment implements DisciplinasLoadedListener, DisciplinasAdapter.OnDisciplinaClickListener, SwipeRefreshLayout.OnRefreshListener {
+public class DisciplinasFragment extends Fragment implements DisciplinasLoadedListener, DisciplinasAdapter.OnDisciplinaClickListener, SwipeRefreshLayout.OnRefreshListener, SearchView.OnQueryTextListener {
     public static boolean mIsInForegroundMode;
 
     protected ArrayList<Disciplina> listDisciplinas;
@@ -93,14 +96,18 @@ public class DisciplinasFragment extends Fragment implements DisciplinasLoadedLi
     }
 
     @Override
-    public void onPrepareOptionsMenu(Menu menu) {
-        super.onPrepareOptionsMenu(menu);
-        //menu.clear();
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        getActivity().getMenuInflater().inflate(R.menu.disciplina_list_menu, menu);
 
-        getActivity().getMenuInflater().inflate(R.menu.eventos_list_menu, menu);
-
-        //MenuItem item = menu.findItem(R.id.action_filter_event);
-        //item.setVisible(ConnectionUtils.hasConnection(getActivity()));
+        SearchManager searchManager =
+                (SearchManager) getActivity().getSystemService(Context.SEARCH_SERVICE);
+        SearchView searchView =
+                (SearchView) menu.findItem(R.id.search_disciplina).getActionView();
+        searchView.setOnQueryTextListener(this);
+        searchView.setQueryHint(getString(R.string.txt_busca));
+        searchView.setSearchableInfo(
+                searchManager.getSearchableInfo(getActivity().getComponentName()));
     }
 
     @Override
@@ -197,6 +204,33 @@ public class DisciplinasFragment extends Fragment implements DisciplinasLoadedLi
         adapter.setDisciplinaClickListener(this);
         mRecyclerDisciplinas.setAdapter(adapter);
         setupRecyclerView();
+    }
+
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        final ArrayList<Disciplina> resultList = filter(listDisciplinas, newText);
+        adapter.setDisciplinasList(resultList);
+        updateList();
+        return true;
+    }
+
+    private ArrayList<Disciplina> filter(ArrayList<Disciplina> disciplinas, String query) {
+        query = query.toLowerCase();
+
+        final ArrayList<Disciplina> filteredDisciplinas = new ArrayList<>();
+        for (Disciplina disciplina : disciplinas) {
+            final String text = disciplina.getTitulo().toLowerCase();
+            if (text.contains(query)) {
+                filteredDisciplinas.add(disciplina);
+            }
+        }
+        return filteredDisciplinas;
     }
 
     private boolean isDisciplinaListEmpty() {
