@@ -39,10 +39,7 @@
             android:id="@+id/nav_drawer_config"
             android:icon="@mipmap/ic_settings_black_24dp"
             android:title="@string/txt_drawer_config" />
-        <item
-            android:id="@+id/nav_drawer_feedback"
-            android:icon="@mipmap/ic_feedback_black_24dp"
-            android:title="@string/txt_feedback" />
+
 
     </group>
 

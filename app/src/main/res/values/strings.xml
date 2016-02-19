@@ -86,6 +86,10 @@
     <string name="txt_no_disciplina_nota">Disciplinas com notas disponíveis vão aparecer aqui.</string>
     <string name="txt_atividade_empty">Suas notas irão aparecer aqui.</string>
 
+    <bool name="sound_def_value">true</bool>
+    <bool name="notification_def_value">true</bool>
+    <bool name="download_def_value">true</bool>
+
 
     <integer-array name="colors">
         <item name="color1">@color/green</item>
@@ -142,6 +146,21 @@
     <string name="txt_mark_as_not_read">Marcar como não lido</string>
     <string name="txt_favorite">Favoritar</string>
     <string name="txt_busca">Buscar</string>
+    <string name="txt_sobre_menu_config">Sobre</string>
+    <string name="txt_send_feedback">Enviar Feedback</string>
+    <string name="pref_notification_enable">pref_key_receber_notificacao</string>
+    <string name="pref_notification_sound">pref_key_ativar_som_notificacao</string>
+    <string name="pref_network_type">pref_key_download_network</string>
+    <string name="pref_logout_app">pref_logout_app</string>
+    <string name="txt_logout">Sair</string>
+    <string name="txt_only_wifi">Baixar arquivos somente via Wi-Fi</string>
+    <string name="txt_receive_notification">Receber notificações do aplicativo</string>
+    <string name="txt_activate_sound">Ativar som da notificação</string>
+    <string name="txt_enable_notifications">Ativar notificações</string>
+    <string name="txt_pref_sound_summary_off">O som das notificações foram desativados</string>
+    <string name="txt_pref_sound_summary_on">Você receberá alertas sonoros ao receber uma notificação</string>
+    <string name="txt_category_notification">Notificações</string>
+    <string name="txt_category_download">Download</string>
 
 
 </resources>

@@ -1,0 +1,29 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/txt_category_download">
+        <CheckBoxPreference
+            android:defaultValue="@bool/download_def_value"
+            android:key="@string/pref_network_type"
+            android:summary="@string/txt_only_wifi"
+            android:title="Baixar anexos" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/txt_category_notification">
+
+        <CheckBoxPreference
+            android:defaultValue="@bool/notification_def_value"
+            android:key="@string/pref_notification_enable"
+            android:summary="@string/txt_receive_notification"
+            android:title="@string/txt_enable_notifications" />
+
+        <SwitchPreference
+            android:defaultValue="@bool/sound_def_value"
+            android:key="@string/pref_notification_sound"
+            android:summaryOff="@string/txt_pref_sound_summary_off"
+            android:summaryOn="@string/txt_pref_sound_summary_on"
+            android:title="@string/txt_activate_sound" />
+    </PreferenceCategory>
+
+    <Preference
+        android:key="@string/pref_logout_app"
+        android:title="@string/txt_logout" />
+</PreferenceScreen>

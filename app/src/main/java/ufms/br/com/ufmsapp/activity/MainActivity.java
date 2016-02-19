@@ -245,6 +245,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 finish();
                 break;
 
+            case R.id.nav_drawer_config:
+                startActivity(new Intent(this, SettingsActivity.class));
+                break;
+
         }
 
         menuItem.setChecked(true);
