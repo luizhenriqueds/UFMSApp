@@ -239,10 +239,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 fragmentTransaction.commit();
                 break;
             case R.id.nav_drawer_curso:
-                prefs.logOut();
-                Toast.makeText(this, "LOGOUT!", Toast.LENGTH_LONG).show();
-                startActivity(new Intent(MainActivity.this, LoginActivity.class));
-                finish();
+               //TODO
                 break;
 
             case R.id.nav_drawer_config:

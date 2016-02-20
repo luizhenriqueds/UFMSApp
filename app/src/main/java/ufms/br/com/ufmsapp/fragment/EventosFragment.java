@@ -19,6 +19,7 @@ import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -100,23 +101,6 @@ public class EventosFragment extends Fragment implements EventosLoadedListener, 
     }
 
 
-
-   /* @Override
-    public void onPrepareOptionsMenu(Menu menu) {
-        super.onPrepareOptionsMenu(menu);
-        menu.clear();
-
-        getActivity().getMenuInflater().inflate(R.menu.eventos_list_menu, menu);
-
-        SearchManager searchManager =
-                (SearchManager) getActivity().getSystemService(Context.SEARCH_SERVICE);
-        SearchView searchView =
-                (SearchView) menu.findItem(R.id.search).getActionView();
-        searchView.setSearchableInfo(
-                searchManager.getSearchableInfo(getActivity().getComponentName()));
-
-    }*/
-
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
@@ -130,6 +114,21 @@ public class EventosFragment extends Fragment implements EventosLoadedListener, 
         searchView.setQueryHint(getString(R.string.txt_busca));
         searchView.setSearchableInfo(
                 searchManager.getSearchableInfo(getActivity().getComponentName()));
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        switch (id) {
+            case R.id.action_calendar_view:
+                Snackbar.make(getActivity().findViewById(android.R.id.home), "CALENDAR VIEW", Snackbar.LENGTH_LONG).show();
+                break;
+            case R.id.action_list_view:
+                Snackbar.make(getActivity().findViewById(android.R.id.home), "LIST VIEW", Snackbar.LENGTH_LONG).show();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

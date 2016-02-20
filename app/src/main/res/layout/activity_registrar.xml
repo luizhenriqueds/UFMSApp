@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/back_gradient"
     android:fitsSystemWindows="true"
     android:gravity="center"
@@ -173,6 +174,14 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
             android:textColor="@color/whiteTextColor"
             android:textStyle="bold" />
+
+        <fr.castorflex.android.circularprogressbar.CircularProgressBar
+            android:id="@+id/progress_bar_registrar"
+            app:cpb_color="@color/whiteTextColor"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_gravity="center"
+            tools:visibility="visible" />
 
     </LinearLayout>
 

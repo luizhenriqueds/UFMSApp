@@ -5,7 +5,9 @@ import android.app.Notification;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
 import android.support.v4.app.TaskStackBuilder;
@@ -22,6 +24,7 @@ import ufms.br.com.ufmsapp.activity.NotasAtividadesActivity;
 import ufms.br.com.ufmsapp.fragment.DisciplinasFragment;
 import ufms.br.com.ufmsapp.fragment.EventosFragment;
 import ufms.br.com.ufmsapp.fragment.NotasFragment;
+import ufms.br.com.ufmsapp.preferences.UserSessionPreference;
 import ufms.br.com.ufmsapp.task.TaskLoadDisciplinasOnStart;
 import ufms.br.com.ufmsapp.task.TaskLoadEventosOnStart;
 import ufms.br.com.ufmsapp.task.TaskLoadNotas;
@@ -39,76 +42,84 @@ public class UfmsGcmListenerService extends GcmListenerService {
     public void onMessageReceived(String from, Bundle data) {
         super.onMessageReceived(from, data);
 
-//        Log.d("GCM_TEST", data.getString("mensagem"));
-        //  Log.d("GCM_TEST", data.getString("type"));
+        UserSessionPreference userSession = new UserSessionPreference(getBaseContext());
 
-        if (data != null) {
-            String message = data.getString("mensagem");
-            String type = data.getString("type");
+        if (!userSession.isFirstTime()) {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+            boolean isNotificationEnabled = prefs.getBoolean(getResources().getString(R.string.pref_notification_enable), true);
 
-            String eventoId = null;
-            String disciplinaId = null;
-            String notaId = null;
+            if (data != null) {
+                String message = data.getString("mensagem");
+                String type = data.getString("type");
 
-            if (data.getString("eventoId") != null) {
-                eventoId = data.getString("eventoId");
-            }
+                String eventoId = null;
+                String disciplinaId = null;
+                String notaId = null;
 
-            if (data.getString("disciplinaId") != null) {
-                disciplinaId = data.getString("disciplinaId");
-            }
-
-            if (data.getString("notaId") != null) {
-                notaId = data.getString("notaId");
-            }
-
-            if (!TextUtils.isEmpty(type) && type.equals(TYPE_EVENTO)) {
-                if (EventosFragment.isInForeground()) {
-                    //sincronizar eventos com o servidor
-                    new TaskLoadEventosOnStart().execute();
-                    updateEventosList(MyApplication.getAppContext());
-
-                } else {
-                    //sincronizar eventos com o servidor
-                    new TaskLoadEventosOnStart().execute();
-
-                    //disparar notificação
-                    if (eventoId != null) {
-                        buildGcmNotification(getString(R.string.txt_notificacao_eventos), message, DetalhesEventoActivity.class, Constants.EVENTO_CREATED_EXTRA, eventoId);
-                    }
+                if (data.getString("eventoId") != null) {
+                    eventoId = data.getString("eventoId");
                 }
 
-            } else if (!TextUtils.isEmpty(type) && type.equals(TYPE_DISCIPLINA)) {
-                if (DisciplinasFragment.isInForeground()) {
-                    new TaskLoadDisciplinasOnStart().execute();
-                    updateDisciplinasList(MyApplication.getAppContext());
-                } else {
-                    //sincronizar disciplinas com o servidor
-                    new TaskLoadDisciplinasOnStart().execute();
+                if (data.getString("disciplinaId") != null) {
+                    disciplinaId = data.getString("disciplinaId");
+                }
 
-                    //disparar notificação
-                    if (disciplinaId != null) {
-                        buildGcmNotification(getString(R.string.txt_notificacao_disciplinas), message, DetalhesDisciplinaActivity.class, Constants.DISCIPLINA_CREATED_EXTRA, disciplinaId);
+                if (data.getString("notaId") != null) {
+                    notaId = data.getString("notaId");
+                }
+
+                if (!TextUtils.isEmpty(type) && type.equals(TYPE_EVENTO)) {
+                    if (EventosFragment.isInForeground()) {
+                        //sincronizar eventos com o servidor
+                        new TaskLoadEventosOnStart().execute();
+                        updateEventosList(MyApplication.getAppContext());
+
+                    } else {
+                        //sincronizar eventos com o servidor
+                        new TaskLoadEventosOnStart().execute();
+
+                        //disparar notificação
+                        if (eventoId != null) {
+                            if (isNotificationEnabled)
+                                buildGcmNotification(getString(R.string.txt_notificacao_eventos), message, DetalhesEventoActivity.class, Constants.EVENTO_CREATED_EXTRA, eventoId);
+                        }
+                    }
+
+                } else if (!TextUtils.isEmpty(type) && type.equals(TYPE_DISCIPLINA)) {
+                    if (DisciplinasFragment.isInForeground()) {
+                        new TaskLoadDisciplinasOnStart().execute();
+                        updateDisciplinasList(MyApplication.getAppContext());
+                    } else {
+                        //sincronizar disciplinas com o servidor
+                        new TaskLoadDisciplinasOnStart().execute();
+
+                        //disparar notificação
+                        if (disciplinaId != null) {
+                            if (isNotificationEnabled)
+                                buildGcmNotification(getString(R.string.txt_notificacao_disciplinas), message, DetalhesDisciplinaActivity.class, Constants.DISCIPLINA_CREATED_EXTRA, disciplinaId);
+                        }
+
+                    }
+
+                } else if (!TextUtils.isEmpty(type) && type.equals(TYPE_NOTA)) {
+                    if (NotasFragment.isInForeground()) {
+                        new TaskLoadNotas().execute();
+                        updateNotasLista(MyApplication.getAppContext());
+                    } else {
+                        //sincroniza notas com o servidor
+                        new TaskLoadNotas().execute();
+
+                        //disparar notificação
+                        if (notaId != null) {
+                            if (isNotificationEnabled)
+                                buildGcmNotification(getString(R.string.txt_notificacao_notas), message, NotasAtividadesActivity.class, Constants.NOTA_CREATED_EXTRA, notaId);
+                        }
                     }
 
                 }
-
-            } else if (!TextUtils.isEmpty(type) && type.equals(TYPE_NOTA)) {
-                if (NotasFragment.isInForeground()) {
-                    new TaskLoadNotas().execute();
-                    updateNotasLista(MyApplication.getAppContext());
-                } else {
-                    //sincroniza notas com o servidor
-                    new TaskLoadNotas().execute();
-
-                    //disparar notificação
-                    if (notaId != null) {
-                        buildGcmNotification(getString(R.string.txt_notificacao_notas), message, NotasAtividadesActivity.class, Constants.NOTA_CREATED_EXTRA, notaId);
-                    }
-                }
-
             }
         }
+
 
     }
 
@@ -129,6 +140,9 @@ public class UfmsGcmListenerService extends GcmListenerService {
 
 
     private void buildGcmNotification(String title, String msg, Class mClass, String intentExtraName, String valueId) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        boolean isSoundEnabled = prefs.getBoolean(getResources().getString(R.string.pref_notification_sound), true);
+
         NotificationManagerCompat nm = NotificationManagerCompat.from(this);
         Intent it = new Intent(this, mClass);
         it.putExtra(intentExtraName, valueId);
@@ -137,14 +151,17 @@ public class UfmsGcmListenerService extends GcmListenerService {
         PendingIntent pit = stackBuilder.getPendingIntent(
                 0, PendingIntent.FLAG_UPDATE_CURRENT);
         NotificationCompat.Builder mBuilder =
-                new NotificationCompat.Builder(this)
-                        .setDefaults(Notification.DEFAULT_ALL)
-                        .setAutoCancel(true)
-                        .setContentIntent(pit)
-                        .setColor(ContextCompat.getColor(this, R.color.accentColor))
-                        .setSmallIcon(R.mipmap.ic_launcher)
-                        .setContentTitle(title)
-                        .setContentText(msg);
+                new NotificationCompat.Builder(this);
+
+        if (isSoundEnabled) {
+            mBuilder.setDefaults(Notification.DEFAULT_ALL);
+        }
+        mBuilder.setAutoCancel(true);
+        mBuilder.setContentIntent(pit);
+        mBuilder.setColor(ContextCompat.getColor(this, R.color.accentColor));
+        mBuilder.setSmallIcon(R.mipmap.ic_launcher);
+        mBuilder.setContentTitle(title);
+        mBuilder.setContentText(msg);
         nm.notify(NOTIFICATION_ID, mBuilder.build());
     }
 }

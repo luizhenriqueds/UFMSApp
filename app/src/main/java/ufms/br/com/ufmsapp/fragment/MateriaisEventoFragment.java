@@ -2,9 +2,11 @@ package ufms.br.com.ufmsapp.fragment;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.preference.PreferenceManager;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
@@ -28,6 +30,7 @@ import ufms.br.com.ufmsapp.extras.UrlEndpoints;
 import ufms.br.com.ufmsapp.pojo.Evento;
 import ufms.br.com.ufmsapp.pojo.Material;
 import ufms.br.com.ufmsapp.task.DownloadTask;
+import ufms.br.com.ufmsapp.utils.ConnectionUtils;
 import ufms.br.com.ufmsapp.utils.GetFileMimeType;
 import ufms.br.com.ufmsapp.utils.OrientationUtils;
 import ufms.br.com.ufmsapp.utils.RequestPermission;
@@ -84,7 +87,7 @@ public class MateriaisEventoFragment extends Fragment implements MateriaisAdapte
 
         adapter = new MateriaisAdapter(getActivity());
 
-        if(evento != null){
+        if (evento != null) {
             uploads = MyApplication.getWritableDatabase().listarMateriaisByEvento(evento.getIdEventoServidor());
         }
 
@@ -154,10 +157,21 @@ public class MateriaisEventoFragment extends Fragment implements MateriaisAdapte
                     break;
                 case R.id.btn_file_download:
 
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+                    boolean networkTypeWifi = prefs.getBoolean(getResources().getString(R.string.pref_network_type), true);
+
                     //Se existir o arquivo, não baixa novamente
                     if (!file.exists()) {
-                        final DownloadTask downloadTask = new DownloadTask(getActivity(), R.mipmap.ic_file_download_black_24dp, material.getPathMaterial(), getActivity().getResources().getString(R.string.txt_download_em_progresso), getActivity());
-                        downloadTask.execute(UrlEndpoints.URL_ENDPOINT_DOWNLOAD_FILE + material.getPathMaterial());
+                        if (ConnectionUtils.isConnectedWifi(getActivity())) {
+                            final DownloadTask downloadTask = new DownloadTask(getActivity(), R.mipmap.ic_file_download_black_24dp, material.getPathMaterial(), getActivity().getResources().getString(R.string.txt_download_em_progresso), getActivity());
+                            downloadTask.execute(UrlEndpoints.URL_ENDPOINT_DOWNLOAD_FILE + material.getPathMaterial());
+                        } else if (ConnectionUtils.isConnectedMobile(getActivity()) && !networkTypeWifi) {
+                            final DownloadTask downloadTask = new DownloadTask(getActivity(), R.mipmap.ic_file_download_black_24dp, material.getPathMaterial(), getActivity().getResources().getString(R.string.txt_download_em_progresso), getActivity());
+                            downloadTask.execute(UrlEndpoints.URL_ENDPOINT_DOWNLOAD_FILE + material.getPathMaterial());
+                        } else {
+                            Snackbar.make(getActivity().findViewById(android.R.id.content), R.string.txt_wifi_only_snackbar, Snackbar.LENGTH_LONG).show();
+                        }
+
                     } else {
 
                         final Snackbar snackbar = Snackbar.make(getActivity().findViewById(android.R.id.content), R.string.txt_success_download_snack_bar, Snackbar.LENGTH_LONG);

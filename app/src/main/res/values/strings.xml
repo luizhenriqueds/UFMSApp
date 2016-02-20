@@ -161,6 +161,19 @@
     <string name="txt_pref_sound_summary_on">Você receberá alertas sonoros ao receber uma notificação</string>
     <string name="txt_category_notification">Notificações</string>
     <string name="txt_category_download">Download</string>
+    <string name="txt_settings_activity">Configuracões</string>
+    <string name="txt_wifi_only_snackbar">Você precisa estar conectado via WIFI</string>
+    <string name="txt_login_invalido">Login Inválido</string>
+    <string name="txt_invalid_registrar">Email ou RGA já existem</string>
+    <string name="txt_registrar_error">Erro ao registrar usuário</string>
+    <string name="txt_type_name">Por favor, digite seu nome</string>
+    <string name="txt_registrar_type_email">Por favor, digite um email</string>
+    <string name="txt_registrar_type_valid_email">Por favor, digite um email válido. Geralmente inclui um caractere \'@\'</string>
+    <string name="txt_registrar_valid_rga">Por favor, digite um RGA válido com 12 dígitos</string>
+    <string name="txt_registrar_type_password">Por favor, digite uma senha</string>
+    <string name="txt_registrar_min_chars_password">Sua senha deve conter no mínimo 6 caracteres</string>
+    <string name="txt_calendar_view">Ver calendário</string>
+    <string name="txt_list_view">Ver lista de eventos</string>
 
 
 </resources>

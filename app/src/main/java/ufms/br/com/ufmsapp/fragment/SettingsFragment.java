@@ -1,5 +1,6 @@
 package ufms.br.com.ufmsapp.fragment;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -8,9 +9,10 @@ import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.preference.SwitchPreference;
-import android.widget.Toast;
 
 import ufms.br.com.ufmsapp.R;
+import ufms.br.com.ufmsapp.activity.LoginActivity;
+import ufms.br.com.ufmsapp.preferences.UserSessionPreference;
 
 public class SettingsFragment extends PreferenceFragment implements SharedPreferences.OnSharedPreferenceChangeListener {
 
@@ -47,7 +49,10 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
         logoutPreference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
-                Toast.makeText(getActivity(), "LOGOUT!!!!", Toast.LENGTH_LONG).show();
+                UserSessionPreference prefs = new UserSessionPreference(getActivity());
+                prefs.logOut();
+                startActivity(new Intent(getActivity(), LoginActivity.class));
+                getActivity().finish();
                 return true;
             }
         });

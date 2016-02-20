@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -37,6 +38,7 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
+import fr.castorflex.android.circularprogressbar.CircularProgressBar;
 import ufms.br.com.ufmsapp.MyApplication;
 import ufms.br.com.ufmsapp.R;
 import ufms.br.com.ufmsapp.extras.UrlEndpoints;
@@ -52,11 +54,14 @@ public class LoginActivity extends AppCompatActivity {
     private static final String LOGIN_ACCESS_URL = "http://www.henriqueweb.com.br/webservice/access/userAccess.php?acao=login";
     public static final String URL_DO_SERVIDOR = UrlEndpoints.URL_ENDPOINT + "server/updateUserGCM.php";
     public static final String UPDATED_SERVIDOR = "updatedServidor";
+    public static final String EMAIL_PARAM = "email";
+    public static final String PASSWORD_PARAM = "password";
     private EditText emailLogin;
     private EditText passwordLogin;
     private ImageButton showPasswordImgButton;
     private ImageButton hidePasswordImgButton;
     private UserSessionPreference prefs;
+    protected CircularProgressBar progressBar;
 
     public static final int REQUEST_PLAY_SERVICES = 1;
 
@@ -84,6 +89,7 @@ public class LoginActivity extends AppCompatActivity {
         passwordLogin = (EditText) findViewById(R.id.login_password);
         showPasswordImgButton = (ImageButton) findViewById(R.id.login_show_button);
         hidePasswordImgButton = (ImageButton) findViewById(R.id.login_hide_button);
+        progressBar = (CircularProgressBar) findViewById(R.id.progress_bar_login);
 
 
         passwordLogin.addTextChangedListener(new TextWatcher() {
@@ -137,8 +143,15 @@ public class LoginActivity extends AppCompatActivity {
         finish();
     }
 
+    private void enableProgress(boolean indeterminate, int visible) {
+        progressBar.setVisibility(visible);
+        progressBar.setIndeterminate(indeterminate);
+    }
+
     public void userLogin(View view) {
         if (validateForm()) {
+
+            enableProgress(true, View.VISIBLE);
 
             final StringRequest postRequest = new StringRequest(Request.Method.POST, LOGIN_ACCESS_URL,
                     new Response.Listener<String>() {
@@ -151,7 +164,7 @@ public class LoginActivity extends AppCompatActivity {
                                 jsonResponse = new JSONObject(response);
 
                                 if (jsonResponse.getInt("result") == 1) {
-
+                                    enableProgress(false, View.GONE);
                                     Aluno aluno = MyApplication.getWritableDatabase().alunoByEmail(emailLogin.getText().toString());
 
                                     prefs.setName(aluno.getNome());
@@ -164,7 +177,8 @@ public class LoginActivity extends AppCompatActivity {
 
                                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
                                 } else {
-                                    Toast.makeText(LoginActivity.this, "Login Inválido", Toast.LENGTH_LONG).show();
+                                    enableProgress(false, View.GONE);
+                                    Snackbar.make(findViewById(android.R.id.content), R.string.txt_login_invalido, Snackbar.LENGTH_LONG).show();
                                 }
 
                             } catch (JSONException e) {
@@ -175,6 +189,7 @@ public class LoginActivity extends AppCompatActivity {
                     new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
+                            enableProgress(false, View.GONE);
                             Log.d("Error.Response", error.getMessage());
                         }
                     }
@@ -186,8 +201,8 @@ public class LoginActivity extends AppCompatActivity {
                     String password = PasswordEncryptionUtil.md5(passwordLogin.getText().toString().concat(salt));
 
                     Map<String, String> params = new HashMap<>();
-                    params.put("email", emailLogin.getText().toString());
-                    params.put("password", password);
+                    params.put(EMAIL_PARAM, emailLogin.getText().toString());
+                    params.put(PASSWORD_PARAM, password);
 
                     return params;
                 }
@@ -241,7 +256,6 @@ public class LoginActivity extends AppCompatActivity {
                     connection.setRequestMethod("POST");
                     connection.setDoOutput(true);
                     OutputStream os = connection.getOutputStream();
-                    // UfmsListenerService service = new UfmsListenerService();
                     os.write(("acao=updateUser&regId=" + key + "&alunoId=" + alunoId).getBytes());
                     os.flush();
                     os.close();
@@ -249,12 +263,6 @@ public class LoginActivity extends AppCompatActivity {
                     int responseCode = connection.getResponseCode();
                     if (responseCode == HttpURLConnection.HTTP_OK) {
                         setUpdatedServidor(true);
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                Toast.makeText(LoginActivity.this, "Atualizado com sucesso", Toast.LENGTH_LONG).show();
-                            }
-                        });
                     } else {
                         throw new RuntimeException("Erro ao atualizar servidor");
                     }
@@ -282,17 +290,17 @@ public class LoginActivity extends AppCompatActivity {
         boolean isFieldSet;
 
         if (TextUtils.isEmpty(emailLogin.getText().toString())) {
-            emailLogin.setError("Por favor, digite um email");
+            emailLogin.setError(getString(R.string.txt_registrar_type_email));
             isFieldSet = false;
         } else if (!emailLogin.getText().toString().contains("@")) {
-            emailLogin.setError("Por favor, digite uma email válido. Geralmente inclui um caractere '@'");
+            emailLogin.setError(getString(R.string.txt_registrar_type_valid_email));
             isFieldSet = false;
         } else if (TextUtils.isEmpty(passwordLogin.getText().toString())) {
-            passwordLogin.setError("Por favor, digite uma senha");
+            passwordLogin.setError(getString(R.string.txt_registrar_type_password));
             isFieldSet = false;
 
         } else if (TextUtils.getTrimmedLength(passwordLogin.getText()) < 6) {
-            passwordLogin.setError("Sua senha deve conter no mínimo 6 caracteres");
+            passwordLogin.setError(getString(R.string.txt_registrar_min_chars_password));
             isFieldSet = false;
         } else {
             isFieldSet = true;

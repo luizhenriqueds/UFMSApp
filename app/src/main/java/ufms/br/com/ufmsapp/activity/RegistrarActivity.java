@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -34,6 +35,7 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
+import fr.castorflex.android.circularprogressbar.CircularProgressBar;
 import ufms.br.com.ufmsapp.MyApplication;
 import ufms.br.com.ufmsapp.R;
 import ufms.br.com.ufmsapp.extras.UrlEndpoints;
@@ -50,6 +52,16 @@ public class RegistrarActivity extends AppCompatActivity {
 
     public static final String UPDATED_SERVIDOR = "updatedServidor";
 
+    private static final String PARAM_NOME = "nome";
+
+    private static final String PARAM_EMAIL = "email";
+
+    private static final String PARAM_RGA = "rga";
+
+    private static final String PARAM_STATUS_ALUNO = "statusAlunoFk";
+
+    private static final String PARAM_PASSWORD = "password";
+
     private EditText registrarNome;
     private EditText registrarEmail;
     private EditText registrarRga;
@@ -58,6 +70,7 @@ public class RegistrarActivity extends AppCompatActivity {
     private ImageButton hidePasswordRegistrar;
     private Button btnSignIn;
     UserSessionPreference prefs;
+    private CircularProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +85,7 @@ public class RegistrarActivity extends AppCompatActivity {
         hidePasswordRegistrar = (ImageButton) findViewById(R.id.sign_up_hide_button);
         btnSignIn = (Button) findViewById(R.id.signin_button);
         prefs = new UserSessionPreference(this);
+        progressBar = (CircularProgressBar) findViewById(R.id.progress_bar_registrar);
 
         registrarSenha.addTextChangedListener(new TextWatcher() {
 
@@ -93,6 +107,11 @@ public class RegistrarActivity extends AppCompatActivity {
 
     }
 
+    private void enableProgress(boolean indeterminate, int visible) {
+        progressBar.setVisibility(visible);
+        progressBar.setIndeterminate(indeterminate);
+    }
+
     public void goToLoginActivity(View view) {
         startActivity(new Intent(this, LoginActivity.class));
         finish();
@@ -100,6 +119,8 @@ public class RegistrarActivity extends AppCompatActivity {
 
     public void userSignIn(View view) {
         if (validateForm()) {
+
+            enableProgress(true, View.VISIBLE);
 
             final StringRequest postRequest = new StringRequest(Request.Method.POST, REGISTER_ACCESS_URL,
                     new Response.Listener<String>() {
@@ -116,8 +137,11 @@ public class RegistrarActivity extends AppCompatActivity {
 
                                 if (inserted == -1) {
                                     btnSignIn.setEnabled(true);
-                                    Toast.makeText(RegistrarActivity.this, "Email ou RGA já existem.", Toast.LENGTH_LONG).show();
+                                    enableProgress(false, View.GONE);
+                                    Snackbar.make(findViewById(android.R.id.content), R.string.txt_invalid_registrar, Snackbar.LENGTH_LONG).show();
                                 } else if (inserted > 0) {
+                                    enableProgress(false, View.GONE);
+
                                     btnSignIn.setEnabled(false);
 
                                     Aluno aluno = new Aluno(registrarNome.getText().toString(), registrarEmail.getText().toString(), String.valueOf(registrarRga.getText().toString()), 1, jsonResponse.getInt("userId"));
@@ -140,7 +164,8 @@ public class RegistrarActivity extends AppCompatActivity {
 
                                 } else {
                                     btnSignIn.setEnabled(true);
-                                    Toast.makeText(RegistrarActivity.this, "Erro ao registrar usuário.", Toast.LENGTH_LONG).show();
+                                    enableProgress(false, View.GONE);
+                                    Snackbar.make(findViewById(android.R.id.content), R.string.txt_registrar_error, Snackbar.LENGTH_LONG).show();
                                 }
 
 
@@ -152,6 +177,7 @@ public class RegistrarActivity extends AppCompatActivity {
                     new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
+                            enableProgress(false, View.GONE);
                             Log.d("Error.Response", error.getMessage());
                         }
                     }
@@ -163,11 +189,11 @@ public class RegistrarActivity extends AppCompatActivity {
                     String password = PasswordEncryptionUtil.md5(registrarSenha.getText().toString().concat(salt));
 
                     Map<String, String> params = new HashMap<>();
-                    params.put("nome", registrarNome.getText().toString());
-                    params.put("email", registrarEmail.getText().toString());
-                    params.put("rga", String.valueOf(registrarRga.getText().toString()));
-                    params.put("statusAlunoFk", String.valueOf(1));
-                    params.put("password", password);
+                    params.put(PARAM_NOME, registrarNome.getText().toString());
+                    params.put(PARAM_EMAIL, registrarEmail.getText().toString());
+                    params.put(PARAM_RGA, String.valueOf(registrarRga.getText().toString()));
+                    params.put(PARAM_STATUS_ALUNO, String.valueOf(1));
+                    params.put(PARAM_PASSWORD, password);
 
                     return params;
                 }
@@ -210,7 +236,6 @@ public class RegistrarActivity extends AppCompatActivity {
                     connection.setRequestMethod("POST");
                     connection.setDoOutput(true);
                     OutputStream os = connection.getOutputStream();
-                    // UfmsListenerService service = new UfmsListenerService();
                     os.write(("acao=updateUser&regId=" + key + "&alunoId=" + alunoId).getBytes());
                     os.flush();
                     os.close();
@@ -218,12 +243,6 @@ public class RegistrarActivity extends AppCompatActivity {
                     int responseCode = connection.getResponseCode();
                     if (responseCode == HttpURLConnection.HTTP_OK) {
                         setUpdatedServidor(true);
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                Toast.makeText(RegistrarActivity.this, "Atualizado com sucesso", Toast.LENGTH_LONG).show();
-                            }
-                        });
                     } else {
                         throw new RuntimeException("Erro ao atualizar servidor");
                     }
@@ -266,23 +285,23 @@ public class RegistrarActivity extends AppCompatActivity {
         boolean isFieldSet;
 
         if (TextUtils.isEmpty(registrarNome.getText().toString())) {
-            registrarNome.setError("Por favor, digite seu nome");
+            registrarNome.setError(getString(R.string.txt_type_name));
             isFieldSet = false;
         } else if (TextUtils.isEmpty(registrarEmail.getText().toString())) {
-            registrarEmail.setError("Por favor, digite um email");
+            registrarEmail.setError(getString(R.string.txt_registrar_type_email));
             isFieldSet = false;
         } else if (!registrarEmail.getText().toString().contains("@")) {
-            registrarEmail.setError("Por favor, digite uma email válido. Geralmente inclui um caractere '@'");
+            registrarEmail.setError(getString(R.string.txt_registrar_type_valid_email));
             isFieldSet = false;
         } else if (registrarRga.getText().length() != 12) {
-            registrarRga.setError("Por favor, digite um RGA válido com 12 dígitos");
+            registrarRga.setError(getString(R.string.txt_registrar_valid_rga));
             isFieldSet = false;
         } else if (TextUtils.isEmpty(registrarSenha.getText().toString())) {
-            registrarSenha.setError("Por favor, digite uma senha");
+            registrarSenha.setError(getString(R.string.txt_registrar_type_password));
             isFieldSet = false;
 
         } else if (TextUtils.getTrimmedLength(registrarSenha.getText()) < 6) {
-            registrarSenha.setError("Sua senha deve conter no mínimo 6 caracteres");
+            registrarSenha.setError(getString(R.string.txt_registrar_min_chars_password));
             isFieldSet = false;
         } else {
             isFieldSet = true;
