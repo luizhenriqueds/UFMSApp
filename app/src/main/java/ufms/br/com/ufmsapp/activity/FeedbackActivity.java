@@ -45,6 +45,7 @@ public class FeedbackActivity extends AppCompatActivity {
         switch (id) {
             case R.id.action_feedback_send_button:
                 if (validateForm()) {
+                    //TODO backend
                     Snackbar.make(findViewById(android.R.id.content), R.string.txt_feedback_message_success, Snackbar.LENGTH_LONG).show();
                     finish();
                 }
