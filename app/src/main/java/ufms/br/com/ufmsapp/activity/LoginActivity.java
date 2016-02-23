@@ -1,3 +1,19 @@
+/*
+ * Copyright [2016] [UFMS]
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package ufms.br.com.ufmsapp.activity;
 
 import android.app.Dialog;
@@ -41,6 +57,7 @@ import java.util.Map;
 import fr.castorflex.android.circularprogressbar.CircularProgressBar;
 import ufms.br.com.ufmsapp.MyApplication;
 import ufms.br.com.ufmsapp.R;
+import ufms.br.com.ufmsapp.data.DataHelper;
 import ufms.br.com.ufmsapp.extras.UrlEndpoints;
 import ufms.br.com.ufmsapp.gcm.UfmsListenerService;
 import ufms.br.com.ufmsapp.network.VolleySingleton;
@@ -173,6 +190,7 @@ public class LoginActivity extends AppCompatActivity {
 
                                     if (!getUpdatedServidor()) {
                                         registerUser(aluno.getAlunoIdServidor());
+                                        DataHelper.sincronizarDados();
                                     }
 
                                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
@@ -273,7 +291,7 @@ public class LoginActivity extends AppCompatActivity {
         }.start();
     }
 
-    private void setUpdatedServidor(boolean updated) {
+    public void setUpdatedServidor(boolean updated) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = prefs.edit();
         editor.putBoolean(UPDATED_SERVIDOR, updated);

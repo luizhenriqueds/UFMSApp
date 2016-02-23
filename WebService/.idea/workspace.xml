@@ -2,18 +2,231 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f27fee75-9493-4c44-a8c3-c12b7695b42b" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-hdpi/ic_clear_white_24dp.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-hdpi/ic_send_white_24dp.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-mdpi/ic_clear_white_24dp.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-mdpi/ic_send_white_24dp.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-xhdpi/ic_clear_white_24dp.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-xhdpi/ic_send_white_24dp.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-xxhdpi/ic_clear_white_24dp.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-xxhdpi/ic_send_white_24dp.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-xxxhdpi/ic_clear_white_24dp.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-xxxhdpi/ic_send_white_24dp.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/activity/FeedbackActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/activity/LicenseActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/activity_feedback.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/activity_license.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/res/menu/feedback_menu.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/tabs/SlidingTabLayout.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/tabs/SlidingTabStrip.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/copyright/profiles_settings.xml" afterPath="$PROJECT_DIR$/../.idea/copyright/profiles_settings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/dictionaries/Luiz_Henrique.xml" afterPath="$PROJECT_DIR$/../.idea/dictionaries/Luiz_Henrique.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/gcmServerDisciplinasHandler.php" afterPath="$PROJECT_DIR$/server/gcmServerDisciplinasHandler.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/gcmServerEventosHandler.php" afterPath="$PROJECT_DIR$/server/gcmServerEventosHandler.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/gcmServerNotasHandler.php" afterPath="$PROJECT_DIR$/server/gcmServerNotasHandler.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/send_msg_gcm_disciplinas.html" afterPath="$PROJECT_DIR$/server/send_msg_gcm_disciplinas.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/send_msg_gcm_notas.html" afterPath="$PROJECT_DIR$/server/send_msg_gcm_notas.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/../app/src/main/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/JSONParsers/ListAlunoXDisciplinaParser.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/JSONParsers/ListAlunoXDisciplinaParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/JSONParsers/ListAlunosParser.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/JSONParsers/ListAlunosParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/JSONParsers/ListDisciplinasParser.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/JSONParsers/ListDisciplinasParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/JSONParsers/ListEventosParser.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/JSONParsers/ListEventosParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/JSONParsers/ListMateriaisUploadParser.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/JSONParsers/ListMateriaisUploadParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/JSONParsers/ListNotasParser.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/JSONParsers/ListNotasParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/JSONParsers/ListProfessoresParser.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/JSONParsers/ListProfessoresParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/JSONParsers/ListRatingDisciplinaParser.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/JSONParsers/ListRatingDisciplinaParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/JSONParsers/ListStatusAlunosParser.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/JSONParsers/ListStatusAlunosParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/JSONParsers/ListStatusDisciplinaParser.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/JSONParsers/ListStatusDisciplinaParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/JSONParsers/ListTipoDisciplinaParser.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/JSONParsers/ListTipoDisciplinaParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/JSONParsers/ListTipoEventoParser.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/JSONParsers/ListTipoEventoParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/JSONParsers/ListTituloProfessorParser.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/JSONParsers/ListTituloProfessorParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/JSONParsers/ListTurmasParser.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/JSONParsers/ListTurmasParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/JSONParsers/RatingDisciplinaParser.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/JSONParsers/RatingDisciplinaParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/JSONParsers/UpdateRatingDisciplinaParser.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/JSONParsers/UpdateRatingDisciplinaParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/MyApplication.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/MyApplication.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/activity/DetalhesDisciplinaActivity.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/activity/DetalhesDisciplinaActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/activity/DetalhesEventoActivity.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/activity/DetalhesEventoActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/activity/LoginActivity.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/activity/LoginActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/activity/MainActivity.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/activity/MainActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/activity/NotasAtividadesActivity.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/activity/NotasAtividadesActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/activity/RegistrarActivity.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/activity/RegistrarActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/activity/SearchResultActivity.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/activity/SearchResultActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/activity/SettingsActivity.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/activity/SettingsActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/adapter/AlunosAdapter.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/adapter/AlunosAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/adapter/AtividadeNotaAdapter.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/adapter/AtividadeNotaAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/adapter/CalendarViewAdapter.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/adapter/CalendarViewAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/adapter/DisciplinasAdapter.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/adapter/DisciplinasAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/adapter/DrawerLayoutAdapter.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/adapter/DrawerLayoutAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/adapter/EventosAdapter.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/adapter/EventosAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/adapter/ExploreAdapter.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/adapter/ExploreAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/adapter/ExploreDisciplinasAdapter.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/adapter/ExploreDisciplinasAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/adapter/ExploreEventosAdapter.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/adapter/ExploreEventosAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/adapter/ListaDisciplinaNotasAdapter.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/adapter/ListaDisciplinaNotasAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/adapter/MateriaisAdapter.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/adapter/MateriaisAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/callbacks/DisciplinasLoadedListener.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/callbacks/DisciplinasLoadedListener.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/callbacks/EventosLoadedListener.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/callbacks/EventosLoadedListener.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/callbacks/NotasLoadedListener.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/callbacks/NotasLoadedListener.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/callbacks/ProfessoresLoadedListener.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/callbacks/ProfessoresLoadedListener.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/callbacks/TipoEventoLoadedListener.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/callbacks/TipoEventoLoadedListener.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/data/AppDAO.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/data/AppDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/data/DataContract.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/data/DataContract.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/data/DataHelper.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/data/DataHelper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/decorators/HighlightWeekendsDecorator.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/decorators/HighlightWeekendsDecorator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/decorators/MySelectorDecorator.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/decorators/MySelectorDecorator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/decorators/OneDayDecorator.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/decorators/OneDayDecorator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/dialog/AvaliarDisciplinaDialog.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/dialog/AvaliarDisciplinaDialog.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/extras/EventosSorter.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/extras/EventosSorter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/extras/Keys.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/extras/Keys.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/extras/LoadDataUtils.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/extras/LoadDataUtils.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/extras/UrlEndpoints.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/extras/UrlEndpoints.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/fragment/AlunosDisciplinaFragment.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/fragment/AlunosDisciplinaFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/fragment/DetalheDisciplinaFragment.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/fragment/DetalheDisciplinaFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/fragment/DetalhesEventoFragment.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/fragment/DetalhesEventoFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/fragment/DisciplinasFragment.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/fragment/DisciplinasFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/fragment/EventosFragment.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/fragment/EventosFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/fragment/ExploreDisciplinasFragment.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/fragment/ExploreDisciplinasFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/fragment/ExploreEventosFragment.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/fragment/ExploreEventosFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/fragment/ExploreFragment.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/fragment/ExploreFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/fragment/FragmentEventCalendarView.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/fragment/FragmentEventCalendarView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/fragment/ListEventosFragment.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/fragment/ListEventosFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/fragment/MateriaisDisciplinaFragment.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/fragment/MateriaisDisciplinaFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/fragment/MateriaisEventoFragment.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/fragment/MateriaisEventoFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/fragment/NavigationDrawerFragment.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/fragment/NavigationDrawerFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/fragment/NotasFragment.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/fragment/NotasFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/fragment/SettingsFragment.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/fragment/SettingsFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/gcm/UfmsGcmListenerService.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/gcm/UfmsGcmListenerService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/gcm/UfmsListenerService.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/gcm/UfmsListenerService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/json/Endpoints.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/json/Endpoints.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/json/Requestor.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/json/Requestor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/network/VolleySingleton.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/network/VolleySingleton.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/notification/NotificationBuilder.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/notification/NotificationBuilder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/pojo/Aluno.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/pojo/Aluno.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/pojo/AlunoXDisciplina.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/pojo/AlunoXDisciplina.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/pojo/CalendarEvent.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/pojo/CalendarEvent.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/pojo/Curso.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/pojo/Curso.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/pojo/Disciplina.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/pojo/Disciplina.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/pojo/DrawerItem.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/pojo/DrawerItem.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/pojo/Evento.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/pojo/Evento.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/pojo/EventoFavorite.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/pojo/EventoFavorite.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/pojo/EventoRead.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/pojo/EventoRead.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/pojo/Material.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/pojo/Material.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/pojo/Nota.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/pojo/Nota.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/pojo/NotifyStatus.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/pojo/NotifyStatus.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/pojo/PeriodoCurso.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/pojo/PeriodoCurso.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/pojo/Professor.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/pojo/Professor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/pojo/RatingDisciplina.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/pojo/RatingDisciplina.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/pojo/StatusAluno.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/pojo/StatusAluno.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/pojo/StatusDisciplina.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/pojo/StatusDisciplina.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/pojo/TipoCurso.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/pojo/TipoCurso.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/pojo/TipoDisciplina.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/pojo/TipoDisciplina.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/pojo/TipoEvento.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/pojo/TipoEvento.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/pojo/TituloProfessor.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/pojo/TituloProfessor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/pojo/Turma.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/pojo/Turma.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/preferences/NotifyUserPreference.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/preferences/NotifyUserPreference.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/preferences/UserSessionPreference.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/preferences/UserSessionPreference.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/service/EventoSyncIntentService.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/service/EventoSyncIntentService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/task/DownloadTask.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/task/DownloadTask.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/task/TaskLoadAlunos.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/task/TaskLoadAlunos.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/task/TaskLoadDisciplinas.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/task/TaskLoadDisciplinas.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/task/TaskLoadDisciplinasOnStart.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/task/TaskLoadDisciplinasOnStart.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/task/TaskLoadEventos.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/task/TaskLoadEventos.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/task/TaskLoadEventosOnStart.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/task/TaskLoadEventosOnStart.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/task/TaskLoadMateriais.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/task/TaskLoadMateriais.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/task/TaskLoadMatriculas.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/task/TaskLoadMatriculas.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/task/TaskLoadNotas.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/task/TaskLoadNotas.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/task/TaskLoadProfessores.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/task/TaskLoadProfessores.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/task/TaskLoadRatingDisciplinas.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/task/TaskLoadRatingDisciplinas.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/task/TaskLoadStatusAlunos.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/task/TaskLoadStatusAlunos.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/task/TaskLoadStatusDisciplina.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/task/TaskLoadStatusDisciplina.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/task/TaskLoadTipoDisciplina.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/task/TaskLoadTipoDisciplina.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/task/TaskLoadTipoEventos.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/task/TaskLoadTipoEventos.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/task/TaskLoadTituloProfessores.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/task/TaskLoadTituloProfessores.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/task/TaskLoadTurmas.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/task/TaskLoadTurmas.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/task/TaskRateDisciplina.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/task/TaskRateDisciplina.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/task/TaskUpdateRateDisciplina.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/task/TaskUpdateRateDisciplina.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/utils/ConnectionUtils.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/utils/ConnectionUtils.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/utils/Constants.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/utils/Constants.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/utils/CustomLinearGridLayoutManager.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/utils/CustomLinearGridLayoutManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/utils/CustomLinearLayoutManager.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/utils/CustomLinearLayoutManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/utils/DateUtils.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/utils/DateUtils.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/utils/GetFileMimeType.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/utils/GetFileMimeType.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/utils/JSONUtils.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/utils/JSONUtils.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/utils/NetworkStateMonitor.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/utils/NetworkStateMonitor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/utils/OrientationUtils.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/utils/OrientationUtils.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/utils/PasswordEncryptionUtil.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/utils/PasswordEncryptionUtil.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/utils/RequestPermission.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/utils/RequestPermission.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/utils/SquareImageView.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/utils/SquareImageView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/utils/VersionUtils.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/utils/VersionUtils.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/anim/fade_in.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/anim/fade_in.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/anim/fade_out.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/anim/fade_out.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/drawable-v21/custom_bg.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable-v21/custom_bg.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/back_gradient.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/back_gradient.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/button_bg_rounded_corners.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/button_bg_rounded_corners.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/custom_bg.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/custom_bg.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/my_selector.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/my_selector.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout-land/activity_login.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout-land/activity_login.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout-land/activity_registrar.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout-land/activity_registrar.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout-land/eventos_list_adapter_row.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout-land/eventos_list_adapter_row.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout-land/fragment_detalhes_evento.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout-land/fragment_detalhes_evento.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout-land/fragment_detalhes_evento_content.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout-land/fragment_detalhes_evento_content.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout-land/fragment_disciplina_detalhes_content.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout-land/fragment_disciplina_detalhes_content.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout/activity_detalhe_disciplinas.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/activity_detalhe_disciplinas.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout/activity_login.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/activity_login.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout/activity_main.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/activity_main.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout/activity_registrar.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/activity_registrar.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout/calendar_view_adapter.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/calendar_view_adapter.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout/content_main_activity.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/content_main_activity.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout/custom_dialog_rating.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/custom_dialog_rating.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout/detalhes_evento_content.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/detalhes_evento_content.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout/disciplina_list_adapter_row.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/disciplina_list_adapter_row.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout/disciplinas_adapter_row.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/disciplinas_adapter_row.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout/disciplinas_card_group.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/disciplinas_card_group.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout/drawer_header.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/drawer_header.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout/eventos_adapter_row.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/eventos_adapter_row.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout/eventos_card_group.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/eventos_card_group.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout/eventos_content_include.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/eventos_content_include.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout/eventos_list_adapter_row.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/eventos_list_adapter_row.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout/explore_adapter_row.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/explore_adapter_row.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout/explore_fragment.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/explore_fragment.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout/explore_layout_fragment.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/explore_layout_fragment.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout/fragment_alunos_adapter_row.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/fragment_alunos_adapter_row.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout/fragment_alunos_disciplina.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/fragment_alunos_disciplina.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout/fragment_detalhe_disciplina.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/fragment_detalhe_disciplina.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout/fragment_detalhes_evento.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/fragment_detalhes_evento.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout/fragment_detalhes_evento_content.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/fragment_detalhes_evento_content.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout/fragment_disciplina_detalhes_content.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/fragment_disciplina_detalhes_content.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout/fragment_disciplina_layout.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/fragment_disciplina_layout.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout/fragment_evento_calendar.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/fragment_evento_calendar.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout/fragment_eventos.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/fragment_eventos.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout/fragment_eventos_layout.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/fragment_eventos_layout.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout/fragment_list_eventos.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/fragment_list_eventos.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout/fragment_materiais_adapter_row.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/fragment_materiais_adapter_row.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout/fragment_materiais_disciplina.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/fragment_materiais_disciplina.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout/fragment_materiais_evento.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/fragment_materiais_evento.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout/fragment_navigation_drawer.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/fragment_navigation_drawer.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout/fragment_notas_atividades_layout_adapter.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/fragment_notas_atividades_layout_adapter.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout/fragment_notas_layout_adapter.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/fragment_notas_layout_adapter.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout/layout_nota_atividades_adapter_row.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/layout_nota_atividades_adapter_row.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout/layout_notas_adapter_row.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/layout_notas_adapter_row.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout/navigation_drawer_adapter_row.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/navigation_drawer_adapter_row.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout/navigation_drawer_separator.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/navigation_drawer_separator.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout/settings_activity.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/settings_activity.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout/toolbar.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/toolbar.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/menu/activity_main_drawer.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/menu/activity_main_drawer.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/menu/config_menu.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/menu/config_menu.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/menu/detalhe_evento_menu.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/menu/detalhe_evento_menu.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/menu/disciplina_list_menu.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/menu/disciplina_list_menu.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/menu/eventos_list_menu.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/menu/eventos_list_menu.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/menu/menu.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/menu/menu.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/menu/menu_main.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/menu/menu_main.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/menu/notas_list_menu.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/menu/notas_list_menu.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/values-v19/dimens.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/values-v19/dimens.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/values-v19/styles.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/values-v19/styles.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/values-v21/dimens.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/values-v21/dimens.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/values-v21/styles.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/values-v21/styles.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/values-w820dp/dimens.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/values-w820dp/dimens.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/values/colors.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/values/colors.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/values/dimens.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/values/dimens.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/values/strings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/values/styles.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/values/styles.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/xml/preferences.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/xml/preferences.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/xml/searchable.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/xml/searchable.xml" />
     </list>
     <ignored path="WebService.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,6 +248,16 @@
     <option name="SORT_POSITIONED" value="false" />
     <option name="SHOW_TABLE_DETAILS" value="true" />
     <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="MySQL - henriqueweb@mysql01.henriqueweb.hospedagemdesites.ws" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+    </PATH>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
@@ -45,7 +268,7 @@
       <file leaf-file-name="gcmServerDisciplinasHandler.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/gcmServerDisciplinasHandler.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
+            <state relative-caret-position="462">
               <caret line="14" column="64" selection-start-line="14" selection-start-column="64" selection-end-line="14" selection-end-column="64" />
               <folding>
                 <marker date="1455818100115" expanded="true" signature="240:311" placeholder="SELECT app_d... app_dispositivo" />
@@ -57,8 +280,8 @@
       <file leaf-file-name="gcmServerNotasHandler.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server/gcmServerNotasHandler.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="263">
-              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+            <state relative-caret-position="758">
+              <caret line="42" column="24" selection-start-line="42" selection-start-column="24" selection-end-line="42" selection-end-column="24" />
               <folding>
                 <marker date="1455818132182" expanded="true" signature="589:660" placeholder="SELECT app_d... app_dispositivo" />
               </folding>
@@ -79,7 +302,7 @@
       <file leaf-file-name="gcmServerEventosHandler.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/gcmServerEventosHandler.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
+            <state relative-caret-position="1056">
               <caret line="32" column="5" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
               <folding>
                 <marker date="1455818112366" expanded="true" signature="589:660" placeholder="SELECT app_d... app_dispositivo" />
@@ -133,6 +356,7 @@
         <option value="$PROJECT_DIR$/server/gcmServerDisciplinasHandler.php" />
         <option value="$PROJECT_DIR$/server/gcmServerEventosHandler.php" />
         <option value="$PROJECT_DIR$/server/gcmServerNotasHandler.php" />
+        <option value="dbtable:/ffb7cd95/780dede2-020c-4f69-a946-3f1b6b644e74/henriqueweb.app_aluno_x_disciplina" />
       </list>
     </option>
   </component>
@@ -176,16 +400,12 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Project Files">
+      <pane id="Scratches">
+        <subPane>
           <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="WebService">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.intellij.ide.scratch.ScratchProjectViewPane$MyProjectNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -256,12 +476,16 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches">
-        <subPane>
+      <pane id="Scope">
+        <subPane subId="Project Files">
           <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.intellij.ide.scratch.ScratchProjectViewPane$MyProjectNode" />
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="WebService">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -359,11 +583,10 @@
     <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14974293" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24293059" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24935733" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14910026" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27959865" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14813624" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -374,6 +597,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27959865" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35518396" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32932532" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -406,13 +630,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/server/send_msg_gcm_eventos.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/updateUserGCM.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -621,44 +838,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="uml://DATABASE/780dede2-020c-4f69-a946-3f1b6b644e74">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>DATABASE</ID>
-          <OriginalElement>780dede2-020c-4f69-a946-3f1b6b644e74</OriginalElement>
-          <nodes>
-            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_status_aluno</node>
-            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_curso</node>
-            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_status_disciplina</node>
-            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_aluno_x_disciplina</node>
-            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_rating_disciplina</node>
-            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_periodo_curso</node>
-            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_evento_uploads</node>
-            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_nota</node>
-            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_professor</node>
-            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_tipo_evento</node>
-            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_tipo_curso</node>
-            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_disciplina_tipo</node>
-            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_evento</node>
-            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_aluno</node>
-            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_dispositivo</node>
-            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_disciplina</node>
-            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_titulo_professor</node>
-            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_turma</node>
-            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_professor_x_disciplina</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="0.5287226001511716" x="1771.0" y="1280.0" />
-          <SelectedNodes />
-          <Categories>
-            <Category>Columns</Category>
-            <Category>Key columns</Category>
-          </Categories>
-          <SCOPE>All</SCOPE>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/webservice/list/listAlunoxDisciplinas.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-472">
@@ -690,18 +869,6 @@
     <entry file="file://$PROJECT_DIR$/webservice/list/listAlunos.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-33">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/ffb7cd95/780dede2-020c-4f69-a946-3f1b6b644e74/henriqueweb.app_aluno">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
@@ -752,9 +919,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="627">
           <caret line="19" column="2" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
-          <folding>
-            <marker date="1455729540497" expanded="true" signature="198:267" placeholder="INSERT INTO app_dispositivo... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -762,7 +926,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="5" column="55" selection-start-line="5" selection-start-column="55" selection-end-line="5" selection-end-column="55" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -770,7 +933,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="99">
           <caret line="3" column="7" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -786,15 +948,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="924">
           <caret line="28" column="50" selection-start-line="28" selection-start-column="39" selection-end-line="28" selection-end-column="50" />
-          <folding>
-            <marker date="1452112075465" expanded="true" signature="165:533" placeholder="SELECT app_i... app_disciplina" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/gcmServerDisciplinasHandler.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
+        <state relative-caret-position="462">
           <caret line="14" column="64" selection-start-line="14" selection-start-column="64" selection-end-line="14" selection-end-column="64" />
           <folding>
             <marker date="1455818100115" expanded="true" signature="240:311" placeholder="SELECT app_d... app_dispositivo" />
@@ -804,7 +963,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server/gcmServerEventosHandler.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
+        <state relative-caret-position="1056">
           <caret line="32" column="5" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
           <folding>
             <marker date="1455818112366" expanded="true" signature="589:660" placeholder="SELECT app_d... app_dispositivo" />
@@ -812,10 +971,75 @@
         </state>
       </provider>
     </entry>
+    <entry file="uml://DATABASE/780dede2-020c-4f69-a946-3f1b6b644e74">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>DATABASE</ID>
+          <OriginalElement>780dede2-020c-4f69-a946-3f1b6b644e74</OriginalElement>
+          <nodes>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_curso</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_status_aluno</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_status_disciplina</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_aluno_x_disciplina</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_rating_disciplina</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_periodo_curso</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_evento_uploads</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_professor</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_nota</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_tipo_evento</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_tipo_curso</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_disciplina_tipo</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_evento</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_aluno</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_dispositivo</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_titulo_professor</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_disciplina</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_turma</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_professor_x_disciplina</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_user_access</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.594812925170068" x="1890.0" y="1166.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Columns</Category>
+            <Category>Key columns</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/ffb7cd95/780dede2-020c-4f69-a946-3f1b6b644e74/henriqueweb.app_aluno">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/ffb7cd95/780dede2-020c-4f69-a946-3f1b6b644e74/henriqueweb.app_aluno_x_disciplina">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/server/gcmServerNotasHandler.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+        <state relative-caret-position="758">
+          <caret line="42" column="24" selection-start-line="42" selection-start-column="24" selection-end-line="42" selection-end-column="24" />
           <folding>
             <marker date="1455818132182" expanded="true" signature="589:660" placeholder="SELECT app_d... app_dispositivo" />
           </folding>
