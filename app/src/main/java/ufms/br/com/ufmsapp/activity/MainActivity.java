@@ -36,29 +36,19 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.gcm.GoogleCloudMessaging;
-import com.google.android.gms.iid.InstanceID;
-
-import java.io.IOException;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-
 import ufms.br.com.ufmsapp.R;
 import ufms.br.com.ufmsapp.data.DataHelper;
-import ufms.br.com.ufmsapp.extras.UrlEndpoints;
 import ufms.br.com.ufmsapp.fragment.DisciplinasFragment;
 import ufms.br.com.ufmsapp.fragment.EventosFragment;
 import ufms.br.com.ufmsapp.fragment.ExploreFragment;
 import ufms.br.com.ufmsapp.fragment.NotasFragment;
 import ufms.br.com.ufmsapp.preferences.UserSessionPreference;
-import ufms.br.com.ufmsapp.utils.PasswordEncryptionUtil;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, SearchView.OnQueryTextListener {
 
-    public static final String URL_DO_SERVIDOR = UrlEndpoints.URL_ENDPOINT + "server/updateUserGCM.php";
+    //public static final String URL_DO_SERVIDOR = UrlEndpoints.URL_ENDPOINT + "server/updateUserGCM.php";
 
-    public static final String UPDATED_SERVIDOR = "updatedServidor";
+    //public static final String UPDATED_SERVIDOR = "updatedServidor";
 
     protected Toolbar toolbar;
     private int mSelectedPosition;
@@ -79,6 +69,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        prefs = new UserSessionPreference(this);
+
+        if (prefs.isFirstTime()) {
+            startActivity(new Intent(this, LoginActivity.class));
+            finish();
+        }
+
         DataHelper.newInstance(this).getWritableDatabase();
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -89,7 +86,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
 
-        String seedValue = "201105700070";
+       /* String seedValue = "201105700070";
         String password = "LuizLuiz10**";
         String normalTextEnc;
         String normalTextDec;
@@ -101,10 +98,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Log.i("ENCRYPT", normalTextDec);
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        }*/
 
-
-        prefs = new UserSessionPreference(this);
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.nav_drawer);
 
@@ -138,7 +133,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
 
-    private void registerUser(final int alunoId) {
+    /*private void registerUser(final int alunoId) {
         new Thread() {
             @Override
             public void run() {
@@ -154,9 +149,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 }
             }
         }.start();
-    }
+    }*/
 
-    private void updateRegistrationOnServer(final String key, final int alunoId) {
+    /*private void updateRegistrationOnServer(final String key, final int alunoId) {
         new Thread() {
             @Override
             public void run() {
@@ -187,9 +182,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 }
             }
         }.start();
-    }
+    }*/
 
-    private void setUpdatedServidor(boolean updated) {
+   /* private void setUpdatedServidor(boolean updated) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = prefs.edit();
         editor.putBoolean(UPDATED_SERVIDOR, updated);
@@ -199,7 +194,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private boolean getUpdatedServidor() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         return prefs.getBoolean(UPDATED_SERVIDOR, false);
-    }
+    }*/
+
 
     public static void setNavSelected(int resId) {
         navigationView.setCheckedItem(resId);
@@ -255,7 +251,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 fragmentTransaction.commit();
                 break;
             case R.id.nav_drawer_curso:
-               //TODO
+                //TODO
                 break;
 
             case R.id.nav_drawer_config:

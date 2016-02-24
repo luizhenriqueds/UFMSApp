@@ -29,11 +29,11 @@ import android.preference.SwitchPreference;
 import ufms.br.com.ufmsapp.R;
 import ufms.br.com.ufmsapp.activity.LicenseActivity;
 import ufms.br.com.ufmsapp.activity.LoginActivity;
-import ufms.br.com.ufmsapp.activity.MainActivity;
 import ufms.br.com.ufmsapp.preferences.UserSessionPreference;
 
 public class SettingsFragment extends PreferenceFragment implements SharedPreferences.OnSharedPreferenceChangeListener {
 
+    public static final String UPDATED_SERVIDOR = "updatedServidor";
     protected Resources res;
     private SwitchPreference preferenceNotificationSound;
     private CheckBoxPreference preferenceNotificationEnable;
@@ -71,16 +71,9 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
             public boolean onPreferenceClick(Preference preference) {
                 UserSessionPreference prefs = new UserSessionPreference(getActivity());
                 prefs.logOut();
-
-                LoginActivity loginActivity = new LoginActivity();
-                loginActivity.setUpdatedServidor(false);
-
-                getActivity().finish();
-
-                MainActivity mainActivity = new MainActivity();
-                mainActivity.finish();
-
+                setUpdatedServidor(false);
                 startActivity(new Intent(getActivity(), LoginActivity.class));
+                getActivity().finish();
                 return true;
             }
         });
@@ -108,6 +101,13 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
         preferenceNotificationSound.setEnabled(enabled);
         SharedPreferences.Editor editor = getPreferenceScreen().getSharedPreferences().edit();
         editor.putBoolean(res.getString(R.string.pref_notification_sound), enabled);
+        editor.apply();
+    }
+
+    private void setUpdatedServidor(boolean updated) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putBoolean(UPDATED_SERVIDOR, updated);
         editor.apply();
     }
 

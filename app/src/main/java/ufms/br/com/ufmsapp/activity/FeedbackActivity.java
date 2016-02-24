@@ -17,20 +17,44 @@
 package ufms.br.com.ufmsapp.activity;
 
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
+import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import fr.castorflex.android.circularprogressbar.CircularProgressBar;
+import ufms.br.com.ufmsapp.MyApplication;
 import ufms.br.com.ufmsapp.R;
+import ufms.br.com.ufmsapp.network.VolleySingleton;
+import ufms.br.com.ufmsapp.preferences.UserSessionPreference;
 
 public class FeedbackActivity extends AppCompatActivity {
 
+    private static final String SEND_FEEDBACK_ENDPOINT_URL = "http://henriqueweb.com.br/webservice/insert/sendFeedback.php";
+
     private EditText userEmail;
     private EditText userMessageFeedback;
+    private TextView sendingMessageProgress;
+    private CircularProgressBar progressBar;
+    private UserSessionPreference prefs;
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -45,13 +69,68 @@ public class FeedbackActivity extends AppCompatActivity {
         switch (id) {
             case R.id.action_feedback_send_button:
                 if (validateForm()) {
-                    //TODO backend
-                    Snackbar.make(findViewById(android.R.id.content), R.string.txt_feedback_message_success, Snackbar.LENGTH_LONG).show();
-                    finish();
+                    if (!prefs.isFirstTime()) {
+                        sendUserFeedback();
+                    }
                 }
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void enableProgress(boolean indeterminate, int visible) {
+        progressBar.setVisibility(visible);
+        progressBar.setIndeterminate(indeterminate);
+        sendingMessageProgress.setVisibility(visible);
+    }
+
+    private void sendUserFeedback() {
+        enableProgress(true, View.VISIBLE);
+        final StringRequest postRequest = new StringRequest(Request.Method.POST, SEND_FEEDBACK_ENDPOINT_URL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        JSONObject jsonResponse;
+
+                        try {
+                            jsonResponse = new JSONObject(response);
+
+                            int inserted = jsonResponse.getInt("sent");
+
+                            if (inserted > 0) {
+                                enableProgress(false, View.GONE);
+                            } else {
+                                enableProgress(false, View.GONE);
+                            }
+
+                            finish();
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        enableProgress(false, View.GONE);
+                        Log.d("Error.Response", error.getMessage());
+                    }
+                }
+        ) {
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<>();
+                params.put("userId", String.valueOf(MyApplication.getWritableDatabase().alunoByEmail(userEmail.getText().toString()).getAlunoIdServidor()));
+                params.put("message", userMessageFeedback.getText().toString());
+
+
+                return params;
+            }
+        };
+
+        VolleySingleton.getInstance().getRequestQueue().add(postRequest);
     }
 
     @Override
@@ -61,6 +140,8 @@ public class FeedbackActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        prefs = new UserSessionPreference(FeedbackActivity.this);
+
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayShowTitleEnabled(true);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -68,8 +149,16 @@ public class FeedbackActivity extends AppCompatActivity {
 
         }
 
+        sendingMessageProgress = (TextView) findViewById(R.id.sending_feedback_text);
+        progressBar = (CircularProgressBar) findViewById(R.id.progress_bar_send_feedback);
+
         userEmail = (EditText) findViewById(R.id.feedback_user_email);
+        if (prefs != null) {
+            userEmail.setText(prefs.getEmail());
+        }
+
         userMessageFeedback = (EditText) findViewById(R.id.feedback_user_message);
+        userMessageFeedback.requestFocus();
 
     }
 

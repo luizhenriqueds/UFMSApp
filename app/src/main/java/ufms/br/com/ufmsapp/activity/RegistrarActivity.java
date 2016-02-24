@@ -269,6 +269,7 @@ public class RegistrarActivity extends AppCompatActivity {
         }.start();
     }
 
+
     private void setUpdatedServidor(boolean updated) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = prefs.edit();

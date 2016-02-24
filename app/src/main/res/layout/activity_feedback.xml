@@ -15,6 +15,7 @@
   -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -97,7 +98,26 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/message_feedback_input_hint"
-            android:inputType="textAutoCorrect" />
+            android:inputType="textMultiLine" />
     </android.support.design.widget.TextInputLayout>
+
+    <fr.castorflex.android.circularprogressbar.CircularProgressBar
+        android:id="@+id/progress_bar_send_feedback"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        app:cpb_colors="@array/colors"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/sending_feedback_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:text="Enviando feedback..."
+        android:visibility="gone" />
 
 </LinearLayout>

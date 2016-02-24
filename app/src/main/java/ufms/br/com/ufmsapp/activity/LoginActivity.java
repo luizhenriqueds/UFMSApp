@@ -194,6 +194,9 @@ public class LoginActivity extends AppCompatActivity {
                                     }
 
                                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                                    finish();
+
+
                                 } else {
                                     enableProgress(false, View.GONE);
                                     Snackbar.make(findViewById(android.R.id.content), R.string.txt_login_invalido, Snackbar.LENGTH_LONG).show();
@@ -291,7 +294,8 @@ public class LoginActivity extends AppCompatActivity {
         }.start();
     }
 
-    public void setUpdatedServidor(boolean updated) {
+
+    private void setUpdatedServidor(boolean updated) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = prefs.edit();
         editor.putBoolean(UPDATED_SERVIDOR, updated);

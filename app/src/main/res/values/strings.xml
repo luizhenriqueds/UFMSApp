@@ -258,6 +258,7 @@
     <string name="txt_feedback_menu">Enviar</string>
     <string name="txt_feedback_message_empty">Por favor, digite sua mensagem de feedback</string>
     <string name="txt_feedback_message_success">Mensagem enviada com sucesso</string>
+    <string name="txt_send_feedback_error">Erro ao enviar mensagem</string>
 
 
 </resources>
