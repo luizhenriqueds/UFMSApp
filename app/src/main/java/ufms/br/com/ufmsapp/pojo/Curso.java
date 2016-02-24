@@ -23,6 +23,17 @@ public class Curso {
     String nome;
     int cargaHoraria;
     String codigo;
+    int periodo;
+
+
+
+    public int getPeriodo() {
+        return periodo;
+    }
+
+    public void setPeriodo(int periodo) {
+        this.periodo = periodo;
+    }
 
     public String getCodigo() {
         return codigo;

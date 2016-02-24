@@ -29,11 +29,11 @@
 
     </style>
 
-    <!--<style name="AppTheme.Translucent" parent="AppTheme">
+    <style name="AppTheme.Translucent" parent="AppTheme">
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:fitsSystemWindows">true</item>
 
-    </style>-->
+    </style>
 
 
 </resources>

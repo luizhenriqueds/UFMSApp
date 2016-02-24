@@ -55,7 +55,7 @@
                         android:layout_weight="2"
                         android:padding="10dp"
                         android:text="@string/evento_details_evento"
-                        android:textColor="@color/adapter_row_title_color"
+                        android:textColor="@color/accentColor"
                         android:textSize="20sp" />
 
                     <TextView
@@ -153,7 +153,7 @@
                         android:layout_height="wrap_content"
                         android:padding="10dp"
                         android:text="@string/evento_details_disciplina"
-                        android:textColor="@color/adapter_row_title_color"
+                        android:textColor="@color/accentColor"
                         android:textSize="20sp" />
 
 
@@ -208,7 +208,7 @@
                         android:layout_height="wrap_content"
                         android:padding="10dp"
                         android:text="@string/evento_detail_notification_title"
-                        android:textColor="@color/adapter_row_title_color"
+                        android:textColor="@color/accentColor"
                         android:textSize="20sp" />
 
 

@@ -259,6 +259,18 @@
     <string name="txt_feedback_message_empty">Por favor, digite sua mensagem de feedback</string>
     <string name="txt_feedback_message_success">Mensagem enviada com sucesso</string>
     <string name="txt_send_feedback_error">Erro ao enviar mensagem</string>
+    <string name="title_activity_curso">CursoActivity</string>
+    <string name="txt_cd_curso">Detalhe curso imagem</string>
+    <string name="txt_course_name_detalhe">Sistemas de Informação</string>
+    <string name="txt_detalhes_do_curso">Detalhes do Curso</string>
+    <string name="txt_detalhes_curso_codigo">Código</string>
+    <string name="txt_detalhes_curso_ch">Carga Horária</string>
+    <string name="txt_detalhes_curso_periodo">Período</string>
+    <string name="txt_detalhes_curso_area">Área</string>
+    <string name="txt_detalhes_curso_exatas">Exatas</string>
+    <string name="txt_detalhes_curso_integral">Integral</string>
+    <string name="txt_detalhes_curso_horas">3100 horas</string>
+    <string name="txt_detalhes_curso_codigo_desc">0570</string>
 
 
 </resources>

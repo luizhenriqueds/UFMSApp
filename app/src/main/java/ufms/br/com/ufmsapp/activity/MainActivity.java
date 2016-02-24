@@ -17,10 +17,8 @@
 package ufms.br.com.ufmsapp.activity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.PersistableBundle;
-import android.preference.PreferenceManager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -251,7 +249,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 fragmentTransaction.commit();
                 break;
             case R.id.nav_drawer_curso:
-                //TODO
+                startActivity(new Intent(this, CursoActivity.class));
                 break;
 
             case R.id.nav_drawer_config:

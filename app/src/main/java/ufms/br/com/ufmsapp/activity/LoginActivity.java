@@ -87,7 +87,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        startGooglePlayService();
+        //startGooglePlayService();
 
         prefs = new UserSessionPreference(this);
 
