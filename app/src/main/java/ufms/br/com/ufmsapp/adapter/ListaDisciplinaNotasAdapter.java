@@ -34,8 +34,12 @@ import java.util.ArrayList;
 import ufms.br.com.ufmsapp.MyApplication;
 import ufms.br.com.ufmsapp.R;
 import ufms.br.com.ufmsapp.network.VolleySingleton;
+import ufms.br.com.ufmsapp.pojo.Aluno;
+import ufms.br.com.ufmsapp.pojo.AlunoXDisciplina;
 import ufms.br.com.ufmsapp.pojo.Disciplina;
 import ufms.br.com.ufmsapp.pojo.TipoDisciplina;
+import ufms.br.com.ufmsapp.pojo.Turma;
+import ufms.br.com.ufmsapp.preferences.UserSessionPreference;
 
 public class ListaDisciplinaNotasAdapter extends RecyclerView.Adapter<ListaDisciplinaNotasAdapter.DisciplinaViewHolder> implements View.OnClickListener {
 
@@ -88,11 +92,46 @@ public class ListaDisciplinaNotasAdapter extends RecyclerView.Adapter<ListaDisci
 
         TipoDisciplina tipoDisciplina = MyApplication.getWritableDatabase().tipoDisciplinaById(disciplina.getTipoDisciplina());
 
+        UserSessionPreference prefs = new UserSessionPreference(itemView.getContext());
+
+
+        Aluno aluno = null;
+        if (!prefs.isFirstTime()) {
+            aluno = MyApplication.getWritableDatabase().alunoByEmail(prefs.getEmail());
+        }
+
+        AlunoXDisciplina matricula = null;
+        if (aluno != null && disciplina != null) {
+            matricula = MyApplication.getWritableDatabase().getMatriculaAluno(aluno.getAlunoIdServidor(), disciplina.getIdDisciplinaServidor());
+
+        }
+
+
         disciplinaViewHolder.disciplinaTitle.setText(disciplina.getTitulo());
         disciplinaViewHolder.tipoDisciplina.setText(tipoDisciplina.getTipoDisciplinaDescricao());
-        disciplinaViewHolder.periodoDisciplina.setText("2015/2");
-        disciplinaViewHolder.notaDisciplina.setText("9,0");
 
+
+        if (matricula != null) {
+            Turma turma = MyApplication.getWritableDatabase().getTurmaById(matricula.getTurma());
+
+            float media = MyApplication.getWritableDatabase().getNotaMediaDisciplina(matricula.getAlunoXDisciplinaIdServidor());
+
+            if (media != 0.0) {
+                disciplinaViewHolder.notaDisciplina.setVisibility(View.VISIBLE);
+                disciplinaViewHolder.notaDisciplina.setText(String.format("%.01f", media));
+            } else {
+                disciplinaViewHolder.notaDisciplina.setVisibility(View.GONE);
+            }
+
+            if (turma != null) {
+                disciplinaViewHolder.periodoDisciplina.setVisibility(View.VISIBLE);
+                disciplinaViewHolder.periodoDisciplina.setText(turma.getNomeTurma());
+            } else {
+                disciplinaViewHolder.periodoDisciplina.setVisibility(View.GONE);
+            }
+        } else {
+            disciplinaViewHolder.notaDisciplina.setVisibility(View.GONE);
+        }
 
         setAnimation(disciplinaViewHolder.rootLayout, i);
 

@@ -250,7 +250,7 @@ public class AppDAO {
         }
 
     }
-    
+
     public ArrayList<Evento> listarEventos(int disciplinaId, int limit) {
 
         ArrayList<Evento> eventos = new ArrayList<>();
@@ -1110,6 +1110,62 @@ public class AppDAO {
         return count;
     }
 
+    public Turma getTurmaById(int turmaKey) {
+
+
+        String selectQuery =
+                "SELECT * FROM " + DataContract.TurmaEntry.TABLE_NAME_TURMA +
+                        " WHERE " + "(" + DataContract.TurmaEntry.COLUMN_ID_SERVIDOR + "=" + turmaKey + ")";
+
+        Cursor cursor = database.rawQuery(selectQuery, null);
+
+        Turma turma = null;
+        try {
+            if (cursor.moveToFirst()) {
+                do {
+                    turma = AppDAO.fromCursorTurma(cursor);
+                } while (cursor.moveToNext());
+            }
+
+            return turma;
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+
+    }
+
+    public AlunoXDisciplina getMatriculaAluno(int idAluno, int idDisciplina) {
+
+
+        String selectQuery =
+                "SELECT * FROM " + DataContract.AlunoXDisciplinaEntry.TABLE_NAME_ALUNO_X_DISCIPLINA + "," + DataContract.DisciplinaEntry.TABLE_NAME_DISCIPLINA + ", " + DataContract.AlunoEntry.TABLE_NAME_ALUNO + ", " + DataContract.TurmaEntry.TABLE_NAME_TURMA +
+                        " WHERE " + "(" + DataContract.AlunoXDisciplinaEntry.ALUNO_FK + "=" + DataContract.AlunoEntry.COLUMN_ALUNO_ID_SERVIDOR + ")" +
+                        " AND " + "(" + DataContract.AlunoXDisciplinaEntry.DISCIPLINA_FK + "=" + DataContract.DisciplinaEntry.COLUMN_ID_SERVIDOR + ")" +
+                        " AND " + "(" + DataContract.AlunoXDisciplinaEntry.TURMA_FK + "=" + DataContract.TurmaEntry.COLUMN_ID_SERVIDOR + ")" +
+                        " AND " + "(" + DataContract.AlunoXDisciplinaEntry.ALUNO_FK + " = " + idAluno + ")" +
+                        " AND " + "(" + DataContract.AlunoXDisciplinaEntry.DISCIPLINA_FK + " = " + idDisciplina + ")";
+
+        Cursor cursor = database.rawQuery(selectQuery, null);
+
+        AlunoXDisciplina matricula = null;
+        try {
+            if (cursor.moveToFirst()) {
+                do {
+                    matricula = AppDAO.fromCursorAlunoXDisciplina(cursor);
+                } while (cursor.moveToNext());
+            }
+
+            return matricula;
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+
+    }
+
     public int getMatriculasCount(int idDisciplina) {
 
         String countQuery = "SELECT COUNT(" + DataContract.AlunoXDisciplinaEntry.TABLE_NAME_ALUNO_X_DISCIPLINA + "." + DataContract.AlunoXDisciplinaEntry.COLUMN_ID + ") FROM " + DataContract.AlunoXDisciplinaEntry.TABLE_NAME_ALUNO_X_DISCIPLINA + " WHERE (" + DataContract.AlunoXDisciplinaEntry.DISCIPLINA_FK + " = " + idDisciplina + ");";
@@ -1120,6 +1176,20 @@ public class AppDAO {
         cursor.close();
 
         return count;
+    }
+
+    public float getNotaMediaDisciplina(int matricula) {
+
+        String countAVG = "SELECT AVG(" + DataContract.NotaEntry.COLUMN_NOTA + ") FROM " + DataContract.NotaEntry.TABLE_NAME_NOTA + " WHERE (" + DataContract.NotaEntry.ALUNO_X_DISCIPLINA_FK + " = " + matricula + ");";
+
+        Cursor cursor = database.rawQuery(countAVG, null);
+
+        cursor.moveToFirst();
+        float avg = cursor.getFloat(0);
+        cursor.close();
+
+
+        return avg;
     }
 
     public float getRatingDisciplinaAVG(int idDisciplina) {

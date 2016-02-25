@@ -45,6 +45,10 @@
 
     <color name="txt_explore_disciplina_ver_color">#039BE5</color>
 
+    <color name="card_chart_1">#263238</color>
+    <color name="card_chart_2">#2d374c</color>
+    <color name="card_chart_3">#607D8B</color>
+
 
     <!-- SwipeRefresh Layout cores -->
     <color name="blue">#1E88E5</color>

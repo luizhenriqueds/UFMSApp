@@ -271,6 +271,11 @@
     <string name="txt_detalhes_curso_integral">Integral</string>
     <string name="txt_detalhes_curso_horas">3100 horas</string>
     <string name="txt_detalhes_curso_codigo_desc">0570</string>
+    <string name="title_activity_graficos">Desempenho</string>
+    <string name="txt_desempenho_view">Desempenho View</string>
+    <string name="txt_list_view_menu">List View</string>
+    <string name="txt_media_individual_chart">Média Individual</string>
+    <string name="txt_media_turma_chart">Média da Turma</string>
 
 
 </resources>

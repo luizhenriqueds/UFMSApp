@@ -25,6 +25,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -53,9 +54,15 @@ public class NotasAtividadesActivity extends AppCompatActivity {
     private ImageView emptyListImg;
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.notas_grafico_view_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_notas_atividades_layout_adapter);
+        setContentView(R.layout.activity_notas_atividades_layout_adapter);
 
         //disciplina = getIntent().getParcelableExtra(NotasFragment.DISCIPLINA_EXTRA);
         int disciplinaId = -1;
@@ -130,6 +137,7 @@ public class NotasAtividadesActivity extends AppCompatActivity {
 
     }
 
+
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
@@ -138,8 +146,12 @@ public class NotasAtividadesActivity extends AppCompatActivity {
                 startActivity(parentIntent);
 
                 supportFinishAfterTransition();
+                break;
+            case R.id.action_desempenho:
+                startActivity(new Intent(this, GraficosActivity.class));
+                break;
 
-                return true;
+            //return true;
         }
         return super.onOptionsItemSelected(item);
     }
