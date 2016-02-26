@@ -48,9 +48,9 @@ import ufms.br.com.ufmsapp.activity.NotasAtividadesActivity;
 import ufms.br.com.ufmsapp.adapter.ListaDisciplinaNotasAdapter;
 import ufms.br.com.ufmsapp.callbacks.DisciplinasLoadedListener;
 import ufms.br.com.ufmsapp.pojo.Disciplina;
-import ufms.br.com.ufmsapp.pojo.Evento;
 import ufms.br.com.ufmsapp.preferences.UserSessionPreference;
 import ufms.br.com.ufmsapp.task.TaskLoadDisciplinas;
+import ufms.br.com.ufmsapp.task.TaskLoadNotas;
 import ufms.br.com.ufmsapp.utils.ConnectionUtils;
 
 
@@ -163,8 +163,19 @@ public class NotasFragment extends Fragment implements ListaDisciplinaNotasAdapt
 
         //listDisciplinas = MyApplication.getWritableDatabase().listarDisciplinas(1);
 
-        if (listDisciplinas != null) {
+        if (!listDisciplinas.isEmpty()) {
             adapter.setDisciplinasList(listDisciplinas);
+
+        } else {
+            if (ConnectionUtils.hasConnection(getActivity())) {
+                mTask = new TaskLoadDisciplinas(this, progressBar, true, emptyListText, emptyListImg);
+                mTask.execute();
+
+                new TaskLoadNotas().execute();
+            } else {
+                showConnectionErrorMessage();
+            }
+
         }
 
 
@@ -219,6 +230,8 @@ public class NotasFragment extends Fragment implements ListaDisciplinaNotasAdapt
             mTask = new TaskLoadDisciplinas(this, progressBar, true, emptyListText, emptyListImg);
             mTask.execute();
 
+            new TaskLoadNotas().execute();
+
         } else {
             showConnectionErrorMessage();
             swipeRefreshNotas.setRefreshing(false);
@@ -268,7 +281,6 @@ public class NotasFragment extends Fragment implements ListaDisciplinaNotasAdapt
         }
         return filteredDisciplinas;
     }
-
 
 
     @Override

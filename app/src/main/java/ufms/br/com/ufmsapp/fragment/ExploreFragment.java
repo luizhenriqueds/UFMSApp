@@ -24,6 +24,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.util.Pair;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -51,15 +52,18 @@ import ufms.br.com.ufmsapp.utils.CustomLinearLayoutManager;
 
 public class ExploreFragment extends Fragment implements ExploreEventosAdapter.OnExploreEventoClick, ExploreDisciplinasAdapter.OnExploreDisciplinaClick {
 
-    ExploreEventosAdapter eventosAdapter;
-    ExploreDisciplinasAdapter disciplinasAdapter;
-    RecyclerView listDisciplinas;
-    RecyclerView listEventos;
+    protected ExploreEventosAdapter eventosAdapter;
+    protected ExploreDisciplinasAdapter disciplinasAdapter;
+    protected RecyclerView listDisciplinas;
+    protected RecyclerView listEventos;
     protected ArrayList<Evento> eventos;
     protected ArrayList<Disciplina> disciplinas;
     protected CircularProgressBar exploreProgressBar;
+    protected CardView cardContentExplore;
 
     protected LinearLayout cardContent;
+
+    private UserSessionPreference prefs;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -83,6 +87,8 @@ public class ExploreFragment extends Fragment implements ExploreEventosAdapter.O
         disciplinasAdapter = new ExploreDisciplinasAdapter(getActivity());
         disciplinasAdapter.setExploreDisciplinaListener(this);
 
+        prefs = new UserSessionPreference(getActivity());
+
         Button btnMoreEvents = (Button) view.findViewById(R.id.btn_explore_more_events);
         Button btnMoreDisciplinas = (Button) view.findViewById(R.id.explore_more_disciplinas);
 
@@ -91,6 +97,8 @@ public class ExploreFragment extends Fragment implements ExploreEventosAdapter.O
 
         listDisciplinas = (RecyclerView) view.findViewById(R.id.list_disciplinas);
         listEventos = (RecyclerView) view.findViewById(R.id.explore_list_eventos);
+
+        cardContentExplore = (CardView) view.findViewById(R.id.card_content);
 
         listEventos.setLayoutManager(new CustomLinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
         listDisciplinas.setLayoutManager(new CustomLinearGridLayoutManager(getActivity(), 3));
@@ -104,7 +112,6 @@ public class ExploreFragment extends Fragment implements ExploreEventosAdapter.O
                 Fragment fragment = EventosFragment.newInstance();
                 fragmentTransaction.replace(R.id.main_layout_container, fragment);
                 fragmentTransaction.commit();
-
                 MainActivity.setNavSelected(R.id.nav_drawer_eventos);
 
             }
@@ -125,6 +132,39 @@ public class ExploreFragment extends Fragment implements ExploreEventosAdapter.O
         new TaskLoadExplore().execute();
 
         return view;
+    }
+
+    private void checkAdapterIsEmpty() {
+
+        if (eventosAdapter.getItemCount() == 0) {
+            cardContentExplore.setVisibility(View.VISIBLE);
+            cardContent.setVisibility(View.GONE);
+
+        } else {
+            cardContent.setVisibility(View.VISIBLE);
+            cardContentExplore.setVisibility(View.GONE);
+        }
+
+    }
+
+
+    protected void setupRecyclerView() {
+        eventosAdapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
+            @Override
+            public void onChanged() {
+                super.onChanged();
+                checkAdapterIsEmpty();
+            }
+        });
+
+
+        checkAdapterIsEmpty();
+    }
+
+    private void updateList() {
+        listDisciplinas.setAdapter(disciplinasAdapter);
+        listEventos.setAdapter(eventosAdapter);
+        setupRecyclerView();
     }
 
 
@@ -170,11 +210,8 @@ public class ExploreFragment extends Fragment implements ExploreEventosAdapter.O
         @Override
         protected Void doInBackground(Void... params) {
 
-            UserSessionPreference prefs = new UserSessionPreference(getActivity());
 
             if (!prefs.isFirstTime()) {
-
-
                 disciplinas = MyApplication.getWritableDatabase().listarDisciplinas(MyApplication.getWritableDatabase().alunoByEmail(prefs.getEmail()).getAlunoIdServidor());
                 eventos = new ArrayList<>();
 
@@ -182,7 +219,6 @@ public class ExploreFragment extends Fragment implements ExploreEventosAdapter.O
                     eventos.addAll(MyApplication.getWritableDatabase().listarEventos(disciplinas.get(i).getIdDisciplinaServidor(), 3));
                 }
 
-                // Aluno ID como parâmetro
                 ArrayList<Disciplina> disciplinas = MyApplication.getWritableDatabase().listarDisciplinas(MyApplication.getWritableDatabase().alunoByEmail(prefs.getEmail()).getAlunoIdServidor(), 3);
 
                 eventosAdapter.setExploreEventosList(eventos);
@@ -199,8 +235,7 @@ public class ExploreFragment extends Fragment implements ExploreEventosAdapter.O
 
             exploreProgressBar.setVisibility(View.GONE);
             cardContent.setVisibility(View.VISIBLE);
-            listDisciplinas.setAdapter(disciplinasAdapter);
-            listEventos.setAdapter(eventosAdapter);
+            updateList();
 
         }
     }

@@ -20,10 +20,19 @@
     tools:context=".activity.MainActivity">
 
     <item
-        android:id="@+id/action1"
-        android:title="Opcao1"
+        android:id="@+id/action_highest_grade"
+        android:title="@string/txt_menu_maior_nota"
         app:showAsAction="never" />
 
+    <item
+        android:id="@+id/action_grade_history"
+        android:title="@string/txt_menu_historico_de_notas"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_compare_grades"
+        android:title="@string/txt_menu_comparativo_notas"
+        app:showAsAction="never" />
 
 
 </menu>

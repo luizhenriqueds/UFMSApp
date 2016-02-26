@@ -56,11 +56,6 @@ public class GraficosActivity extends AppCompatActivity {
     private Disciplina disciplina;
     private UserSessionPreference prefs;
 
-   /* @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.notas_menu, menu);
-        return super.onCreateOptionsMenu(menu);
-    }*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -222,6 +217,7 @@ public class GraficosActivity extends AppCompatActivity {
 
                 supportFinishAfterTransition();
                 break;
+
         }
 
         return super.onOptionsItemSelected(item);

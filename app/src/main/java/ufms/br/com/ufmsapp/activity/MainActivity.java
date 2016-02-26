@@ -44,10 +44,6 @@ import ufms.br.com.ufmsapp.preferences.UserSessionPreference;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, SearchView.OnQueryTextListener {
 
-    //public static final String URL_DO_SERVIDOR = UrlEndpoints.URL_ENDPOINT + "server/updateUserGCM.php";
-
-    //public static final String UPDATED_SERVIDOR = "updatedServidor";
-
     protected Toolbar toolbar;
     private int mSelectedPosition;
     private DrawerLayout mDrawerLayout;
@@ -126,73 +122,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
 
-        selectOptionsMenu(navigationView.getMenu().findItem(mSelectedPosition));
+        //selectOptionsMenu(navigationView.getMenu().findItem(mSelectedPosition));
+
+        findMenuItem(mSelectedPosition);
 
     }
 
-
-    /*private void registerUser(final int alunoId) {
-        new Thread() {
-            @Override
-            public void run() {
-                super.run();
-                InstanceID instanceID = InstanceID.getInstance(MainActivity.this);
-                try {
-                    String token = instanceID.getToken(
-                            getString(R.string.gcm_defaultSenderId),
-                            GoogleCloudMessaging.INSTANCE_ID_SCOPE, null);
-                    updateRegistrationOnServer(token, alunoId);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }.start();
-    }*/
-
-    /*private void updateRegistrationOnServer(final String key, final int alunoId) {
-        new Thread() {
-            @Override
-            public void run() {
-                try {
-                    URL url = new URL(URL_DO_SERVIDOR);
-                    HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-                    connection.setRequestMethod("POST");
-                    connection.setDoOutput(true);
-                    OutputStream os = connection.getOutputStream();
-                    os.write(("acao=updateUser&regId=" + key + "&alunoId=" + alunoId).getBytes());
-                    os.flush();
-                    os.close();
-                    connection.connect();
-                    int responseCode = connection.getResponseCode();
-                    if (responseCode == HttpURLConnection.HTTP_OK) {
-                        setUpdatedServidor(true);
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                Toast.makeText(MainActivity.this, "Atualizado com sucesso", Toast.LENGTH_LONG).show();
-                            }
-                        });
-                    } else {
-                        throw new RuntimeException("Erro ao atualizar servidor");
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }.start();
-    }*/
-
-   /* private void setUpdatedServidor(boolean updated) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        SharedPreferences.Editor editor = prefs.edit();
-        editor.putBoolean(UPDATED_SERVIDOR, updated);
-        editor.apply();
+    public void findMenuItem(int item) {
+        selectOptionsMenu(navigationView.getMenu().findItem(item));
     }
-
-    private boolean getUpdatedServidor() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        return prefs.getBoolean(UPDATED_SERVIDOR, false);
-    }*/
 
 
     public static void setNavSelected(int resId) {
@@ -219,7 +157,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
 
-    private void selectOptionsMenu(MenuItem menuItem) {
+    public void selectOptionsMenu(MenuItem menuItem) {
         mSelectedPosition = menuItem.getItemId();
 
         Fragment fragment;

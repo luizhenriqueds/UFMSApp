@@ -57,7 +57,9 @@ public class NotasAtividadesActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.notas_grafico_view_menu, menu);
+        if (!notas.isEmpty()) {
+            getMenuInflater().inflate(R.menu.notas_grafico_view_menu, menu);
+        }
         return super.onCreateOptionsMenu(menu);
     }
 

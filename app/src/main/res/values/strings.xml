@@ -254,7 +254,7 @@
     <string name="txt_feedback_title">Feedback do usuário</string>
     <string name="txt_content_description_feeback">Mensagem de feedback logo</string>
     <string name="email_feedback_input_hint">Digite o seu email</string>
-    <string name="message_feedback_input_hint">Escreva sua mensagem de feedback...</string>
+    <string name="message_feedback_input_hint">Escreva sua mensagem de feedback</string>
     <string name="txt_feedback_menu">Enviar</string>
     <string name="txt_feedback_message_empty">Por favor, digite sua mensagem de feedback</string>
     <string name="txt_feedback_message_success">Mensagem enviada com sucesso</string>
@@ -282,6 +282,12 @@
     <string name="txt_historico_notas_desc">Este gráfico representa a evolução das suas notas em um período de tempo.</string>
     <string name="txt_maior_nota">Maior Nota</string>
     <string name="txt_maior_nota_desc">Este gráfico representa suas notas em ordem decrescente em um determinado período de tempo.</string>
+    <string name="txt_empty_card_explore">Explore</string>
+    <string name="txt_empty_card_explore_text">Seus eventos recentes e suas disciplinas irão aparecer aqui quando estiverem disponíveis. Faça um tour através do menu lateral para ter acesso a outras seções do aplicativo.</string>
+    <string name="txt_cd_left_image_empty_card">Imagem lateral explore card</string>
+    <string name="txt_menu_maior_nota">Maior Nota...</string>
+    <string name="txt_menu_historico_de_notas">Histórico de notas...</string>
+    <string name="txt_menu_comparativo_notas">Comparativo de notas...</string>
 
 
 </resources>

@@ -30,188 +30,167 @@
 
         <include layout="@layout/toolbar" />
 
-        <android.support.v7.widget.CardView
+
+        <LinearLayout
+            android:id="@+id/chart1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="10dp">
+            android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/txt_maior_nota"
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/txt_maior_nota"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:text="@string/txt_maior_nota_desc"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="5dp"
-                    android:text="@string/txt_maior_nota_desc"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                chart:cardBackgroundColor="@color/card_chart_1">
 
-                <android.support.v7.widget.CardView
+                <com.db.chart.view.HorizontalBarChartView
+                    android:id="@+id/barChart"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="10dp"
-                    chart:cardBackgroundColor="@color/card_chart_1">
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp" />
+            </android.support.v7.widget.CardView>
+        </LinearLayout>
 
-                    <com.db.chart.view.HorizontalBarChartView
-                        android:id="@+id/barChart"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_margin="10dp" />
-                </android.support.v7.widget.CardView>
-            </LinearLayout>
-        </android.support.v7.widget.CardView>
 
-        <android.support.v7.widget.CardView
+        <LinearLayout
+            android:id="@+id/chart2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="10dp">
+            android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/txt_historico_notas"
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/txt_historico_notas"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:text="@string/txt_historico_notas_desc"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="5dp"
-                    android:text="@string/txt_historico_notas_desc"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                chart:cardBackgroundColor="@color/card_chart_2">
 
-                <android.support.v7.widget.CardView
+
+                <com.db.chart.view.LineChartView
+                    android:id="@+id/lineChart"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="10dp"
-                    chart:cardBackgroundColor="@color/card_chart_2">
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp" />
 
 
-                    <com.db.chart.view.LineChartView
-                        android:id="@+id/lineChart"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_margin="10dp" />
+            </android.support.v7.widget.CardView>
+        </LinearLayout>
 
 
-                </android.support.v7.widget.CardView>
-            </LinearLayout>
-        </android.support.v7.widget.CardView>
-
-        <android.support.v7.widget.CardView
+        <LinearLayout
+            android:id="@+id/chart3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="10dp">
+            android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/txt_comparativo_notas"
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/txt_comparativo_notas"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:text="@string/txt_comparativo_notas_desc"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="5dp"
-                    android:text="@string/txt_comparativo_notas_desc"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                chart:cardBackgroundColor="@color/card_chart_3">
 
-                <android.support.v7.widget.CardView
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="10dp"
-                    chart:cardBackgroundColor="@color/card_chart_3">
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
+                    <TextView
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:gravity="center"
-                        android:orientation="horizontal">
+                        android:layout_margin="5dp"
+                        android:drawablePadding="4dp"
+                        android:drawableStart="@drawable/chart_bar_indicator_2"
+                        android:text="@string/txt_media_individual_chart"
+                        android:textColor="@color/whiteTextColor"
+                        android:textSize="13sp" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="5dp"
-                            android:drawablePadding="4dp"
-                            android:drawableStart="@drawable/chart_bar_indicator_2"
-                            android:text="@string/txt_media_individual_chart"
-                            android:textColor="@color/whiteTextColor"
-                            android:textSize="13sp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:drawablePadding="4dp"
+                        android:drawableStart="@drawable/chart_bar_indicator_1"
+                        android:text="@string/txt_media_turma_chart"
+                        android:textColor="@color/whiteTextColor"
+                        android:textSize="13sp" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="5dp"
-                            android:drawablePadding="4dp"
-                            android:drawableStart="@drawable/chart_bar_indicator_1"
-                            android:text="@string/txt_media_turma_chart"
-                            android:textColor="@color/whiteTextColor"
-                            android:textSize="13sp" />
-
-                    </LinearLayout>
+                </LinearLayout>
 
 
-                    <com.db.chart.view.BarChartView
-                        android:id="@+id/groupBarChart"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginEnd="10dp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="30dp" />
-                </android.support.v7.widget.CardView>
-            </LinearLayout>
-        </android.support.v7.widget.CardView>
+                <com.db.chart.view.BarChartView
+                    android:id="@+id/groupBarChart"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="30dp" />
+            </android.support.v7.widget.CardView>
+        </LinearLayout>
 
 
     </LinearLayout>
