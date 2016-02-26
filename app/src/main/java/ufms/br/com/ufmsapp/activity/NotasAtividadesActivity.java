@@ -39,6 +39,7 @@ import ufms.br.com.ufmsapp.adapter.AtividadeNotaAdapter;
 import ufms.br.com.ufmsapp.fragment.NotasFragment;
 import ufms.br.com.ufmsapp.pojo.Disciplina;
 import ufms.br.com.ufmsapp.pojo.Nota;
+import ufms.br.com.ufmsapp.preferences.UserSessionPreference;
 import ufms.br.com.ufmsapp.utils.Constants;
 import ufms.br.com.ufmsapp.utils.OrientationUtils;
 
@@ -52,6 +53,7 @@ public class NotasAtividadesActivity extends AppCompatActivity {
 
     private TextView emptyListText;
     private ImageView emptyListImg;
+    public static final String DISCIPLINA_EXTRA = "disciplina";
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -94,7 +96,15 @@ public class NotasAtividadesActivity extends AppCompatActivity {
 
         setupToolbar(disciplina.getTitulo());
 
-        notas = MyApplication.getWritableDatabase().listarNotas(disciplina.getIdDisciplinaServidor());
+        UserSessionPreference prefs = new UserSessionPreference(this);
+
+        int matricula = -1;
+        if (!prefs.isFirstTime()) {
+            matricula = MyApplication.getWritableDatabase().getMatriculaAluno(MyApplication.getWritableDatabase().alunoByEmail(prefs.getEmail()).getAlunoIdServidor(), disciplina.getIdDisciplinaServidor()).getAlunoXDisciplinaIdServidor();
+        }
+
+        if (matricula != -1)
+            notas = MyApplication.getWritableDatabase().listarNotas(disciplina.getIdDisciplinaServidor(), matricula);
 
         adapter.setNotasList(notas);
 
@@ -148,7 +158,9 @@ public class NotasAtividadesActivity extends AppCompatActivity {
                 supportFinishAfterTransition();
                 break;
             case R.id.action_desempenho:
-                startActivity(new Intent(this, GraficosActivity.class));
+                Intent intent = new Intent(this, GraficosActivity.class);
+                intent.putExtra(DISCIPLINA_EXTRA, disciplina);
+                startActivity(intent);
                 break;
 
             //return true;

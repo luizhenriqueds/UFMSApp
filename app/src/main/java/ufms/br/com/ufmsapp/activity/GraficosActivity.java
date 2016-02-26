@@ -23,7 +23,6 @@ import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
@@ -39,19 +38,29 @@ import com.db.chart.view.XController;
 import com.db.chart.view.YController;
 import com.db.chart.view.animation.Animation;
 
+import java.util.ArrayList;
+
+import ufms.br.com.ufmsapp.MyApplication;
 import ufms.br.com.ufmsapp.R;
+import ufms.br.com.ufmsapp.pojo.Disciplina;
+import ufms.br.com.ufmsapp.pojo.Nota;
+import ufms.br.com.ufmsapp.preferences.UserSessionPreference;
+
+import static ufms.br.com.ufmsapp.activity.NotasAtividadesActivity.DISCIPLINA_EXTRA;
 
 public class GraficosActivity extends AppCompatActivity {
 
     private HorizontalBarChartView horizontalBarChartView;
     private LineChartView lineChartView;
     private BarChartView groupBarChart;
+    private Disciplina disciplina;
+    private UserSessionPreference prefs;
 
-    @Override
+   /* @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.notas_menu, menu);
         return super.onCreateOptionsMenu(menu);
-    }
+    }*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +69,7 @@ public class GraficosActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        disciplina = getIntent().getParcelableExtra(DISCIPLINA_EXTRA);
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -69,6 +79,7 @@ public class GraficosActivity extends AppCompatActivity {
         horizontalBarChartView = (HorizontalBarChartView) findViewById(R.id.barChart);
         lineChartView = (LineChartView) findViewById(R.id.lineChart);
         groupBarChart = (BarChartView) findViewById(R.id.groupBarChart);
+        prefs = new UserSessionPreference(this);
 
 
         setBarChartMaxGrade();
@@ -78,10 +89,22 @@ public class GraficosActivity extends AppCompatActivity {
 
     private void setBarChartMaxGrade() {
         BarSet notasDataset = new BarSet();
-        notasDataset.addBar("Nota 1", 6.5f);
-        notasDataset.addBar("Nota 2", 7.2f);
-        notasDataset.addBar("Nota 3", 8.5f);
-        notasDataset.addBar("Nota 4", 9.5f);
+
+        int matricula = -1;
+        if (!prefs.isFirstTime()) {
+            matricula = MyApplication.getWritableDatabase().getMatriculaAluno(MyApplication.getWritableDatabase().alunoByEmail(prefs.getEmail()).getAlunoIdServidor(), disciplina.getIdDisciplinaServidor()).getAlunoXDisciplinaIdServidor();
+
+        }
+        ArrayList<Nota> sortedList = null;
+        if (matricula != -1) {
+            sortedList = MyApplication.getWritableDatabase().listarNotasSorted(disciplina.getIdDisciplinaServidor(), matricula);
+        }
+
+        if (sortedList != null) {
+            for (int i = 0; i < sortedList.size(); i++) {
+                notasDataset.addBar(sortedList.get(i).getDescricaoNota(), (float) sortedList.get(i).getNota() / 1.0F);
+            }
+        }
 
         notasDataset.setColor(Color.parseColor("#EF5350"));
 
@@ -103,14 +126,18 @@ public class GraficosActivity extends AppCompatActivity {
 
     private void setStackBarCompareGrades() {
 
-        final String[] mLabels = {
-                "Nota 1", "Nota 2", "Nota 3", "Nota 4"
-        };
+        final String[] mLabels = {"Nota 1,", "Nota 2", "Nota 3", "Nota 4"};
 
         final float[][] mValuesOne = {
                 {6.5f, 7.2f, 8.5f, 9.5f},
                 {7.0f, 3.0f, 7.0f, 7.5f}
         };
+
+
+        int matricula = -1;
+        if (!prefs.isFirstTime()) {
+            matricula = MyApplication.getWritableDatabase().getMatriculaAluno(MyApplication.getWritableDatabase().alunoByEmail(prefs.getEmail()).getAlunoIdServidor(), disciplina.getIdDisciplinaServidor()).getAlunoXDisciplinaIdServidor();
+        }
 
 
         BarSet notasDataset = new BarSet(mLabels, mValuesOne[0]);
@@ -141,10 +168,21 @@ public class GraficosActivity extends AppCompatActivity {
     private void setLineChartGradeEvolution() {
 
         final LineSet notasDatasetLine = new LineSet();
-        notasDatasetLine.addPoint("Nota 1", 3.5f);
-        notasDatasetLine.addPoint("Nota 2", 7.5f);
-        notasDatasetLine.addPoint("Nota 3", 5f);
-        notasDatasetLine.addPoint("Nota 4", 8.5f);
+
+        int matricula = -1;
+        if (!prefs.isFirstTime()) {
+            matricula = MyApplication.getWritableDatabase().getMatriculaAluno(MyApplication.getWritableDatabase().alunoByEmail(prefs.getEmail()).getAlunoIdServidor(), disciplina.getIdDisciplinaServidor()).getAlunoXDisciplinaIdServidor();
+        }
+        ArrayList<Nota> notasList = null;
+        if (matricula != -1) {
+            notasList = MyApplication.getWritableDatabase().listarNotas(disciplina.getIdDisciplinaServidor(), matricula);
+        }
+
+        if (notasList != null) {
+            for (int i = 0; i < notasList.size(); i++) {
+                notasDatasetLine.addPoint(notasList.get(i).getDescricaoNota(), (float) notasList.get(i).getNota() / 1.0F);
+            }
+        }
 
 
         notasDatasetLine.setColor(Color.parseColor("#6a84c3"))
@@ -183,10 +221,6 @@ public class GraficosActivity extends AppCompatActivity {
                 startActivity(parentIntent);
 
                 supportFinishAfterTransition();
-                break;
-
-            case R.id.action1:
-                Toast.makeText(this, "OPCAO1", Toast.LENGTH_LONG).show();
                 break;
         }
 

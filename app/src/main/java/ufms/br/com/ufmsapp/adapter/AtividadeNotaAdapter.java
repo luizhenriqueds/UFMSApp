@@ -84,8 +84,10 @@ public class AtividadeNotaAdapter extends RecyclerView.Adapter<AtividadeNotaAdap
     public void onBindViewHolder(NotasViewHolder notasViewHolder, int i) {
         nota = notasList.get(i);
 
-        notasViewHolder.descricaoNota.setText(nota.getDescricaoNota());
-        notasViewHolder.valorNota.setText(String.valueOf(nota.getNota()));
+        if (nota != null) {
+            notasViewHolder.descricaoNota.setText(nota.getDescricaoNota());
+            notasViewHolder.valorNota.setText(String.valueOf(nota.getNota()));
+        }
 
 
         setAnimation(notasViewHolder.rootLayout, i);

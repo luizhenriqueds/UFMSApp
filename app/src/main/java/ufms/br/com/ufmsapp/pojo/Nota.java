@@ -16,7 +16,10 @@
 
 package ufms.br.com.ufmsapp.pojo;
 
-public class Nota {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Nota implements Parcelable {
 
     int id;
     double nota;
@@ -24,6 +27,13 @@ public class Nota {
     int alunoXDisciplina;
 
     public Nota() {
+    }
+
+    public Nota(Parcel input) {
+        id = input.readInt();
+        nota = input.readDouble();
+        descricaoNota = input.readString();
+        alunoXDisciplina = input.readInt();
     }
 
     public Nota(int id, String descricaoNota, double nota, int alunoXDisciplina) {
@@ -82,4 +92,28 @@ public class Nota {
                 ", alunoXDisciplina=" + alunoXDisciplina +
                 '}';
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeDouble(nota);
+        dest.writeString(descricaoNota);
+        dest.writeInt(alunoXDisciplina);
+    }
+
+    public static final Parcelable.Creator<Nota> CREATOR = new Parcelable.Creator<Nota>() {
+        public Nota createFromParcel(Parcel in) {
+            return new Nota(in);
+        }
+
+        @Override
+        public Nota[] newArray(int size) {
+            return new Nota[size];
+        }
+    };
 }

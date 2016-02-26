@@ -501,6 +501,38 @@ public class AppDAO {
 
     }
 
+    public ArrayList<Nota> listarNotasSorted(int disciplinaId, int matricula) {
+
+        ArrayList<Nota> notas = new ArrayList<>();
+
+        String selectQuery =
+                "SELECT * FROM " + DataContract.NotaEntry.TABLE_NAME_NOTA + "," + DataContract.AlunoXDisciplinaEntry.TABLE_NAME_ALUNO_X_DISCIPLINA +
+                        " WHERE " + "(" + DataContract.NotaEntry.ALUNO_X_DISCIPLINA_FK + "=" + DataContract.AlunoXDisciplinaEntry.COLUMN_ID_SERVIDOR + ")" +
+                        " AND " + "(" + DataContract.AlunoXDisciplinaEntry.DISCIPLINA_FK + " = " + disciplinaId + ") " +
+                        " AND " + "(" + DataContract.NotaEntry.ALUNO_X_DISCIPLINA_FK + " = " + matricula + ")" +
+                        "ORDER BY " + DataContract.NotaEntry.COLUMN_NOTA;
+
+        Cursor cursor = database.rawQuery(selectQuery, null);
+
+        Log.i("DB_TEST_QUERY", selectQuery);
+
+        try {
+            if (cursor.moveToFirst()) {
+                do {
+                    Nota nota = AppDAO.fromCursorNota(cursor);
+                    notas.add(nota);
+                } while (cursor.moveToNext());
+            }
+
+            return notas;
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+
+    }
+
     public ArrayList<Nota> listarNotas(int disciplinaId) {
 
         ArrayList<Nota> notas = new ArrayList<>();
@@ -509,6 +541,37 @@ public class AppDAO {
                 "SELECT * FROM " + DataContract.NotaEntry.TABLE_NAME_NOTA + "," + DataContract.AlunoXDisciplinaEntry.TABLE_NAME_ALUNO_X_DISCIPLINA +
                         " WHERE " + "(" + DataContract.NotaEntry.ALUNO_X_DISCIPLINA_FK + "=" + DataContract.AlunoXDisciplinaEntry.COLUMN_ID_SERVIDOR + ")" +
                         " AND " + "(" + DataContract.AlunoXDisciplinaEntry.DISCIPLINA_FK + " = " + disciplinaId + ")";
+
+        Cursor cursor = database.rawQuery(selectQuery, null);
+
+        Log.i("DB_TEST_QUERY", selectQuery);
+
+        try {
+            if (cursor.moveToFirst()) {
+                do {
+                    Nota nota = AppDAO.fromCursorNota(cursor);
+                    notas.add(nota);
+                } while (cursor.moveToNext());
+            }
+
+            return notas;
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+
+    }
+
+    public ArrayList<Nota> listarNotas(int disciplinaId, int matricula) {
+
+        ArrayList<Nota> notas = new ArrayList<>();
+
+        String selectQuery =
+                "SELECT * FROM " + DataContract.NotaEntry.TABLE_NAME_NOTA + "," + DataContract.AlunoXDisciplinaEntry.TABLE_NAME_ALUNO_X_DISCIPLINA +
+                        " WHERE " + "(" + DataContract.NotaEntry.ALUNO_X_DISCIPLINA_FK + "=" + DataContract.AlunoXDisciplinaEntry.COLUMN_ID_SERVIDOR + ")" +
+                        " AND " + "(" + DataContract.AlunoXDisciplinaEntry.DISCIPLINA_FK + " = " + disciplinaId + ")" +
+                        " AND " + "(" + DataContract.NotaEntry.ALUNO_X_DISCIPLINA_FK + " = " + matricula + ")";
 
         Cursor cursor = database.rawQuery(selectQuery, null);
 
@@ -1176,6 +1239,22 @@ public class AppDAO {
         cursor.close();
 
         return count;
+    }
+
+    public float getNotaMediaTurma(int disciplina) {
+
+        String countAVG = "SELECT AVG(" + DataContract.NotaEntry.COLUMN_NOTA + ") FROM " + DataContract.NotaEntry.TABLE_NAME_NOTA + " WHERE (" + DataContract.NotaEntry.ALUNO_X_DISCIPLINA_FK +
+                "=" + DataContract.NotaEntry.ALUNO_X_DISCIPLINA_FK +
+                ") AND (" + DataContract.AlunoXDisciplinaEntry.DISCIPLINA_FK + " = " + disciplina + ");";
+
+        Cursor cursor = database.rawQuery(countAVG, null);
+
+        cursor.moveToFirst();
+        float avg = cursor.getFloat(0);
+        cursor.close();
+
+
+        return avg;
     }
 
     public float getNotaMediaDisciplina(int matricula) {
