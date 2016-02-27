@@ -1,12 +1,16 @@
 # UFMS Mobile
 Aplicativo em desenvolvimento para disciplina TCC II do curso de Sistemas de Informação da Universidade Federal de Mato Grosso do Sul (UFMS), Corumbá.
 
-# Descrição
+App being developed for TCC II course (final assignment) of Information System major in Federal University of Mato Grosso do Sul, Corumba.
+
+# Descrição (Description)
 Este app disponibiliza conteúdo criado por professores para os alunos das suas respectivas disciplinas. É possível criar variados tipos de eventos (como, por exemplo, avaliação, tarefas, avisos, etc.), além de poder fazer download de material disponibilizado, analisar o desempenho acadêmico do aluno através de gráficos interativos e receber notificações.
 
-# Desenvolvimento
+This app delivers content created by professors to students of their repective courses. It's possible to create many types of events (such as assignments, work, general events, etc.), and it's also possible to download available material, analize student performance through interative charts and get notified about updates.
 
-# Licença
+# Desenvolvimento (Development)
+
+# Licença (License)
 
 Apache Software License 2.0
 
