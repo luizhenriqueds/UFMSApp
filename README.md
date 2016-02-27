@@ -1,4 +1,4 @@
-# UFMSApp
+# UFMS Mobile
 Aplicativo em desenvolvimento para disciplina TCC II do curso de Sistemas de Informação da Universidade Federal de Mato Grosso do Sul (UFMS), Corumbá.
 
 # Descrição
