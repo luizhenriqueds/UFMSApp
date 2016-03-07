@@ -26,11 +26,11 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.NavUtils;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.graphics.Palette;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 
 import com.squareup.picasso.Picasso;
@@ -47,6 +47,7 @@ import ufms.br.com.ufmsapp.fragment.DetalheDisciplinaFragment;
 import ufms.br.com.ufmsapp.fragment.DisciplinasFragment;
 import ufms.br.com.ufmsapp.fragment.MateriaisDisciplinaFragment;
 import ufms.br.com.ufmsapp.pojo.Disciplina;
+import ufms.br.com.ufmsapp.utils.ConnectionUtils;
 import ufms.br.com.ufmsapp.utils.Constants;
 import ufms.br.com.ufmsapp.utils.VersionUtils;
 
@@ -87,14 +88,15 @@ public class DetalhesDisciplinaActivity extends AppCompatActivity {
         //mTabs.setSelectedTabIndicatorColor(ContextCompat.getColor(this, R.color.whiteTextColor));
 
         mTabs.setupWithViewPager(mPager);
+        mTabs.setSelectedTabIndicatorColor(ContextCompat.getColor(this, R.color.whiteTextColor));
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
+    /* @Override
+     public boolean onCreateOptionsMenu(Menu menu) {
+         getMenuInflater().inflate(R.menu.menu, menu);
+         return super.onCreateOptionsMenu(menu);
+     }
+ */
     private void setupToolbar() {
         toolbar.setTitle(disciplina.getTitulo());
 
@@ -102,7 +104,9 @@ public class DetalhesDisciplinaActivity extends AppCompatActivity {
 
 
         if (getSupportActionBar() != null) {
-            new ImageLoaderWorker().execute(UrlEndpoints.URL_ENDPOINT + "ws_images/edit.png");
+            if (ConnectionUtils.hasConnection(this))
+                new ImageLoaderWorker().execute(UrlEndpoints.URL_ENDPOINT + "ws_images/edit.png");
+
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
 

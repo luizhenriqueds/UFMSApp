@@ -18,6 +18,9 @@ package ufms.br.com.ufmsapp.adapter;
 
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -105,9 +108,12 @@ public class DisciplinasAdapter extends RecyclerView.Adapter<DisciplinasAdapter.
         disciplinaViewHolder.disciplinaProfessor.setText(professor.getNome());
         disciplinaViewHolder.disciplinaDescricao.setText(disciplina.getDescricao());
 
-
         if (rating != null && rating.getRating() > 0.0) {
             disciplinaViewHolder.disciplinaRatingBar.setVisibility(View.VISIBLE);
+
+            Drawable drawable = disciplinaViewHolder.disciplinaRatingBar.getProgressDrawable();
+            drawable.setColorFilter(Color.parseColor("#757575"), PorterDuff.Mode.SRC_ATOP);
+
             disciplinaViewHolder.disciplinaScore.setText(String.format("%.01f", ratingAVG));
         } else {
             disciplinaViewHolder.disciplinaRatingBar.setVisibility(View.GONE);

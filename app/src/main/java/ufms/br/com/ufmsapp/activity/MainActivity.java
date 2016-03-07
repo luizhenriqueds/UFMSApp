@@ -166,7 +166,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         switch (mSelectedPosition) {
             case R.id.nav_drawer_explore:
-                //fragment = FragmentEventCalendarView.newInstance();
                 fragment = ExploreFragment.newInstance();
                 fragmentTransaction.replace(R.id.main_layout_container, fragment);
                 fragmentTransaction.commit();

@@ -19,9 +19,11 @@ package ufms.br.com.ufmsapp.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
@@ -41,21 +43,39 @@ import java.util.Locale;
 
 import ufms.br.com.ufmsapp.MyApplication;
 import ufms.br.com.ufmsapp.R;
-import ufms.br.com.ufmsapp.adapter.CalendarViewAdapter;
+import ufms.br.com.ufmsapp.decorators.HighlightWeekendsDecorator;
 import ufms.br.com.ufmsapp.decorators.OneDayDecorator;
+import ufms.br.com.ufmsapp.pojo.Disciplina;
 import ufms.br.com.ufmsapp.pojo.Evento;
+import ufms.br.com.ufmsapp.preferences.UserSessionPreference;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class FragmentEventCalendarView extends Fragment implements OnDateSelectedListener {
 
     MaterialCalendarView calendarView;
     private final OneDayDecorator oneDayDecorator = new OneDayDecorator();
-    private CalendarViewAdapter adapter;
-    protected RecyclerView mRecyclerCalendarEvents;
+
 
     public FragmentEventCalendarView() {
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        switch (id) {
+            case R.id.action_list_view:
+                FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.main_layout_container, EventosFragment.newInstance());
+                fragmentTransaction.commit();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        getActivity().getMenuInflater().inflate(R.menu.calendar_view_menu, menu);
+        super.onCreateOptionsMenu(menu, inflater);
     }
 
     public static FragmentEventCalendarView newInstance() {
@@ -66,31 +86,26 @@ public class FragmentEventCalendarView extends Fragment implements OnDateSelecte
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        setHasOptionsMenu(true);
         View view = inflater.inflate(R.layout.fragment_evento_calendar, container, false);
-
-        adapter = new CalendarViewAdapter(getActivity());
-
-        mRecyclerCalendarEvents = (RecyclerView) view.findViewById(R.id.recycler_calendar_detail);
 
         calendarView = (MaterialCalendarView) view.findViewById(R.id.calendarView);
         calendarView.setSelectionMode(MaterialCalendarView.SELECTION_MODE_NONE);
 
-        DateFormat df = new SimpleDateFormat("MMMM yyyy", new Locale("pt", "BR"));
+        DateFormat df = new SimpleDateFormat("MMMM yyyy", new Locale("PT", "BR"));
         final DateFormat dayFormatter = new SimpleDateFormat("d", new Locale("pt", "BR"));
 
         calendarView.setTitleFormatter(new DateFormatTitleFormatter(df));
         calendarView.setDayFormatter(new DateFormatDayFormatter(dayFormatter));
 
         calendarView.setOnDateChangedListener(this);
-        calendarView.setTopbarVisible(false);
-
-        mRecyclerCalendarEvents.setLayoutManager(new LinearLayoutManager(getActivity()));
+        calendarView.setTopbarVisible(true);
 
 
-        /*calendarView.addDecorators(
+        calendarView.addDecorators(
                 new HighlightWeekendsDecorator(),
                 oneDayDecorator
-        );*/
+        );
 
         setupCalendar();
 
@@ -99,19 +114,25 @@ public class FragmentEventCalendarView extends Fragment implements OnDateSelecte
 
     private void setupCalendar() {
 
+        UserSessionPreference prefs = new UserSessionPreference(getActivity());
 
-        ArrayList<Evento> eventos = MyApplication.getWritableDatabase().listarEventos(2);
+        ArrayList<Disciplina> disciplinas = new ArrayList<>();
 
-
-        Evento evento;
-        for (int i = 0; i < eventos.size(); i++) {
-            evento = eventos.get(i);
-            calendarView.setDateSelected(evento.getDataEventoCriado(), true);
+        if (!prefs.isFirstTime()) {
+            disciplinas = MyApplication.getWritableDatabase().listarDisciplinas(MyApplication.getWritableDatabase().alunoByEmail(prefs.getEmail()).getAlunoIdServidor());
         }
 
 
-        adapter.setCalendarList(eventos);
-        mRecyclerCalendarEvents.setAdapter(adapter);
+        ArrayList<Evento> eventosList = new ArrayList<>();
+        for (int i = 0; i < disciplinas.size(); i++) {
+            eventosList.addAll(MyApplication.getWritableDatabase().listarEventos(disciplinas.get(i).getIdDisciplinaServidor()));
+        }
+
+        Evento evento;
+        for (int i = 0; i < eventosList.size(); i++) {
+            evento = eventosList.get(i);
+            calendarView.setDateSelected(evento.getDataEventoCriado(), true);
+        }
 
 
     }

@@ -38,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:padding="10dp"
                 android:text="@string/txt_detalhes_do_curso"
-                android:textColor="@color/accentColor"
+                android:textColor="@color/adapter_row_title_color"
                 android:textSize="20sp" />
 
 

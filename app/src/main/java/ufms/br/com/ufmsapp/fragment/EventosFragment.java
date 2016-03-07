@@ -27,6 +27,7 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
@@ -138,10 +139,9 @@ public class EventosFragment extends Fragment implements EventosLoadedListener, 
 
         switch (id) {
             case R.id.action_calendar_view:
-                Snackbar.make(getActivity().findViewById(android.R.id.home), "CALENDAR VIEW", Snackbar.LENGTH_LONG).show();
-                break;
-            case R.id.action_list_view:
-                Snackbar.make(getActivity().findViewById(android.R.id.home), "LIST VIEW", Snackbar.LENGTH_LONG).show();
+                FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.main_layout_container, FragmentEventCalendarView.newInstance());
+                fragmentTransaction.commit();
                 break;
         }
         return super.onOptionsItemSelected(item);

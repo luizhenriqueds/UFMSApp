@@ -26,6 +26,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.NavUtils;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.graphics.Palette;
@@ -47,6 +48,7 @@ import ufms.br.com.ufmsapp.fragment.EventosFragment;
 import ufms.br.com.ufmsapp.fragment.MateriaisEventoFragment;
 import ufms.br.com.ufmsapp.pojo.Disciplina;
 import ufms.br.com.ufmsapp.pojo.Evento;
+import ufms.br.com.ufmsapp.utils.ConnectionUtils;
 import ufms.br.com.ufmsapp.utils.Constants;
 import ufms.br.com.ufmsapp.utils.VersionUtils;
 
@@ -86,15 +88,16 @@ public class DetalhesEventoActivity extends AppCompatActivity {
         setupViewPager(mPager);
 
         mTabs.setupWithViewPager(mPager);
+        mTabs.setSelectedTabIndicatorColor(ContextCompat.getColor(this, R.color.whiteTextColor));
 
     }
 
 
-    @Override
+    /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
         return super.onCreateOptionsMenu(menu);
-    }
+    }*/
 
     public void setupToolbar(String titulo) {
         setSupportActionBar(toolbar);
@@ -108,7 +111,8 @@ public class DetalhesEventoActivity extends AppCompatActivity {
 
         if (toolbar != null) {
 
-            new ImageLoaderWorker().execute(UrlEndpoints.URL_ENDPOINT + evento.getSmallIcon());
+            if (ConnectionUtils.hasConnection(this))
+                new ImageLoaderWorker().execute(UrlEndpoints.URL_ENDPOINT + evento.getSmallIcon());
 
             toolbar.setTitle(titulo);
             toolbar.setDisplayShowTitleEnabled(true);

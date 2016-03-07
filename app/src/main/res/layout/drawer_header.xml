@@ -23,8 +23,8 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="@drawable/bg2"
+        android:layout_height="180dp"
+        android:background="@drawable/background"
         android:contentDescription="@string/txt_cd_nav_background"
         android:scaleType="centerCrop" />
 
