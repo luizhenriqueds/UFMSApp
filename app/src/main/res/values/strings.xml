@@ -288,6 +288,7 @@
     <string name="txt_menu_maior_nota">Maior Nota...</string>
     <string name="txt_menu_historico_de_notas">Histórico de notas...</string>
     <string name="txt_menu_comparativo_notas">Comparativo de notas...</string>
+    <string name="txt_cd_nav_background">Menu de navegação background</string>
 
 
 </resources>

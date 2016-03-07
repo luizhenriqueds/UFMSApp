@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright [2016] [UFMS]
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,12 +14,19 @@
   ~ limitations under the License.
   -->
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/primaryColor"
     android:gravity="center_vertical"
     android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/bg2"
+        android:contentDescription="@string/txt_cd_nav_background"
+        android:scaleType="centerCrop" />
 
 
     <com.pkmmte.view.CircularImageView
@@ -30,7 +36,7 @@
         android:layout_marginBottom="10dp"
         android:layout_marginEnd="@dimen/drawer_right_margin"
         android:layout_marginStart="@dimen/drawer_left_margin"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="72dp"
         android:src="@mipmap/ic_account_circle_white_48dp" />
 
     <LinearLayout
@@ -64,4 +70,4 @@
             android:textColor="@android:color/white" />
 
     </LinearLayout>
-</LinearLayout>
+</FrameLayout>

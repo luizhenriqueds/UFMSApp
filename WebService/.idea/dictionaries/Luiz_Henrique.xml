@@ -2,9 +2,12 @@
   <dictionary name="Luiz Henrique">
     <words>
       <w>acao</w>
+      <w>adicionar</w>
       <w>aluno</w>
       <w>alunos</w>
       <w>anexo</w>
+      <w>arquivos</w>
+      <w>atividade</w>
       <w>atualizado</w>
       <w>atualizar</w>
       <w>banco</w>
@@ -14,8 +17,13 @@
       <w>conecta</w>
       <w>conexão</w>
       <w>controle</w>
+      <w>criado</w>
+      <w>criados</w>
+      <w>criar</w>
       <w>dados</w>
       <w>descricao</w>
+      <w>descrição</w>
+      <w>digite</w>
       <w>disciplina</w>
       <w>disciplinas</w>
       <w>enviar</w>
@@ -23,25 +31,36 @@
       <w>evento</w>
       <w>eventos</w>
       <w>existe</w>
+      <w>ferramentas</w>
       <w>formacao</w>
+      <w>github</w>
       <w>googleapis</w>
       <w>horaria</w>
       <w>ingresso</w>
       <w>instância</w>
       <w>limite</w>
+      <w>lista</w>
       <w>lljch</w>
+      <w>logado</w>
       <w>logar</w>
+      <w>mais</w>
       <w>matriculas</w>
       <w>mensagem</w>
       <w>nota</w>
+      <w>notas</w>
+      <w>novo</w>
+      <w>opção</w>
       <w>professores</w>
       <w>registro</w>
       <w>retorna</w>
+      <w>selecione</w>
       <w>sucesso</w>
       <w>tipo</w>
       <w>titulo</w>
+      <w>todos</w>
       <w>turma</w>
       <w>turmas</w>
+      <w>ufms</w>
       <w>usuario</w>
       <w>variável</w>
     </words>
