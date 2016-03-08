@@ -25,7 +25,7 @@
 
     <ImageView
         android:id="@+id/icon_item_evento"
-        android:layout_width="110dp"
+        android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginBottom="10dp"
         android:layout_marginEnd="5dp"

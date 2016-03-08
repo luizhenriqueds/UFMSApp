@@ -31,8 +31,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.amulyakhare.textdrawable.TextDrawable;
+import com.amulyakhare.textdrawable.util.ColorGenerator;
 import com.android.volley.toolbox.ImageLoader;
-import com.squareup.picasso.Picasso;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -41,7 +42,6 @@ import java.util.Locale;
 
 import ufms.br.com.ufmsapp.MyApplication;
 import ufms.br.com.ufmsapp.R;
-import ufms.br.com.ufmsapp.extras.UrlEndpoints;
 import ufms.br.com.ufmsapp.network.VolleySingleton;
 import ufms.br.com.ufmsapp.pojo.Disciplina;
 import ufms.br.com.ufmsapp.pojo.Evento;
@@ -113,6 +113,7 @@ public class EventosAdapter extends RecyclerView.Adapter<EventosAdapter.EventosV
                 eventosViewHolder.eventoSubtitle.setTypeface(null, Typeface.NORMAL);
                 eventosViewHolder.cardLayout.setBackground(ContextCompat.getDrawable(context, R.drawable.custom_bg));
             }
+
         }
 
         eventosViewHolder.eventoTitle.setText(evento.getTitulo());
@@ -123,13 +124,23 @@ public class EventosAdapter extends RecyclerView.Adapter<EventosAdapter.EventosV
         eventosViewHolder.eventoSubtitle.setText(disciplina.getTitulo());
         eventosViewHolder.eventoDescription.setText(evento.getDescricao());
         eventosViewHolder.eventoTimeStamp.setText(df.format(evento.getDataEventoCriado()));
-        //Picasso.with(itemView.getContext()).load(UrlEndpoints.URL_ENDPOINT + evento.getSmallIcon()).into(eventosViewHolder.eventoIcon);
 
-        Picasso.with(itemView.getContext())
+        String firstLetter = String.valueOf(evento.getTitulo().charAt(0));
+
+        ColorGenerator generator = ColorGenerator.MATERIAL;
+
+        int color = generator.getRandomColor();
+
+        TextDrawable drawable = TextDrawable.builder()
+                .buildRound(firstLetter, color);
+
+        eventosViewHolder.eventoIcon.setImageDrawable(drawable);
+
+      /*  Picasso.with(itemView.getContext())
                 .load(UrlEndpoints.URL_ENDPOINT + evento.getBigIcon())
                 .resize(110, 80)
                 .centerCrop()
-                .into(eventosViewHolder.eventoIcon);
+                .into(eventosViewHolder.eventoIcon);*/
 
         setAnimation(eventosViewHolder.cardLayout, i);
 

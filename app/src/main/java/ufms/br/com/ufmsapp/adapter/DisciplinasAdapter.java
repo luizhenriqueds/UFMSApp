@@ -32,6 +32,8 @@ import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.amulyakhare.textdrawable.TextDrawable;
+import com.amulyakhare.textdrawable.util.ColorGenerator;
 import com.android.volley.toolbox.ImageLoader;
 
 import java.text.DateFormat;
@@ -119,6 +121,17 @@ public class DisciplinasAdapter extends RecyclerView.Adapter<DisciplinasAdapter.
             disciplinaViewHolder.disciplinaRatingBar.setVisibility(View.GONE);
             disciplinaViewHolder.disciplinaScore.setText(null);
         }
+
+        String firstLetter = String.valueOf(disciplina.getTitulo().charAt(0));
+
+        ColorGenerator generator = ColorGenerator.MATERIAL;
+
+        int color = generator.getRandomColor();
+
+        TextDrawable drawable = TextDrawable.builder()
+                .buildRound(firstLetter, color);
+
+        disciplinaViewHolder.disciplinaSmallIcon.setImageDrawable(drawable);
 
 
         setAnimation(disciplinaViewHolder.disciplinaAdapterLayout, i);

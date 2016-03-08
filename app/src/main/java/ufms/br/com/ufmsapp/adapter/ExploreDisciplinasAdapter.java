@@ -27,8 +27,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+
+import com.amulyakhare.textdrawable.TextDrawable;
+import com.amulyakhare.textdrawable.util.ColorGenerator;
 
 import java.util.ArrayList;
 
@@ -95,6 +99,17 @@ public class ExploreDisciplinasAdapter extends RecyclerView.Adapter<ExploreDisci
         disciplinasViewHolder.disciplinaScore.setRating(ratingDisciplina);
         disciplinasViewHolder.disciplinaScore.setAlpha(1.0F);
 
+        String firstLetter = String.valueOf(disciplina.getTitulo().charAt(0));
+
+        ColorGenerator generator = ColorGenerator.MATERIAL;
+
+        int color = generator.getRandomColor();
+
+        TextDrawable drawableImage = TextDrawable.builder()
+                .buildRoundRect(firstLetter, color, 5);
+
+        disciplinasViewHolder.disciplinaIcon.setImageDrawable(drawableImage);
+
         setAnimation(disciplinasViewHolder.mCardTopLayout, i);
     }
 
@@ -125,6 +140,7 @@ public class ExploreDisciplinasAdapter extends RecyclerView.Adapter<ExploreDisci
         protected TextView disciplinaDescription;
         protected RatingBar disciplinaScore;
         protected View mCardTopLayout;
+        protected ImageView disciplinaIcon;
 
         public DisciplinasViewHolder(View v) {
             super(v);
@@ -132,6 +148,7 @@ public class ExploreDisciplinasAdapter extends RecyclerView.Adapter<ExploreDisci
             disciplinaScore = (RatingBar) v.findViewById(R.id.disciplina_score);
             disciplinaTitle = (TextView) v.findViewById(R.id.txt_title_disciplina);
             disciplinaDescription = (TextView) v.findViewById(R.id.txt_subtitle_disciplina);
+            disciplinaIcon = (ImageView) v.findViewById(R.id.explore_disciplina_icon);
 
         }
     }

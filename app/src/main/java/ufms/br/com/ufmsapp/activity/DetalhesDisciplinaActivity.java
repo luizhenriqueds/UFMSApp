@@ -18,8 +18,6 @@ package ufms.br.com.ufmsapp.activity;
 
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -29,27 +27,20 @@ import android.support.v4.app.NavUtils;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.graphics.Palette;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
-import com.squareup.picasso.Picasso;
-
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import ufms.br.com.ufmsapp.MyApplication;
 import ufms.br.com.ufmsapp.R;
-import ufms.br.com.ufmsapp.extras.UrlEndpoints;
 import ufms.br.com.ufmsapp.fragment.AlunosDisciplinaFragment;
 import ufms.br.com.ufmsapp.fragment.DetalheDisciplinaFragment;
 import ufms.br.com.ufmsapp.fragment.DisciplinasFragment;
 import ufms.br.com.ufmsapp.fragment.MateriaisDisciplinaFragment;
 import ufms.br.com.ufmsapp.pojo.Disciplina;
-import ufms.br.com.ufmsapp.utils.ConnectionUtils;
 import ufms.br.com.ufmsapp.utils.Constants;
-import ufms.br.com.ufmsapp.utils.VersionUtils;
 
 public class DetalhesDisciplinaActivity extends AppCompatActivity {
 
@@ -85,8 +76,6 @@ public class DetalhesDisciplinaActivity extends AppCompatActivity {
 
         setupViewPager(mPager);
 
-        //mTabs.setSelectedTabIndicatorColor(ContextCompat.getColor(this, R.color.whiteTextColor));
-
         mTabs.setupWithViewPager(mPager);
         mTabs.setSelectedTabIndicatorColor(ContextCompat.getColor(this, R.color.whiteTextColor));
     }
@@ -104,8 +93,8 @@ public class DetalhesDisciplinaActivity extends AppCompatActivity {
 
 
         if (getSupportActionBar() != null) {
-            if (ConnectionUtils.hasConnection(this))
-                new ImageLoaderWorker().execute(UrlEndpoints.URL_ENDPOINT + "ws_images/edit.png");
+            //if (ConnectionUtils.hasConnection(this))
+            // new ImageLoaderWorker().execute(UrlEndpoints.URL_ENDPOINT + "ws_images/edit.png");
 
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
@@ -115,7 +104,7 @@ public class DetalhesDisciplinaActivity extends AppCompatActivity {
         }
     }
 
-    public void setColor(Bitmap bitmap) {
+   /* public void setColor(Bitmap bitmap) {
         Palette.from(bitmap).generate(new Palette.PaletteAsyncListener() {
             @Override
             public void onGenerated(Palette palette) {
@@ -131,7 +120,7 @@ public class DetalhesDisciplinaActivity extends AppCompatActivity {
                 toolbar.setBackgroundColor(lightMutedColor);
             }
         });
-    }
+    }*/
 
     private void setupViewPager(ViewPager viewPager) {
 
@@ -203,7 +192,7 @@ public class DetalhesDisciplinaActivity extends AppCompatActivity {
     }
 
 
-    private class ImageLoaderWorker extends AsyncTask<String, Void, Bitmap> {
+   /* private class ImageLoaderWorker extends AsyncTask<String, Void, Bitmap> {
 
         @Override
         protected Bitmap doInBackground(String... params) {
@@ -225,5 +214,5 @@ public class DetalhesDisciplinaActivity extends AppCompatActivity {
             setColor(bitmap);
         }
 
-    }
+    }*/
 }

@@ -27,7 +27,8 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.squareup.picasso.Picasso;
+import com.amulyakhare.textdrawable.TextDrawable;
+import com.amulyakhare.textdrawable.util.ColorGenerator;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -35,7 +36,6 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 import ufms.br.com.ufmsapp.R;
-import ufms.br.com.ufmsapp.extras.UrlEndpoints;
 import ufms.br.com.ufmsapp.pojo.Evento;
 
 public class ExploreEventosAdapter extends RecyclerView.Adapter<ExploreEventosAdapter.EventosViewHolder> implements View.OnClickListener {
@@ -91,7 +91,18 @@ public class ExploreEventosAdapter extends RecyclerView.Adapter<ExploreEventosAd
         eventosViewHolder.eventoItemTitle.setText(evento.getTitulo());
         eventosViewHolder.eventoItemSubtitle.setText(evento.getDescricao());
         eventosViewHolder.eventoItemTimeStamp.setText(df.format(evento.getDataEventoCriado()));
-        Picasso.with(itemView.getContext()).load(UrlEndpoints.URL_ENDPOINT + evento.getSmallIcon()).into(eventosViewHolder.exploreEventosIcon);
+        //Picasso.with(itemView.getContext()).load(UrlEndpoints.URL_ENDPOINT + evento.getSmallIcon()).into(eventosViewHolder.exploreEventosIcon);
+
+        String firstLetter = String.valueOf(evento.getTitulo().charAt(0));
+
+        ColorGenerator generator = ColorGenerator.MATERIAL;
+
+        int color = generator.getRandomColor();
+
+        TextDrawable drawableImage = TextDrawable.builder()
+                .buildRoundRect(firstLetter, color, 5);
+
+        eventosViewHolder.exploreEventosIcon.setImageDrawable(drawableImage);
 
         setAnimation(eventosViewHolder.mCardTopLayout, i);
     }

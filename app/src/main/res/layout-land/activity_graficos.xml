@@ -35,6 +35,8 @@
             android:id="@+id/chart1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="35dp"
+            android:layout_marginStart="35dp"
             android:orientation="vertical">
 
             <TextView
@@ -79,6 +81,8 @@
             android:id="@+id/chart2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="35dp"
+            android:layout_marginStart="35dp"
             android:orientation="vertical">
 
             <TextView
@@ -125,6 +129,8 @@
             android:id="@+id/chart3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="35dp"
+            android:layout_marginStart="36dp"
             android:orientation="vertical">
 
             <TextView

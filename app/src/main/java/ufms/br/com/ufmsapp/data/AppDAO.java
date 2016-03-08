@@ -370,10 +370,11 @@ public class AppDAO {
 
         String selectQuery =
                 "SELECT * FROM " + DataContract.AlunoXDisciplinaEntry.TABLE_NAME_ALUNO_X_DISCIPLINA + "," + DataContract.DisciplinaEntry.TABLE_NAME_DISCIPLINA + "," + DataContract.AlunoEntry.TABLE_NAME_ALUNO + ","
-                        + DataContract.StatusDisciplinaEntry.TABLE_NAME_STATUS_DISCIPLINA + " WHERE (" + DataContract.AlunoXDisciplinaEntry.DISCIPLINA_FK + " = " + DataContract.DisciplinaEntry.COLUMN_ID_SERVIDOR + ") " +
-                        "AND (" + DataContract.AlunoXDisciplinaEntry.ALUNO_FK + " = " + DataContract.AlunoEntry.COLUMN_ALUNO_ID_SERVIDOR + ") AND (" + DataContract.AlunoXDisciplinaEntry.STATUS_DISCIPLINA_FK + " = "
-                        + DataContract.StatusDisciplinaEntry.COLUMN_STATUS_DISCIPLINA_ID_SERVIDOR + ") AND ("
-                        + DataContract.AlunoEntry.COLUMN_ALUNO_ID_SERVIDOR + " = " + alunoId + ") LIMIT " + limit + ";";
+                        + DataContract.StatusDisciplinaEntry.TABLE_NAME_STATUS_DISCIPLINA + ", " + DataContract.RatingDisciplinaEntry.TABLE_NAME_RATING_DISCIPLINA + " WHERE (" + DataContract.AlunoXDisciplinaEntry.DISCIPLINA_FK + " = " + DataContract.DisciplinaEntry.COLUMN_ID_SERVIDOR + ") " +
+                        " AND (" + DataContract.AlunoXDisciplinaEntry.ALUNO_FK + " = " + DataContract.AlunoEntry.COLUMN_ALUNO_ID_SERVIDOR + ") AND (" + DataContract.AlunoXDisciplinaEntry.STATUS_DISCIPLINA_FK + " = "
+                        + DataContract.StatusDisciplinaEntry.COLUMN_STATUS_DISCIPLINA_ID_SERVIDOR + ")" + "AND (" + DataContract.DisciplinaEntry.COLUMN_ID_SERVIDOR + " = "
+                        + DataContract.RatingDisciplinaEntry.COLUMN_DISCIPLINA_FK + ") AND ("
+                        + DataContract.AlunoEntry.COLUMN_ALUNO_ID_SERVIDOR + " = " + alunoId + ") GROUP BY " + DataContract.DisciplinaEntry.COLUMN_ID_SERVIDOR + " ORDER BY " + DataContract.RatingDisciplinaEntry.COLUMN_RATING + " DESC LIMIT " + limit + ";";
 
         Log.i("DB_TST", selectQuery);
 

@@ -18,9 +18,6 @@ package ufms.br.com.ufmsapp.fragment;
 
 
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
-import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
@@ -35,7 +32,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.RatingBar;
 
 import java.util.ArrayList;
 
@@ -219,12 +215,17 @@ public class ExploreFragment extends Fragment implements ExploreEventosAdapter.O
                 eventos = new ArrayList<>();
 
                 for (int i = 0; i < disciplinas.size(); i++) {
-                    eventos.addAll(MyApplication.getWritableDatabase().listarEventos(disciplinas.get(i).getIdDisciplinaServidor(), 3));
+                    eventos.addAll(MyApplication.getWritableDatabase().listarEventos(disciplinas.get(i).getIdDisciplinaServidor()));
                 }
+
+                ArrayList<Evento> eventosList = new ArrayList<>();
+                eventosList.add(eventos.get(0));
+                eventosList.add(eventos.get(1));
+                eventosList.add(eventos.get(2));
 
                 ArrayList<Disciplina> disciplinas = MyApplication.getWritableDatabase().listarDisciplinas(MyApplication.getWritableDatabase().alunoByEmail(prefs.getEmail()).getAlunoIdServidor(), 3);
 
-                eventosAdapter.setExploreEventosList(eventos);
+                eventosAdapter.setExploreEventosList(eventosList);
                 disciplinasAdapter.setDisciplinaList(disciplinas);
             }
 
