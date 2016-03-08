@@ -1,3 +1,4 @@
+<button id="voltar-eventos"><span><--</span>Voltar</button>
 <div class="mdl-card mdl-shadow--4dp mdl-cell--12-col">
     <div class="mdl-cell--12-col">
         <form class="col s12">
@@ -77,6 +78,12 @@
 
         $('select').material_select();
 
+
+        $("#voltar-eventos").click(function () {
+            $("#eventos-content-container").load("list-eventos.php");
+        });
+
+          
     });
 
 </script>
