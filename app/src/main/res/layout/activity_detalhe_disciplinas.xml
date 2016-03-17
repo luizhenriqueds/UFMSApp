@@ -35,7 +35,7 @@
         <android.support.v7.widget.Toolbar
             android:id="@+id/detalhes_disciplina_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/toolbar_height_normal"
+            android:layout_height="56dp"
             android:background="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|enterAlways"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />

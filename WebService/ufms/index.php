@@ -37,7 +37,7 @@
     <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
     <meta name="msapplication-TileColor" content="#3372DF">
 
-    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="imagens/ufms-logo-favicon.ico">
 
     <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
     <!--
@@ -84,7 +84,7 @@
         <div class="mdl-layout--large-screen-only mdl-layout__header-row">
         </div>
         <div class="mdl-layout--large-screen-only mdl-layout__header-row">
-            <h3>UFMS Mobile v.0.1</h3>
+            <img id="logo" src="imagens/ufms-app-logo-icon.png"/>
         </div>
         <div class="mdl-layout--large-screen-only mdl-layout__header-row">
         </div>

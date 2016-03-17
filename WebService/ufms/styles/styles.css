@@ -24,6 +24,10 @@ html, body {
     padding-left: 40px;
 }
 
+#logo{
+    width: 150px;
+}
+
 .mdl-demo .mdl-layout.is-small-screen .mdl-layout__header-row h3 {
     font-size: inherit;
 }

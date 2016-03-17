@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright [2016] [UFMS]
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -26,11 +25,11 @@
     tools:context="ufms.br.com.ufmsapp.activity.LoginActivity">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_gravity="center"
         android:contentDescription="@string/txt_content_description_logo_login"
-        android:src="@mipmap/ic_filter_list_white_48dp" />
+        android:src="@drawable/ic_launcher_intro" />
 
 
     <LinearLayout
