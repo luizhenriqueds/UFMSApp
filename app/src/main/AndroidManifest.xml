@@ -148,8 +148,7 @@
         <activity
             android:name=".activity.GraficosActivity"
             android:label="@string/title_activity_graficos"
-            android:parentActivityName=".activity.NotasAtividadesActivity"
-            android:theme="@style/AppTheme">
+            android:parentActivityName=".activity.NotasAtividadesActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activity.NotasAtividadesActivity" />

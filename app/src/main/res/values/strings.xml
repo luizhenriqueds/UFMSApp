@@ -289,6 +289,58 @@
     <string name="txt_menu_historico_de_notas">Histórico de notas...</string>
     <string name="txt_menu_comparativo_notas">Comparativo de notas...</string>
     <string name="txt_cd_nav_background">Menu de navegação background</string>
+    <string name="txt_fake_detalhes">Detalhes</string>
+    <string name="txt_fake_disciplina_desc"><![CDATA[Organização de Arquivos. Introdução a Banco de Dados. Modelagem de Banco de Dados Relacional. Banco de Dados Relacionais. Mapeamento Objeto-Relacional. Processamento Transacional. Controle de Concorrência. Fundamentos de SQL.
+        <br/><br/>
+        <strong>Introdução a Banco de Dados</strong>
+        <br/>
+        Conceito e Objetivos
+
+        <br/>
+        Sistemas e Modelos de Dados de Banco de Dados: Hierárquico, Rede, Relacional, Orientado a Objetos
+
+        <br/>
+        Sistemas Gerenciadores de Banco de Dados: definição, funções, catálogo, arquitetura e usuários
+
+        <br/><br/>
+        <strong>Modelagem de Dados</strong>
+        <br/>Definição
+        <br/>Modelo de Dados
+       <br/> Modelo Entidade-Relacionamento (MER)
+        <br/>Componentes: Relacionamentos, Atributos e Entidades
+       <br/> Tuplas e Domínios
+        <br/>Normalização
+        <br/>Simplicidade dos Dados, Dependência Funcional, Estruturas Complexas e Anomalias
+        <br/>Formas Normais
+        <br/>Desnormalização
+        <br/><br/>
+        <strong>Banco de Dados Relacional</strong>
+        <br/>Modelo Relacional
+        <br/>Álgebra Relacional
+        <br/>Cálculo Relacional de Tuplas e Domínios
+        <br/><br/>
+        <strong>Linguagem SQL</strong>
+        <br/>Conceito
+        <br/>Linguagem de Definição de Dados (DDL)
+        <br/>Linguagem de Manipulação de Dados (DML)
+        <br/>Linguagem de Controle de Dados (DCL)
+        <br/><br/><strong>Aplicações e Estudos de Banco de Dados</strong>
+        <br/>SGBD Relacionais: MySQL, PostgreSQL, Microsoft SQL Server, Oracle, DB2
+        <br/>Base de Dados e Esquemas de Dados
+        <br/>Segurança de SGBD:
+        <br/>Acesso e restrições ao sistema: Autenticação e autorização
+        <br/>Injeção de comandos SQL (SQL Injection)
+       <br/> Ferramentas CASE
+        <br/>Criação de aplicação com acesso a Banco de Dados]]>
+    </string>
+    <string name="txt_fake_turma">2015/2</string>
+    <string name="txt_fake_ementa">Ementa</string>
+    <string name="txt_fake_tipo_disciplina">Tipo da Disciplina</string>
+    <string name="txt_obr">OBR</string>
+    <string name="txt_fake_professor">Professor</string>
+    <string name="txt_professor">Luciano Édipo</string>
+    <string name="txt_rate_disciplina">Avalie esta disciplina</string>
+    <string name="txt_rate_button">Avaliar</string>
 
 
 </resources>

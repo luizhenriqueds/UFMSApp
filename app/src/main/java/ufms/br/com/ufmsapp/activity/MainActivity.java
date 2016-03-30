@@ -80,27 +80,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
 
-       /* String seedValue = "201105700070";
-        String password = "LuizLuiz10**";
-        String normalTextEnc;
-        String normalTextDec;
+        if (isSmartphone()) {
+            mDrawerLayout = (DrawerLayout) findViewById(R.id.nav_drawer);
 
-        try {
-            normalTextEnc = PasswordEncryptionUtil.encrypt(password, seedValue);
-            normalTextDec = PasswordEncryptionUtil.decrypt(normalTextEnc, seedValue);
-            Log.i("ENCRYPT", normalTextEnc);
-            Log.i("ENCRYPT", normalTextDec);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }*/
-
-
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.nav_drawer);
-
-        mDrawerToggle = new ActionBarDrawerToggle(
-                this, mDrawerLayout, toolbar, R.string.drawer_open, R.string.drawer_close);
-        mDrawerLayout.setDrawerListener(mDrawerToggle);
-        mDrawerToggle.syncState();
+            mDrawerToggle = new ActionBarDrawerToggle(
+                    this, mDrawerLayout, toolbar, R.string.drawer_open, R.string.drawer_close);
+            mDrawerLayout.setDrawerListener(mDrawerToggle);
+            mDrawerToggle.syncState();
+        }
 
         navigationView = (NavigationView) findViewById(R.id.navigation_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -124,7 +111,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         //selectOptionsMenu(navigationView.getMenu().findItem(mSelectedPosition));
 
+
         findMenuItem(mSelectedPosition);
+
 
     }
 
@@ -141,6 +130,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putInt(SELECTED_MENU_ITEM, mSelectedPosition);
+    }
+
+    private boolean isTablet() {
+        return getResources().getBoolean(R.bool.tablet);
+    }
+
+    private boolean isSmartphone() {
+        return getResources().getBoolean(R.bool.smartphone);
     }
 
     @Override
@@ -197,7 +194,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         menuItem.setChecked(true);
         setTitle(menuItem.getTitle());
-        mDrawerLayout.closeDrawer(GravityCompat.START);
+
+        if (isSmartphone()) {
+            mDrawerLayout.closeDrawer(GravityCompat.START);
+        }
     }
 
     @Override

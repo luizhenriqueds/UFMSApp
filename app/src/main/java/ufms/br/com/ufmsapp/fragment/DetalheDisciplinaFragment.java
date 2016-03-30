@@ -109,6 +109,8 @@ public class DetalheDisciplinaFragment extends Fragment implements AvaliarDiscip
             Professor professor = MyApplication.getWritableDatabase().professorById(disciplina.getProfessor());
 
             disciplinaEmenta.setText(disciplina.getDescricao());
+            //disciplinaEmenta.setText(Html.fromHtml(getString(R.string.txt_fake_disciplina_desc)));
+
             disciplinaTipo.setText(tipoDisciplina.getTipoDisciplinaDescricao());
             disciplinaProfessor.setText(professor.getNome());
             disciplinaCargaHoraria.setText(String.valueOf(disciplina.getCargaHoraria() + CARGA_HORARIA_UN_TEMPO));

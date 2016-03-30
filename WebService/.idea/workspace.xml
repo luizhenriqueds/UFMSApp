@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f27fee75-9493-4c44-a8c3-c12b7695b42b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ufms/imagens/ufms-app-logo-icon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ufms/imagens/ufms-logo-favicon.ico" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ufms/index.php" afterPath="$PROJECT_DIR$/ufms/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ufms/styles/styles.css" afterPath="$PROJECT_DIR$/ufms/styles/styles.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ufms/list-eventos.php" afterPath="$PROJECT_DIR$/ufms/list-eventos.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/../app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/activity/LoginActivity.java" afterPath="$PROJECT_DIR$/../app/src/main/java/ufms/br/com/ufmsapp/activity/LoginActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout/activity_detalhe_disciplinas.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/activity_detalhe_disciplinas.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout/fragment_detalhes_evento.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/fragment_detalhes_evento.xml" />
     </list>
     <ignored path="WebService.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -52,17 +47,46 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ufms/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="316">
-              <caret line="43" column="57" selection-start-line="43" selection-start-column="57" selection-end-line="43" selection-end-column="57" />
+            <state relative-caret-position="260">
+              <caret line="61" column="93" selection-start-line="61" selection-start-column="93" selection-end-line="61" selection-end-column="93" />
               <folding>
-                <marker date="1458166695168" expanded="true" signature="6881:7003" placeholder="..." />
-                <marker date="1458166695168" expanded="true" signature="6881:7004" placeholder="..." />
-                <marker date="1458166695168" expanded="true" signature="6881:7116" placeholder="..." />
-                <marker date="1458166695168" expanded="true" signature="7154:7333" placeholder="..." />
-                <marker date="1458166695168" expanded="true" signature="7154:7439" placeholder="..." />
-                <marker date="1458166695168" expanded="true" signature="7154:7530" placeholder="..." />
-                <marker date="1458166695168" expanded="true" signature="8645:9109" placeholder="..." />
+                <marker date="1458518083440" expanded="true" signature="7051:7173" placeholder="..." />
+                <marker date="1458518083440" expanded="true" signature="7051:7174" placeholder="..." />
+                <marker date="1458518083440" expanded="true" signature="7051:7286" placeholder="..." />
+                <marker date="1458518083440" expanded="true" signature="7324:7503" placeholder="..." />
+                <marker date="1458518083440" expanded="true" signature="7324:7511" placeholder="..." />
+                <marker date="1458518083440" expanded="true" signature="7324:7609" placeholder="..." />
+                <marker date="1458518083440" expanded="true" signature="7324:7700" placeholder="..." />
+                <marker date="1458518083440" expanded="true" signature="8815:9279" placeholder="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="list-eventos.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ufms/list-eventos.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="231">
+              <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+              <folding>
+                <marker date="1458518141117" expanded="true" signature="512:571" placeholder="..." />
+                <marker date="1458518141117" expanded="true" signature="512:938" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="henriqueweb.app_evento" pinned="false" current-in-tab="false">
+        <entry file="dbDummy://dbtable:/ffb7cd95/780dede2-020c-4f69-a946-3f1b6b644e74/henriqueweb.app_evento">
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
             </state>
           </provider>
         </entry>
@@ -80,8 +104,8 @@
       <file leaf-file-name="UfmsDAO.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ufms/UfmsDAO.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3135">
-              <caret line="100" column="8" selection-start-line="100" selection-start-column="8" selection-end-line="100" selection-end-column="8" />
+            <state relative-caret-position="1081">
+              <caret line="134" column="16" selection-start-line="134" selection-start-column="16" selection-end-line="134" selection-end-column="363" />
               <folding>
                 <element signature="e#7#96#0#PHP" expanded="true" />
                 <marker date="1457310101288" expanded="true" signature="2827:3182" placeholder="SELECT app_n... app_evento" />
@@ -99,7 +123,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/780dede2-020c-4f69-a946-3f1b6b644e74/console.sql" />
         <option value="$PROJECT_DIR$/connection/Connect.php" />
         <option value="$PROJECT_DIR$/list/listAlunoxDisciplinas.php" />
         <option value="$PROJECT_DIR$/list/listStatusDisciplina.php" />
@@ -142,10 +165,12 @@
         <option value="$PROJECT_DIR$/ufms/styles.css" />
         <option value="$PROJECT_DIR$/ufms/index.html" />
         <option value="$PROJECT_DIR$/ufms/UfmsDAO.php" />
-        <option value="$PROJECT_DIR$/ufms/list-eventos.php" />
         <option value="$PROJECT_DIR$/ufms/add-evento-form.php" />
         <option value="$PROJECT_DIR$/ufms/styles/styles.css" />
+        <option value="dbtable:/ffb7cd95/780dede2-020c-4f69-a946-3f1b6b644e74/henriqueweb.app_evento" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/780dede2-020c-4f69-a946-3f1b6b644e74/console.sql" />
         <option value="$PROJECT_DIR$/ufms/index.php" />
+        <option value="$PROJECT_DIR$/ufms/list-eventos.php" />
       </list>
     </option>
   </component>
@@ -189,6 +214,19 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane">
+        <subPane />
+      </pane>
+      <pane id="Scratches">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.intellij.ide.scratch.ScratchProjectViewPane$MyProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="Scope">
         <subPane subId="Project Files">
           <PATH>
@@ -231,19 +269,6 @@
             <PATH_ELEMENT USER_OBJECT="imagens">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="ProjectPane">
-        <subPane />
-      </pane>
-      <pane id="Scratches">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.intellij.ide.scratch.ScratchProjectViewPane$MyProjectNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -296,6 +321,7 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
       <node-options />
       <gulpfile />
       <tasks />
@@ -307,6 +333,7 @@
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
       <command value="run-script" />
       <scripts />
+      <node-interpreter value="project" />
       <envs />
       <method />
     </configuration>
@@ -322,34 +349,44 @@
       <changelist id="f27fee75-9493-4c44-a8c3-c12b7695b42b" name="Default" comment="" />
       <created>1448307655954</created>
       <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
       <updated>1448307655954</updated>
+      <workItem from="1458362896057" duration="1629000" />
+      <workItem from="1458517150911" duration="1598000" />
     </task>
     <task id="LOCAL-00001" summary="Listagem das notas das disciplinas.">
       <created>1453261377882</created>
       <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
       <updated>1453261377882</updated>
     </task>
     <task id="LOCAL-00002" summary="Rate Disciplinas Web Service -&gt; POST">
       <created>1453479908099</created>
       <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
       <updated>1453479908099</updated>
     </task>
     <task id="LOCAL-00003" summary="Lista eventos datatable adicionada">
       <created>1457451961745</created>
       <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
       <updated>1457451961745</updated>
     </task>
     <task id="LOCAL-00004" summary="Lista eventos datatable adicionada">
       <created>1457452886645</created>
       <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
       <updated>1457452886645</updated>
     </task>
     <option name="localTasksCounter" value="5" />
     <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="3227000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -364,16 +401,19 @@
     <frame x="-13" y="-13" width="3226" height="1746" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2027635" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17898458" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297659" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297659" sideWeight="0.5" order="14" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14813624" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27855712" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32932532" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297659" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2027635" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329097" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18123393" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14749357" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -381,12 +421,9 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35518396" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32932532" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297659" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -413,13 +450,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/update/updateRateDisciplina.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/update/updateRateDisciplina.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -659,46 +689,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="uml://DATABASE/780dede2-020c-4f69-a946-3f1b6b644e74">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>DATABASE</ID>
-          <OriginalElement>780dede2-020c-4f69-a946-3f1b6b644e74</OriginalElement>
-          <nodes>
-            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_status_aluno</node>
-            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_curso</node>
-            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_status_disciplina</node>
-            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_aluno_x_disciplina</node>
-            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_rating_disciplina</node>
-            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_periodo_curso</node>
-            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_evento_uploads</node>
-            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_nota</node>
-            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_professor</node>
-            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_tipo_evento</node>
-            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_tipo_curso</node>
-            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_disciplina_tipo</node>
-            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_evento</node>
-            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_aluno</node>
-            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_dispositivo</node>
-            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_feedback_usuario</node>
-            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_titulo_professor</node>
-            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_disciplina</node>
-            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_professor_x_disciplina</node>
-            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_turma</node>
-            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_user_access</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="0.594812925170068" x="1745.0" y="1146.0" />
-          <SelectedNodes />
-          <Categories>
-            <Category>Columns</Category>
-            <Category>Key columns</Category>
-          </Categories>
-          <SCOPE>All</SCOPE>
-        </state>
-      </provider>
-    </entry>
     <entry file="uml://DATABASE/780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_disciplina_tipo">
       <provider selected="true" editor-type-id="UmlEditorProvider">
         <state>
@@ -772,48 +762,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="uml://DATABASE/780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_disciplina">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>DATABASE</ID>
-          <OriginalElement>780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_disciplina</OriginalElement>
-          <nodes>
-            <node x="474.0" y="283.0">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_disciplina_tipo</node>
-            <node x="211.0" y="566.0">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_disciplina</node>
-            <node x="4.0" y="0.0">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_titulo_professor</node>
-            <node x="0.0" y="195.0">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_professor</node>
-          </nodes>
-          <notes />
-          <edges>
-            <edge source="780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_professor" target="780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_titulo_professor">
-              <point x="0.0" y="-160.5" />
-              <point x="0.0" y="72.5" />
-            </edge>
-            <edge source="780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_disciplina" target="780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_disciplina_tipo">
-              <point x="123.5" y="-204.5" />
-              <point x="581.5" y="541.0" />
-              <point x="689.0" y="541.0" />
-              <point x="0.0" y="72.5" />
-            </edge>
-            <edge source="780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_disciplina" target="780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_professor">
-              <point x="-123.5" y="-204.5" />
-              <point x="334.5" y="541.0" />
-              <point x="227.0" y="541.0" />
-              <point x="0.0" y="160.5" />
-            </edge>
-          </edges>
-          <settings layout="Hierarchic Group" zoom="1.0" x="-633.0" y="28.0" />
-          <SelectedNodes>
-            <node>780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_disciplina</node>
-          </SelectedNodes>
-          <Categories>
-            <Category>Columns</Category>
-            <Category>Key columns</Category>
-          </Categories>
-          <SCOPE>All</SCOPE>
-        </state>
-      </provider>
-    </entry>
     <entry file="uml://DATABASE/780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_user_access">
       <provider selected="true" editor-type-id="UmlEditorProvider">
         <state>
@@ -827,33 +775,6 @@
           <notes />
           <edges />
           <settings layout="Hierarchic Group" zoom="1.0" x="204.0" y="356.0" />
-          <SelectedNodes />
-          <Categories>
-            <Category>Columns</Category>
-            <Category>Key columns</Category>
-          </Categories>
-          <SCOPE>All</SCOPE>
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://DATABASE/780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_nota">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>DATABASE</ID>
-          <OriginalElement>780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_nota</OriginalElement>
-          <nodes>
-            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_disciplina_tipo</node>
-            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_status_aluno</node>
-            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_status_disciplina</node>
-            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_aluno</node>
-            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_aluno_x_disciplina</node>
-            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_disciplina</node>
-            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_turma</node>
-            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_nota</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="0.8716510903426792" x="980.0" y="733.0" />
           <SelectedNodes />
           <Categories>
             <Category>Columns</Category>
@@ -896,38 +817,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="dbDummy://dbtable:/ffb7cd95/780dede2-020c-4f69-a946-3f1b6b644e74/henriqueweb.app_evento">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://DATABASE/780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_evento">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>DATABASE</ID>
-          <OriginalElement>780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_evento</OriginalElement>
-          <nodes>
-            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_evento</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="0.9339118825100133" x="1247.0" y="739.0" />
-          <SelectedNodes />
-          <Categories>
-            <Category>Columns</Category>
-            <Category>Key columns</Category>
-          </Categories>
-          <SCOPE>All</SCOPE>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/connection/Connect.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="297">
@@ -944,26 +833,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="483">
           <caret line="7" column="7514" selection-start-line="7" selection-start-column="7514" selection-end-line="7" selection-end-column="7514" />
-          <folding>
-            <element signature="e#49711#51412#2" expanded="true" />
-            <element signature="e#51418#53119#2" expanded="true" />
-            <element signature="e#53314#54211#1" expanded="true" />
-            <element signature="e#54375#55272#1" expanded="true" />
-            <element signature="e#75562#76163#2" expanded="true" />
-            <element signature="e#76169#76770#2" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ufms/UfmsDAO.php">
+    <entry file="file://$PROJECT_DIR$/webservice/list/listMateriais.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3135">
-          <caret line="100" column="8" selection-start-line="100" selection-start-column="8" selection-end-line="100" selection-end-column="8" />
-          <folding>
-            <element signature="e#7#96#0#PHP" expanded="true" />
-            <marker date="1457310101288" expanded="true" signature="2827:3182" placeholder="SELECT app_n... app_evento" />
-            <marker date="1457310101288" expanded="true" signature="3710:4057" placeholder="SELECT app_n... app_evento" />
-          </folding>
+        <state relative-caret-position="627">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -975,20 +851,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ufms/list-eventos.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1023">
-          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webservice/list/listMateriais.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="627">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ufms/styles/styles.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="627">
@@ -997,18 +859,177 @@
         </state>
       </provider>
     </entry>
+    <entry file="uml://DATABASE/780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_evento">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>DATABASE</ID>
+          <OriginalElement>780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_evento</OriginalElement>
+          <nodes>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_evento</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_disciplina</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_tipo_evento</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="457.0" y="456.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Columns</Category>
+            <Category>Key columns</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://DATABASE/780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_disciplina">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>DATABASE</ID>
+          <OriginalElement>780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_disciplina</OriginalElement>
+          <nodes>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_disciplina_tipo</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_titulo_professor</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_disciplina</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_professor</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="452.0" y="488.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Columns</Category>
+            <Category>Key columns</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://DATABASE/780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_nota">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>DATABASE</ID>
+          <OriginalElement>780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_nota</OriginalElement>
+          <nodes>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_disciplina_tipo</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_status_aluno</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_status_disciplina</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_aluno</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_aluno_x_disciplina</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_titulo_professor</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_disciplina</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_turma</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_professor</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_nota</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.8716510903426792" x="965.0" y="773.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Columns</Category>
+            <Category>Key columns</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://DATABASE/780dede2-020c-4f69-a946-3f1b6b644e74">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>DATABASE</ID>
+          <OriginalElement>780dede2-020c-4f69-a946-3f1b6b644e74</OriginalElement>
+          <nodes>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_curso</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_status_aluno</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_status_disciplina</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_aluno_x_disciplina</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_rating_disciplina</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_periodo_curso</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_evento_uploads</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_professor</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_nota</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_tipo_evento</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_tipo_curso</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_evento</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_disciplina_tipo</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_aluno</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_dispositivo</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_feedback_usuario</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_disciplina</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_titulo_professor</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_professor_x_disciplina</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_turma</node>
+            <node x="" y="">780dede2-020c-4f69-a946-3f1b6b644e74.TABLE:henriqueweb.app_user_access</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.594812925170068" x="1749.0" y="1166.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Columns</Category>
+            <Category>Key columns</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ufms/UfmsDAO.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1081">
+          <caret line="134" column="16" selection-start-line="134" selection-start-column="16" selection-end-line="134" selection-end-column="363" />
+          <folding>
+            <element signature="e#7#96#0#PHP" expanded="true" />
+            <marker date="1457310101288" expanded="true" signature="2827:3182" placeholder="SELECT app_n... app_evento" />
+            <marker date="1457310101288" expanded="true" signature="3710:4057" placeholder="SELECT app_n... app_evento" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/780dede2-020c-4f69-a946-3f1b6b644e74/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="197" selection-start-line="0" selection-start-column="197" selection-end-line="0" selection-end-column="197" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/ffb7cd95/780dede2-020c-4f69-a946-3f1b6b644e74/henriqueweb.app_evento">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ufms/list-eventos.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding>
+            <marker date="1458518141117" expanded="true" signature="512:571" placeholder="..." />
+            <marker date="1458518141117" expanded="true" signature="512:938" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ufms/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="43" column="57" selection-start-line="43" selection-start-column="57" selection-end-line="43" selection-end-column="57" />
+        <state relative-caret-position="260">
+          <caret line="61" column="93" selection-start-line="61" selection-start-column="93" selection-end-line="61" selection-end-column="93" />
           <folding>
-            <marker date="1458166695168" expanded="true" signature="6881:7003" placeholder="..." />
-            <marker date="1458166695168" expanded="true" signature="6881:7004" placeholder="..." />
-            <marker date="1458166695168" expanded="true" signature="6881:7116" placeholder="..." />
-            <marker date="1458166695168" expanded="true" signature="7154:7333" placeholder="..." />
-            <marker date="1458166695168" expanded="true" signature="7154:7439" placeholder="..." />
-            <marker date="1458166695168" expanded="true" signature="7154:7530" placeholder="..." />
-            <marker date="1458166695168" expanded="true" signature="8645:9109" placeholder="..." />
+            <marker date="1458518083440" expanded="true" signature="7051:7173" placeholder="..." />
+            <marker date="1458518083440" expanded="true" signature="7051:7174" placeholder="..." />
+            <marker date="1458518083440" expanded="true" signature="7051:7286" placeholder="..." />
+            <marker date="1458518083440" expanded="true" signature="7324:7503" placeholder="..." />
+            <marker date="1458518083440" expanded="true" signature="7324:7511" placeholder="..." />
+            <marker date="1458518083440" expanded="true" signature="7324:7609" placeholder="..." />
+            <marker date="1458518083440" expanded="true" signature="7324:7700" placeholder="..." />
+            <marker date="1458518083440" expanded="true" signature="8815:9279" placeholder="..." />
           </folding>
         </state>
       </provider>

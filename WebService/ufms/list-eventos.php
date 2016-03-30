@@ -21,7 +21,7 @@
     foreach ($eventos as $row) {
         echo '
           <tr>
-           <td class="mdl-data-table__cell--non-numeric">' . $row['app_nome_evento'] . '</td>
+           <td class="mdl-data-table__cell--non-numeric">' . utf8_encode($row['app_nome_evento']) . '</td>
            <td>' . utf8_encode(substr($row['app_descricao_evento'], 0, 20)) . '...</td>
            <td>' . date("d/m/Y", strtotime($row['app_evento_timestamp'])) . '</td>
            <td>' . utf8_encode($row['app_descricao_tipo_evento']) . '</td>

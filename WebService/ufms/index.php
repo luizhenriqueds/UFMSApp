@@ -103,13 +103,15 @@
                 <div class="mdl-card mdl-cell mdl-cell--12-col">
                     <div class="mdl-card__supporting-text">
                         <h4>Projeto</h4>
-                        Dolore ex deserunt aute fugiat aute nulla ea sunt aliqua nisi cupidatat eu. Nostrud in laboris
-                        labore nisi amet do dolor eu fugiat consectetur elit cillum esse. Pariatur occaecat nisi laboris
-                        tempor laboris eiusmod qui id Lorem esse commodo in. Exercitation aute dolore deserunt culpa
-                        consequat elit labore incididunt elit anim.
+                        Este projeto tem o objetivo de disponibilizar uma aplicação Android que funcionará
+                        em conjunto com esta aplicação web para auxiliar na comunicação entre professores e alunos da
+                        instituição <a href="http://cpan.sites.ufms.br/" target="_blank">UFMS</a>.
+                        Para saber mais, acesse este projeto no <a target="_blank"
+                                                                   href="https://github.com/luizhsda10/UFMSApp">GitHub</a>.
                     </div>
                     <div class="mdl-card__actions">
-                        <a href="#" class="mdl-button">Conheça mais sobre este projeto</a>
+                        <a href="https://github.com/luizhsda10/UFMSApp" class="mdl-button">Conheça mais sobre este
+                            projeto</a>
                     </div>
                 </div>
                 <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="btn3">

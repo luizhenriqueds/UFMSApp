@@ -28,6 +28,7 @@ import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
@@ -124,6 +125,14 @@ public class NotasFragment extends Fragment implements ListaDisciplinaNotasAdapt
                 searchManager.getSearchableInfo(getActivity().getComponentName()));
     }
 
+    private boolean isTablet() {
+        return getResources().getBoolean(R.bool.tablet);
+    }
+
+    private boolean isSmartphone() {
+        return getResources().getBoolean(R.bool.smartphone);
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -142,11 +151,11 @@ public class NotasFragment extends Fragment implements ListaDisciplinaNotasAdapt
         swipeRefreshNotas.setColorSchemeResources(R.color.green, R.color.blue, R.color.yellow);
 
 
-        //  if (OrientationUtils.isPortrait(getResources().getConfiguration())) {
-        mRecyclerDisciplinasNota.setLayoutManager(new LinearLayoutManager(getActivity()));
-        //} else {
-        // mRecyclerDisciplinasNota.setLayoutManager(new GridLayoutManager(getActivity(), 2));
-        // }
+        if (isTablet()) {
+            mRecyclerDisciplinasNota.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+        } else {
+            mRecyclerDisciplinasNota.setLayoutManager(new LinearLayoutManager(getActivity()));
+        }
 
         progressBar = (CircularProgressBar) view.findViewById(R.id.progress_bar_list_notas);
 

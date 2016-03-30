@@ -161,8 +161,10 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void enableProgress(boolean indeterminate, int visible) {
-        progressBar.setVisibility(visible);
-        progressBar.setIndeterminate(indeterminate);
+        if(progressBar != null){
+            progressBar.setVisibility(visible);
+            progressBar.setIndeterminate(indeterminate);
+        }
     }
 
     public void userLogin(View view) {
