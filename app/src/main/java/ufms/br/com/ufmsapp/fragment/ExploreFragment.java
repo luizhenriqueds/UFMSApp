@@ -214,14 +214,21 @@ public class ExploreFragment extends Fragment implements ExploreEventosAdapter.O
                 disciplinas = MyApplication.getWritableDatabase().listarDisciplinas(MyApplication.getWritableDatabase().alunoByEmail(prefs.getEmail()).getAlunoIdServidor());
                 eventos = new ArrayList<>();
 
-                for (int i = 0; i < disciplinas.size(); i++) {
-                    eventos.addAll(MyApplication.getWritableDatabase().listarEventos(disciplinas.get(i).getIdDisciplinaServidor()));
+
+                if (!disciplinas.isEmpty()) {
+                    for (int i = 0; i < disciplinas.size(); i++) {
+                        eventos.addAll(MyApplication.getWritableDatabase().listarEventos(disciplinas.get(i).getIdDisciplinaServidor()));
+                    }
                 }
 
+
                 ArrayList<Evento> eventosList = new ArrayList<>();
-                eventosList.add(eventos.get(0));
-                eventosList.add(eventos.get(1));
-                eventosList.add(eventos.get(2));
+
+                if (!eventos.isEmpty()) {
+                    eventosList.add(eventos.get(0));
+                    eventosList.add(eventos.get(1));
+                    eventosList.add(eventos.get(2));
+                }
 
                 ArrayList<Disciplina> disciplinas = MyApplication.getWritableDatabase().listarDisciplinas(MyApplication.getWritableDatabase().alunoByEmail(prefs.getEmail()).getAlunoIdServidor(), 3);
 

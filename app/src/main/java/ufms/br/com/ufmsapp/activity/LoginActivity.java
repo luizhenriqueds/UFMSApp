@@ -64,6 +64,7 @@ import ufms.br.com.ufmsapp.network.VolleySingleton;
 import ufms.br.com.ufmsapp.pojo.Aluno;
 import ufms.br.com.ufmsapp.preferences.UserSessionPreference;
 import ufms.br.com.ufmsapp.task.TaskLoadAlunos;
+import ufms.br.com.ufmsapp.utils.ConnectionUtils;
 import ufms.br.com.ufmsapp.utils.PasswordEncryptionUtil;
 
 public class LoginActivity extends AppCompatActivity {
@@ -87,7 +88,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-       // startGooglePlayService();
+        // startGooglePlayService();
 
         prefs = new UserSessionPreference(this);
 
@@ -161,7 +162,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void enableProgress(boolean indeterminate, int visible) {
-        if(progressBar != null){
+        if (progressBar != null) {
             progressBar.setVisibility(visible);
             progressBar.setIndeterminate(indeterminate);
         }
@@ -192,7 +193,10 @@ public class LoginActivity extends AppCompatActivity {
 
                                     if (!getUpdatedServidor()) {
                                         registerUser(aluno.getAlunoIdServidor());
-                                        DataHelper.sincronizarDados();
+
+                                        if (ConnectionUtils.hasConnection(LoginActivity.this)) {
+                                            DataHelper.sincronizarDados();
+                                        }
                                     }
 
                                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
