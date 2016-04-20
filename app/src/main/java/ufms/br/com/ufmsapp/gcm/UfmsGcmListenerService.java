@@ -43,6 +43,7 @@ import ufms.br.com.ufmsapp.fragment.NotasFragment;
 import ufms.br.com.ufmsapp.preferences.UserSessionPreference;
 import ufms.br.com.ufmsapp.task.TaskLoadDisciplinasOnStart;
 import ufms.br.com.ufmsapp.task.TaskLoadEventosOnStart;
+import ufms.br.com.ufmsapp.task.TaskLoadMateriais;
 import ufms.br.com.ufmsapp.task.TaskLoadNotas;
 import ufms.br.com.ufmsapp.utils.Constants;
 
@@ -67,6 +68,12 @@ public class UfmsGcmListenerService extends GcmListenerService {
             if (data != null) {
                 String message = data.getString("mensagem");
                 String type = data.getString("type");
+                String title = data.getString("title");
+                String disciplina = data.getString("disciplina");
+
+                // Log.i("GCM", message);
+                // Log.i("GCM", type);
+                // Log.i("GCM", title);
 
                 String eventoId = null;
                 String disciplinaId = null;
@@ -94,10 +101,12 @@ public class UfmsGcmListenerService extends GcmListenerService {
                         //sincronizar eventos com o servidor
                         new TaskLoadEventosOnStart().execute();
 
+                        new TaskLoadMateriais().execute();
+
                         //disparar notificação
                         if (eventoId != null) {
                             if (isNotificationEnabled)
-                                buildGcmNotification(getString(R.string.txt_notificacao_eventos), message, DetalhesEventoActivity.class, Constants.EVENTO_CREATED_EXTRA, eventoId);
+                                buildGcmNotificationEvento(title, message, DetalhesEventoActivity.class, Constants.EVENTO_CREATED_EXTRA, eventoId, disciplina);
                         }
                     }
 
@@ -154,6 +163,38 @@ public class UfmsGcmListenerService extends GcmListenerService {
         context.sendBroadcast(intent);
     }
 
+    private void buildGcmNotificationEvento(String title, String msg, Class mClass, String intentExtraName, String valueId, String disciplina) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        boolean isSoundEnabled = prefs.getBoolean(getResources().getString(R.string.pref_notification_sound), true);
+
+        NotificationManagerCompat nm = NotificationManagerCompat.from(this);
+        Intent it = new Intent(this, mClass);
+        it.putExtra(intentExtraName, valueId);
+        TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
+        stackBuilder.addNextIntent(it);
+        PendingIntent pit = stackBuilder.getPendingIntent(
+                0, PendingIntent.FLAG_UPDATE_CURRENT);
+        NotificationCompat.Builder mBuilder =
+                new NotificationCompat.Builder(this);
+
+        if (isSoundEnabled) {
+            mBuilder.setDefaults(Notification.DEFAULT_ALL);
+        }
+
+        NotificationCompat.BigTextStyle bigTextStyle = new NotificationCompat.BigTextStyle();
+        bigTextStyle.setBigContentTitle(title)
+                .setSummaryText(disciplina)
+                .bigText(msg);
+
+        mBuilder.setStyle(bigTextStyle);
+        mBuilder.setAutoCancel(true);
+        mBuilder.setContentIntent(pit);
+        mBuilder.setColor(ContextCompat.getColor(this, R.color.accentColor));
+        mBuilder.setSmallIcon(R.mipmap.ic_launcher_white);
+        mBuilder.setContentTitle(title);
+        mBuilder.setContentText(msg);
+        nm.notify(NOTIFICATION_ID, mBuilder.build());
+    }
 
     private void buildGcmNotification(String title, String msg, Class mClass, String intentExtraName, String valueId) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
@@ -172,10 +213,16 @@ public class UfmsGcmListenerService extends GcmListenerService {
         if (isSoundEnabled) {
             mBuilder.setDefaults(Notification.DEFAULT_ALL);
         }
+
+        NotificationCompat.BigTextStyle bigTextStyle = new NotificationCompat.BigTextStyle();
+        bigTextStyle.setBigContentTitle(title)
+                .bigText(msg);
+
+        mBuilder.setStyle(bigTextStyle);
         mBuilder.setAutoCancel(true);
         mBuilder.setContentIntent(pit);
         mBuilder.setColor(ContextCompat.getColor(this, R.color.accentColor));
-        mBuilder.setSmallIcon(R.mipmap.ic_launcher);
+        mBuilder.setSmallIcon(R.mipmap.ic_launcher_white);
         mBuilder.setContentTitle(title);
         mBuilder.setContentText(msg);
         nm.notify(NOTIFICATION_ID, mBuilder.build());

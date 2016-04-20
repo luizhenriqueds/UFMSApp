@@ -100,6 +100,52 @@ class UfmsDAO
 
      }*/
 
+    public static function adicionarEvento($nomeEvento, $descricaoEvento, $eventoTimeStamp, $dataLimiteEvento, $selectTipoEvento, $selectDisciplina)
+    {
+        try {
+
+            $db = UfmsDAO::connect();
+
+            $sql = 'INSERT INTO app_evento (app_nome_evento, app_descricao_evento, app_evento_timestamp, app_evento_data_limite, app_evento_small_icon, app_evento_big_icon, app_tipo_evento_fk, app_disciplina_fk) 
+                    VALUES (?, ?, ?, ?, ?, ?, (SELECT app_id_tipo_evento FROM app_tipo_evento WHERE app_descricao_tipo_evento = ?), (SELECT app_id_disciplina FROM app_disciplina WHERE app_titulo_disciplina = ?));';
+
+            $stmt = $db->prepare($sql);
+            $stmt->execute(array($nomeEvento, $descricaoEvento, $eventoTimeStamp, $dataLimiteEvento, NULL, NULL, $selectTipoEvento, $selectDisciplina));
+
+            self::disconnect();
+
+            return $db->lastInsertId('app_id_evento');
+        } catch (PDOException $e) {
+            self::disconnect();
+            echo $e->getMessage();
+            return false;
+        }
+
+    }
+
+    public static function adicionarAnexo($eventoPath, $eventoKey)
+    {
+        try {
+
+            $db = UfmsDAO::connect();
+
+            $sql = 'INSERT INTO app_evento_uploads (app_upload_path, app_evento_key) VALUES (?, ?);';
+
+            $stmt = $db->prepare($sql);
+            $stmt->execute(array($eventoPath, $eventoKey));
+
+            self::disconnect();
+
+            return true;
+        } catch (PDOException $e) {
+            self::disconnect();
+            echo $e->getMessage();
+            return false;
+        }
+
+    }
+
+
     public static function getEventosOverview()
     {
         $databaseConnection = self::connect();
@@ -133,6 +179,61 @@ class UfmsDAO
         $databaseConnection = self::connect();
 
         $sql = 'SELECT app_nome_evento, app_descricao_evento, app_evento_timestamp, app_evento_data_limite, app_descricao_tipo_evento, app_titulo_disciplina FROM app_evento, app_disciplina, app_tipo_evento WHERE (app_tipo_evento_fk = app_tipo_evento.app_id_tipo_evento) AND (app_disciplina_fk = app_disciplina.app_id_disciplina) ORDER BY app_evento_timestamp DESC';
+
+        $query = $databaseConnection->prepare($sql);
+
+
+        $isQueryOk = $query->execute();
+
+        $results = array();
+
+        if ($isQueryOk) {
+            $query->setFetchMode(PDO::FETCH_ASSOC);
+
+            $results = $query->fetchAll();
+
+        } else {
+            trigger_error('Error executing statement . ', E_USER_ERROR);
+        }
+
+        self::disconnect();
+
+        return $results;
+    }
+
+
+    public static function getTipoEventos()
+    {
+        $databaseConnection = self::connect();
+
+        $sql = 'SELECT * FROM app_tipo_evento';
+
+        $query = $databaseConnection->prepare($sql);
+
+
+        $isQueryOk = $query->execute();
+
+        $results = array();
+
+        if ($isQueryOk) {
+            $query->setFetchMode(PDO::FETCH_ASSOC);
+
+            $results = $query->fetchAll();
+
+        } else {
+            trigger_error('Error executing statement . ', E_USER_ERROR);
+        }
+
+        self::disconnect();
+
+        return $results;
+    }
+
+    public static function getDisciplinas()
+    {
+        $databaseConnection = self::connect();
+
+        $sql = 'SELECT * FROM app_disciplina ORDER BY app_titulo_disciplina';
 
         $query = $databaseConnection->prepare($sql);
 

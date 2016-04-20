@@ -48,7 +48,7 @@ public class SettingsActivity extends AppCompatActivity {
                 startActivity(new Intent(this, FeedbackActivity.class));
                 break;
             case R.id.action_github:
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(GITHUB_URL));
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(GITHUB_URL)); 
                 startActivity(intent);
                 break;
         }

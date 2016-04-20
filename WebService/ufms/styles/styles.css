@@ -163,6 +163,12 @@ html, body {
     background-color: #448AFF;
 }
 
+.back-button{
+    background-color: #448AFF !important;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
 .form-buttons {
     background-color: #448AFF !important;
     float: right;

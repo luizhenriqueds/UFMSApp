@@ -16,6 +16,9 @@
   limitations under the License
 -->
 <html lang="en">
+<?php
+session_start();
+?>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -88,17 +91,52 @@
         </div>
         <div class="mdl-layout--large-screen-only mdl-layout__header-row">
         </div>
-        <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
-            <a href="#overview" class="mdl-layout__tab is-active">Home</a>
-            <a href="#eventos" class="mdl-layout__tab">Eventos</a>
-            <a href="#disciplinas" class="mdl-layout__tab">Disciplinas</a>
-            <a href="#matriculas" class="mdl-layout__tab">Matriculas</a>
-            <a href="#notas" class="mdl-layout__tab">Notas</a>
 
-        </div>
+        <?php
+
+        if (isset($_SESSION['evento-added']) && ($_SESSION['evento-added'] == 1)) {
+            echo '
+                    <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
+                         <a href="#overview" class="mdl-layout__tab">Home</a>
+                         <a href="#eventos" class="mdl-layout__tab is-active">Eventos</a>
+                         <a href="#disciplinas" class="mdl-layout__tab">Disciplinas</a>
+                         <a href="#matriculas" class="mdl-layout__tab">Matriculas</a>
+                         <a href="#notas" class="mdl-layout__tab">Notas</a>        
+                     </div>
+                     
+                     <script>
+                      $(document).ready(function () {
+                        $("#overview").removeClass("is-active");
+                        $("#eventos").addClass("is-active");
+                        $("#eventos-content-container").load("list-eventos.php");
+                        alert("Evento adicionado com sucesso!");
+                      });
+                    </script>
+                   ';
+        } else {
+            echo '
+                    <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
+                        <a href="#overview" class="mdl-layout__tab is-active">Home</a>
+                        <a href="#eventos" class="mdl-layout__tab">Eventos</a>
+                        <a href="#disciplinas" class="mdl-layout__tab">Disciplinas</a>
+                        <a href="#matriculas" class="mdl-layout__tab">Matriculas</a>
+                        <a href="#notas" class="mdl-layout__tab">Notas</a>        
+                     </div>
+                     
+                      <script>
+                      $(document).ready(function () {
+                        $("#overview").addClass("is-active");
+                        $("#eventos").removeClass("is-active");
+                        });
+                    </script>
+                ';
+        }
+        ?>
+
+
     </header>
     <main class="mdl-layout__content">
-        <div class="mdl-layout__tab-panel is-active" id="overview">
+        <div class="mdl-layout__tab-panel" id="overview">
             <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
                 <div class="mdl-card mdl-cell mdl-cell--12-col">
                     <div class="mdl-card__supporting-text">
@@ -325,6 +363,8 @@
         </footer>
     </main>
 </div>
-
+<?php
+unset($_SESSION['evento-added']);
+?>
 </body>
 </html>
