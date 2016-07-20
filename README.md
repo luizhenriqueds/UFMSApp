@@ -6,10 +6,10 @@ App being developed for TCC II course (final assignment) of Information System m
 # Descrição (Description)
 Este app disponibiliza conteúdo criado por professores para os alunos das suas respectivas disciplinas. É possível criar variados tipos de eventos (como, por exemplo, avaliação, tarefas, avisos, etc.), além de poder fazer download de material disponibilizado, analisar o desempenho acadêmico do aluno através de gráficos interativos e receber notificações.
 
-This app delivers content created by professors to students of their repective courses. It's possible to create many types of events (such as assignments, work, general events, etc.), and it's also possible to download available material, analize student performance through interative charts and get notified about updates.
+This app delivers content created by professors to students of their repective courses. It's possible to create several types of events (such as assignments, work, general events, etc.), and it's also possible to download available material, analize student performance through interative charts and get notified about updates.
 
 # Desenvolvimento (Development)
-
+SOON AVAILABLE
 # Licença (License)
 
 Apache Software License 2.0
