@@ -8,8 +8,6 @@ Este app disponibiliza conteúdo criado por professores para os alunos das suas 
 
 This app delivers content created by professors to students of their repective courses. It's possible to create several types of events (such as assignments, work, general events, etc.), and it's also possible to download available material, analize student performance through interative charts and get notified about updates.
 
-# Desenvolvimento (Development)
-SOON AVAILABLE
 # Licença (License)
 
 Apache Software License 2.0
